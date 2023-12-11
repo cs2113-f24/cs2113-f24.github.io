@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/exceptions" />
+<meta property="og:url" content="http://localhost:4000/j/exceptions" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/exceptions"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#exceptions">Exceptions</a><ul><li><a href="#understanding-the-issues-involved-in-error-handling">Understanding the issues involved in error handling</a></li><li><a href="#overview-of-the-javas-exception-handing-mechanism">Overview of the Java’s Exception-handing mechanism</a></li><li><a href="#catching-an-exception">Catching an Exception</a></li><li><a href="#throwing-an-exception">Throwing an exception</a></li><li><a href="#the-exception-hierarchy--oop-in-action">The Exception hierarchy — OOP in action</a></li><li><a href="#catching-different-kinds-of-exceptions">Catching different kinds of Exceptions</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+      <h1 id="exceptions">
+        
+        
+          Exceptions <a href="#exceptions">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="understanding-the-issues-involved-in-error-handling">
+        
+        
+          Understanding the issues involved in error handling <a href="#understanding-the-issues-involved-in-error-handling">#</a>
+        
+        
+      </h2>
+    
+
+<p>It’s very hard to write programs that handle unexpected, or even merely unusual, situations gracefully. Think about it: how often do we just say “assume the file exists” or “assume the user enters a positive integer like you asked for”? All the time! Real-world programs can’t do that. They have to be built to respond reasonably to any and all weird inputs, or unusual phenomena that can crop up while computing. These issues are made worse by the fact that well-designed code may end up being reused in different applications and even by different people than the original authors ever imagined. That means lots of things might be thrown at their code that the authors never imagined. None the less, they have to prepare for it.</p>
+
+<p>So let’s consider an example of a very simple program. What could go wrong?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Run this program like this: 'java Ex1 3,5,9,4'
+ * and it will compute
+ *               ___________________________
+ * floor[ 100 * V (1/3 + 1/5 + 1/9 + 1/4)/4) ]
+ *
+ * i.e. the floor of 100 x the square root of the
+ * average of the reciprocals of the given numbers.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex1</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">sum</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+    <span class="o">}</span>
+    <span class="kt">double</span> <span class="n">ssum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+    <span class="kt">int</span>    <span class="n">res</span>  <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">ssum</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">res</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Obviously, this is a very simple program. As far as what could go wrong … lots of stuff. Try some of these.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Ex1 1,2,3
+78
+~/$ java Ex1 -1,-2,-3
+0
+~/$ java Ex1 1,0,3
+2147483647
+~/$ java Ex1 1,foo
+Exception in thread "main" java.lang.NumberFormatException: For input string: "foo"
+  at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+  at java.lang.Integer.parseInt(Integer.java:492)
+  at java.lang.Integer.parseInt(Integer.java:527)
+  at Ex1.main(Ex1.java:15)
+~/$ java Ex1 ,
+0
+~/$ java Ex1
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 0
+  at Ex1.main(Ex1.java:12)
+</code></pre></div></div>
+
+<p>The first call is OK. Everything else has an error … some of which the program is telling you about, others not. Can you identify all the things that could go wrong here?</p>
+
+<p>In fact, to be a bit more representative of real programs, let’s assume that the we have things broken up into functions and maybe even split into different classes. We might get a situation like this.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSF</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">av</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">av</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">SpecialFunc</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="no">B</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSF</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialFunc</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compute</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="no">B</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">sum</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+    <span class="o">}</span>
+    <span class="kt">double</span> <span class="n">ssum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+    <span class="kt">int</span>    <span class="n">res</span>  <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">ssum</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Of course all the same things could go wrong, but now they can go wrong in different places: some problems crop up in main, some in the getSF method, and some in the compute function that’s in a totally separate class! So if we want to actually take care to account for these kind of things and act appropriately in every situation … what can we do? Now we start to see some of the problems that handling errors (or “exceptions”) present us with. Here are a few:</p>
+
+<ol>
+  <li>
+    <p><strong>Where’s the BEST PLACE to handle the error?</strong> The place where the error occurs might be far away from the code that is able to determine what best to do about the error. For example, SpecialFunc.compute() might encounter an error (like a zero value it is supposed to divide by), but it is only really the Ex2.main() method that would know whether an error message should be printed and the program terminated, or whether (for example) the user should be requested to enter a new string</p>
+  </li>
+  <li>
+    <p><strong>What KIND of error are we dealing with?</strong> There can be many kinds of errors, and in some situations a portion of the program may need to know precisely which errors occurred while in other situations it may be more desirable to treat all errors or large groups of errors the same. For example, maybe we simply want main() to terminate with a usage message no matter what the error. On the other hand, maybe we want it to give detailed feedback about exactly what the problem is. Maybe we don’t want to treat a zero in the input as an error (since we divide by it) but simply report the result as “infinity”.</p>
+  </li>
+  <li>
+    <p><strong>Ensure the feedback is USEFUL!</strong> Different kinds of errors might require vastly different kinds and amounts of information pertaining to the circumstances that led to the error in order to properly remediate it. If the error is that a given filename turned out not to exist on the filesystem … well, the name of the file that the system tried to find is useful information. If the error is that an attempt was made to access an array out of bounds … well, where in the code this happened and what index was tried is useful information.</p>
+  </li>
+</ol>
+
+<p>The moral of the story is that error handling is difficult. The article <a href="http://www.stroustrup.com/except89.pdf">“Exception Handling in C++”</a> by Bjarne Strouptrup (the author of the C++ language) is a really great read. It talks about a lot of the difficulties inherent in error handling, and it explains the design of C++’s exception handling mechanism, on which Java’s is strongly based. He identifies four standard approaches to exception handling prior to the design of the C++ mechanism:</p>
+
+<ol>
+  <li>Terminate the program.</li>
+  <li>Return a value representing ‘error’</li>
+  <li>Return a legal value and leave the program in an illegal state.</li>
+  <li>Call a function supplied to be called in case of ‘error’.</li>
+</ol>
+
+<p>He also details why each of these is insufficient. You ought to be able to come up with some good objections on your own.</p>
+      <h2 id="overview-of-the-javas-exception-handing-mechanism">
+        
+        
+          Overview of the Java’s Exception-handing mechanism <a href="#overview-of-the-javas-exception-handing-mechanism">#</a>
+        
+        
+      </h2>
+    
+
+<p>Java’s exception handling mechanism basically provides an alternate way to “return” from a function (or, indeed, from an arbitrary block of code, as we’ll see) which, instead of returning an object of the return-type specified in the function prototype, returns an object of type <code class="language-plaintext highlighter-rouge">Throwable</code>, which is a class in the Java API. This special alternative way to exit a function is acheived with a “throw” statement. Like this:</p>
+
+<p>We refer to this as “throwing an exception” (or “error” in some cases).</p>
+
+<p>In the code that called the function or evaluated the expression that caused the exception to be thrown, we need some way to capture that throwable object. This is accomplished with a try-catch block.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+  <span class="c1">//... regular old code</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">//... code to exectue if an exception was thrown in executing the "regular old code"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The semantics (meaning) of this is that the regular old code in the try block is executed as usual. If no exceptions are thrown while executing this code, the “catch” block is simply ignored. If, however, an exception is thrown at some point, the “regular old code” following that point is not executed. Instead, control jumps to the “catch” block, and the code in it is executed. This is where you deal with whatever the problem was that caused an exception to be thrown.</p>
+      <h2 id="catching-an-exception">
+        
+        
+          Catching an Exception <a href="#catching-an-exception">#</a>
+        
+        
+      </h2>
+    
+
+<p>There are already several things we might do that cause exceptions to be thrown. You can see two by playing with the above program: indexing an array out of bounds, and calling <code class="language-plaintext highlighter-rouge">Integer.parseInt()</code> with a string that cannot be interpreted as an integer. So let’s see if we can catch these exceptions. Where we catch them, and what we do as a result depends on what the goals of our program are. Here are two possibilities:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSF</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">av</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">av</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">SpecialFunc</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="no">B</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSF</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Bad stuff happened!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex3</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSF</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">av</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">av</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+      <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="nc">SpecialFunc</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="no">B</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Shh! Act like nothing happened</span>
+      <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSF</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="throwing-an-exception">
+        
+        
+          Throwing an exception <a href="#throwing-an-exception">#</a>
+        
+        
+      </h2>
+    
+
+<p>Whether we want to provide the simple error message “Bad stuff happened!” or whether we want to put our heads in the sand and return zero in the face of any error, the solutions above are only half effective. Why? Because errors like dividing by zero or taking the square root of a negative number are not causing errors to be thrown, and therefore, our calling functions are blissfully unaware that they’ve even happened. To make our program complete (admittedly with a very simple and stupid kind of response to errors) <code class="language-plaintext highlighter-rouge">SpecialFunc.compute()</code> needs to throw exceptions in those cases. That’s as simple as adding some checks with</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">throw</span> <span class="k">new</span> <span class="nc">Throwable</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>… for cases when the checks fail, with one little catch. Just as the compiler needs to know what the name, return type and parameters are a for a function, Java needs to know what exceptions a method might throw; and it expects that fact to be made specific. How? By adding a “throws clause” to the end of the prototype.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpecialFunc</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compute</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="no">B</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">Throwable</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="n">sum</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">Throwable</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kt">double</span> <span class="n">ssum</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="no">B</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+    <span class="kt">int</span>    <span class="n">res</span>  <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">ssum</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">res</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With this, our Ex3 version (which printed out zero whenever there was an error) works great. Our Ex2 version is not quite there, but for an interesting reason: the method <code class="language-plaintext highlighter-rouge">getSF()</code> calls SpecialFunc.compute(), which might end up throwing an exception, without making any provision for the possibility. That, as it turns out, is a no-no! With a caveat that we will address shortly, any Java method that includes code that might result in an exception being thrown must either catch the exception, or pass it along to the next function down the call-stack — essentially itself throwing the exception. This means that such an “intermediate method”, <code class="language-plaintext highlighter-rouge">gertSF()</code> in our case, must also be annotated with the “throws clause”.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSF</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">av</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">av</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">SpecialFunc</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="no">B</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSF</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Bad stuff happened!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="the-exception-hierarchy--oop-in-action">
+        
+        
+          The Exception hierarchy — OOP in action <a href="#the-exception-hierarchy--oop-in-action">#</a>
+        
+        
+      </h2>
+    
+<p>So that’s the basic mechanism for error-handling in Java: throw and try-catch. Here, however, is where the object-oriented design case study comes in. We identified three problems we needed to address in an error handling mechanism, and so far we’ve only addressed point 1: we can deal with the fact that errors occur in one function, but need to be remediated in some other, possibly distant, function. But what about point 2, being able to distinguish between different kinds of errors when needed (and only when needed)? What about point 3, being able to deliver different kinds of data about the error to the point in the code that would actually remediate?</p>
+
+<p>The answer to this is simple: derive different classes from Throwable that correspond to different kinds of errors. In fact, the API already has a whole class hierarchy rooted from Throwable and, of course, as we create our own exception classes we expand that hierarchy. To understand exception handling in Java, we really need to understand at least a part of that hierarchy.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                       Throwable
+                       /      \
+                      /        \
+                   Error     Exception
+                              /    \
+                             /      \
+                            /        \
+               ** RuntimeException     IOException
+</code></pre></div></div>
+
+<p>What’s important here is that the compiler does not require methods to handle (i.e. either catch or re-throw) Error’s or RuntimeException’s. Java calls these <strong>unchecked exceptions</strong>. You can throw an unchecked exception wherever you want, and no other code is required to catch it. If it is not caught, it pops the entire stack until the program crashes. Every other exception is a <strong>checked exception</strong>. It must be handled! This means that if you call a method that throws a checked exception, you have to either (1) catch that exception at your call site, or (2) declare your own method to also throw it.</p>
+
+<p>How does a hierarchy like this solve our other two problems? Based on the type of exception we catch we can determine categories of errors that occurred. Using polymorphism, different Throwable sub-types, can present us with information specific to their sub-type, but through the uniform interface of methods available in type Throwable.</p>
+      <h2 id="catching-different-kinds-of-exceptions">
+        
+        
+          Catching different kinds of Exceptions <a href="#catching-different-kinds-of-exceptions">#</a>
+        
+        
+      </h2>
+    
+
+<p>A given try block can actually have multiple catch’s, each differing in the type they are trying to catch. Of course, all types are ultimately Throwable’s, so what happens is the catches are tried top-to-bottom, and the first type that matches has its catch block (and only its catch block) executed. This allows us to, for example, offer error messages that are actually informative!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSF</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">av</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="no">A</span> <span class="o">=</span> <span class="n">av</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">split</span><span class="o">(</span><span class="s">","</span><span class="o">);</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="no">B</span>    <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">B</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="no">A</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">SpecialFunc</span><span class="o">.</span><span class="na">compute</span><span class="o">(</span><span class="no">B</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSF</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ArrayIndexOutOfBoundsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error! An argument is required."</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NumberFormatException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error! Argument included a non-integer value."</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Bad stuff happened!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>If we run this, we get output like the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Ex2v
+Error! An argument is required.
+~/$ java Ex2 1,df
+Error! Argument included a non-integer value.
+~/$ java Ex2 1,0
+Bad stuff happened!
+~/$ java Ex2 ,
+0
+~/$ java Ex2 -1
+Bad stuff happened!
+</code></pre></div></div>
+<p>So we’ve got some errors covered with nice explanations. Others, not so much. Next class we’ll use polymorphism and we’ll define our own exceptions, all in the name of handling our errors nicely!</p>
+
+<p><strong>Note:</strong> can you tell me what would’ve happened if we’d put the “catch(Throwable e)” first instead of last?</p><hr />
+<p>Material in this lesson adopted with permission from USNA ic211</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

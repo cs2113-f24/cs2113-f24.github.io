@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/worksheet/j5" />
+<meta property="og:url" content="http://localhost:4000/worksheet/j5" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/worksheet/j5"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+         
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+<h1 id="worksheet-j5">Worksheet: J5</h1>
+
+<p>Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Worksheets are due by Sunday night before the next lecture.</p>
+
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/jc_HAKru">https://classroom.github.com/a/jc_HAKru</a></li>
+</ul>
+
+<h2 id="note">Note</h2>
+
+<p>Attempt to answer these questions before running the code. This will improve your ability to analyize and reason about code without an IDE or compiler. This skill we be helpful on the exams.</p>
+
+<h2 id="questions">Questions</h2>
+
+
+<ol>
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q1'>
+        
+
+<p>Compile the two files below and run the main method in the <code class="language-plaintext highlighter-rouge">SimpleThreadExample</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac *.java
+$ java SimpleThreadExample
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* SimpleThreadExample.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleThreadExample</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    
+        
+        <span class="nc">Messages</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messages</span><span class="o">();</span>
+        <span class="nc">Thread</span> <span class="n">morningThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">afternoonThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">morningThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">afternoonThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="c1">//MARK</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Messages.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Messages</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">morning</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">afternoon</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">evening</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">night</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Messages</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">morning</span> <span class="o">=</span> <span class="s">"Good morning!"</span><span class="o">;</span>
+      <span class="n">afternoon</span> <span class="o">=</span> <span class="s">"Good afternnon!"</span><span class="o">;</span>
+      <span class="n">evening</span> <span class="o">=</span> <span class="s">"Good evening!"</span><span class="o">;</span>
+      <span class="n">night</span> <span class="o">=</span> <span class="s">"Good night!"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getMessage</span><span class="o">(</span><span class="kt">int</span> <span class="n">choice</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">switch</span><span class="o">(</span><span class="n">choice</span><span class="o">)</span> <span class="o">{</span>
+         <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+           <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">morning</span><span class="o">;</span>
+         <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+           <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">afternoon</span><span class="o">;</span>
+         <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+           <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">evening</span><span class="o">;</span>
+         <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+           <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">night</span><span class="o">;</span>
+         <span class="k">default</span><span class="o">:</span>
+           <span class="k">return</span> <span class="s">""</span><span class="o">;</span>        
+      <span class="o">}</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* GreetingsThread.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GreetingsThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Messages</span> <span class="n">msg</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">choice</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">GreetingsThread</span><span class="o">(</span><span class="nc">Messages</span> <span class="n">msg</span><span class="o">,</span> <span class="kt">int</span> <span class="n">choice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">choice</span> <span class="o">=</span> <span class="n">choice</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Started the "</span> <span class="o">+</span> <span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">)</span> <span class="o">+</span> <span class="s">" thread..."</span><span class="o">);</span>
+            
+        <span class="c1">//print 10 times</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exiting the "</span> <span class="o">+</span> <span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">)</span> <span class="o">+</span> <span class="s">" thread..."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Then:</p>
+<ul>
+  <li>Run the program a few times. Describe the output of this program. Is it consistent?</li>
+  <li>Draw a memory diagram of the program at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q2'>
+        
+
+<p>Now let’s modify <code class="language-plaintext highlighter-rouge">GreetingsThread</code> to add a <code class="language-plaintext highlighter-rouge">Thread.sleep()</code> in the <code class="language-plaintext highlighter-rouge">run()</code> method. Recompile the <code class="language-plaintext highlighter-rouge">GreatingThread</code> class as below.</p>
+
+<p>Run the program multiple times.  Does the output change in any way? Does one thread always finish first, or does the order change?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* GreetingsThread.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GreetingsThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Messages</span> <span class="n">msg</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">choice</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">GreetingsThread</span><span class="o">(</span><span class="nc">Messages</span> <span class="n">msg</span><span class="o">,</span> <span class="kt">int</span> <span class="n">choice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">choice</span> <span class="o">=</span> <span class="n">choice</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Started the "</span> <span class="o">+</span> <span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">)</span> <span class="o">+</span> <span class="s">" thread..."</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">));</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">// Sleep for 1 second (1000 milliseconds)</span>
+                <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span> 
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while sleeping..."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exiting the "</span> <span class="o">+</span> <span class="n">msg</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="n">choice</span><span class="o">)</span> <span class="o">+</span> <span class="s">" thread..."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q3'>
+        
+
+<p>Now let’s add a <code class="language-plaintext highlighter-rouge">System.out.println()</code> at the end of the main method. Recompile the program with this addition, continuing from above. Explain how it is possible that the main method is complete but the program is still producing output.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* SimpleThreadExample.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleThreadExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+            
+        <span class="nc">Messages</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messages</span><span class="o">();</span>
+        <span class="nc">Thread</span> <span class="n">morningThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">afternoonThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">morningThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">afternoonThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Main method exiting..."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q4'>
+        
+
+<p>Finally let’s add a <code class="language-plaintext highlighter-rouge">thread.join()</code> to join the <code class="language-plaintext highlighter-rouge">morningThread</code> for 5 seconds before starting the <code class="language-plaintext highlighter-rouge">afternoonThread</code>. Recompile and rerun. Then describe the output of this program. Explain how attempting to join the first thread for 5 seconds affects the output of this program.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* SimpleThreadExample.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleThreadExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Messages</span> <span class="n">msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Messages</span><span class="o">();</span>
+        <span class="nc">Thread</span> <span class="n">morningThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">afternoonThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GreetingsThread</span><span class="o">(</span><span class="n">msg</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="n">morningThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Joining the morning thread for 5 seconds..."</span><span class="o">);</span>
+            <span class="n">morningThread</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="mi">5000</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while joining a thread..."</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">afternoonThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Main method exiting..."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q5'>
+        
+
+<p>What does <code class="language-plaintext highlighter-rouge">join()</code> do compared to <code class="language-plaintext highlighter-rouge">join(10)</code>?</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q6'>
+        
+
+<p>What is the difference between <code class="language-plaintext highlighter-rouge">isAlive()</code> and <code class="language-plaintext highlighter-rouge">join()</code>? (note, no arguments to <code class="language-plaintext highlighter-rouge">join</code>.)</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q7'>
+        
+
+<p>Compile the two files below and run the main method in the <code class="language-plaintext highlighter-rouge">AnimalFootRace</code>. Then describe the output of this program.  Explain why the threads finish in the order that they do.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac *.java
+$ java AnimalFootRace
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalFootRace.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalFootRace</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Thread</span> <span class="n">tortoiseThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Tortoise"</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">hareThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Hare"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">cheetahThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Cheetah"</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"On your marks, get set, go!"</span><span class="o">);</span>
+        <span class="n">tortoiseThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">hareThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">cheetahThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalRacerThread.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalRacerThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NUM_LAPS</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">animalName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">AnimalRacerThread</span><span class="o">(</span><span class="nc">String</span> <span class="n">animalName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalName</span> <span class="o">=</span> <span class="n">animalName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalSpeed</span> <span class="o">=</span> <span class="n">animalSpeed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="no">NUM_LAPS</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">" lap "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">animalSpeed</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while sleeping..."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">"Finished!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q8'>
+        
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">AnimialFootRace</code> main method. Add additional code to give the hare a head start, without modifying the animal speeds. Then compile the two files below and run the main method in the <code class="language-plaintext highlighter-rouge">AnimalFootRace</code>. Provide the modified code below.  Then describe the output of this program.  Explain why your modification worked or did not work.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac *.java
+$ java AnimalFootRace
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalFootRace.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalFootRace</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Thread</span> <span class="n">tortoiseThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Tortoise"</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">hareThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Hare"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">cheetahThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Cheetah"</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"On your marks, get set, go!"</span><span class="o">);</span>
+        <span class="n">tortoiseThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">hareThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">cheetahThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalRacerThread.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalRacerThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NUM_LAPS</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">animalName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">AnimalRacerThread</span><span class="o">(</span><span class="nc">String</span> <span class="n">animalName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalName</span> <span class="o">=</span> <span class="n">animalName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalSpeed</span> <span class="o">=</span> <span class="n">animalSpeed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="no">NUM_LAPS</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">" lap "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">animalSpeed</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while sleeping..."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">"Finished!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q9'>
+        
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">AnimialFootRace</code> main method. Add a new animal thread to the foot race. Then compile the two files below and run the main method in the <code class="language-plaintext highlighter-rouge">AnimalFootRace</code>. Provide the modified code below. Then describe the output of this program.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac *.java
+$ java AnimalFootRace
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalFootRace.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalFootRace</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Thread</span> <span class="n">tortoiseThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Tortoise"</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">hareThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Hare"</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+        <span class="nc">Thread</span> <span class="n">cheetahThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnimalRacerThread</span><span class="o">(</span><span class="s">"Cheetah"</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"On your marks, get set, go!"</span><span class="o">);</span>
+        <span class="n">tortoiseThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">hareThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">cheetahThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* AnimalRacerThread.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnimalRacerThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NUM_LAPS</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">animalName</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">AnimalRacerThread</span><span class="o">(</span><span class="nc">String</span> <span class="n">animalName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">animalSpeed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalName</span> <span class="o">=</span> <span class="n">animalName</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">animalSpeed</span> <span class="o">=</span> <span class="n">animalSpeed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="no">NUM_LAPS</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">" lap "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">animalSpeed</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while sleeping..."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animalName</span> <span class="o">+</span> <span class="s">"Finished!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q10'>
+        
+
+<p>The <code class="language-plaintext highlighter-rouge">Singleton</code> class below implements the <code class="language-plaintext highlighter-rouge">Singleton</code> pattern.  The singleton pattern is a software engineering design pattern that restricts the instantiating of a class to a single instance. Review the <code class="language-plaintext highlighter-rouge">Singleton</code> class code below.  Is it possible to create more than one instance of the <code class="language-plaintext highlighter-rouge">Singleton</code> class if two threads attempt to call the <code class="language-plaintext highlighter-rouge">getInstance()</code> method at the same time?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java program to create a Singleton class.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+    <span class="c1">// This is a private member variable so that the singletonInstance</span>
+    <span class="c1">// can only be accessed through the getInstance() method.</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="n">singletonInstance</span><span class="o">;</span>
+
+    <span class="c1">// Private constructor forces the class to be instantiated </span>
+    <span class="c1">// via the getInstance method.</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// private constructor.</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Method to get an instance of this class.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// If this singleton instance is null, </span>
+        <span class="c1">// then construct a new instance.</span>
+        <span class="c1">// Otherwise return the existing instance.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">singletonInstance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">singletonInstance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Singleton</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">singletonInstance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q11'>
+        
+
+<p>Review the modified thread safe Singleton class code below.  Is it possible to create more than one instance of the <code class="language-plaintext highlighter-rouge">Singleton</code> class if two threads attempt to call the <code class="language-plaintext highlighter-rouge">getInstance()</code> method at the same time? How does the synchronized keyword affect the attempts to call the <code class="language-plaintext highlighter-rouge">getInstance</code> method from multiple threads at the same time?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Java program to create thread safe Singleton class.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+    <span class="c1">// This is a private member variable so that the singletonInstance</span>
+    <span class="c1">// can only be accessed through the getInstance() method.</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="n">singletonInstance</span><span class="o">;</span>
+
+    <span class="c1">// Private constructor forces the class to be instantiated </span>
+    <span class="c1">// via the getInstance method.</span>
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// private constructor.</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Synchronized method to control simultaneous access </span>
+    <span class="c1">// to the getInstance method.</span>
+    <span class="kd">synchronized</span> <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// If this singleton instance is null, </span>
+        <span class="c1">// then construct a new instance.</span>
+        <span class="c1">// Otherwise return the existing instance.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">singletonInstance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">singletonInstance</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Singleton</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">singletonInstance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q12'>
+        
+
+<p>Review the <code class="language-plaintext highlighter-rouge">ThreadRunner</code> class code below.  Compile and run the <code class="language-plaintext highlighter-rouge">ThreadRunner</code> main method. Describe the output. Does the execution halt? Does <code class="language-plaintext highlighter-rouge">SimpleThreadTwo</code> finish running? If not, why does <code class="language-plaintext highlighter-rouge">SimpleThreadTwo</code> get stuck in the while loop?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac ThreadRunner.java
+$ java ThreadRunner
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* ThreadRunner.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadRunner</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">statusFlag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SimpleThreadOne</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Simple thread one counter - "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// Change the status flag.</span>
+            <span class="n">statusFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Status flag changed to true in simple thread one."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SimpleThreadTwo</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">waitCounter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">statusFlag</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">waitCounter</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Start simple thread two processing "</span> <span class="o">+</span> <span class="n">waitCounter</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SimpleThreadOne</span> <span class="n">simpleThreadOne</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleThreadOne</span><span class="o">();</span>
+        <span class="n">simpleThreadOne</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="nc">SimpleThreadTwo</span> <span class="n">simpleThreadTwo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleThreadTwo</span><span class="o">();</span>
+        <span class="n">simpleThreadTwo</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q13'>
+        
+
+<p>Review the modified <code class="language-plaintext highlighter-rouge">ThreadRunner</code> class code below.  Compile and run the <code class="language-plaintext highlighter-rouge">ThreadRunner</code> main method. Describe the output. Does the execution halt? Does <code class="language-plaintext highlighter-rouge">SimpleThreadTwo</code> finish running? If it does finish running, why does adding the volatile keyword before the boolean <code class="language-plaintext highlighter-rouge">statusFlag</code> change the behavior of the code compared to the previous question?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac ThreadRunner.java
+$ java ThreadRunner
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* ThreadRunner.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadRunner</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">statusFlag</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SimpleThreadOne</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">2000</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Simple thread one counter - "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// Change the status flag.</span>
+            <span class="n">statusFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Status flag changed to true in simple thread one."</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SimpleThreadTwo</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">waitCounter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">while</span> <span class="o">(!</span><span class="n">statusFlag</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">waitCounter</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Start simple thread two processing "</span> <span class="o">+</span> <span class="n">waitCounter</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SimpleThreadOne</span> <span class="n">simpleThreadOne</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleThreadOne</span><span class="o">();</span>
+        <span class="n">simpleThreadOne</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="nc">SimpleThreadTwo</span> <span class="n">simpleThreadTwo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleThreadTwo</span><span class="o">();</span>
+        <span class="n">simpleThreadTwo</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q14'>
+        
+
+<p>A second price auction is an auction where the highest bidder only has to pay whatever the second highest bid was. For example if person A bids $1 and person B bids $2, then person B wins the auction, but only pays $1. Below are two classes that reflect this, <code class="language-plaintext highlighter-rouge">SecondPriceAuction</code> and <code class="language-plaintext highlighter-rouge">Bidder</code>.</p>
+
+<p>Review the code below.  What might happen if two threads call the <code class="language-plaintext highlighter-rouge">makeBid</code> method at the same time? How would you modify the code to protect the auction outcome?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecondPriceAuction</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">currentHighestBid</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">secondHighestBid</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSecondHighestBid</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">secondHighestBid</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeBid</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">currentHighestBid</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">secondHighestBid</span> <span class="o">=</span> <span class="n">currentHighestBid</span><span class="o">;</span>
+            <span class="n">currentHighestBid</span> <span class="o">=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">amount</span> <span class="o">&gt;</span> <span class="n">secondHighestBid</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">secondHighestBid</span> <span class="o">=</span> <span class="n">amount</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bidder</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">SecondPriceAuction</span> <span class="n">secondPriceAuction</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">maxBid</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Bidder</span><span class="o">(</span><span class="nc">SecondPriceAuction</span> <span class="n">secondPriceAuction</span><span class="o">,</span> <span class="kt">int</span> <span class="n">maxBet</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">secondPriceAuction</span> <span class="o">=</span> <span class="n">secondPriceAuction</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">maxBid</span> <span class="o">=</span> <span class="n">maxBet</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">((</span><span class="k">new</span> <span class="nc">Random</span><span class="o">()).</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">100</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while sleeping..."</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">secondPriceAuction</span><span class="o">.</span><span class="na">makeBid</span><span class="o">(</span><span class="n">maxBid</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuctionRunner</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">SecondPriceAuction</span> <span class="n">secondPriceAuction</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecondPriceAuction</span><span class="o">();</span>
+        <span class="nc">Bidder</span><span class="o">[]</span> <span class="n">bidders</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bidder</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+
+        <span class="c1">// Create new bidders.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bidders</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">bidders</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Bidder</span><span class="o">(</span><span class="n">secondPriceAuction</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Start bidding.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bidders</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">bidders</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Ensures all threads have finished before we print out the price</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Bidder</span> <span class="n">bidder</span> <span class="o">:</span> <span class="n">bidders</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">bidder</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Interrupted while joining a thread..."</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Final Price: $"</span> <span class="o">+</span> <span class="n">secondPriceAuction</span><span class="o">.</span><span class="na">getSecondHighestBid</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+    
+    
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

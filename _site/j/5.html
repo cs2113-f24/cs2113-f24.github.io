@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/5" />
+<meta property="og:url" content="http://localhost:4000/j/5" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/5"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#java-threads">Java Threads</a><ul><li><a href="#what-are-threads">What are “threads”?</a></li><li><a href="#java-threads-the-very-basic-basics">Java threads: the very basic basics</a></li><li><a href="#getting-data-in-and-out-its-all-in-the-object">Getting data in and out: it’s all in the Object</a></li></ul></li><li><a href="#concurrency">Concurrency</a><ul><li><a href="#race-conditions">Race Conditions</a></li><li><a href="#so-what-happens-when-i-run-this">So what happens when I run this?</a><ul><li><a href="#you-may-see-the-program-crash">You may see the program crash</a></li><li><a href="#you-mays-see-the-program-stuck-in-an-infinite-loop">You mays see the program stuck in an infinite loop</a></li></ul></li><li><a href="#synchronization-in-general-and-the-synchronized-keyword-in-particular">Synchronization in general, and the synchronized keyword in particular</a></li><li><a href="#a-race-condition-example-counting">A Race Condition Example: Counting</a></li><li><a href="#synchronization-with-the-event-dispatch-thread">Synchronization with the Event Dispatch Thread</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSPPFvxKvBaWr9NVEqGh1yCd">single playlist on youtube</a></em></p>
+      <h1 id="java-threads">
+        
+        
+          Java Threads <a href="#java-threads">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="what-are-threads">
+        
+        
+          What are “threads”? <a href="#what-are-threads">#</a>
+        
+        
+      </h2>
+    
+
+<p>In a <strong>single-threaded program</strong>, which is what you’ve been dealing with up until now (sort-of, except that whole GUI thing, remember?), an executing program consists of a function call stack that grows and shrinks as functions are called and functions return. At the bottom of that function call stack is the call record for <code class="language-plaintext highlighter-rouge">main()</code>, and when that call returns, the program is over. In a multi-threaded program, there are multiple function call stacks that execute simultaneously. The “main thread” has the <code class="language-plaintext highlighter-rouge">main()</code> function call record on the bottom of the stack - other executing function call stacks (an executing function-call stack is called a thread) may have different function calls on the bottom-most function call record. The program ends when every thread has exited, i.e. when the bottom-most function-call record of each call stack has returned.</p>
+
+<p>However, there are many reasons to have <strong>multi-threaded execution</strong>. For example, your web browser might have a separate thread running for each individual tab. The web server (host) your browser connects to might also have a pool of threads in order to serve pages. Your text editor (like MSWord) also probably has several concurrent threads running at the same time; one of them might be constantly spell-checking your writing in real-time. These are just some examples; note that they all share some of the same data that the threads all act upon.</p>
+
+<p>Ignoring for the moment the very important issues surrounding how the different threads (i.e. the different executing function call stacks) communicate with, and otherwise interact with one another, the fundamental problems that have to be addressed when designing a threading API are:</p>
+
+<ol>
+  <li>How do you start a new thread? I.e. how do you call a function so that instead of the call resulting in a new function call record being pushed on top of the stack record of the caller in the caller’s function call stack, a new stack is created and the function call becomes the bottom-most record on the new stack?</li>
+  <li>How do you get data into the newly created function call stack when you start it?</li>
+  <li>How do you get data out of the new function call stack once it’s finished executing?</li>
+</ol>
+      <h2 id="java-threads-the-very-basic-basics">
+        
+        
+          Java threads: the very basic basics <a href="#java-threads-the-very-basic-basics">#</a>
+        
+        
+      </h2>
+    
+
+<p>You might be surprised to find that Java’s answer to this involves … classes, inheritance and polymorphism. Are you surprised? I hope not! The Java API has a class called <code class="language-plaintext highlighter-rouge">Thread</code> that includes two important methods:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">();</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Creating a new thread (i.e. a new function call stack) works like this:</p>
+
+<ol>
+  <li>an instance of <code class="language-plaintext highlighter-rouge">Thread</code> is created</li>
+  <li>the <code class="language-plaintext highlighter-rouge">start()</code> method is called on the instance</li>
+  <li>the <code class="language-plaintext highlighter-rouge">run()</code> method is called by <code class="language-plaintext highlighter-rouge">start()</code>, and that call becomes the bottom-most record on a new function call stack</li>
+</ol>
+
+<p>So, if you have something specific you want a new thread to do, you derive a new class from <code class="language-plaintext highlighter-rouge">Thread</code> (extend <code class="language-plaintext highlighter-rouge">Thread</code>) and override the <code class="language-plaintext highlighter-rouge">run()</code> method to do whatever it is you want done.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex0</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Foo</span><span class="o">();</span>
+
+    <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">5</span><span class="o">;</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="o">;</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>Hopefully the following picture gives you some idea of how this works.</p>
+
+<p><img src="/images/thread-visual.png" alt="Memory diagram of threads" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Some important points to take away are:</p>
+
+<ul>
+  <li>It’s wrong to say “such and such object is in thread 1”. Objects live in the heap, outside of any of the call-stacks!</li>
+  <li>Local varaiables, be they primitive types or references, do belong to a particular thread, since they live in function call records.</li>
+  <li>It’s wrong to say “such and such function is in thread 1”. A given function <em>call</em> belongs to a thread, but there could be many threads with active function calls for the same function.</li>
+</ul>
+      <h2 id="getting-data-in-and-out-its-all-in-the-object">
+        
+        
+          Getting data in and out: it’s all in the Object <a href="#getting-data-in-and-out-its-all-in-the-object">#</a>
+        
+        
+      </h2>
+    
+
+<p>If you look at the above picture, what should strike you the <code class="language-plaintext highlighter-rouge">Thread</code> object - more literally the <code class="language-plaintext highlighter-rouge">Foo</code> object <code class="language-plaintext highlighter-rouge">f</code> in this example - is pointed to by references from both threads (from both call stacks). That means that it can be a repository of data that we want to share between threads. We can add fields to <code class="language-plaintext highlighter-rouge">Foo f</code> for data we want to communicate between the two threads. Below is an example of a fun little program that uses the <code class="language-plaintext highlighter-rouge">Thread</code> object to communicate data from the main thread to the new thread. I want you to pay attention to how both threads (both call stacks) make calls to the same methods: <code class="language-plaintext highlighter-rouge">Ex1.printSlow()</code>.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex1</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">();</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printSlow</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">1000</span><span class="o">));</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Mississippi"</span><span class="o">;</span>
+    <span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Foo</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">"   "</span><span class="o">);</span>
+
+    <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="n">printSlow</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="s">" "</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">msg</span><span class="o">,</span> <span class="n">tab</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Foo</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">,</span> <span class="nc">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="n">s</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">tab</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Ex1</span><span class="o">.</span><span class="na">printSlow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">msg</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">tab</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>The output will look something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) &gt; java Ex1
+ M
+   M
+   i
+   s
+ i
+   s
+   i
+   s
+ s
+ s
+ i
+   s
+   i
+ s
+   p
+   p
+ s
+ i
+   i
+ p
+ p
+ i
+</code></pre></div></div>
+
+<p>The outer layer of printing comes from <code class="language-plaintext highlighter-rouge">main</code>, while the inner layer of printing comes from the <code class="language-plaintext highlighter-rouge">run</code> method of the thread after its <code class="language-plaintext highlighter-rouge">start</code> was called.</p>
+
+<p><img src="/images/thread-print-slow.jpg" alt="Memory diagram of threads" width="50%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Not pictured here is the <code class="language-plaintext highlighter-rouge">Random</code> object.</p>
+      <h1 id="concurrency">
+        
+        
+          Concurrency <a href="#concurrency">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="race-conditions">
+        
+        
+          Race Conditions <a href="#race-conditions">#</a>
+        
+        
+      </h2>
+    
+
+<p>In general, parallel programming is fraught with peril! If you’re not careful, you can end up with bugs whose occurrence or precise behavior depends on the exact order in which the instructions of each thread are executed relative to one another. This kind of bug is called a <strong>race condition</strong>.</p>
+
+<p>To see a nice example of how this might happen, let’s turn back to our old friend the <code class="language-plaintext highlighter-rouge">Queue</code> class. The following program has a single <code class="language-plaintext highlighter-rouge">Queue</code>, <code class="language-plaintext highlighter-rouge">Q</code>, that is shared by two threads. Both threads call enqueue 1,000 times, and after the second thread dies, the main thread then counts that there were indeed 1,000 items enqueued by each thread.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex0</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">QThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+    <span class="nc">Queue</span> <span class="no">Q</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">QThread</span><span class="o">(</span><span class="nc">Queue</span> <span class="no">Q</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">Q</span> <span class="o">=</span> <span class="no">Q</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="no">Q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="s">"b"</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Queue</span>  <span class="no">Q</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Queue</span><span class="o">();</span>
+    <span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">QThread</span><span class="o">(</span><span class="no">Q</span><span class="o">);</span>
+
+    <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="k">while</span> <span class="o">(</span><span class="no">Q</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{}</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="no">Q</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="s">"a"</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">while</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">isAlive</span><span class="o">())</span> <span class="o">{}</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">while</span><span class="o">(!</span><span class="no">Q</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">if</span><span class="o">(</span><span class="no">Q</span><span class="o">.</span><span class="na">dequeue</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'a'</span><span class="o">)</span>
+        <span class="n">a</span><span class="o">++;</span>
+      <span class="k">else</span>
+        <span class="n">b</span><span class="o">++;</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a="</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="s">" b="</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+      <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Node</span> <span class="n">t</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+
+    <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">String</span> <span class="n">d</span><span class="o">,</span> <span class="nc">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
+      <span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+      <h2 id="so-what-happens-when-i-run-this">
+        
+        
+          So what happens when I run this? <a href="#so-what-happens-when-i-run-this">#</a>
+        
+        
+      </h2>
+    
+
+<p>One of two things may occur …</p>
+      <h3 id="you-may-see-the-program-crash">
+        
+        
+          You may see the program crash <a href="#you-may-see-the-program-crash">#</a>
+        
+        
+      </h3>
+    
+
+<p>When I run this … it crashes. Why? Well there are a couple of possible race conditions here. The one that just happened to me went something like this: Things were OK for a while, each thread enqueuing values, but then we had a bad interleaving of execution of instructions. It probably happened like is shown in the following table:</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <p>Thread 2 (run)</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+
+<span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <p>Thread 1 (main)</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+
+<span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+<span class="c1">//     ---------</span>
+<span class="c1">//   this causes the problem</span>
+<span class="c1">//   because Thread 2 has just</span>
+<span class="c1">//   set tail to point to a</span>
+<span class="c1">//   Node whose "next" is null!</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+      <h3 id="you-mays-see-the-program-stuck-in-an-infinite-loop">
+        
+        
+          You mays see the program stuck in an infinite loop <a href="#you-mays-see-the-program-stuck-in-an-infinite-loop">#</a>
+        
+        
+      </h3>
+    
+
+<p>When I run this it gets stuck in an infinite loop. Why? Well, the lines</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">QThread</span><span class="o">(</span><span class="no">Q</span><span class="o">);</span>
+<span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span><span class="no">Q</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{}</span> 
+</code></pre></div></div>
+
+<p>start up a new thread and then wait until the new thread actually gets something enqueued in <code class="language-plaintext highlighter-rouge">Q</code> to continue. The problem is that the Java compiler / VM perform certain optimizations. In this case, one or the other of them may decide that recomputing <code class="language-plaintext highlighter-rouge">Q.empty()</code> is a pointless waste of time, since the call <code class="language-plaintext highlighter-rouge">Q.empty()</code> doesn’t actually change any fields, and nothing else happens in the loop, and thus either <code class="language-plaintext highlighter-rouge">Q.empty()</code> gives true every time or false every time - why recompute it? And so it is transformed to</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">QThread</span><span class="o">(</span><span class="no">Q</span><span class="o">);</span>
+<span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="kt">boolean</span> <span class="n">tmp</span> <span class="o">=</span> <span class="no">Q</span><span class="o">.</span><span class="na">empty</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span><span class="n">tmp</span><span class="o">)</span> <span class="o">{}</span>
+</code></pre></div></div>
+
+<p>… and we get our infinite loop. The problem is that the compiler/JVM is not taking into account the possibility that there may be other threads changing <code class="language-plaintext highlighter-rouge">Q.head</code> and <code class="language-plaintext highlighter-rouge">Q.tail</code>, and thus the result of <code class="language-plaintext highlighter-rouge">Q.empty()</code> may indeed change.</p>
+
+<p>We can add the modifier volatile to <code class="language-plaintext highlighter-rouge">Q.head</code> and <code class="language-plaintext highlighter-rouge">Q.tail</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">volatile</span> <span class="nc">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>which tells the compiler/JVM that, as it does its optimizing, it cannot assume that other threads won’t be modifying these fields. This fixes the infinite loop.</p>
+      <h2 id="synchronization-in-general-and-the-synchronized-keyword-in-particular">
+        
+        
+          Synchronization in general, and the synchronized keyword in particular <a href="#synchronization-in-general-and-the-synchronized-keyword-in-particular">#</a>
+        
+        
+      </h2>
+    
+
+<p>While for the most part we want threads to process independently, in parallel, what we just saw is that there are times when we need to coordinate, or synchronize the execution of separate threads in order to avoid race conditions. To the previous example, we need to ensure that the two threads don’t simultaneously execute enqueue’s - they need to take turns.</p>
+
+<p>Perhaps the simplest of the many mechanisms Java provides for synchronizing the execution of threads are synchronized methods. Declaring one or more methods in a class with the synchronized modifier causes the Java virtual machine to ensure that no two threads execute overlapping calls of synchronized methods on the same object. It does this by temporarily delaying threads as needed. To be clear, suppose we have a class Foo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="kd">public</span> <span class="n">sychronized</span> <span class="kt">void</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">...</span>
+  <span class="o">}</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">var1</code> and <code class="language-plaintext highlighter-rouge">var2 </code>are references to distinct objects of type <code class="language-plaintext highlighter-rouge">Foo</code> then <code class="language-plaintext highlighter-rouge">Thread x</code> could call <code class="language-plaintext highlighter-rouge">var1.bar()</code> and <code class="language-plaintext highlighter-rouge">Thread y</code> could call <code class="language-plaintext highlighter-rouge">var2.bar()</code>, and the two methods could execute simultaneously. However, if both threads called <code class="language-plaintext highlighter-rouge">var1.bar()</code> at the same time <strong>(note: we calling <code class="language-plaintext highlighter-rouge">bar()</code> on the same object this time!)</strong>, then one <code class="language-plaintext highlighter-rouge">Thread</code> would execute <code class="language-plaintext highlighter-rouge">bar()</code> while the other <code class="language-plaintext highlighter-rouge">Thread</code> was delayed, and only after the first thread had completed its call to <code class="language-plaintext highlighter-rouge">bar()</code> could the second thread start executing its call.</p>
+
+<p>So, to fix our bug, all we need to do is declare <code class="language-plaintext highlighter-rouge">enqueue</code> (and <code class="language-plaintext highlighter-rouge">dequeue</code>, though it doesn’t really matter in our test program) with the synchronized modifier.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">tail</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">s</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+      <span class="n">tail</span>      <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Node</span> <span class="n">t</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+
+    <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">Node</span>   <span class="n">next</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">String</span> <span class="n">d</span><span class="o">,</span> <span class="nc">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
+      <span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">private</span> <span class="kd">volatile</span> <span class="nc">Node</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="a-race-condition-example-counting">
+        
+        
+          A Race Condition Example: Counting <a href="#a-race-condition-example-counting">#</a>
+        
+        
+      </h2>
+    
+
+<p>Here is another example, slightly contrived, but that illustrates further how <code class="language-plaintext highlighter-rouge">synchronized</code> works. Imagine you need to process a lot of data files, and you realize that you could parallelized the processing by assigning a new thread to each data file. Instead of one main thread looping over all the files, launch all the threads at the same time.</p>
+
+<p>The program below takes file paths as arguments, and creates a <code class="language-plaintext highlighter-rouge">CountThread</code> for each one. The threads share a single <code class="language-plaintext highlighter-rouge">SafeCounter</code> object which simply counts how many lines are in the files. Each thread increments the counter. This is a classic race condition. There is a single value <code class="language-plaintext highlighter-rouge">int</code> to update as the counter that is shared across all threads. As the threads grab the value, in between reading its value and then sending the <code class="language-plaintext highlighter-rouge">++</code> updated value, another thread might read the value as well and miss the new update.</p>
+
+<p>Try running this on a couple large files, and remove the <code class="language-plaintext highlighter-rouge">synchronized</code> keyword from the methods. You’ll see different counts output from different runs. With the <code class="language-plaintext highlighter-rouge">synchronized</code> keyword, it will always be the same (correct) value.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SafeCounter</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">increment</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">value</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">int</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountThread</span> <span class="kd">extends</span> <span class="nc">Thread</span> <span class="o">{</span>
+  <span class="nc">String</span> <span class="n">filename</span><span class="o">;</span>
+  <span class="nc">SafeCounter</span> <span class="n">counter</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">CountThread</span><span class="o">(</span><span class="nc">String</span> <span class="n">filename</span><span class="o">,</span> <span class="nc">SafeCounter</span> <span class="n">counter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">counter</span> <span class="o">=</span> <span class="n">counter</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="nc">Scanner</span> <span class="n">scan</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+      <span class="k">while</span><span class="o">(</span><span class="n">scan</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">scan</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+        <span class="n">counter</span><span class="o">.</span><span class="na">increment</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="n">scan</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Counts the lines in the given files. Sums all counts up.
+ * One thread per given filename command-line argument.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountFiles</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">SafeCounter</span> <span class="n">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SafeCounter</span><span class="o">();</span>
+
+    <span class="nc">CountThread</span><span class="o">[]</span> <span class="n">threads</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CountThread</span><span class="o">[</span><span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">xx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">xx</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">xx</span><span class="o">++)</span>
+      <span class="n">threads</span><span class="o">[</span><span class="n">xx</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CountThread</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">xx</span><span class="o">],</span> <span class="n">counter</span><span class="o">);</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">xx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">xx</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">xx</span><span class="o">++)</span>
+      <span class="n">threads</span><span class="o">[</span><span class="n">xx</span><span class="o">].</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">xx</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">xx</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">xx</span><span class="o">++)</span>
+        <span class="n">threads</span><span class="o">[</span><span class="n">xx</span><span class="o">].</span><span class="na">join</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Final count = "</span> <span class="o">+</span> <span class="n">counter</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+      <h2 id="synchronization-with-the-event-dispatch-thread">
+        
+        
+          Synchronization with the Event Dispatch Thread <a href="#synchronization-with-the-event-dispatch-thread">#</a>
+        
+        
+      </h2>
+    
+
+<p>Whenever we have two or more threads reading-from/writing-to the same object, we have to worry about the possibility of race conditions. But isn’t that, in fact, what we’ve been doing with GUIs? The Event Dispatch Thread manipulates all of the <code class="language-plaintext highlighter-rouge">JFrame</code>, <code class="language-plaintext highlighter-rouge">JButtons</code>, <code class="language-plaintext highlighter-rouge">JLabels</code> and so on, but in several of our programs the main thread has manipulated these as well, and so have other threads we’ve spawned. So should we be worried? The short answer is … yes. These Swing classes are not “thread safe”, meaning they do not employ synchronized methods or other mechanisms to ensure that race conditions don’t arise when multiple threads are involved. So, we have kind of been playing with fire.</p>
+
+<p>The way one is supposed to update Swing objects is to use the “event queue”. The event queue, like our <code class="language-plaintext highlighter-rouge">Queue</code> with synchronized methods, is thread safe. Multiple threads can safely add items to it. What kind of items get added to the event queue? <code class="language-plaintext highlighter-rouge">Runnable</code> items. These items will be dequeued and their <code class="language-plaintext highlighter-rouge">run()</code> methods called, but they will be executed in the Event Dispatch Thread. If you do everything related to a GUI component this way, the component is only ever modified in the Event Dispatch Thread, so there is no concurrency, and thus no race conditions. When you have an action you’d like to take in order to update a GUI component, instead of executing the action directly in whatever thread you are in, you should enqueue a <code class="language-plaintext highlighter-rouge">Runnable</code> object with the <code class="language-plaintext highlighter-rouge">invokeLater</code> method.</p>
+
+<p>For example, suppose have a <code class="language-plaintext highlighter-rouge">JTextField tf</code> and you want to set its text to “0.0”. Instead of executing the statement:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tf</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"0.0"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>you should create the class:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRunnable</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">JTextField</span> <span class="n">t</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">MyRunnable</span><span class="o">(</span><span class="nc">JTextField</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">t</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span> <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> <span class="n">t</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"0.0"</span><span class="o">);</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>and then, where you would have had tf.setText(“0.0”); you would write:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java.awt.EventQueue.invokeLater(new myRunnable(tf));
+</code></pre></div></div>
+
+<p>This way, when the Event Dispatch Thread has a spare moment, it will dequeue this <code class="language-plaintext highlighter-rouge">MyRunnable</code> object and call its <code class="language-plaintext highlighter-rouge">run()</code> method, which will cause it to set <code class="language-plaintext highlighter-rouge">tf</code>’s text to “0.0”.</p>
+
+<p>This idiom causes a proliferation of classes, which is a bit ugly and awkward, so Java allows you to define and instantiate a class “inline”, using what are called anonymous classes. Using this mechanism, we can set our text with the following:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="nc">JTextField</span> <span class="n">tfp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">EventQueue</span><span class="o">.</span><span class="na">invokeLater</span><span class="o">(</span>
+   <span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> <span class="n">tfp</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"0.0"</span><span class="o">);</span> <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">);</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">final JTextField tfp</code> is there because of a technicality, which is that any local variable you reference from within the anonymous class has to be <code class="language-plaintext highlighter-rouge">final</code>.</p>
+
+<p>Because it rapidly involves a lot of anonymous classes, which we’re not covering in-depth, we’ll mostly stick to “playing with fire” in our simple GUIs for this class, and access GUI elements from outside the Event Dispatch Thread. Let’s just hope we don’t get burned!</p><hr />
+<p>Material in this unit adopted with permission from IC211 at USNA</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

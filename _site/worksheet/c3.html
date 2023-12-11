@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/worksheet/c3" />
+<meta property="og:url" content="http://localhost:4000/worksheet/c3" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/worksheet/c3"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+         
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+<h1 id="worksheet-c3">Worksheet: C3</h1>
+
+<p>Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Worksheets are due by Sunday night before the next lecture.</p>
+
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/QE1LnwS1">https://classroom.github.com/a/QE1LnwS1</a></li>
+</ul>
+
+<h2 id="note">Note</h2>
+
+<p>Attempt to answer these questions before running the code. This will improve your ability to analyize and reason about code without an IDE or compiler. This skill we be helpful on the exams.</p>
+
+<h2 id="questions">Questions</h2>
+
+
+<ol>
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q1'>
+        
+<p>Examine the program below and complete the code.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#define NUM_ROWS 3
+#define NUM_COLS 3
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="n">NUM_ROWS</span><span class="p">][</span><span class="n">NUM_COLS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+                                       <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+                                       <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
+
+    <span class="c1">// WRITE CODE TO PRINT OUT THE MATRIX</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>Finish the code above so that the output is the following:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 5 1 
+3 9 6 
+8 7 4 
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q2'>
+        
+<p>Examine the program below and complete the code.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#define NUM_ROWS 3
+#define NUM_COLS 3
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">matrix_a</span><span class="p">[</span><span class="n">NUM_ROWS</span><span class="p">][</span><span class="n">NUM_COLS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
+
+    <span class="kt">int</span> <span class="n">matrix_b</span><span class="p">[</span><span class="n">NUM_ROWS</span><span class="p">][</span><span class="n">NUM_COLS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span>
+                                         <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">}};</span>
+
+    <span class="kt">int</span> <span class="n">matrix_c</span><span class="p">[</span><span class="n">NUM_ROWS</span><span class="p">][</span><span class="n">NUM_COLS</span><span class="p">];</span>
+
+    <span class="c1">// https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm#Iterative_algorithm</span>
+    <span class="cm">/*
+        For i from 1 to num_rows:
+            For j from 1 to num_cols:
+                Let sum = 0
+                For k from 1 to num_cols:
+                    Set sum = sum + (Aik * Bkj)
+                Set Cij = sum
+    */</span>
+    
+    <span class="c1">// USING THE ALGORITHM ABOVE</span>
+    <span class="c1">// WRITE CODE HERE TO MULTIPLY THE TWO MATRICES</span>
+    <span class="c1">// PUT THE RESULT IN MATRIX_C</span>
+
+    <span class="c1">// PRINT RESULTING MATRIX_C</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>Finish the code above so that the output is the following:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>56 45 39 
+111 114 75 
+107 89 91 
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q3'>
+        
+
+<p>The following function declaration will not compile.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foobar</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="p">[][]);</span>
+</code></pre></div></div>
+
+<p>Provide an explanation for what is wrong and how to fix it.</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q4'>
+        
+<p>Examine the program below and answer the following questions.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span> <span class="p">};</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">array</span> <span class="o">+</span> <span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><strong>Attempt to answer these questions without running the code!</strong></p>
+
+<ul>
+  <li>What is the output of this program?</li>
+  <li>Explain the memory layout of a two-dimensional array?</li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q5'>
+        
+
+<p>Examine the program below and answer the following questions.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">},</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">}</span> <span class="p">};</span>
+   
+    <span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="o">+</span><span class="mi">4</span><span class="p">;</span>
+
+    <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="c1">//MARK</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Attempt to answer these questions without running the code</strong></p>
+
+<ul>
+  <li>What are the values of <code class="language-plaintext highlighter-rouge">a</code> at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+  <li>In plain English, provide a description of how the line <code class="language-plaintext highlighter-rouge">int * p = (int *)a+4</code> works when the array dimensions are <code class="language-plaintext highlighter-rouge">int[2][3]</code>.</li>
+  <li>Draw the memory diagram at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q6'>
+        
+
+<p>Examine the program below and answer the following questions.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">},</span> 
+                <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">},</span>
+                <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">},</span>
+                <span class="p">{</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">21</span><span class="p">}};</span>
+
+  <span class="kt">int</span> <span class="o">**</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">q</span> <span class="o">=</span>  <span class="o">&amp;</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  
+  <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="c1">//MARK</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Attempt to answer these questions without running the code</strong></p>
+
+<ul>
+  <li>What are the values of <code class="language-plaintext highlighter-rouge">a</code> after at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+  <li>Offer a plain English explanation for what exactly <code class="language-plaintext highlighter-rouge">int * q = &amp;p[1]</code> is referring to in <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li>Draw the memory diagram at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q7'>
+        
+
+<p>What are the two possible <strong>byte ordering</strong> and which byte ordering does nearly all modern computers use?</p>
+
+<p>As an example of this byte ordering, explain how the integer <code class="language-plaintext highlighter-rouge">513</code> would be stored, byte-by-byte.</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q8'>
+        
+
+<p>Examine the program below and answer the following questions.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+
+  <span class="c1">//two ints in hexadecimal</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x42434445</span><span class="p">,</span> 
+             <span class="mh">0x20212223</span><span class="p">};</span>
+             
+  <span class="kt">short</span> <span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">short</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//MARK</span>
+  
+  <span class="c1">//prints the two bytes of the short as a hexaxdecimal</span>
+  <span class="c1">// like 0xbeef or 0xdead</span>
+  
+  <span class="n">printf</span><span class="p">(</span><span class="s">"0x%0hx"</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  
+  <span class="c1">//so what is the short in b[0] as a hexadecimal?</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><strong>Attempt to answer these questions without running the code</strong></p>
+
+<ul>
+  <li>What is the output?</li>
+  <li>Offer an explanation for the output</li>
+  <li>Draw a memory diagram at <code class="language-plaintext highlighter-rouge">MARK</code></li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q9'>
+        
+
+<p>Below are the results of two Tic-Tac-Toe games, player <code class="language-plaintext highlighter-rouge">o</code> wins game 1 while player <code class="language-plaintext highlighter-rouge">x</code> wins game 2. Unfortunately one of the players (<code class="language-plaintext highlighter-rouge">x</code> or <code class="language-plaintext highlighter-rouge">o</code>) has inserted some evil code to change the boards.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">game_1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"o|x| "</span><span class="p">,</span>
+    <span class="s">"o|o|x"</span><span class="p">,</span>
+    <span class="s">"x|x|o"</span><span class="p">};</span>
+
+<span class="kt">char</span> <span class="o">*</span><span class="n">game_2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s">"x|x|o"</span><span class="p">,</span>
+      <span class="s">"o|x| "</span><span class="p">,</span>
+      <span class="s">"o|x|o"</span><span class="p">,</span>
+  <span class="p">};</span>
+  
+  <span class="c1">//Begin Evil Code</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">**</span><span class="n">tmp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">game_1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">game_1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">game_2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">game_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">//End Evil Code</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"The winner of game 1 is: ..."</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"The winner of game 2 is: ..."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>What did the evil code do to the 2 boards and who inserted the evil code?</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q10'>
+        
+<p><strong>Answer the following questions:</strong></p>
+<ul>
+  <li>What does <code class="language-plaintext highlighter-rouge">malloc()</code> do? What are the advantages or disadvantages of using <code class="language-plaintext highlighter-rouge">malloc()</code>, if any?</li>
+  <li>What is the difference between <code class="language-plaintext highlighter-rouge">malloc()</code> and <code class="language-plaintext highlighter-rouge">calloc()</code>?</li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q11'>
+        
+
+<p>A computer science major who can’t do algebra is trying to modify their grades. The student was able to hack into the administrative code and insert some Evil Code to change their grade.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">grade</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">course_t</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">course_t</span> <span class="o">*</span><span class="n">courses</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+  <span class="n">courses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">course_t</span><span class="p">));</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Basket Weaving"</span><span class="p">;</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">grade</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
+
+  <span class="n">courses</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">course_t</span><span class="p">));</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Complex Tic Tac Toe Analysis"</span><span class="p">;</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">grade</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
+
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">course_t</span><span class="p">));</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Algebra for CS Majors"</span><span class="p">;</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">grade</span> <span class="o">=</span> <span class="sc">'D'</span><span class="p">;</span>
+
+  <span class="c1">//... some admin code</span>
+
+  <span class="c1">// Begin Evil Code inserted by student</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">course_t</span><span class="p">));</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Algebra for CS Majors"</span><span class="p">;</span>
+  <span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">grade</span> <span class="o">=</span> <span class="sc">'B'</span><span class="p">;</span>
+
+  <span class="c1">// Rest of program</span>
+  <span class="c1">// ...</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Your grades for the semester are ...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="c1">// prints grades</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">courses</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">courses</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">courses</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Did the student introduce a memory leak?</li>
+  <li>If so, how many bytes were leaked?</li>
+  <li>Explain the memory leak or why there can’t be a memory leak.</li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q12'>
+        
+
+<p>What is the difference between a <strong>memory violation</strong> and a <strong>memory leak</strong>? Provide a small code example of each.</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q13'>
+        
+
+<p>Consider the following code</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+  <span class="kt">short</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">short</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">point_t</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">point_t</span> <span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">point_t</span><span class="p">));</span>
+
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">tmp_name</span> <span class="o">=</span> <span class="s">"Point of Interest"</span><span class="p">;</span>
+  <span class="n">a</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">strlen</span><span class="p">(</span><span class="n">tmp_name</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">tmp_name</span><span class="p">);</span> <span class="c1">//Copies the string on the right to the left</span>
+  <span class="n">a</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">a</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="n">point_t</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">);</span> <span class="c1">//MARK</span>
+  <span class="n">free</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Attempt to answer these questions without running the code</strong></p>
+
+<ul>
+  <li>Is printing at the indicated MARK a memory violation?</li>
+  <li>If so, how many bytes of a memory violation occur? If not, explain why there is no violation.</li>
+  <li>Does this program leak any memory?</li>
+  <li>What is the output?</li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q14'>
+        
+
+<p>For the next few questions, consider that your implementing a Linked List in C using the following struct</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+
+<span class="p">}</span> <span class="n">node_t</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">llist</span><span class="p">{</span>
+   <span class="n">node_t</span> <span class="o">*</span> <span class="n">head</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>    
+<span class="p">}</span> <span class="n">llist_t</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Write the following functions:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">llist_t * new_list()</code> : allocates a new empty linked list</li>
+  <li><code class="language-plaintext highlighter-rouge">void del_list(llist_t * list)</code> : dealocates a linked list  <code class="language-plaintext highlighter-rouge">list</code></li>
+  <li><code class="language-plaintext highlighter-rouge">void add_to_head(llist_t *list,int new_value)</code> : add the <code class="language-plaintext highlighter-rouge">new_value</code> to the head of the list.</li>
+</ul>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q15'>
+        
+
+<p>Referring to the linked list structures above, complete the following functions over these lists without recursive calls (a function calling itself).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">){</span>
+    <span class="c1">// return a single integer, </span>
+    <span class="c1">// which is the sum of all nodes' val</span>
+    
+    <span class="c1">// FINISH ME</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">){</span>
+    <span class="c1">// return a single integer,</span>
+    <span class="c1">// the maximum val among all the nodes</span>
+
+    <span class="c1">// FINISH ME</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">add_to_tail</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="kt">int</span> <span class="n">new_value</span><span class="p">){</span>
+   <span class="c1">// Add the new_value to the end of the link list</span>
+   
+   <span class="c1">// FINISH ME</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q16'>
+        
+
+<p>Referring to the linked list structures above, complete the following recursive functions over these lists</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">_sum</span><span class="p">(</span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">_sum</span><span class="p">(</span><span class="n">node_t</span> <span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="c1">//FINISH ME!</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">min</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">_min</span><span class="p">(</span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">_min</span><span class="p">(</span><span class="n">node_t</span> <span class="o">*</span> <span class="n">node</span><span class="p">){</span>
+  <span class="c1">//FINISH ME!</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">add_to_tail</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="kt">int</span> <span class="n">new_value</span><span class="p">){</span>
+   <span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span> <span class="o">=</span> <span class="n">_add_to_tail</span><span class="p">(</span><span class="n">list</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">,</span> <span class="n">new_value</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">node_t</span> <span class="o">*</span> <span class="nf">_add_to_tail</span><span class="p">(</span><span class="n">node_t</span> <span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">new_value</span><span class="p">){</span>
+  <span class="c1">//FINISH ME! --- this one is tough!</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+    
+    
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

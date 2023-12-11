@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>C Data Types, Arrays, Pointers, Strings | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="C Data Types, Arrays, Pointers, Strings" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/c/1" />
+<meta property="og:url" content="http://localhost:4000/c/1" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C Data Types, Arrays, Pointers, Strings" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"C Data Types, Arrays, Pointers, Strings","url":"http://localhost:4000/c/1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#c-data-types">C Data Types</a><ul><li><a href="#basic-data-types">Basic Data Types</a></li><li><a href="#numeric-values-for-integer-types">Numeric values for integer types</a><ul><li><a href="#ascii-and-char">ASCII and char</a></li></ul></li><li><a href="#the-sizeof-functionmacro-and-data-storage-requirements-of-data-types">The <code class="language-plaintext highlighter-rouge">sizeof()</code> function/macro and data storage requirements of data types</a></li><li><a href="#signed-vs-unsigned">Signed vs. Unsigned</a><ul><li><a href="#2s-compliment">2’s compliment</a></li></ul></li></ul></li><li><a href="#operators">Operators</a><ul><li><a href="#numeric-operators">Numeric Operators</a></li><li><a href="#bit-wise-operators">Bit-wise operators</a></li></ul></li><li><a href="#advanced-types">Advanced Types</a><ul><li><a href="#structs"><code class="language-plaintext highlighter-rouge">struct</code>s</a></li><li><a href="#defining-new-types-with-typedef">Defining new types with <code class="language-plaintext highlighter-rouge">typedef</code></a></li></ul></li><li><a href="#pointers-and-arrays">Pointers and Arrays</a><ul><li><a href="#pointers">Pointers</a></li><li><a href="#pointers-to-structures">Pointers to structures</a></li><li><a href="#array-types">Array Types</a><ul><li><a href="#managing-array-length-and-out-of-bounds">Managing array length and out of bounds</a></li><li><a href="#sizeof-on-arrays"><code class="language-plaintext highlighter-rouge">sizeof</code> on arrays</a></li></ul></li><li><a href="#pointers-to-arrays">Pointers to Arrays</a></li><li><a href="#arrays-of-structures">Arrays of Structures</a></li><li><a href="#passing-arrays-to-functions">Passing Arrays to Functions</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSP2jh5c-MOe6-v4QpK59Ibw">single playlist on youtube</a></em></p>
+      <h1 id="c-data-types">
+        
+        
+          C Data Types <a href="#c-data-types">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="basic-data-types">
+        
+        
+          Basic Data Types <a href="#basic-data-types">#</a>
+        
+        
+      </h2>
+    
+<p>In C there are two primary data types, integer and floating point types.</p>
+
+<p>The integer types are as following, and depending on the system will store numbers in the following number of bytes.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">char</code> : character : 1-byte</li>
+  <li><code class="language-plaintext highlighter-rouge">short</code> : integer number : 2-bytes</li>
+  <li><code class="language-plaintext highlighter-rouge">int</code> : integer number : 4-bytes (at most, but always greater than or equal to 2 bytes)</li>
+  <li><code class="language-plaintext highlighter-rouge">long</code> : integer number : 8-bytes (at most, but always greater than or equal to 4-bytes)</li>
+  <li><code class="language-plaintext highlighter-rouge">long long</code> : integer number : 8-bytes (at least)</li>
+</ul>
+
+<p>And the floating point types</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">float</code> : floating point number : 4-bytes</li>
+  <li><code class="language-plaintext highlighter-rouge">double</code> : floating point number : 8-bytes</li>
+</ul>
+
+<p>Finally, there is a new type, a pointer type which is also an integer type that refers to a place in memory.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">(type) *</code> : pointers : 8-bytes on (64 bit machines)</li>
+</ul>
+
+<p>Note the <code class="language-plaintext highlighter-rouge">(type)</code> can be replaced with any other data type. So a <code class="language-plaintext highlighter-rouge">int *</code> or a <code class="language-plaintext highlighter-rouge">char *</code> are both pointer types, where the former “points to” an <code class="language-plaintext highlighter-rouge">int</code> and the later “points to” a <code class="language-plaintext highlighter-rouge">char</code>.</p>
+
+<p>These types and the operations over them are sufficient for most programming; however, we will need more to accomplish the needed tasks. In particular, there are three aspects of these types that require further exploration:</p>
+
+<ol>
+  <li>
+    <p>Advanced Structured Types: Create new types and formatted by combining basic types.</p>
+  </li>
+  <li>
+    <p>Pointers: Working with references to data</p>
+  </li>
+  <li>
+    <p>Arrays: Organizing data into linear structures.</p>
+  </li>
+</ol>
+
+<p>(<em>Aside: recall that C doesn’t have boolean types. They are just an <code class="language-plaintext highlighter-rouge">int</code>.</em>)</p>
+
+<p><a id="org805dcea"></a></p>
+      <h2 id="numeric-values-for-integer-types">
+        
+        
+          Numeric values for integer types <a href="#numeric-values-for-integer-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>Once you declare an integer type, like a <code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">short</code> or <code class="language-plaintext highlighter-rouge">long</code>, you can assign it a value. The most obvious way to do this, is to include a number, like <code class="language-plaintext highlighter-rouge">10</code></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>You can define numbers in more ways. For example, C allows you to declare in different bases.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int a = 0xa; //a is 10 in hexadecimal!
+short s = 010 //10 is 8 in octal!
+</code></pre></div></div>
+
+<p>A leading 0x indicates the values to follow are in hexadecimal (base 16). With a leading 0 indicates the value following is in base 8.</p>
+      <h3 id="ascii-and-char">
+        
+        
+          ASCII and char <a href="#ascii-and-char">#</a>
+        
+        
+      </h3>
+    
+
+<p>But recall that <code class="language-plaintext highlighter-rouge">char</code> is also an integer type, but we don’t often think of it that way. We think of it representing a single character. Recall, though, the ASCII table.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/ASCII-Table-wide.svg" alt="ASCII Table" /></p>
+
+<p>We can define a <code class="language-plaintext highlighter-rouge">char</code> with a straight number:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="c1">//prints '*'</span>
+</code></pre></div></div>
+
+<p>But we don’t need to know the ascii table to assign <code class="language-plaintext highlighter-rouge">*</code> to <code class="language-plaintext highlighter-rouge">c</code> using single quotes.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'*'</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="c1">//prints '*'</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="c1">//prints 42 </span>
+</code></pre></div></div>
+      <h2 id="the-sizeof-functionmacro-and-data-storage-requirements-of-data-types">
+        
+        
+          The <code class="language-plaintext highlighter-rouge">sizeof()</code> function/macro and data storage requirements of data types <a href="#the-sizeof-functionmacro-and-data-storage-requirements-of-data-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>C has a built in function <code class="language-plaintext highlighter-rouge">sizeof()</code> where you can provide a type name or a variable and it will return the number of bytes need to represent that variable—or put another way, how many bytes are needed to <em>store</em> that kind of data. (This is very useful for dynamic memory, which we will address later.)</p>
+
+<p>As an example, consider the program below:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'G'</span><span class="p">;</span>
+  <span class="kt">short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span> <span class="o">=</span> <span class="mi">500000</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+  <span class="kt">long</span> <span class="kt">long</span>  <span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ll</span><span class="p">;</span>
+  
+  <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="p">.</span><span class="mi">789</span><span class="p">;</span>
+
+  <span class="c1">//note the format %lu is for unsigned long long as sizeof() returns up to an 8-byte number</span>
+  <span class="c1">//if you used %d, that format is for integer values, and will produce a warning </span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(char): %lu, sizeof(c): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(short): %lu, sizeof(s): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(int): %lu, sizeof(i): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(long): %lu, sizeof(l): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">l</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(long long): %lu, sizeof(ll): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ll</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"------------------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(int *): %lu, sizeof(p1): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p1</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(char *): %lu, sizeof(p2): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p2</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(long long *): %lu, sizeof(p3): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="o">*</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p3</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"------------------</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(float): %lu, sizeof(f): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(double): %lu, sizeof(d): %lu </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">));</span>
+  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When I run this (on my Mac OSX 64-bit machine) I get the following output: (<em>it may be different on your computer!</em>)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./sizeof 
+sizeof(char): 1, sizeof(c): 1 
+sizeof(short): 2, sizeof(s): 2 
+sizeof(int): 4, sizeof(i): 4 
+sizeof(long): 8, sizeof(l): 8 
+sizeof(long long): 8, sizeof(ll): 8 
+------------------
+sizeof(int *): 8, sizeof(p1): 8 
+sizeof(char *): 8, sizeof(p2): 8 
+sizeof(long long *): 8, sizeof(p3): 8 
+------------------
+sizeof(float): 4, sizeof(f): 4 
+sizeof(double): 8, sizeof(d): 8 
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">long</code> and <code class="language-plaintext highlighter-rouge">long long</code> are both 8-bytes. Also, notice that all the various pointer types are always 8-bytes. That’s because pointers store memory addresses. It doesn’t matter what is at that memory address (that is what it points to), the amount of storage needed to store a memory address is always the same.</p>
+      <h2 id="signed-vs-unsigned">
+        
+        
+          Signed vs. Unsigned <a href="#signed-vs-unsigned">#</a>
+        
+        
+      </h2>
+    
+
+<p>All data numeric types have a signed and unsigned interpretation. By default, a numeric type is considered signed, unless the <code class="language-plaintext highlighter-rouge">unsigned</code> declaration is used.</p>
+
+<p>Recall that numbers are stored in bytes, which are made up of bits. Each bit will be either a zero or one in memory, so the bits <code class="language-plaintext highlighter-rouge">1100</code> in memory (in base 2) would be <code class="language-plaintext highlighter-rouge">12</code> in base 10. But what if we defined the first bit in <code class="language-plaintext highlighter-rouge">1100</code> as telling us whether the number is positive or negative? In that case, the base 10 number would be 4, and the <code class="language-plaintext highlighter-rouge">1</code> at the start might indiciate the number should be interpreted as negative, and therefore its value could be <code class="language-plaintext highlighter-rouge">-4</code>.</p>
+
+<p>When interpreting a signed value, the leading, most significant, bit of the number (or <strong>parity</strong> bit) determines the sign. If the bit is 1, then the value is negative, and if it’s 0, then the value is positive. This leads <code class="language-plaintext highlighter-rouge">n-1</code> bits for representing a number numerically, where <code class="language-plaintext highlighter-rouge">n</code> is the number of bits in the data type. For example, an 4-byte signed <code class="language-plaintext highlighter-rouge">int</code> uses 31 bits for the numeric representation and 1 bit for the sign. An <code class="language-plaintext highlighter-rouge">unsigned int</code> uses 32 bits for the numeric representation. Both signed <code class="language-plaintext highlighter-rouge">int</code> and <code class="language-plaintext highlighter-rouge">unsigned int</code> can represent the same number of numbers, just half of the signed <code class="language-plaintext highlighter-rouge">int</code> numbers are negative.</p>
+
+<p>We can write a small programs to show this:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//signess.c</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">smallest_uint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">largest_uint</span> <span class="o">=</span> <span class="mi">4294967295</span><span class="p">;</span> <span class="c1">//2^32-1</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Unsigned Integers</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"--(unsigned format)--</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"   smallest_uint= %u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">smallest_uint</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"    largest_uinn= %u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">largest_uint</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  
+  <span class="n">printf</span><span class="p">(</span><span class="s">"--(signed format)--</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"   smallest_uint= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">smallest_uint</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"     largest_uit= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">largest_uint</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">);</span>
+  
+  <span class="kt">int</span> <span class="n">smallest_int</span> <span class="o">=</span> <span class="mi">2147483648</span><span class="p">;</span> <span class="c1">// 2^31 </span>
+  <span class="kt">int</span> <span class="n">largest_int</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span> <span class="c1">// 2^31-1</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Signed Integers</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"--(unsigned format)--</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"   smallest_int= %u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">smallest_int</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"    largest_int= %u</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">largest_int</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  
+  <span class="n">printf</span><span class="p">(</span><span class="s">"--(signed format)--</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"    smallest_int= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">smallest_int</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"     largest_int= %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">largest_int</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>If we look at the output, we see something surprising:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./signess 
+Unsigned Integers
+--(unsigned format)--
+   smallest_uint= 0
+    largest_uinn= 4294967295
+
+--(signed format)--
+   smallest_uint= 0
+     largest_uit= -1
+
+
+Signed Integers
+--(unsigned format)--
+   smallest_int= 2147483648
+    largest_int= 2147483647
+
+--(signed format)--
+    smallest_int= -2147483648
+     largest_int= 2147483647
+</code></pre></div></div>
+
+<p>The largest unsigned int is the largest negative (signed) integer, -1. That’s because of 2’s complement interpretation (up next) for negative values, but it also belies another important concept in programming—the underlying bits do not change, but how we interpret those bits matter.</p>
+      <h3 id="2s-compliment">
+        
+        
+          2’s compliment <a href="#2s-compliment">#</a>
+        
+        
+      </h3>
+    
+
+<p>The 2’s compliment interpretation of negative values is somewhat counter-intuitive at first, but actually simplifies operations with negative values.</p>
+
+<p>To see an example, let’s consider a signed 4-bit number. A 4-bit number has three bits for the number and 1 bit for the parity, so we could count 8 positive items (0-7) positive numbers.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0000 +0
+0001 +1
+0010 +2
+0011 +3
+0100 +4
+0101 +5
+0110 +6
+0111 +7
+</code></pre></div></div>
+
+<p>On the negative side, we can also have three bits to count 8 items, -8 to -1, but we don’t count quite the same way. We count backwards, starting with -8.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1000 -8  ---&gt; 0111 + 1 = -1000 = -8 
+1001 -7  ---&gt; 0110 + 1 = -0111 = -7 
+1010 -6  ---&gt; 0101 + 1 = -0110 = -6
+1011 -5  ---&gt; 0100 + 1 = -0101 = -5
+1100 -4  ---&gt; 0011 + 1 = -0100 = -4
+1101 -3  ---&gt; 0010 + 1 = -0011 = -3
+1110 -2  ---&gt; 0001 + 1 = -0010 = -2
+1111 -1  ---&gt; 0000 + 1 = -0000 = -1
+</code></pre></div></div>
+<p>The rule for converting the bits to negative value is to compliment the bits (ones become zero, and zeros becomes ones), and add 1.</p>
+
+<p>So why do this?!? Well consider adding (or subtracting) two numbers, like 5 + (-5) – doing the bit-wise math …</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     111   &lt;--carry
+    0101 (5)
+   +1011 (-5)
+  -----
+(1)0000
+ ^
+ '--dropped, only a 4-bit number
+</code></pre></div></div>
+
+<p>We get <code class="language-plaintext highlighter-rouge">10000</code> but it’s a 4-bit number, so we lose the leading 1, and get <code class="language-plaintext highlighter-rouge">0000</code> or 0. And that’s the right answer! Also, let’s look at another example, <br />
+4-5 = -1</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  0100 (4)
+ +1011 (-5)
+ -----
+  1111 (-1)
+</code></pre></div></div>
+
+<p>While it may seem funky, it makes the math work. You’ll learn more about this in your architecture course.</p>
+
+<!-- good place for a quiz -->
+      <h1 id="operators">
+        
+        
+          Operators <a href="#operators">#</a>
+        
+        
+      </h1>
+    
+
+<p>C has all the standard operators as Java. There are two classes of operators, numeric and bitwise operators.</p>
+      <h2 id="numeric-operators">
+        
+        
+          Numeric Operators <a href="#numeric-operators">#</a>
+        
+        
+      </h2>
+    
+
+<p>The numeric operators are as follows</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x + y</code> : addition</li>
+  <li><code class="language-plaintext highlighter-rouge">x - y</code> : subtraction</li>
+  <li><code class="language-plaintext highlighter-rouge">x * y</code> : multiplication</li>
+  <li><code class="language-plaintext highlighter-rouge">x / y</code> : divisions</li>
+  <li><code class="language-plaintext highlighter-rouge">x % y</code> : modulo</li>
+</ul>
+
+<p>Assignment operators</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x += y</code> : add <code class="language-plaintext highlighter-rouge">x</code> to <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x -= y</code> : subtract <code class="language-plaintext highlighter-rouge">y</code> from <code class="language-plaintext highlighter-rouge">x</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x *= y</code> : multiply <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x /= y</code> : divided <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+</ul>
+
+<p>Then there are unary addition and subtraction for adding/subtracting 1:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x++</code> : add one to <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">++x</code> : add one to <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x+1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x--</code> : subtract one from <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">--x</code> : subtract one from <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x-1</code></li>
+</ul>
+
+<p>These subtle different is prefix/postfix incrementor/decrimentors are best shown through a program example.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x++ = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="o">++</span><span class="p">);</span> <span class="c1">//prints 10, but x=11</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"++x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">++</span><span class="n">x</span><span class="p">);</span> <span class="c1">//prints 12</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x-- =%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="o">--</span><span class="p">);</span> <span class="c1">//prints 10, but x=9</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"--x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">--</span><span class="n">x</span><span class="p">);</span> <span class="c1">//prints 8</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 10
+x++ = 10
+x = 11
+++x = 12
+x = 12
+
+x = 10
+x-- = 10
+x = 9
+--x = 8
+x = 8
+</code></pre></div>    </div>
+  </div>
+</div>
+      <h2 id="bit-wise-operators">
+        
+        
+          Bit-wise operators <a href="#bit-wise-operators">#</a>
+        
+        
+      </h2>
+    
+
+<p>Bitwise operators manipulate the underlying the bit representations of the numbers, rather than the numeric representations. The three core operators are</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x | y</code> : bitwise or each bit of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x &amp;</code>y : bitwise and each of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x ^ y</code> : bitwise xor of <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~x</code> : compliment the bits of <code class="language-plaintext highlighter-rouge">x</code> (flipping 0-&gt;1 and 1-&gt;0)</li>
+</ul>
+
+<p>So for example, consider <code class="language-plaintext highlighter-rouge">x = 3</code> and <code class="language-plaintext highlighter-rouge">y = 1</code>, then <code class="language-plaintext highlighter-rouge">x | y = 3</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   0000...0011 (x)
+ | 0000...0001 (y)  
+ -----------------
+   0000...0011 (x | y)
+</code></pre></div></div>
+
+<p>And if we do <code class="language-plaintext highlighter-rouge">&amp;</code> (bit-wise and), <code class="language-plaintext highlighter-rouge">x &amp; y = 1</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   0000...0011 (x)
+ &amp; 0000...0001 (y)  
+ -----------------
+   0000...0001 (x &amp; y)
+</code></pre></div></div>
+
+<p>And if we do bit-wise xor, <code class="language-plaintext highlighter-rouge">x ^ y = 2</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   0000...0011 (x)
+ ^ 0000...0001 (y)  
+ -----------------
+   0000...0010 (x ^ y)
+</code></pre></div></div>
+
+<p>The second class of bit-wise operators are shift operators.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x &lt;&lt; y</code> : left shift <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> bits</li>
+  <li><code class="language-plaintext highlighter-rouge">x &gt;&gt; y</code> : right shift <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> bits</li>
+</ul>
+
+<p>These operators move bits either left or right in the number. For example, <code class="language-plaintext highlighter-rouge">2 &lt;&lt; 1</code> shifts the bits of the value <code class="language-plaintext highlighter-rouge">2</code> to the left by 1.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 0000...0010 &lt;&lt; 1 = 0000...0100 (4)
+</code></pre></div></div>
+<p>As you shift you add 0’s to the number, so if we right shift</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 0000...0010 &gt;&gt; 1 = 0000...0001 (1)
+ 0000...0010 &gt;&gt; 2 = 0000...0000 (0)
+</code></pre></div></div>
+
+<p>Another aspect of shifting is that it’s equivalent to multiplying by 2 (left shifting) or dividing by 2 (right shifting) for every shift amount. So for example:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"i &lt;&lt; 3 = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">//prints 12*(2*2*2) = 96. </span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"i &gt;&gt; 2 = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">//prints 12/(2*2) = 3. </span>
+</code></pre></div></div>
+      <h1 id="advanced-types">
+        
+        
+          Advanced Types <a href="#advanced-types">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="structs">
+        
+        
+          <code class="language-plaintext highlighter-rouge">struct</code>s <a href="#structs">#</a>
+        
+        
+      </h2>
+    
+
+<p>An incredibly useful tool in programming is to be able to create advanced types built upon basic types. Consider managing a pair of integers. In practice, you could declare two integer variables and manage each separately, like so:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">left</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">right</span><span class="p">;</span>
+<span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">right</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>But that is cumbersome and you always have to remember that the variable <code class="language-plaintext highlighter-rouge">left</code> is paired with the variable <code class="language-plaintext highlighter-rouge">right</code>, and what happens when you need to have two pairs or three. It just is not manageable.</p>
+
+<p>Instead, what we can do is declare a new type that is a structure containing two integers.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">pair</span><span class="p">{</span>    <span class="c1">//declaring a new pair type </span>
+  <span class="kt">int</span> <span class="n">left</span><span class="p">;</span>     <span class="c1">//that containing two integers</span>
+  <span class="kt">int</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">pair</span> <span class="n">p1</span><span class="p">;</span>       <span class="c1">//declare two variables of that type</span>
+<span class="k">struct</span> <span class="n">pair</span> <span class="n">p2</span><span class="p">;</span>
+
+<span class="n">p1</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">//assign values to the pair types</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="n">p2</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">p2</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>The first part is to declare the new structure type by using the keyword <code class="language-plaintext highlighter-rouge">struct</code> and specify the basic types that are members of the structure. Next, we can declare variables of that type using the type name, <code class="language-plaintext highlighter-rouge">struct pair</code>. With those variables, we can then refer to the member values, <code class="language-plaintext highlighter-rouge">left</code> and <code class="language-plaintext highlighter-rouge">right</code>, using the <code class="language-plaintext highlighter-rouge">.</code> operator. (This operates a lot like Java objects — but, importantly(!), it is <strong>not</strong> an object as it doesn’t encapsulate associate both data and the functions that operate on that data.)</p>
+
+<p>One question to consider: <em>How is the data for the structure laid out in memory?</em></p>
+
+<p>Another way to ask is: <em>How many bytes does it take to store the structure?</em></p>
+
+<p>In this example, the structure contains two integers, so it is 8 bytes in size. In memory, it would be represented by two integers that are adjacent in memory space.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>struct pair
+.--------------------.
+|.--------..--------.|
+||&lt;- 4B -&gt;||&lt;- 4B -&gt;||
+||  left  ||  right ||
+|'________''________'|
+'--------------------'
+ &lt;----- 8 bytes -----&gt;
+</code></pre></div></div>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">.</code> and the correct name either refers to the first or second four bytes, or the <code class="language-plaintext highlighter-rouge">left</code> or <code class="language-plaintext highlighter-rouge">right</code> integer within the pair. When we print its size, that is exactly what we get.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">pair</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>While the pair struct is a simple example, we will see many advanced structure types that combine more varied data.</p>
+
+<p><a id="org6329683"></a></p>
+      <h2 id="defining-new-types-with-typedef">
+        
+        
+          Defining new types with <code class="language-plaintext highlighter-rouge">typedef</code> <a href="#defining-new-types-with-typedef">#</a>
+        
+        
+      </h2>
+    
+
+<p>While structure data is ever present in the system, it is often hidden by declaring new type names. The way to introduce a new type name or type definition is using <code class="language-plaintext highlighter-rouge">typedef</code>. Here is an example for the pair structure type we declared above.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>    <span class="c1">//declaring a new structure</span>
+  <span class="kt">int</span> <span class="n">left</span><span class="p">;</span>        <span class="c1">//that containing two integers</span>
+  <span class="kt">int</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">pair_t</span><span class="p">;</span>          <span class="c1">//the type name for the structure is pair_t</span>
+
+<span class="n">pair_t</span> <span class="n">p1</span><span class="p">;</span>       <span class="c1">//declare two variables of that type</span>
+<span class="n">pair_t</span> <span class="n">p2</span><span class="p">;</span>
+
+<span class="n">p1</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>    <span class="c1">//assign values to the pair types</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="n">p2</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">p2</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>This time we declare the same type, a pair of two integers, but we gave that structure type a distinct name, a <code class="language-plaintext highlighter-rouge">pair_t</code>. When declaring something of this type, we do not need to specify that it is a structure, instead, we call it what it is, a <code class="language-plaintext highlighter-rouge">pair_t</code>. The compiler is going to recognize the new type and ensure that it has the properties of the structure.</p>
+
+<p>The suffix <code class="language-plaintext highlighter-rouge">_t</code> is typically used to specify that this type is not a basic type and defined using <code class="language-plaintext highlighter-rouge">typedef</code>. This is a convention of C, not a rule, but it can help guide you through the morass of types you will see in this class and beyond when programming in C.</p>
+
+<p><a id="org1482f83"></a></p>
+      <h1 id="pointers-and-arrays">
+        
+        
+          Pointers and Arrays <a href="#pointers-and-arrays">#</a>
+        
+        
+      </h1>
+    
+
+<p><a id="org077db10"></a></p>
+      <h2 id="pointers">
+        
+        
+          Pointers <a href="#pointers">#</a>
+        
+        
+      </h2>
+    
+
+<p>In C, pointers play an outsized role, and is in fact the primary reason one may want to program something in C. A pointer is extremely powerful and allows for a lot of programming control.</p>
+
+<p>Some terminology first:</p>
+<ul>
+  <li>A <strong>pointer</strong> is a data type whose value is a <strong>memory address</strong>.</li>
+  <li>A pointer <strong>references</strong> or <strong>points to</strong> a value of a given data type.</li>
+  <li><strong>Dereferencing</strong> a pointer returns the value it points to.</li>
+  <li>… or put another way, <strong>following the pointer</strong> leads to the value.</li>
+</ul>
+
+<p>Like all types, you must declare a pointer as a variable, and note what type of data it references. For example, <code class="language-plaintext highlighter-rouge">int *</code> are pointers to <code class="language-plaintext highlighter-rouge">int</code>s and <code class="language-plaintext highlighter-rouge">char *</code> are pointers to <code class="language-plaintext highlighter-rouge">char</code>s. Here are some basic operations associated with pointers.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">int * p</code> : pointer declaration</li>
+  <li><code class="language-plaintext highlighter-rouge">*p</code> : pointer dereference, follow the pointer to the <strong>value</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">&amp;a</code> : Address of the variable <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">p = &amp;a</code> : pointer assignment, p now references a</li>
+  <li><code class="language-plaintext highlighter-rouge">*p = 20</code> : assignment via a dereference, follow the pointer and assign a the value.</li>
+</ul>
+
+<p>Individually, each of these operations can be difficult to understand. Following a <strong>stack diagram</strong> (or <strong>memory diagram</strong>), where variables and values are modeled. For the purposes of this class, we will draw stack diagrams like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+----------+-------+
+| variable | value |
++----------+-------+
+</code></pre></div></div>
+
+<p>If we have a pointer variable, then we’ll do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+----------+-------+
+| pointer  |  .-------&gt;
++----------+-------+
+</code></pre></div></div>
+
+<p>This will indicate that the value of the pointer is a memory address that references some other memory.</p>
+
+<p>To codify this concept further, let’s follow a running example of the following program:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span>  <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> 
+<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Let us walk through it step by step <a href="https://pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20%0A%20%20int%20a%20%3D%2010,%20b%3B%0A%20%20int%20*p%20%3D%20%20%26a%3B%0A%20%20a%20%3D%2020%3B%20%0A%20%20b%20%3D%20*p%3B%20%0A%20%20*p%20%3D%2030%3B%0A%20%20p%20%3D%20%26b%3B%0A%0A%7D%0A%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=c&amp;rawInputLstJSON=%5B%5D">using the C Visualizer</a>.</p>
+
+<p><a id="orgd548539"></a></p>
+      <h2 id="pointers-to-structures">
+        
+        
+          Pointers to structures <a href="#pointers-to-structures">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just like for other types, we can create pointers to structured memory. Consider for example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span><span class="p">{</span>
+  <span class="kt">int</span> <span class="n">left</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">pair_t</span><span class="p">;</span>
+
+<span class="n">pair_t</span> <span class="n">pair</span><span class="p">;</span>
+<span class="n">pair</span><span class="p">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">pair</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">pair_t</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">pair</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>This should be familiar to you as we can treat <code class="language-plaintext highlighter-rouge">pair_t</code> just like other data types, except we know that it is actually composed of two integers. However, now that <code class="language-plaintext highlighter-rouge">p</code> references a <code class="language-plaintext highlighter-rouge">pair_t</code> how do we deference it such that we get the member data? Here is one way.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">printf</span><span class="p">(</span><span class="s">"pair: (%d,%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">).</span><span class="n">left</span><span class="p">,</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">).</span><span class="n">right</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Looking closely, you see we first use the <code class="language-plaintext highlighter-rouge">*</code> operator to deference the pointer, and then the <code class="language-plaintext highlighter-rouge">.</code> operator to refer to a member of the structure. That is a lot of work because we will frequently need to access members of structures via a pointer reference. So there is a shortcut! The arrow or <code class="language-plaintext highlighter-rouge">-&gt;</code>, which dereferences and then does member reference for pointers to structures. Here is how that looks:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"pair: (%d,%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">//prints (1,2) </span>
+
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span>  <span class="o">=</span> <span class="mi">1845</span><span class="p">;</span> <span class="c1">//also use for left-hand of assignment</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"pair: (%d,%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">//prints (2017,1845)</span>
+</code></pre></div></div>
+
+<p>See how this code behaves using the <a href="https://pythontutor.com/c.html#code=typedef%20struct%20pair%20%7B%0A%20%20int%20left%3B%0A%20%20int%20right%3B%0A%7D%20pair_t%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20%0A%20%20pair_t%20pair%3B%0A%20%20pair.left%20%3D%201%3B%0A%20%20pair.right%20%3D%202%3B%0A%0A%20%20pair_t%20*%20p%20%3D%20%26pair%3B%0A%20%20%0A%20%20printf%28%22pair%3A%20%28%25d,%25d%29%5Cn%22,%20%28*p%29.left,%20%28*p%29.right%29%3B%0A%20%20printf%28%22pair%3A%20%28%25d,%25d%29%5Cn%22,%20p-%3Eleft,%20p-%3Eright%29%3B%20//prints%20%281,2%29%20%0A%0A%20%20p-%3Eleft%20%20%3D%201845%3B%20//also%20use%20for%20left-hand%20of%20assignment%0A%20%20p-%3Eright%20%3D%202017%3B%0A%0A%20%20printf%28%22pair%3A%20%28%25d,%25d%29%5Cn%22,%20p-%3Eleft,%20p-%3Eright%29%3B%20//prints%20%282017,1845%29%0A%7D%0A%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D">C Visualizer</a>.</p>
+
+<p><a id="org535a9c8"></a></p>
+      <h2 id="array-types">
+        
+        
+          Array Types <a href="#array-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>The last type are array types which provides a way for the program to declare an arbitrary amount of the same type in continuous memory. Here is a simple example with an array of integers:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">//declare an array of 10 integers</span>
+
+<span class="c1">//assign to the array</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span> <span class="c1">//index times 2</span>
+ <span class="p">}</span>
+
+<span class="c1">//reference the array</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> 
+ <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>running this program we get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ ./array-example
+    0:0
+    1:2
+    2:4
+    3:6
+    4:8
+    5:10
+    6:12
+    7:14
+    8:16
+    9:18
+</code></pre></div></div>
+
+<p>We declare an array using the <code class="language-plaintext highlighter-rouge">[ ]</code> following the variable name. Unlike in Java, we don’t need to use a <code class="language-plaintext highlighter-rouge">new</code> operator to actually create the array. Instead the array is allocated automatically when declared within a function.</p>
+
+<p>We use the term <strong>index</strong> to refer to an element of an array. Above, the array <code class="language-plaintext highlighter-rouge">array</code> is of size 10, which means that we can use indexes 0 through 9 (computer scientist start counting at 0). To index the array, for both retrieval and assignment, we use the <code class="language-plaintext highlighter-rouge">[ ]</code> operators as well.</p>
+      <h3 id="managing-array-length-and-out-of-bounds">
+        
+        
+          Managing array length and out of bounds <a href="#managing-array-length-and-out-of-bounds">#</a>
+        
+        
+      </h3>
+    
+
+<p>Unlike in Java, C doesn’t have a mechanism for combining the length of an array with the array itself. That’s because arrays are not objects, but simply a type. This means you could index outside the bands of the array.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+  
+  <span class="c1">//statically declare array values with { }</span>
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"array[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"-----</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"array[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If we run this program, it prints things out without error, even negative indexes! But what are these values?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./arrayoutofbounds 
+array[0] = 0
+array[1] = 1
+array[2] = 2
+array[3] = 3
+array[4] = 4
+array[5] = 5
+array[6] = 6
+array[7] = 7
+array[8] = 8
+array[9] = 9
+array[10] = 1196032059
+array[11] = 1723250372
+array[12] = -345625960
+array[13] = 32766
+array[14] = 1846066377
+-----
+array[0] = 0
+array[-1] = 0
+array[-2] = 30
+array[-3] = 15
+array[-4] = -4
+array[-5] = 32766
+array[-6] = -345625968
+array[-7] = 32766
+array[-8] = -345625944
+array[-9] = 1
+array[-10] = 73010927
+array[-11] = 32766
+array[-12] = -345625984
+array[-13] = 1723250372
+array[-14] = 1196032059
+</code></pre></div></div>
+
+<p>This is arbitrary memory values in your program that exist out of the bounds of the array. It’s very easy to accidentally go out of the bounds of an array and cause an error in your program, even if the program doesn’t report any errors. This is called a memory violation, as you are accessing memory you shouldn’t.</p>
+
+<p>In general, then, it’s up to you track the size of the array, and pass that size to other functions that need that array so that you know how big it is.</p>
+
+<p>Note that the <a href="https://pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20b%20%3D%2030%3B%0A%20%20%0A%20%20//statically%20declare%20array%20values%20with%20%7B%20%7D%0A%20%20int%20array%5B10%5D%20%3D%20%7B0,%201,%202,%203,%204,%205,%206,%207,%208,%209%7D%3B%0A%0A%20%20for%28int%20i%20%3D%200%3B%20i%20%3C%2015%3B%20i%2B%2B%29%20%7B%0A%20%20%20%20printf%28%22array%5B%25d%5D%20%3D%20%25d%5Cn%22,%20i,%20array%5Bi%5D%29%3B%0A%20%20%7D%0A%0A%20%20printf%28%22-----%5Cn%22%29%3B%0A%0A%20%20for%28int%20i%20%3D%200%3B%20i%20%3E%20-15%3B%20i--%29%20%7B%0A%20%20%20%20printf%28%22array%5B%25d%5D%20%3D%20%25d%5Cn%22,%20i,%20array%5Bi%5D%29%3B%0A%20%20%7D%0A%20%20%20%20%0A%7D%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D">C Visualizer</a> will complain if you try to do this sort of thing.</p>
+      <h3 id="sizeof-on-arrays">
+        
+        
+          <code class="language-plaintext highlighter-rouge">sizeof</code> on arrays <a href="#sizeof-on-arrays">#</a>
+        
+        
+      </h3>
+    
+
+<p>You may be tempted to use the <code class="language-plaintext highlighter-rouge">sizeof</code> function to solve the issue of array sizing, but it doesn’t quite do what you expect. Recall that the sizeof function will return: <em>how many bytes does it take to store that array?</em></p>
+
+<p>In the examples above <code class="language-plaintext highlighter-rouge">array</code> is array of 10 integers, each of 4-bytes in size, so it takes 40 bytes to store the <code class="language-plaintext highlighter-rouge">array</code>. But it only has 10 indexable integers.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">sizeof</code> is useful for understanding the memory storage needs of arrays, but it is not a good choice for managing interaction of the array. There are many situations where it will cause nuanced errors in your program, and it is also considered poor programming practice.</p>
+      <h2 id="pointers-to-arrays">
+        
+        
+          Pointers to Arrays <a href="#pointers-to-arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now, it is time to blow your mind. It turns out that in C arrays and pointers can function in the same way. Seriously. They are not really the same, but you can think of them as the same, and should for many contexts.</p>
+
+<p>Let me demonstrate. First consider, what is the value of <code class="language-plaintext highlighter-rouge">array</code>? It’s a variable, so it should have a value, right? Let’s try and print it out.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"array: %lu (as unsigned number)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span> <span class="n">array</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"array: %p  (as hexadecimal number)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">array</span><span class="p">);</span>
+  
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Running this, we get</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./arrayvalue 
+array: 140732826151536 (as unsigned number)
+array: 0x7ffeea1c6a70  (as hexadecimal number)
+</code></pre></div></div>
+
+<p>Those are <em>none</em> of the integers are assigned into the array. In fact, it’s a pointer to those integers. And if it’s a pointer, then I can store it as a value in a pointer type, like in the below program.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*pointer-array.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">//p points to array</span>
+
+  <span class="c1">//assign to the array  </span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span> <span class="c1">//index times 2</span>
+  <span class="p">}</span>
+
+  <span class="c1">//derefernce p and assign 2017</span>
+  <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span>
+
+  <span class="c1">//print the array</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> 
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./pointer-array 
+0:2017
+1:2
+2:4
+3:6
+4:8
+5:10
+6:12
+7:14
+8:16
+9:18
+</code></pre></div></div>
+
+<p>Notice that at index 0 the value is now 2017. Also notice that when you assigned the pointer value, we did not take the address of the array. That means p is really referencing the address of the first item in the array and for that matter, so is <code class="language-plaintext highlighter-rouge">array</code>!</p>
+
+<p>It gets crazier because we can also use the <code class="language-plaintext highlighter-rouge">[ ]</code> operators with pointers. Consider this small change to the program:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span> <span class="c1">//p points to array</span>
+
+  <span class="c1">//assign to the array  </span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span> <span class="c1">//index times 2</span>
+  <span class="p">}</span>
+
+  <span class="c1">//index p at 5  and assign 2017</span>
+  <span class="n">p</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">;</span>   <span class="c1">//&lt;---------------!!</span>
+
+  <span class="c1">//print the array</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> 
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./pointer-array-index 
+0:0
+1:2
+2:4
+3:6
+4:8
+5:2017 //&lt;---------!!!
+6:12
+7:14
+8:16
+9:18
+</code></pre></div></div>
+
+<p>In this case we indexed the pointer at 5 and assigned to it the value 2017, which resulted in that value appearing in the output.</p>
+
+<p><em>What is the implication of this?</em></p>
+
+<p>We know that <code class="language-plaintext highlighter-rouge">p</code> is a pointer and we know to assign to the value referenced by a pointer it requires a dereference, so the <code class="language-plaintext highlighter-rouge">[ ]</code> must be a dereference operation. And it is. In fact we can translate the <code class="language-plaintext highlighter-rouge">[ ]</code> operation like so:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p[5] = *(p+5)
+</code></pre></div></div>
+
+<p>What the <code class="language-plaintext highlighter-rouge">[ ]</code> operation does is increments the pointer by the index and then dereference. As a stack diagram, we can visualize this like so:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    .--------------.
+    |       |    0 |&lt;--&lt;-. array
+    |-------+------|     |
+    |       |    2 |     |
+    |-------+------|     |
+    |       |    4 |     |
+    |-------+------|     |
+    |       |    6 |     |
+    |-------+------|     |
+    |       |    8 |     |
+    |-------+------|     |
+    |       | 2017 |&lt;----+----- p+5, array+5
+    |-------+------|     |
+    |       |   12 |     |
+    |-------+------|     |
+    |       |   14 |     |
+    |-------+------|     |
+    |       |   16 |     |
+    |-------+------|     |
+    |       |   18 |     |
+    |-------+------|     |
+    | p     |   .--+-----'
+    '-------+------'
+</code></pre></div></div>
+
+<p>This is called <strong>pointer arithmetic</strong>, which is a bit complicated, but we’ll return to it later when discussing strings. The important take away is that there is a close relationship between pointers and arrays. And now you also know why arrays are indexed starting at 0 — it is because of pointer arithmetic. The first item in the array is the same as just dereferencing the pointer to the array, thus occurring at index 0.</p>
+
+<p>Before I described that relationship as the same, but they are not exactly the same. Where they differ is that pointers can be reassigned like any variable, but arrays cannot. They are constants references to the start of the array. For example, this is not allowed:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// ok</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// not ok!</span>
+
+</code></pre></div></div>
+
+<p>Array pointers are constant, we cannot reassign to them. Later, it will become obvious why; if we could reassign the array pointer, then how would reclaim that memory? The answer is you could not. It would be lost…but we haven’t talked about reclaiming memory yet.</p>
+      <h2 id="arrays-of-structures">
+        
+        
+          Arrays of Structures <a href="#arrays-of-structures">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just like with other types, you can have arrays of structures, which are simply memory aligned structures. For example, we can make a stack/memory diagram of the following program</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">floatint</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">floatint</span> <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+  <span class="c1">//use . operator as </span>
+  <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">f</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">;</span>
+  <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  
+  <span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">f</span> <span class="o">=</span> <span class="mi">6</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span>
+  <span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+  <span class="k">struct</span> <span class="n">floatint</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">//p references last floatint in array</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">f</span> <span class="o">=</span> <span class="mi">2</span><span class="p">.</span><span class="mi">7</span><span class="p">;</span> <span class="c1">//use -&gt; operator to derefence</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+  
+<span class="p">}</span>
+</code></pre></div></div>
+<p>When accessing the structures in the array directly, we can use the <code class="language-plaintext highlighter-rouge">.</code> operator as the <code class="language-plaintext highlighter-rouge">[]</code> dereferences (implicitly) that struct. However with <code class="language-plaintext highlighter-rouge">p</code>, since it points to a struct in the array, we can use the <code class="language-plaintext highlighter-rouge">-&gt;</code>. We can view the memory diagram of this program</p>
+
+<p>Let’s check this code out in the <a href="https://pythontutor.com/c.html#code=struct%20floatint%20%7B%0A%20%20float%20f%3B%0A%20%20int%20i%3B%0A%7D%3B%0A%0Aint%20main%28%29%20%7B%0A%20%20struct%20floatint%20array%5B3%5D%3B%0A%0A%20%20//use%20.%20operator%20as%20%0A%20%20array%5B0%5D.f%20%3D%203.14%3B%0A%20%20array%5B0%5D.i%20%3D%2010%3B%0A%20%20%0A%20%20array%5B1%5D.f%20%3D%206.8%3B%0A%20%20array%5B1%5D.i%20%3D%205%3B%0A%0A%20%20struct%20floatint%20*%20p%3B%0A%20%20p%20%3D%20%26array%5B2%5D%3B%20//p%20references%20last%20floatint%20in%20array%0A%20%20p-%3Ef%20%3D%202.7%3B%20//use%20-%3E%20operator%20to%20derefence%0A%20%20p-%3Ei%20%3D%2011%3B%0A%20%20%0A%7D%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D">C Visualizer</a>.</p>
+      <h2 id="passing-arrays-to-functions">
+        
+        
+          Passing Arrays to Functions <a href="#passing-arrays-to-functions">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s consider a simple example of a function that sums the number in an array list returning the result. The main function could look like the following:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kt">int</span> <span class="n">nums</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+ 
+ <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//just some math</span>
+ <span class="p">}</span>
+
+ <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>But the function call to <code class="language-plaintext highlighter-rouge">sum(nums)</code> could be problematic. What is actually being passed as the argument to the function <code class="language-plaintext highlighter-rouge">sum</code>? <code class="language-plaintext highlighter-rouge">nums</code> is a pointer to the start of the array, not the array itself, so <code class="language-plaintext highlighter-rouge">sum</code> doesn’t know anything about the length of the array. So we need to ALSO pass the length of the array to <code class="language-plaintext highlighter-rouge">sum</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="kt">int</span> <span class="n">nums</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+ 
+ <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">//just some math</span>
+ <span class="p">}</span>
+
+ <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">//&lt;--- now passing the length </span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>This gives us the following function</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+     <span class="n">s</span> <span class="o">+=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Check out how it runs using the <a href="https://pythontutor.com/c.html#code=int%20sum%28int%20*%20array,%20int%20len%29%20%7B%0A%20%20int%20s%20%3D%200%3B%0A%20%20for%28int%20i%20%3D%200%20%3B%20i%20%3C%20len%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20s%20%2B%3D%20array%5Bi%5D%3B%0A%20%20%7D%0A%20%20return%20s%3B%0A%7D%0A%0Aint%20main%28%29%20%7B%0A%20%20int%20nums%5B10%5D%3B%0A%20%0A%20%20for%28int%20i%20%3D%200%3B%20i%20%3C%2010%3B%20i%2B%2B%29%7B%0A%20%20%20%20nums%5Bi%5D%20%3D%20%28i%20%2B%207%29%20*%202%20/%203%3B%20//just%20some%20math%0A%20%20%7D%0A%0A%20%20int%20s%20%3D%20sum%28nums,%2010%29%3B%20//%3C---%20now%20passing%20the%20length%20%0A%7D%0A%0A%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;py=c_gcc9.3.0&amp;rawInputLstJSON=%5B%5D">C Visualizer</a>.</p>
+
+<p>Note that we call <code class="language-plaintext highlighter-rouge">array</code> in <code class="language-plaintext highlighter-rouge">sum</code> an <code class="language-plaintext highlighter-rouge">int *</code>, rather than an <code class="language-plaintext highlighter-rouge">int[]</code>. That’s because <code class="language-plaintext highlighter-rouge">array</code> is a pointer to the start of the array <code class="language-plaintext highlighter-rouge">nums</code>, and as we saw before, we can use that pointer as if it is an array. We can see this in the following memory diagram</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             .-------------------------.
+             |                         |
+ .-------.   |           .----------.  |
+ |   | 0 | &lt;-'- nums     | array| .-+--'
+ |---+---|               |------+---|
+ |   | 5 |               |   len| 10|
+ |---+---|               |------+---|
+ :   :   :               |    s |   |
+ |---+---|               '----------'
+ | s |   |               sum memory diagram
+ '-------'
+ main memory diagram
+</code></pre></div></div>
+
+<p>But this can sometimes cause issues because <code class="language-plaintext highlighter-rouge">array</code>’s value can be changed. It’s just a pointer type. It’s not a constant</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array = &amp;s; //totally fine
+</code></pre></div></div>
+
+<p>To avoid this, you can instead declare it as an array, like below</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>When you do that, <code class="language-plaintext highlighter-rouge">array</code> is now an array type and thus it can not be assigned to. Another way to accomplish the same is to use <code class="language-plaintext highlighter-rouge">const</code> declaration</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>When you read man pages and documentation, and you see <code class="language-plaintext highlighter-rouge">const</code>, this may mean that it’s expecting an array to be passed.</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

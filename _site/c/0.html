@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>C Basics | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="C Basics" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/c/0" />
+<meta property="og:url" content="http://localhost:4000/c/0" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C Basics" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"C Basics","url":"http://localhost:4000/c/0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#c-basics-and-io">C Basics and I/O</a><ul><li><a href="#c-programming-and-unix">C Programming and Unix</a></li><li><a href="#c-programming-preliminaries">C Programming Preliminaries</a></li><li><a href="#hello-world">Hello World</a></li><li><a href="#compiling-a-c-program">Compiling a C program</a></li><li><a href="#no-jvm">No JVM</a></li><li><a href="#includes">Includes</a></li><li><a href="#where-is-the-c-documentation-the-c-standard-and-the-man-pages">Where is the C documentation? The C “standard” and the <code class="language-plaintext highlighter-rouge">man</code> pages!</a></li><li><a href="#control-flow">Control Flow</a></li><li><a href="#what-is-true-and-false-in-c">What is true and false in C</a><ul><li><a href="#quick-aside-about-null-its-just-0-of-a-different-type">Quick aside about <code class="language-plaintext highlighter-rouge">NULL</code> it’s just 0 of a different type</a></li><li><a href="#adding-bools-to-c-use">Adding bools to C use</a></li></ul></li></ul></li><li><a href="#functions-and-header-files">Functions and Header files</a><ul><li><a href="#function-deceleration-and-definition">Function Deceleration and Definition</a></li><li><a href="#headers-and-source-files">Headers and Source Files</a></li><li><a href="#multistep-compilations">Multistep compilations</a></li></ul></li><li><a href="#format-input-and-output">Format Input and Output</a><ul><li><a href="#printf-and-scanf"><code class="language-plaintext highlighter-rouge">printf()</code> and <code class="language-plaintext highlighter-rouge">scanf()</code></a></li><li><a href="#the-file--and-opening-files">The <code class="language-plaintext highlighter-rouge">FILE *</code> and opening files</a></li><li><a href="#file-modes">File Modes</a></li><li><a href="#format-output-with-fprintf">Format Output with <code class="language-plaintext highlighter-rouge">fprintf()</code></a></li><li><a href="#format-input-with-fscanf">Format Input with <code class="language-plaintext highlighter-rouge">fscanf()</code></a></li><li><a href="#the-standard-file-streams">The standard file streams</a></li><li><a href="#error-checking-in-c-errno-and-strerror">Error Checking in C: <code class="language-plaintext highlighter-rouge">errno</code> and <code class="language-plaintext highlighter-rouge">strerror()</code></a></li><li><a href="#stderr-and-perror"><code class="language-plaintext highlighter-rouge">stderr</code> and <code class="language-plaintext highlighter-rouge">perror</code></a></li><li><a href="#final-note-on-error-checking">Final note on error checking!</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://www.youtube.com/playlist?list=PLnVRBITSZMSOoHlGwzgsPAbuSj41qmz_c">single playlist on youtube</a></em></p>
+      <h1 id="c-basics-and-io">
+        
+        
+          C Basics and I/O <a href="#c-basics-and-io">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="c-programming-and-unix">
+        
+        
+          C Programming and Unix <a href="#c-programming-and-unix">#</a>
+        
+        
+      </h2>
+    
+
+<p>C is an incredibly important programming language, particularly for systems level programming that’s because C is a low level language, much closer to the hardware and Operating System then say Java, which we’ll discuss in more detail later in the semester. In fact, almost all modern operating systems are written in C including Unix, Linux, Mac OSX, and even Windows.</p>
+
+<p>The C programming language, itself, was developed for the purpose of writing the original Unix operating system (the precursor to Linux and OSX). It shouldn’t be that surprising then, that if you want to learn how to write programs that interact with the Unix system directly, then those programs must be written in C. And, in so doing, the act of learning to program in C will illuminate key parts of the Unix system.</p>
+
+<p>In many ways, you can view C as the lingua franca of programming; it’s the language that every competent programmer should be able to program, even a little bit in. The syntax and programming constructs of C are present in all modern programming languages, and the concepts behind managing memory, data structures, and the like, underpin modern programming. Humorously, while nearly all programmers know how to program in C, most try to avoid doing so because the same power that C provides as a “low level” language is what makes it finicky and difficult to deal with.</p>
+
+<p>But it’s really, really, really important for <strong>you</strong> to know C because the programming concepts are so fundamental to how you’ll think about programming going forward, and if you desire to be a professional software developer or engineer —- you’ve got to know C! More so, you’ll need it in your later classes ;-)</p>
+
+<p><a id="org2ea46af"></a></p>
+      <h2 id="c-programming-preliminaries">
+        
+        
+          C Programming Preliminaries <a href="#c-programming-preliminaries">#</a>
+        
+        
+      </h2>
+    
+
+<p>First: <strong>YOU kinda ALREADY KNOW C!</strong> That’s because you’ve been programming in Java and the Java syntax and C syntax are super similar. That’s because Java “stole” C style syntax. But Java is a more advanced program language (in more than just the object oriented sense), so there are more than a few things that Java does that C does not; however many are the same. For example:</p>
+
+<ul>
+  <li>Conditionals: Use <code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">else</code> with the same syntax</li>
+  <li>Loops: Use <code class="language-plaintext highlighter-rouge">while</code> and <code class="language-plaintext highlighter-rouge">for</code> loops with the same syntax</li>
+  <li>Basic Types: Use <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">float</code>, <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">char</code></li>
+  <li>Variable Declaration: You declare what each variable is</li>
+  <li>Functions/Methods: You describe a functions input/output</li>
+  <li>Logical operators: <code class="language-plaintext highlighter-rouge">==</code> <code class="language-plaintext highlighter-rouge">&lt;=</code> <code class="language-plaintext highlighter-rouge">&gt;=</code> <code class="language-plaintext highlighter-rouge">&lt;</code> <code class="language-plaintext highlighter-rouge">&gt;</code> <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> <code class="language-plaintext highlighter-rouge">||</code> and <code class="language-plaintext highlighter-rouge">!</code> all work the same way</li>
+</ul>
+
+<p>The big differences between C and Java:</p>
+
+<ul>
+  <li>
+    <p>No objects or advanced types: C does not have advanced types built in, this includes <code class="language-plaintext highlighter-rouge">string</code>. Instead, strings are null terminated arrays of <code class="language-plaintext highlighter-rouge">char</code>s. But you can create more advanced data types like structs, but they also have slightly different properties.</p>
+  </li>
+  <li>
+    <p>No function overloading: Even functions with different type declarations, that is, take different types of input and return different types, cannot share the same name. Only the last declaration will be used.</p>
+  </li>
+  <li>
+    <p>All functions are pass-by-value: In Java, items are also passed by value, that is the value of the reference to an object, but some interpret this as a pass-by-reference system. That means in Java, when you pass an object to a method, that method can directly manipulate that object. In C, instead, when you pass a variable to a function, it <em>always</em> passes by value. You can have a notion of pass-by-reference by using pointers, but it’s subtly different than how it works in Java.</p>
+  </li>
+  <li>
+    <p>Compiles to assembly: Compiled C code produces a binary, raw assembly code that the computer can run. In Java, you compile down to byte-code that the Java Virtual Machine (JVM) runs. The byte code runs on the JVM, which interprets into into raw assembly code, that then runs on the computer.</p>
+  </li>
+  <li>
+    <p>No builtin boolean types: just use integer values of 0 for false, and everything is true.</p>
+  </li>
+</ul>
+
+<p>While clearly, the two programming languages, Java and C, are different, they are actually have a lot of similarities. But, as you’ll see later, when we transition to Java, the object oriented model is a true advancement on C. I hope, though, you’ll see the bones of C within the Java object model.</p>
+
+<p><a id="org4bdc5e8"></a></p>
+      <h2 id="hello-world">
+        
+        
+          Hello World <a href="#hello-world">#</a>
+        
+        
+      </h2>
+    
+
+<p>When learning any programming language, you always start with the “Hello World” program. The way in which your program “speaks” says a lot about the syntax and structure of programming in that language. Below is the “Hello World” program for Java and C, for comparison.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*HelloWorld.java*/</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+
+  </div>
+  <div class="side-by-side-b">
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*helloworld.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="c1">// Hello World in C</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>While in Java (since everything is an Object), the <code class="language-plaintext highlighter-rouge">main</code> function is wrapped within the <code class="language-plaintext highlighter-rouge">HelloWorld</code> class. But focusing on the <code class="language-plaintext highlighter-rouge">main</code> functions function declarations, they both take in a list of arguments. The C <code class="language-plaintext highlighter-rouge">main</code> function, though, returns an integer. This is the exit value of the program. On success, a C program returns 0. On error, it returns anything other than 0.</p>
+
+<p>Additionally, in C you have a compiler directive <code class="language-plaintext highlighter-rouge">#include</code> which functions much like the <code class="language-plaintext highlighter-rouge">import</code> statement in Java. In the Java program, we get access to <code class="language-plaintext highlighter-rouge">System</code> and its member stream <code class="language-plaintext highlighter-rouge">out</code> implicitly (although, we could <code class="language-plaintext highlighter-rouge">import java.util.System</code> explicitly). In this case the <code class="language-plaintext highlighter-rouge">#include &lt;stdio.h&gt;</code> tells the compiler to include the Standard Input and Output library, which provides the programmer access to the <code class="language-plaintext highlighter-rouge">printf</code> function for printing “Hello World”. The <code class="language-plaintext highlighter-rouge">.h</code> in <code class="language-plaintext highlighter-rouge">stdio.h</code> refers to a <strong>h</strong>eader file, which functions like a <code class="language-plaintext highlighter-rouge">package</code> in Java to group function and data declarations together for ease of use.</p>
+
+<p><a id="org1dc7924"></a></p>
+      <h2 id="compiling-a-c-program">
+        
+        
+          Compiling a C program <a href="#compiling-a-c-program">#</a>
+        
+        
+      </h2>
+    
+
+<p>The compilation process for C is very similar to that of Java as both are compiled programs. The gold-standard C compiler is <code class="language-plaintext highlighter-rouge">gcc</code>, the <a href="https://www.gnu.org/">gnu</a> C compiler. For example, to compile <code class="language-plaintext highlighter-rouge">helloworld.c</code>, we do the following in our shell.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; gcc helloworld.c
+</code></pre></div></div>
+
+<p>Which will produce an executable, binary file called <code class="language-plaintext highlighter-rouge">a.out</code> (by tradition), which we can run by including a <code class="language-plaintext highlighter-rouge">./</code> in front.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; ./a.out
+Hello World
+</code></pre></div></div>
+
+<font color="gray">Aside ... The reason you need to include `./` is to tell the shell not to look up the program named `a.out` on the path, but rather run the one here in this directory. The path is where the shell looks for programs to run, like `ls` or `cat`---which are also written in c---and are typically stored in `/bin` directory. You can type `which cat` or `which ls` to see where they exist on the path, if your interested. You can also `echo $PATH` in your terminal to see where binary files are looked up.</font>
+<p><br /></p>
+
+<p>Having a program named <code class="language-plaintext highlighter-rouge">a.out</code> is not very specific, so instead, you can specify an output file using the <code class="language-plaintext highlighter-rouge">-o</code> option.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; gcc helloworld.c -o helloworld
+#&gt; ./helloworld
+Hello World
+</code></pre></div></div>
+
+<p>There are more advanced compilation techniques that we will cover later, such as including multiple files, compiling to object files, and using pre-compiler directives.</p>
+
+<font color="gray">Note that on repl.it and other engines, the `clang` compiler is used. This operates just like `gcc` and on some systems is even symlinked to `clang` (that means they are the same thing!). While I'll use `gcc` in the demos, when you run your code on repl.it, it will actually run `clang`.</font>
+<p><br /><br /></p>
+      <h2 id="no-jvm">
+        
+        
+          No JVM <a href="#no-jvm">#</a>
+        
+        
+      </h2>
+    
+
+<p>Note that unlike Java, we can run the compiled program directly. That is, you don’t have to do something like</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; javac HelloWorld.java
+#&gt; java HelloWorld
+</code></pre></div></div>
+
+<p>That’s because there is no JVM. The output of the compiler is a binary, executable program that runs directly on the CPU without an intermediary. This means that C runs much, much faster than Java.</p>
+
+<p>This also means that for every new computer with a different architecture, you have to recompile your code. In Java, you can compile your file to a class, in bytecode, and ship that out. Any JVM can run it. <font color="red">This is why your C code must compile and run on the class cluster to receive credit.</font><br /></p>
+
+<p>But the JVM itself, is written in C, so it needs to be compiled for each computer—only once! And that’s the power of JVM. Interpreted languages like Python also use this model.</p>
+
+<p><a id="org39e1a47"></a></p>
+      <h2 id="includes">
+        
+        
+          Includes <a href="#includes">#</a>
+        
+        
+      </h2>
+    
+
+<p>The process of including libraries in your program has a lot of similarities to that of Java imports. Note that all C libraries end in <code class="language-plaintext highlighter-rouge">.h</code>, unlike C++. Here are some common libraries you will may  want to include in your C program:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">stdlib.h</code> : The C standard library, contains many useful utilities, and is generally included in all programs.</li>
+  <li><code class="language-plaintext highlighter-rouge">stdio.h</code> : The standard I/O library, contains utilities for reading and writing from files and file streams, and is generally included in all programs.</li>
+  <li><code class="language-plaintext highlighter-rouge">unistd.h</code> : The Unix standard library, contains utilities for interacting with the unix system, such as system calls</li>
+  <li><code class="language-plaintext highlighter-rouge">sys/types.h</code> : System types library, contains the definitions for the base types and structures of the unix system.</li>
+  <li><code class="language-plaintext highlighter-rouge">string.h</code> : String library, contains utilities for handling C strings.</li>
+  <li><code class="language-plaintext highlighter-rouge">ctype.h</code> : Character library, contains utilities for handing char conversions</li>
+  <li><code class="language-plaintext highlighter-rouge">math.h</code> : Math library, contains basic math utility functions.</li>
+  <li><code class="language-plaintext highlighter-rouge">stdbool.h</code> : provides boolean constants of <code class="language-plaintext highlighter-rouge">true</code> and <code class="language-plaintext highlighter-rouge">false</code></li>
+</ul>
+
+<p>When you put a <code class="language-plaintext highlighter-rouge">#include &lt;header.h&gt;</code> in your program, the compiler will search for that header in its header search path. The most common location is in <code class="language-plaintext highlighter-rouge">/usr/include</code>. However, if you place your header file in quotes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "header.h"
+</code></pre></div></div>
+
+<p>The compiler will look in the local directory for the file and not the search path. This will become important when you  develop larger, multi-file programs.</p>
+      <h2 id="where-is-the-c-documentation-the-c-standard-and-the-man-pages">
+        
+        
+          Where is the C documentation? The C “standard” and the <code class="language-plaintext highlighter-rouge">man</code> pages! <a href="#where-is-the-c-documentation-the-c-standard-and-the-man-pages">#</a>
+        
+        
+      </h2>
+    
+
+<p>From working with Java, you are probably familiar with the Oracle Java SE documentation (that’s the “Standard Edition”). For example, the latest version of the Java docs can be found here.</p>
+
+<p>https://docs.oracle.com/en/java/javase/15/docs/api/index.html</p>
+
+<p>While there are many places where the functionality of C is written down, unlike Java, it’s not “owned” by a single corporation so there are no unified documentation as it may be system or compiler dependent. There are instead standards for how a C program should be behave, so called defined behavior.</p>
+
+<p>The C standards are defined by the year in which they were defined. For example, the latest standard is C18 (codified in 2018). The biggest advance in C is the C99 standard (codified in 1999) and is the primary version we will use in this class. (Prior to C99 the standard was called ANSI C, which you may of heard of.)</p>
+
+<p>The document for C and its standard libraries are encoded into unix systems through the manual pages (or “man pages”). In particular, they are in section 3 of the man pages. On any unix system, when the man pages are installed, you can type <code class="language-plaintext highlighter-rouge">man</code> followed by the function in question, like</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man 3 fopen
+</code></pre></div></div>
+
+<p>And it will open a manual for you to read  (type <code class="language-plaintext highlighter-rouge">q</code> to quit). All the man page s are also available online for free (of course!). The website at die.net. I’d keep that page open and handy for all your needs.</p>
+
+<p><a id="org1f38971"></a></p>
+      <h2 id="control-flow">
+        
+        
+          Control Flow <a href="#control-flow">#</a>
+        
+        
+      </h2>
+    
+
+<p>The same control flow you find in Java is present in C. This includes if/else statements.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span> <span class="n">condition1</span> <span class="p">){</span>
+  <span class="c1">//do something if condition1 is true</span>
+<span class="p">}</span><span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">condition2</span><span class="p">){</span>
+  <span class="c1">//do something if condition1 is false and condition2 is true</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+  <span class="c1">//do this if both condition1 and condition2 are false</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>While loops:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="p">(</span> <span class="n">condition</span> <span class="p">){</span>
+  <span class="c1">//run this until the condition is not true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And, for loops:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//run init at the start</span>
+<span class="k">for</span> <span class="p">(</span> <span class="n">init</span><span class="p">;</span> <span class="n">condition</span><span class="p">;</span> <span class="n">iteration</span><span class="p">){</span>
+  <span class="c1">//run until condition is false preforming iteration on each loop.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>As a final note, C also has case-switch statements, like Java, which is handy when dealing with large if/else blocks. Note that it only works for data types where equality works, that is the <code class="language-plaintext highlighter-rouge">==</code> operator.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+    <span class="k">case</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="c1">//do something if i==0</span>
+        <span class="k">break</span><span class="p">;</span> <span class="c1">//&lt;-- must have a break otherwise next case runs!</span>
+    <span class="k">case</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="c1">//do something if i==1</span>
+        <span class="k">break</span><span class="p">;</span> <span class="c1">//&lt;-- must have a break otherwise next case runs!</span>
+    <span class="k">case</span> <span class="mi">2</span> <span class="p">:</span>
+        <span class="c1">//do something if i==2</span>
+        <span class="k">break</span><span class="p">;</span> <span class="c1">//&lt;-- must have a break otherwise next case runs!</span>
+    <span class="c1">//...</span>
+    <span class="nl">default:</span> <span class="c1">//optional</span>
+        <span class="c1">//do something if nothing else applies</span>
+        <span class="c1">//don't need a break here because you fall out of the case statement</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a id="org66553c9"></a></p>
+      <h2 id="what-is-true-and-false-in-c">
+        
+        
+          What is true and false in C <a href="#what-is-true-and-false-in-c">#</a>
+        
+        
+      </h2>
+    
+
+<p><em>Everything but 0 is true!</em></p>
+
+<p>C does not have a boolean type, that is, a basic type that explicitly defines true and false. Instead, true and false are defined for each type where 0 or <code class="language-plaintext highlighter-rouge">NULL</code> is always false and everything else is true. All basic types can be used as a condition on its own. For example, this is a common form of writing an infinite loop:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+  <span class="c1">//loop forever!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>That means that the output of boolean operations returns an integer value, and you can write code like the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int a = (1 &gt; 0);
+if (a == 1) {
+    print("The comparison was true!\n");
+}else {
+    printf("The comparison was false!\n");
+}
+</code></pre></div></div>
+
+<p>The evaluation of the expression <code class="language-plaintext highlighter-rouge">(1 &gt; 0)</code> returns a 1 as it is true, and thus, we compare can save that output to a variable, <code class="language-plaintext highlighter-rouge">a</code>.</p>
+      <h3 id="quick-aside-about-null-its-just-0-of-a-different-type">
+        
+        
+          Quick aside about <code class="language-plaintext highlighter-rouge">NULL</code> it’s just 0 of a different type <a href="#quick-aside-about-null-its-just-0-of-a-different-type">#</a>
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">NULL</code> is 0 and 0 is <code class="language-plaintext highlighter-rouge">NULL</code> and <code class="language-plaintext highlighter-rouge">NULL</code> is logical false. You can use all of them interchangeable.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"They are the same?!?</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>However, they are sort of, not quite exactly the same. The constant value 0 is of type <code class="language-plaintext highlighter-rouge">int</code> (or sometimes <code class="language-plaintext highlighter-rouge">long</code> or <code class="language-plaintext highlighter-rouge">long long</code> depending on context), while the constant value of NULL is of type <code class="language-plaintext highlighter-rouge">void *</code>. That is, <code class="language-plaintext highlighter-rouge">NULL</code> is used when zero-ing out a pointer value while 0 is used for zeroing out a number value. They are both actually zero, though.</p>
+      <h3 id="adding-bools-to-c-use">
+        
+        
+          Adding bools to C use <a href="#adding-bools-to-c-use">#</a>
+        
+        
+      </h3>
+    
+
+<p>While many C programmers (in which I include myself) prefer to use integer values for true/and false, there are others prefer to use the reserve words of <code class="language-plaintext highlighter-rouge">true</code> and <code class="language-plaintext highlighter-rouge">false</code> to refer to logical true and false. If you’re one of those programmers, there is an easy way to add boolean constants to the language using compiler directives.</p>
+
+<p>Consider the following program:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#define true 1
+#define false 0
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Look it's true!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Look it's *not* false!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">#define</code> tells the compiler to replace the word <code class="language-plaintext highlighter-rouge">true</code> with 1 and <code class="language-plaintext highlighter-rouge">false</code> with 0 anywhere it appears in the code. That means when your program, you get to write <code class="language-plaintext highlighter-rouge">true</code> and <code class="language-plaintext highlighter-rouge">false</code>, but when it compiles, it produces the code.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Look it's true!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="mi">0</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Look it's *not* false!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Rather than have to add the compiler directives to programs throughout, there’s a library header <code class="language-plaintext highlighter-rouge">stdbool.h</code> that you can include to give you a the functionality of bool types.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdbool.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+
+  <span class="n">bool</span> <span class="n">b1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//stores 0</span>
+  <span class="n">bool</span> <span class="n">b2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//stores 1</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b1</span> <span class="o">||</span> <span class="n">b2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b1 OR b2 is true.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b1</span> <span class="o">&amp;&amp;</span> <span class="n">b2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b1 and b2 is true</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b1</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b1 is false</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">b2</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b2 is true</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>But the secret is that <code class="language-plaintext highlighter-rouge">bool</code> is really just an integer value of 1 or 0. Feel free to use <code class="language-plaintext highlighter-rouge">stdbool.h</code> if you want, but I will likely not use it in these notes.</p>
+
+<p>(<em>Quick aside: I wasn’t entirely truthful above … in fact <code class="language-plaintext highlighter-rouge">bool</code> is just a short hand for data type of <code class="language-plaintext highlighter-rouge">_Bool</code> which is a special data type in the c99 standard that can _only_ be 0 or 1 and is stored in a 1-byte wide unsigned integer.</em>)</p>
+
+<p><a id="org32eb72e"></a></p>
+      <h1 id="functions-and-header-files">
+        
+        
+          Functions and Header files <a href="#functions-and-header-files">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="function-deceleration-and-definition">
+        
+        
+          Function Deceleration and Definition <a href="#function-deceleration-and-definition">#</a>
+        
+        
+      </h2>
+    
+<p>Functions in C follow the same basic construction as in Java. They have input parameters of a specified type and return a value of a specified type. For example, we can easily define a function that adds two integers together, returning the result, and then call that function in <code class="language-plaintext highlighter-rouge">main()</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//func1.c</span>
+
+<span class="c1">//defining and declaring add()</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">//calling add()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The above program, say called <code class="language-plaintext highlighter-rouge">func1.c</code> will compile and run without any errors. However, if we swap the order of <code class="language-plaintext highlighter-rouge">main()</code> and <code class="language-plaintext highlighter-rouge">add()</code> in the program <code class="language-plaintext highlighter-rouge">func2.c</code>, we get a compilation error:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//func2.c</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span> <span class="c1">//calling add()</span>
+<span class="p">}</span>
+
+<span class="c1">//defining and declaring add() **after** main!</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>func2.c:5:11: error: implicit declaration of function 'add' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+  int c = add(10, 20);
+          ^
+1 error generated.
+</code></pre></div></div>
+
+<p>This error is saying, that the function <code class="language-plaintext highlighter-rouge">add</code> is invalid because it is not part of the C99 standard. Or to put another way, it has not been defined nor declared yet. The compiler doesn’t know what to do.  BUT — it’s right there in the program?! Yes, it is, but it’s been defined/declared after when it is called. This causes an error.</p>
+
+<p>Instead, we can first <strong>declare</strong> the function by stating its name, input types, and output type before <code class="language-plaintext highlighter-rouge">main()</code>. This doesn’t include its <strong>definition</strong>, the actually code to be run when the function is called. The declaration is a promise that at some point I will define the function, but for now, you can trust me that it will exist at some point in the future.</p>
+
+<p>We can now write a version of this program where we first declare our functions and later define them, this time adding a few more functions.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//func3.c</span>
+
+<span class="c1">//declaring add(), sub(), mult()</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span> 
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">mult</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">mult</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">sub</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)));</span> 
+<span class="p">}</span>
+
+<span class="c1">//definitions</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">mult</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h2 id="headers-and-source-files">
+        
+        
+          Headers and Source Files <a href="#headers-and-source-files">#</a>
+        
+        
+      </h2>
+    
+
+<p>Looking at the example from above, you may have a desire to separate the declarations, definitions and call-sites of the functions in even more. We only have three functions, but what if we had a full library worth of operations? It would be great to be able to explicitly include these functions for calling.</p>
+
+<p>The way to do this in C is via header files. These are C files that contain basic declarations of functions and data types and are indicated with the suffix a <code class="language-plaintext highlighter-rouge">.h</code>. For example, we can create a header file <code class="language-plaintext highlighter-rouge">arithmetic.h</code> from the <code class="language-plaintext highlighter-rouge">add</code>, <code class="language-plaintext highlighter-rouge">sub</code>, and <code class="language-plaintext highlighter-rouge">mult</code> functions from above:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//this says only include the below if __ARITHMETIC_H not previously defined</span>
+<span class="cp">#ifndef __ARITHMETIC_H
+</span>
+<span class="c1">//define now </span>
+<span class="cp">#define __ARITHMETIC_H
+</span>
+<span class="c1">//arithmetic.h</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span> 
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">mult</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="cp">#endif
+</span></code></pre></div></div>
+
+<p>And then we can create a source file with those functions definitions <code class="language-plaintext highlighter-rouge">arithmetic.c</code></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//arithmetic.c</span>
+
+<span class="c1">//then #include says add the header information here</span>
+<span class="cp">#include</span> <span class="cpf">"arithmetic.h"</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">mult</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And finally, we have a main source file <code class="language-plaintext highlighter-rouge">main.c</code> with the <code class="language-plaintext highlighter-rouge">main()</code> function:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//main.c</span>
+
+<span class="cp">#include</span> <span class="cpf">"arithmetic.h"</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">mult</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">sub</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)));</span> 
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>A couple of important new compiler-directive syntax to note</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">#include "arithemtic.h</code> : As before the <code class="language-plaintext highlighter-rouge">#include</code> tells the compiler to take everything from another file and add it to this one. Previously, we used the <code class="language-plaintext highlighter-rouge">#include &lt;file.h&gt;</code> syntax with the <code class="language-plaintext highlighter-rouge">&lt;&gt;</code>. The <code class="language-plaintext highlighter-rouge">&lt;&gt;</code> indicate to look for the file on the <code class="language-plaintext highlighter-rouge">INCLUDEPATH</code>, which is an environment variable that lists a bunch of directories where to find header files. The quotes <code class="language-plaintext highlighter-rouge">""</code> indicate to look in the local directory.</li>
+  <li><code class="language-plaintext highlighter-rouge">#ifndef __ARITHMETIC_H</code> … <code class="language-plaintext highlighter-rouge">#endif</code> : The <code class="language-plaintext highlighter-rouge">#ifndef</code> is a compiler directive that works as an if statement, testing if <code class="language-plaintext highlighter-rouge">__ARITHMETIC_H</code> has previously NOT been defined, and if so, then include everything up to the <code class="language-plaintext highlighter-rouge">#endif</code>. We need this because we cannot declare the same function twice, which is an error in the same way you cannot declare a variable twice. Note that we have two <code class="language-plaintext highlighter-rouge">#include "arithmetic.h"</code> – one in <code class="language-plaintext highlighter-rouge">main.c</code> and one in <code class="language-plaintext highlighter-rouge">arithmetic.c</code> – so the including of the function declarations will only happen once because once we we enter the <code class="language-plaintext highlighter-rouge">#ifndef</code> block, the first thing we do is <code class="language-plaintext highlighter-rouge">#define __ARITHMETIC_H</code>.</li>
+</ul>
+
+<p>Now, we’re ready to compile our program, which we can do by compiling everything all at once, like so:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc arithmetic.c main.c -o main
+</code></pre></div></div>
+
+<p>Note we do not have to include <code class="language-plaintext highlighter-rouge">arithmetic.h</code> because it will be <code class="language-plaintext highlighter-rouge">#includ</code>ed during compilation.</p>
+      <h2 id="multistep-compilations">
+        
+        
+          Multistep compilations <a href="#multistep-compilations">#</a>
+        
+        
+      </h2>
+    
+
+<p>This is all great, but it seems a bit silly that we have to always have to <em>recompile</em> the library <code class="language-plaintext highlighter-rouge">arithmetic.c</code> for every program we want. It would be much more convenient to compile <code class="language-plaintext highlighter-rouge">arithmetic.c</code> separately, to an intermediate state, and then use that to finish compiling other programs. And of course, there is a way to do this, but first let’s take a closer look at compilation.</p>
+
+<p>Compilation, as we’ve been describing it, is actually a two step process. First we <strong>compile</strong> the C code into assembly code, and then second, we <strong>assemble</strong> the assembly code into a binary executable that can run natively on the machine. This process can be done for any file, really.</p>
+
+<p>For example, let’s compile <code class="language-plaintext highlighter-rouge">helloworld.c</code> in multiple steps. First compilation:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc -c helloworld.c -o helloworld.o
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-c</code> says “compile” and the output is an <strong>object file</strong> <code class="language-plaintext highlighter-rouge">helloworld.o</code> that contains the compiled assembly from the C code. You can think of this file very much like a <code class="language-plaintext highlighter-rouge">.class</code> file in Java.</p>
+
+<p>Next, we can assemble the <code class="language-plaintext highlighter-rouge">helloworld.o</code> into an executable</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc helloworld.o -o helloworld
+</code></pre></div></div>
+
+<p>This is done in the same way. In fact, when you call <code class="language-plaintext highlighter-rouge">gcc</code>, it does both steps, but just doesn’t tell you it’s doing it.</p>
+
+<p>Now to put it all together, we can create an object file from <code class="language-plaintext highlighter-rouge">arithmetic.c</code> that we can then use to assemble a bunch of other files.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc -c arithmetic.c -o arithmetic.o
+gcc main.c arithmetic.o -o main
+gcc foo.c arithmetic.o -o foo
+gcc bar.c arithmetic.o -o bar
+</code></pre></div></div>
+
+<p>And so on.</p>
+      <h1 id="format-input-and-output">
+        
+        
+          Format Input and Output <a href="#format-input-and-output">#</a>
+        
+        
+      </h1>
+    
+
+<p><a id="org6d8f473"></a></p>
+      <h2 id="printf-and-scanf">
+        
+        
+          <code class="language-plaintext highlighter-rouge">printf()</code> and <code class="language-plaintext highlighter-rouge">scanf()</code> <a href="#printf-and-scanf">#</a>
+        
+        
+      </h2>
+    
+
+<p>The way output is performed in Java in C also has parallels. In Java you can use a scanner to read from an input stream, and in C you can also do the same.</p>
+
+<p>One big difference is that C has a notion of formatted output. You may have noticed that in Java you can just do something like <code class="language-plaintext highlighter-rouge">System.out.println("the value of i is " + i)</code> and it properly formats <code class="language-plaintext highlighter-rouge">i</code> into the output. You have to do a bit more work in C to get that output. More precisely, you have to format print/scan (i.e., <code class="language-plaintext highlighter-rouge">printf</code>, <code class="language-plaintext highlighter-rouge">scanf</code>) each variable into the output/input. It’s more like scanning in Java, where you have to specify the type of data your expecting.</p>
+
+<p>Consider the two programs below.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*EnterNumber.java*/</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnterNumber</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="kt">int</span> <span class="n">num</span><span class="o">;</span>
+        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter a number:"</span><span class="o">);</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You entered "</span> <span class="o">+</span> <span class="n">num</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+
+  </div>
+  <div class="side-by-side-b">
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*enternumber.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter a number</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span> <span class="c1">//use &amp;num to store </span>
+                     <span class="c1">//at the address of num</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"You entered %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+  </div>
+</div>
+
+<p>The two programs above both ask the user to provide a number, and then print out that number. In Java, we can scan from input from terminal via <code class="language-plaintext highlighter-rouge">System.in</code> and write our output to the terminal via <code class="language-plaintext highlighter-rouge">System.out</code>. In the C parlance, we use the terms <code class="language-plaintext highlighter-rouge">stdin</code> (or <em>standard in</em>) and <code class="language-plaintext highlighter-rouge">stdout</code> (or <em>standard out</em>) to refer to the terminal output stream and input stream, respectively.</p>
+
+<p>To access <code class="language-plaintext highlighter-rouge">stdin</code> and <code class="language-plaintext highlighter-rouge">stdout</code> for reading/writing In C, we use <strong>format printing</strong> and <strong>format scanning</strong> to do the same basic I/O. The format tells C what kind of input or output to expect. In the above program <code class="language-plaintext highlighter-rouge">enternumber.c</code>, the <code class="language-plaintext highlighter-rouge">scanf</code> asks for a <code class="language-plaintext highlighter-rouge">%d</code> from <code class="language-plaintext highlighter-rouge">stdin</code>, which is the special format for a number, and similar, the <code class="language-plaintext highlighter-rouge">printf</code> has a <code class="language-plaintext highlighter-rouge">%d</code> format to indicate that <code class="language-plaintext highlighter-rouge">num</code> should be printed as a number to <code class="language-plaintext highlighter-rouge">stdout</code>.</p>
+
+<p>There are other format options. For example, you can use <code class="language-plaintext highlighter-rouge">%f</code> to request a <code class="language-plaintext highlighter-rouge">float</code> or <code class="language-plaintext highlighter-rouge">double</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* getpi.c */</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">float</span> <span class="n">pi</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter pi:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%f"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Mmmm, pi: %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">pi</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And you can use modifiers on the format to change the number of decimals to print. <code class="language-plaintext highlighter-rouge">%0.2f</code> says print a float with only 2 trailing decimals. You can also include multiple formats, and the order of the formats match the additional arguments</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">14</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"An int:%d a float:%f and another int:%d"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">//              |          |                  |   |  |  |</span>
+<span class="c1">//              |          |                  `---|--|--'</span>
+<span class="c1">//              |          `----------------------|--'    </span>
+<span class="c1">//              `---------------------------------'</span>
+</code></pre></div></div>
+
+<p>There are a number of different formats available, and you can read the manual pages for <code class="language-plaintext highlighter-rouge">printf</code> and <code class="language-plaintext highlighter-rouge">scanf</code> to get more detail.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man 3 printf
+man 3 scanf
+</code></pre></div></div>
+
+<p>You have to use the 3 in the manual command because there exists other forms of these functions, namely for Bash programming, and you need to look in section 3 of the manual for C standard library manuals. You can also find these man pages on die.net — <a href="https://linux.die.net/man/3/printf">printf</a> and <a href="https://linux.die.net/man/3/scanf">scanf</a>.</p>
+
+<p>For this class, we will mostly use the following format characters frequently:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%d</code> : format integer</li>
+  <li><code class="language-plaintext highlighter-rouge">%u</code> : format an unsigned integer</li>
+  <li><code class="language-plaintext highlighter-rouge">%f</code> : format float/double</li>
+  <li><code class="language-plaintext highlighter-rouge">%x</code> : format hexadecimal</li>
+  <li><code class="language-plaintext highlighter-rouge">%p</code> : format a pointer</li>
+  <li><code class="language-plaintext highlighter-rouge">%s</code> : format string</li>
+  <li><code class="language-plaintext highlighter-rouge">%c</code> : format a char</li>
+  <li><code class="language-plaintext highlighter-rouge">%ld</code> : format a long</li>
+  <li><code class="language-plaintext highlighter-rouge">%lu</code>: format an unsigned long</li>
+  <li><code class="language-plaintext highlighter-rouge">%%</code> : print a % symbol</li>
+</ul>
+
+<p><a id="orgad7d99e"></a></p>
+      <h2 id="the-file--and-opening-files">
+        
+        
+          The <code class="language-plaintext highlighter-rouge">FILE *</code> and opening files <a href="#the-file--and-opening-files">#</a>
+        
+        
+      </h2>
+    
+
+<p>The last part of the standard input output library we haven’t explored is reading/writing from files. Although, you’ve done this already in the form of the standard files, e.g., standard input and output, we have demonstrated how to open, read, write, and close other files that may exist on the file system.</p>
+
+<p>All the file stream functions and types are defined in the header file <code class="language-plaintext highlighter-rouge">stdio.h</code>, so you have to include that. The man page for is <a href="https://linux.die.net/man/3/stdio">here</a>.</p>
+
+<p>Open files in the standard C library are referred to as file streams, and have the type:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>and we open a file using <code class="language-plaintext highlighter-rouge">fopen()</code> which has the following prototype:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">FILE</span> <span class="o">*</span> <span class="nf">fopen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">path</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">mode</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The first argument <code class="language-plaintext highlighter-rouge">path</code> is a string storing the file system path of the file to open, and <code class="language-plaintext highlighter-rouge">mode</code> describes the settings of the file. For example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"gobuffs.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>will open a file in the current directory called “gobuffs.txt” with write mode. We’ll discuss the modes more shortly.</p>
+
+<p>File streams, as pointers (that’s what the <code class="language-plaintext highlighter-rouge">*</code> stands for, more on this later), are actually dynamically allocated, and they must be deallocated or closed. The function that closes a file stream is <code class="language-plaintext highlighter-rouge">fclose()</code></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fclose</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><a id="org4a33fcd"></a></p>
+      <h2 id="file-modes">
+        
+        
+          File Modes <a href="#file-modes">#</a>
+        
+        
+      </h2>
+    
+
+<p>The mode of the file describes how to open and use the file. For example, you can open a file for reading, writing, append mode. You can start reading/writing from the start or end of the file. You can truncate the file when opening removing all the previous data. From the man page, here are the options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The argument mode points to a string beginning with one of the following sequences  (possibly  followed
+by additional characters, as described below):
+
+r      Open text file for reading.  The stream is positioned at the beginning of the file.
+
+r+     Open for reading and writing.  The stream is positioned at the beginning of the file.
+
+w      Truncate  file  to zero length or create text file for writing.  The stream is positioned at the
+       beginning of the file.
+
+w+     Open for reading and writing.  The file is created if it does not exist, otherwise it  is  trun‐
+       cated.  The stream is positioned at the beginning of the file.
+
+a      Open  for  appending  (writing  at end of file).  The file is created if it does not exist.  The
+       stream is positioned at the end of the file.
+
+a+     Open for reading and appending (writing at end of file).  The file is created  if  it  does  not
+       exist.   The  initial  file  position for reading is at the beginning of the file, but output is
+       always appended to the end of the file.
+</code></pre></div></div>
+
+<p>One key thing to notice from the modes is that any mode string with a “+” is for both reading and writing, but using “r” vs. “w” has different consequences for if the file already exists. With “r” a file will never be truncated if it exists, which means its contents will be deleted, but “w” will always truncate if it exits. However, “r” mode will not create the file if it doesn’t exist while “w” will. Finally, append mode with “a” is a special case of “w” that doesn’t truncate with all writes occurring at the end of the file.</p>
+
+<p>As you can also see in the man page description, the file stream is described as having a “position” which refers to where within the file we read/write from. When you read a byte, you move the position forward in the file. In later lessons, we will look into how to manipulate the stream more directly. For now</p>
+      <h2 id="format-output-with-fprintf">
+        
+        
+          Format Output with <code class="language-plaintext highlighter-rouge">fprintf()</code> <a href="#format-output-with-fprintf">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s start where we always start with understanding a new input/output system, hello world!</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*hello_fopen.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+
+  <span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"helloworld.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+
+  <span class="n">fprintf</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">fclose</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./hello_fopen 
+aviv@saddleback: demo $ cat helloworld.txt
+Hello World!
+aviv@saddleback: demo $ ./hello_fopen 
+aviv@saddleback: demo $ cat helloworld.txt
+Hello World!
+</code></pre></div></div>
+
+<p>The program opens a new stream with the write mode at the path “helloworld.txt” and prints to the stream, “Hello World!\n”. When we execute the program, the file helloworld.txt is created if it doesn’t exist, and if it does it is truncated. After printing to it, we can read it with <code class="language-plaintext highlighter-rouge">cat</code>, and we see that in fact “Hello World!” is in the file. If we run the program again, we still have “Hello World!” in the file, just one, and that’s because the second time we run the program, the file exists, so it is truncated. The previous “Hello World!” is removed and we write “Hello World!”.</p>
+
+<p>However if we wanted to open the file in a different mode, say append, we get a different result:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*hello_append.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+
+  <span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"helloworld.txt"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">);</span><span class="c1">//&lt;--</span>
+
+  <span class="n">fprintf</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="s">"Hello World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">fclose</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./hello_append 
+aviv@saddleback: demo $ ./hello_append 
+aviv@saddleback: demo $ ./hello_append 
+aviv@saddleback: demo $ cat helloworld.txt 
+Hello World!
+Hello World!
+Hello World!
+Hello World!
+</code></pre></div></div>
+
+<p>The original “Hello World!” remains, and the additional “Hello World!”’s are append to the end of the file. Printing “Hello World!” does not require a format, but <code class="language-plaintext highlighter-rouge">fprintf()</code> can format just like <code class="language-plaintext highlighter-rouge">printf()</code>, but to a file stream.</p>
+
+<!-- For example, consider this simple program that prints information about the command line arguments. -->
+
+<!-- ```c -->
+<!-- #include <stdio.h> -->
+<!-- #include <stdlib.h> -->
+
+<!-- int main(int argc, char * argv[]){ -->
+
+<!--   int i; -->
+
+<!--   FILE * stream = fopen("cmd.txt", "w"); -->
+
+<!--   for(i=0;i<argc;i++){ -->
+<!--     fprintf(stream, "argv[%d] = %s\n", i, argv[i]); -->
+<!--   } -->
+
+<!--   fclose(stream); -->
+<!--   return 0; -->
+<!-- } -->
+<!-- ``` -->
+
+<!--     aviv@saddleback: demo $ ./command_info  -->
+<!--     aviv@saddleback: demo $ cat cmd.txt -->
+<!--     argv[0] = ./command_info -->
+<!--     aviv@saddleback: demo $ ./command_info a b c d e f -->
+<!--     aviv@saddleback: demo $ cat cmd.txt -->
+<!--     argv[0] = ./command_info -->
+<!--     argv[1] = a -->
+<!--     argv[2] = b -->
+<!--     argv[3] = c -->
+<!--     argv[4] = d -->
+<!--     argv[5] = e -->
+<!--     argv[6] = f -->
+
+<p><a id="org6a2c5ee"></a></p>
+      <h2 id="format-input-with-fscanf">
+        
+        
+          Format Input with <code class="language-plaintext highlighter-rouge">fscanf()</code> <a href="#format-input-with-fscanf">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just as we can format print to files, we can format read, or scan, from a file. <code class="language-plaintext highlighter-rouge">fscanf()</code> is just like <code class="language-plaintext highlighter-rouge">scanf()</code>, except it takes a file stream as the first argument. For example, consider a data file with following entries:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ cat file.dat
+Aviv Adam 10 20 50 3.141592 yes
+Pepin Joni 15 21 53 2.781 no
+</code></pre></div></div>
+
+<p>We can write a format to read this data in with <code class="language-plaintext highlighter-rouge">fscanf()</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">){</span>
+
+  <span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"file.dat"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+
+  <span class="kt">char</span> <span class="n">fname</span><span class="p">[</span><span class="mi">1024</span><span class="p">],</span> <span class="n">lname</span><span class="p">[</span><span class="mi">1024</span><span class="p">],</span> <span class="n">yesno</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span>
+                 <span class="s">"%s %s %d %d %d %f %s"</span><span class="p">,</span>
+                 <span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="n">yesno</span><span class="p">)</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">){</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"First Name: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">fname</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span> <span class="s">"Last Name: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">lname</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"         a: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"         b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"         b: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"         f: %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"     yesno: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">yesno</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">fclose</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Note that we are sepecifying the size of each of the three character arrays that will store strings.</p>
+
+<p>And when we run it, we see that we scan each line at a time:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./scan_file 
+First Name: Aviv
+Last Name: Adam
+         a: 10
+         b: 20
+         b: 50
+         f: 3.141592
+     yesno: yes
+
+First Name: Pepin
+Last Name: Joni
+         a: 15
+         b: 21
+         b: 53
+         f: 2.781000
+     yesno: no
+</code></pre></div></div>
+
+<p>One thing you should notice from the scanning loop is that we compare to <code class="language-plaintext highlighter-rouge">EOF</code>, which is special value for “End of File.” The end of the file is encoded in such a way that you can compare against it. When scanning and you reach end of the file, EOF is returned, which can be detected and used to break the loop.</p>
+
+<p>Another item to note is that scanning with <code class="language-plaintext highlighter-rouge">fscanf()</code> is the same as that with <code class="language-plaintext highlighter-rouge">scanf()</code>, and is white space driven to separate different values to scan. Also, “%s” reads a word, as separated by white space, and does not read the whole line.</p>
+
+<p><a id="orgdf8a742"></a></p>
+      <h2 id="the-standard-file-streams">
+        
+        
+          The standard file streams <a href="#the-standard-file-streams">#</a>
+        
+        
+      </h2>
+    
+
+<p>C uses the abstraction of file pointers to define the standard file streams, which are defined variables for you to use in your code. These include <code class="language-plaintext highlighter-rouge">stdin</code>, <code class="language-plaintext highlighter-rouge">stdout</code>, and <code class="language-plaintext highlighter-rouge">stderr</code>. We can do format input and output with these file streams just like any file stream we opened using <code class="language-plaintext highlighter-rouge">fopen()</code>.</p>
+
+<p>By default, <code class="language-plaintext highlighter-rouge">printf()</code> prints to <code class="language-plaintext highlighter-rouge">stdout</code>, but you can alternative write to any file stream. To do so, you use the <code class="language-plaintext highlighter-rouge">fprintf()</code> function, which acts just like <code class="language-plaintext highlighter-rouge">printf()</code>, except you explicitly state which file stream you wish to print. Similarly, there is a <code class="language-plaintext highlighter-rouge">fscanf()</code> function for format reading from files other than <code class="language-plaintext highlighter-rouge">stdin</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">//prints implicitly to standard out</span>
+<span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">//print explicitly to standard out</span>
+<span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR: World coming to an endline!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">//print to standard error</span>
+</code></pre></div></div>
+      <h2 id="error-checking-in-c-errno-and-strerror">
+        
+        
+          Error Checking in C: <code class="language-plaintext highlighter-rouge">errno</code> and <code class="language-plaintext highlighter-rouge">strerror()</code> <a href="#error-checking-in-c-errno-and-strerror">#</a>
+        
+        
+      </h2>
+    
+
+<p>Nearly all functions in the standard library return a value, typically an integer value of some type that is either true of false. This is how you check to see if an error occurred.</p>
+
+<p>For example, check out the <a href="https://linux.die.net/man/3/fopen">man page</a> for the <code class="language-plaintext highlighter-rouge">fopen</code>, and refer to the return value section:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RETURN VALUE
+       Upon successful completion fopen(), fdopen() and freopen() return a FILE pointer.  Otherwise,  NULL  is
+       returned and errno is set to indicate the error.
+</code></pre></div></div>
+
+<p>If the file was not opened successfully, we could can check for that, like below.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">if</span> <span class="p">((</span><span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"DOESNOTEXIST.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR ... </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An error could occur, like above, most likely for the file not existing, but it could also be because of something else — how can you tell?</p>
+
+<p>In Java, the program would throw an exception, a special object that encodes the error. That exception could be caught, printed, and perhaps handled gracefully. For example, that could be notifying the user that you opened a file that does not exist — you bozo!</p>
+
+<p>In C, there is no such thing as an exception (at least not in the same way). As a way to communicate about errors that occur nested within a stack of function calls, there is a special global integer that gets set <code class="language-plaintext highlighter-rouge">errno</code> (error number) that encapsulates the kind of error.</p>
+
+<p>While you could just print out that error number, that’s not entirely human readable. There is a set of defined constants for each error number you could compare against (check out the <a href="https://linux.die.net/man/3/errno">man page</a> for <code class="language-plaintext highlighter-rouge">errno</code> for them all!), that would be quite a lot of work. Instead, of course, there are library calls that do this for you and provide a helpful error message.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;errno.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">FILE</span> <span class="o">*</span> <span class="n">stream</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">((</span><span class="n">stream</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"DOESNOTEXIST.txt"</span><span class="p">,</span><span class="s">"r"</span><span class="p">))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">"fopen: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+    <span class="c1">//      ^       ^</span>
+    <span class="c1">//      |       '- returns a string for the given error</span>
+    <span class="c1">//      '--- %s says format print a string</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//exit/return from this program with an error</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Running this, you’d get the following output if the file truly does not exist</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./a.out
+fopen: No such file or directory
+</code></pre></div></div>
+
+<p>And if you just didn’t have permission to read the file, but it did exist, you’d get a different error message.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./doesnotexist 
+fopen: Permission denied
+</code></pre></div></div>
+
+<p>(Aside: Note that this program exits with status 1 to indicate something went wrong. A program exits with status 0 when it succeeds.)</p>
+      <h2 id="stderr-and-perror">
+        
+        
+          <code class="language-plaintext highlighter-rouge">stderr</code> and <code class="language-plaintext highlighter-rouge">perror</code> <a href="#stderr-and-perror">#</a>
+        
+        
+      </h2>
+    
+
+<p>The above example exiting when it encountered the error, but we don’t always need to nor want to exit the program when an error occurs. Sometimes it makes sense just to let the user know something bad happened and move on.</p>
+
+<p>But then we have a problem. <em>How does the user differentiate between the programs output and reports of errors?</em></p>
+
+<p>This is particularly problematic in the unix environment where pipelines are common for passing the output of one program (written to <code class="language-plaintext highlighter-rouge">stdout</code>) as the input to another program (read from <code class="language-plaintext highlighter-rouge">stdin</code>).</p>
+
+<p>To differentiate from error reporting and output, we use the third standard file stream: <code class="language-plaintext highlighter-rouge">stderr</code> or standard error. It works just like the other two standard file streams and can be used in the same way with <code class="language-plaintext highlighter-rouge">fprintf</code>.</p>
+
+<p>Now the error checking on our <code class="language-plaintext highlighter-rouge">fopen</code> is as follows:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"fopen: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>At this point, you are probably like…that’s way, way too much typing for error checking, especially having to write <code class="language-plaintext highlighter-rouge">fprintf</code> and <code class="language-plaintext highlighter-rouge">stderr</code> over and over again. And you’re right! So there’s a library function <code class="language-plaintext highlighter-rouge">perror</code> that does just the above in one call.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="n">perror</span><span class="p">(</span><span class="s">"fopen"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You can still use <code class="language-plaintext highlighter-rouge">fprintf(stderr,...)</code> to add additional details to the error, but the <em>reason</em> for the error will be well formatted and printed for you in a straightforward call.</p>
+      <h2 id="final-note-on-error-checking">
+        
+        
+          Final note on error checking! <a href="#final-note-on-error-checking">#</a>
+        
+        
+      </h2>
+    
+
+<p><strong>While I do not always show error checking below, it is important that your code does error checking.</strong></p>
+
+<p>Do as I say, not as I do ;)</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Setting up VS Code | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Setting up VS Code" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/guides/vscode-git" />
+<meta property="og:url" content="http://localhost:4000/guides/vscode-git" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Setting up VS Code" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"Setting up VS Code","url":"http://localhost:4000/guides/vscode-git"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="using-vscode-with-git-and-ssh-to-completesubmit-a-programming-assignment">Using VSCode with Git and SSH to Complete/Submit a programming Assignment</h1>
+
+<blockquote>
+  <p>Before starting, you should have completed the <a href="guides/vscode-ssh">VScode Setup Guide with SSH</a>. This guide assume you have VScode and SSH capabilities installed, as well as the VSCode extension Remote Development Extension.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Accept the github classroom assignment and follow the link to the repository. For example, if you are working on <a href="/lab/1">Lab 1</a>, after accepting the assignment, you’ll have a new repository named <code class="language-plaintext highlighter-rouge">lab-1-username</code> where <code class="language-plaintext highlighter-rouge">username</code> is your github username. My github username is <code class="language-plaintext highlighter-rouge">adamaviv</code>, so you will see that in the screenshots below.</p>
+  </li>
+  <li>
+    <p>Copy the repository link by clicking the <code class="language-plaintext highlighter-rouge">Code</code> label</p>
+
+    <p><img src="/images/vscode-git-repo.png" alt="Github Repo Link" /></p>
+
+    <p>If you have setup an ssh key, use ssh, otherwise use HTTPS.</p>
+
+    <p>To setup an ssh key, see this <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">guide</a></p>
+  </li>
+  <li>
+    <p>Open up a new window in VScode via <code class="language-plaintext highlighter-rouge">File-&gt;New Window</code> or ⌘⇧N / Ctrl⇧. Then click the explorer and then <code class="language-plaintext highlighter-rouge">Clone Repository</code></p>
+
+    <p><img src="/images/vscode-explorer-clone-repo.png" alt="VScode New Window, Explore, Clone Repository" /></p>
+
+    <blockquote>
+      <p>If you don’t see an option to <code class="language-plaintext highlighter-rouge">Clone Repository</code> then you may not have <code class="language-plaintext highlighter-rouge">git</code> installed. Follow this <a href="https://git-scm.com/download">link</a> to install it for your computer.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Enter the repo link in the command pallet and confirm the file location you want to cloen the repository to.</p>
+
+    <p><img src="/images/vscode-clone-repo-link.png" alt="Enter repo link" /><br />
+<img src="/images/confirm_file_location.PNG" alt="Confirm Location" /></p>
+  </li>
+  <li>
+    <p>You will be prompted where to save the repo. Save it wherever you want, but I like to create a folder called <code class="language-plaintext highlighter-rouge">git</code> or <code class="language-plaintext highlighter-rouge">vscode</code> to save all my projects.</p>
+  </li>
+  <li>
+    <p>Go ahead and open the repo in this window by selecting <code class="language-plaintext highlighter-rouge">Open</code></p>
+
+    <p><img src="/images/vscode-open.png" alt="Open in this window" /></p>
+  </li>
+  <li>
+    <p>Once complete, you’ll have your workspace ready to go and integrated terminal open.</p>
+
+    <p><img src="/images/vscode-init-complete.png" alt="Init Complete" /></p>
+  </li>
+  <li>
+    <p>Do your work. And once done, you need to commit your work. Start by clicking on the repo symbol</p>
+
+    <p><img src="/images/vscode-repo-symbol.png" alt="Repo symbol" /></p>
+  </li>
+  <li>
+    <p>Add the modified files (or new files) to be staged for commit by pressing the <code class="language-plaintext highlighter-rouge">+</code></p>
+
+    <p><img src="/images/vscode-git-add.png" alt="add files to the commit" /></p>
+  </li>
+  <li>
+    <p>Click the ✓ to perform the commit</p>
+  </li>
+  <li>
+    <p>Finally, push your changes to github by clicking the <code class="language-plaintext highlighter-rouge">...</code> at the top and selecting push</p>
+
+    <p><img src="/images/vscode-git-push.png" alt="Push changes" /></p>
+  </li>
+  <li>
+    <p>Finally, finally, you should go back to github as a final check to make sure you pushed all your changes.</p>
+  </li>
+</ol>
+
+<h2 id="using-the-git-command-line-in-the-integrated-terminal">Using the git command line in the integrated terminal</h2>
+
+<p>You can also use the command line to do the git commands.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file.txt        #add a file to the commit
+git commit -m "message" #perform the commit with the commit message
+git push                #push the commit to github 
+</code></pre></div></div>
+
+<p>If you want to add all the files that have been modified and commit all at once, use the following</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit -a -m "message" 
+</code></pre></div></div>
+
+<h2 id="having-an-issue-with-ssh">Having an issue with ssh?</h2>
+
+<p>If you find that your ssh key is not available in the container, you may need to add your private key to the <code class="language-plaintext highlighter-rouge">ssh-agent</code>.</p>
+
+<p>VScode has a <a href="https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container">good guide</a> explaining how to help with that</p>
+
+<h2 id="asking-you-to-set-up-your-git-profile">Asking you to set up your git profile?</h2>
+
+<p>If you’re getting a error saying you need to setup your name and email, then open the integrated terminal and type these two commands</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   git config --global user.name "John Doe"
+   git config --global user.email johndoe@example.com
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">John Doe</code> is replaced with your name and <code class="language-plaintext highlighter-rouge">johndoe@example.com</code> is replaced with the email address you used to sign up to github</p>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VScode with SSH client | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="VScode with SSH client" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/guides/vscode-ssh" />
+<meta property="og:url" content="http://localhost:4000/guides/vscode-ssh" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VScode with SSH client" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"VScode with SSH client","url":"http://localhost:4000/guides/vscode-ssh"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="running-vscode-with-ssh-via-ubuntu-vlab01seasgwuedu">Running VSCode with SSH via <code class="language-plaintext highlighter-rouge">ubuntu-vlab01.seas.gwu.edu</code></h1>
+
+<blockquote>
+  <p>You can use this guide to instead develop using <code class="language-plaintext highlighter-rouge">ssh</code> connection to <code class="language-plaintext highlighter-rouge">ubuntu-vlab01.seas.gwu.edu</code> (the SEAS linux server).</p>
+
+</blockquote>
+
+<ol>
+  <li>
+    <p>Install Visual Studio Code (VS Code)<br />
+<a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+  </li>
+  <li>
+    <p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH Extension</a></p>
+  </li>
+  <li>Install SSH on your local computer
+    <ul>
+      <li>Ubuntu/Debian : Comes pre-installed but if it doesn’t
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install openssh-client
+</code></pre></div>        </div>
+      </li>
+      <li>MacOS : Comes pre-installed</li>
+      <li>Windows : Install <a href="https://git-scm.com/download/win">Git for Windows</a> comes with an ssh client</li>
+    </ul>
+  </li>
+  <li>Connect to the GW VPN<br />
+– See this <a href="https://it.gwu.edu/what-virtual-private-network">guide</a> from GW IT for more details
+    <blockquote>
+      <p>You must be connected to the GW VPN to ssh into <code class="language-plaintext highlighter-rouge">vlab01</code></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Open a new VSCode Window<br />
+– Open the command pallet with <strong>F1</strong> key<br />
+– Type <code class="language-plaintext highlighter-rouge">Remote-SSH: Connect to host</code> and choose to connect to a new host<br />
+– Then enter <code class="language-plaintext highlighter-rouge">ssh gwusername@ubuntu-vlab01.seas.gwu.edu</code> where <code class="language-plaintext highlighter-rouge">gwusername</code> is your NetID for GW. Like in your email <code class="language-plaintext highlighter-rouge">gwusername@gwu.edu</code><br />
+– If prompted for the operating system, <strong>select Linux (not the OS of your machine)</strong>, and hit select that you want to continue when it mentions a fingerprint. This is because Linux is the OS of the remote host.<br />
+– Hit enter, and you may be prompted for a password, enter your GW account password<br />
+– Once your connected you should see a green bar at the bottom left saying something like <code class="language-plaintext highlighter-rouge">SSH ubuntu-vlab01.seas.gwu.edu.</code></p>
+  </li>
+  <li>Continue with this <a href="/guides/vscode-git">guide</a> for using vscode and git to complete your assignment
+    <blockquote>
+      <p>If you’re asked to open a docker container, say no. It should work as is.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="setting-up-your-git-profile-on-ubuntu-vlab01">Setting up your git profile on <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code></h3>
+
+<blockquote>
+  <p>You only need to do this once, but you need to do it in order for us to grade your work</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Once your connected to <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code> via instructions above open an integrated terminal<br />
+– Open the command pallet with <strong>F1</strong> key<br />
+– Type/select <code class="language-plaintext highlighter-rouge">Terminal: Create New Terminal</code></p>
+  </li>
+  <li>
+    <p>In the terminal run the following commands</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+</code></pre></div>    </div>
+    <p>Where <code class="language-plaintext highlighter-rouge">John Doe</code> is replaced with your name and <code class="language-plaintext highlighter-rouge">johndoe@example.com</code> is replaced with the email address you used to sign up to github.</p>
+  </li>
+</ol>
+
+<h2 id="extra-stuff">Extra stuff</h2>
+
+<h3 id="setting-up-an-ssh-key-on-ubuntu-vlab01-with-github">Setting up an SSH key on <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code> with github</h3>
+
+<blockquote>
+  <p>Note you only need to do this once</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Once your connected to <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code> via instructions above open an integrated terminal<br />
+– Open the command pallet with <strong>F1</strong> key<br />
+– Type/select <code class="language-plaintext highlighter-rouge">Terminal: Create New Terminal</code></p>
+  </li>
+  <li>Generate a ssh-key use <code class="language-plaintext highlighter-rouge">ssh-keygen</code><br />
+– In the terminal type
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ssh-keygen
+</code></pre></div>    </div>
+    <p>– Hit enter to each of the questions<br />
+– No, you do not need a passphrase</p>
+  </li>
+  <li>Copy your public key<br />
+– In the terminal type
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   cat .ssh/id_rsa.pub
+</code></pre></div>    </div>
+    <p>– This will print out your public key, select and copy it from thee terminal<br />
+  – Make sure you copy the whole thing beginning with <code class="language-plaintext highlighter-rouge">ssh-rsa</code> ending with something like <code class="language-plaintext highlighter-rouge">username@ubuntu-vlab01</code></p>
+  </li>
+  <li>
+    <p>Go to <a href="github.com">github.com</a> and add your SSH key<br />
+– make sure you’re logged in<br />
+– select your icon in the upper right<br />
+– select settings<br />
+– select <code class="language-plaintext highlighter-rouge">SSH and GPG Keys</code> from the options<br />
+– click the green button <code class="language-plaintext highlighter-rouge">New SSH key</code><br />
+– Paste your ssh-key you copied from above in there and hit enter</p>
+  </li>
+  <li>Once you do that, you shouldn’t need a password to push/pull your repos</li>
+</ol>
+
+<h3 id="retrieving-files-from-ubuntu-vlab01-to-your-local-machine">Retrieving files from ubuntu-vlab01 to your local machine</h3>
+
+<blockquote>
+  <p>Note that when you work on <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code> all the files are stored remotely. This is no big deal since you can always push your changes for this class to github, but you may want to also store a local copy.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>Once your connected to <code class="language-plaintext highlighter-rouge">ubuntu-vlab01</code> via instructions above open an integrated terminal<br />
+– Open the command pallet with <strong>F1</strong> key<br />
+– Type/select <code class="language-plaintext highlighter-rouge">Terminal: Create New Integrated Terminal</code></p>
+  </li>
+  <li>
+    <p>Select the explorer tab on VSCode on the left<br />
+– Open folder<br />
+– Select the folder you wish to load into VSCode (this can be your home folder)</p>
+  </li>
+  <li>
+    <p>Navigate to the file you want in the explorer within VSCode.</p>
+  </li>
+  <li>
+    <p>Select the file and DRAG it to your local machine desktop or another folder from your file explorer.</p>
+  </li>
+</ol>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

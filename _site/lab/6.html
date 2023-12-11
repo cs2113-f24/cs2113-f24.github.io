@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/6" />
+<meta property="og:url" content="http://localhost:4000/lab/6" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/6"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="lab-6-im-a-dot-thing-living-in-a-grid-world">Lab 6: I’m a dot thing living in a grid world</h1>
+
+<p><em>View the video for this lab on <a href="https://youtu.be/oVsOfsy1-mc">youtube</a>.</em></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<h3 id="github-link">Github Link</h3>
+
+<!--
+Accept this assignment here: [https://classroom.github.com/a/25EbQLBh](https://classroom.github.com/a/25EbQLBh) -->
+
+<p><a href="https://classroom.github.com/a/A1fyNHee">https://classroom.github.com/a/A1fyNHee</a></p>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p><strong>This lab should be developed locally</strong> on your machine using any java installation; do not use the remote connection, because it will be unable to run the code to generate a new window and display results. Use VSCode to clone the git repo to your local computer, open a terminal through VSCode, and make sure the terminal is set to be ‘git bash’ (see the video at the top of this page for help).</p>
+
+<h3 id="running-your-program">Running your program</h3>
+
+<p>Run your lab on the command line by executing the following pipeline</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java DotChaser | java -jar Plotter.jar
+</code></pre></div></div>
+
+<p>The program <code class="language-plaintext highlighter-rouge">Plotter.jar</code> is provided for you.</p>
+<h3 id="testing-your-lab">Testing your lab</h3>
+
+<p>There is no test script for this lab. Your grade is based on a code review of your object-oriented design principles.</p>
+
+<h1 id="part-1-rewriting-the-code-using-oop-75-pts">Part 1: Rewriting the code using OOP (75 pts)</h1>
+
+<p>Take a look at the <code class="language-plaintext highlighter-rouge">DotChaser</code> program. You can compile and run it as is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac DotChaser.java
+java DotChaser
+</code></pre></div></div>
+
+<p>You’ll see some interesting (but boring) output.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>55 50 b
+45 50 r
+done
+56 50 b
+45 51 r
+done
+57 50 b
+46 51 r
+done
+58 50 b
+.
+.
+.
+</code></pre></div></div>
+
+<p>Each line represents the location and color of a “Thing” dot in each round. The end of a round is indicated by “done”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>55 50 b &lt;- round i, blue dot at row 55, column 50
+45 50 r &lt;- round i, red dot at row 45, column 50
+done    &lt;- end round
+56 50 b &lt;- round i+1, blue dot at row 56, column 50
+45 51 r &lt;- round i+1, red dot at row 45, column 51
+done    &lt;- end round
+</code></pre></div></div>
+
+<p>As noted, a list of coordinates is pretty boring, so we also provided you a Plotter program that reads coordinates from <code class="language-plaintext highlighter-rouge">stdin</code> and plots them for a nice little visual of moving dots. Try it out yourself:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java DotChaser | java -jar Plotter.jar 
+</code></pre></div></div>
+
+<p>The output of DotChaser is piped into Plotter, which plots each of the dots at the row,col coordinates and color given. The “done” at the end of a group of lines tells us that we are done with the “round”, so now the updated display should be shown, and what follows will be values for the next “round”. What you get is a really pretty animation like below.</p>
+
+<center>
+<img src="/images/DotChaser.png" alt="DotChaser" width="50%" height="50%" />
+</center>
+
+<p>So what do you have to do? Well, the program <code class="language-plaintext highlighter-rouge">DotChaser</code> is written entirely as a <em>Procedural Program</em>. You will re-write it as an <em>Object-Oriented Program</em>, and once done, you will extend its functionality a bit as well.</p>
+
+<p>Note that the plotter can plot more than just red and blue. Here are your color choices as you make your things: r (red), b (blue), g (green), y (yellow), o (orange), p (pink), m (magenta), k (black).</p>
+
+<div class="requirement">
+  <p>Rewrite <code class="language-plaintext highlighter-rouge">DotChaser</code> as an object-oriented program. You will (presumably) be creating other <code class="language-plaintext highlighter-rouge">.java</code> files as well. The output of <code class="language-plaintext highlighter-rouge">DotChaser</code> should not change, but the design must follow all the good object-oriented design principles we have discussed. In particular, you must use encapsulation, information hiding, inheritance, and polymorphism. Maximize code reuse; keep implementation and interface as separate as possible. Your inheritance should follow the picture on the right.</p>
+
+  <p>You must do these things:</p>
+
+  <ul>
+    <li><strong>Remove static methods</strong>: only <code class="language-plaintext highlighter-rouge">main()</code> should be static in all of your classes.</li>
+    <li><strong>Polymorphism</strong>: Your parent class <code class="language-plaintext highlighter-rouge">Thing</code> most likely will not need a single if statement. If you find you need one/more, make sure there isn’t a way to utilize polymorphism instead. If you still find the need for if statements, ask your instructor if they are appropriate. Related to this, your child classes should have at least one method which demonstrates polymorphism. This should naturally come from your design, but we make note of it here as a requirement to give you that extra nudge.</li>
+    <li><strong>Use a linked list</strong>: Remove <code class="language-plaintext highlighter-rouge">Node</code> from <code class="language-plaintext highlighter-rouge">main()</code> and put it inside a proper <code class="language-plaintext highlighter-rouge">List</code> or <code class="language-plaintext highlighter-rouge">Queue</code> class. You’ll have to write this, or adapt a queue from previous assignments. Your <code class="language-plaintext highlighter-rouge">main()</code> should not have <code class="language-plaintext highlighter-rouge">Node</code> variables anymore, but instead a <code class="language-plaintext highlighter-rouge">List</code> or <code class="language-plaintext highlighter-rouge">Queue</code> variable with nice calls such as <code class="language-plaintext highlighter-rouge">list.add(thing)</code>.</li>
+    <li><strong>README.md</strong>: In the  README file and write a paragraph (or two) that explains how your redesign makes use of encapsulation, information hiding, inheritance and polymorphism.</li>
+  </ul>
+
+  <p>Be sure to add all your new Java files to the repo for submission</p>
+</div>
+
+<h1 id="part-2-add-a-new-thing-15-pts">Part 2: Add a new thing (15 pts)</h1>
+
+<p>The original <code class="language-plaintext highlighter-rouge">DotChaser</code> had two types of Things: <code class="language-plaintext highlighter-rouge">typeA</code>, which randomly choses left, right or straight at every round; and <code class="language-plaintext highlighter-rouge">typeB</code>, which randomly chooses left, right or straight every 10th round. Now that you have a nice object-oriented version, create a third type of Thing. What exactly it does is up to you, but it needs to use some diagonal motion (i.e. left-right-left-right-… sequences, or draws a circle, triangle, or other shape). The principal thing to keep in mind is how OOP makes this easier and cleaner.</p>
+
+<div class="requirement">
+  <p>Create a third <code class="language-plaintext highlighter-rouge">Thing</code> type that must have.</p>
+
+  <ol>
+    <li>Ensure that the orignal <code class="language-plaintext highlighter-rouge">DotChaser</code> still works the same as before, even after you’ve added your new type of Thing. That is, the red and blue dot act normally.</li>
+    <li>The new type of Thing must move in a <em>new</em> way different than <code class="language-plaintext highlighter-rouge">typeA</code> or <code class="language-plaintext highlighter-rouge">typeB</code>.</li>
+    <li>In your <code class="language-plaintext highlighter-rouge">README.md</code> indicate the name of the new type and the Java file used to program it. <strong>Be sure to add that file to your repo for submission :)</strong></li>
+    <li>Add a paragraph to the <code class="language-plaintext highlighter-rouge">README.md</code> file that explains how your new OOP design makes adding new types of Things easy.</li>
+    <li>Add a final paragraph to the <code class="language-plaintext highlighter-rouge">README.md</code> that explains exactly where in your program there is a polymorphic function call, and how that plays an essential role in the program functioning properly.</li>
+  </ol>
+
+  <p><em>Be sure to add all your new Java files to the repo for submission.</em></p>
+
+  <p>Here’s an example of a solution with an extra yellow thing doing spirals</p>
+
+  <center>
+<img src="/images/DotChaser-spiral.png" alt="DotChaser Spiral Yellow" width="50%" height="50%" />
+</center>
+</div>
+
+<h1 id="part-3-create-a-uml-diagram-for-your-things-10-pts">Part 3: Create a UML diagram for your <code class="language-plaintext highlighter-rouge">Thing</code>s (10 pts)</h1>
+
+<p>Use Violet UML (or another tool) to generate a UML diagram for your many <code class="language-plaintext highlighter-rouge">Thing</code> types.</p>
+
+<blockquote>
+  <p>Create a UML diagram. Include it in repo named ‘UML.png’ and link it into your README. If you do the extra credit below, be sure to include that Thing type in your UML diagram.</p>
+</blockquote>
+
+<h1 id="extra-credit-up-to-10-points-optional">Extra Credit (up to 10 points) (optional)</h1>
+
+<p>Create yet another type of movable thing, follow proper OOP design, and have it move in a more complicated way. Points will be given for creativity and complexity. As an example, imagine coding a thing that draws letters!</p>
+
+<blockquote>
+  <p>You must:</p>
+  <ol>
+    <li>Indicate your <code class="language-plaintext highlighter-rouge">README.md</code> file that you complete the extra credit, and what Java files to look at.</li>
+    <li>Add another paragraph in your <code class="language-plaintext highlighter-rouge">README.md</code> describing this extension to the object model.</li>
+    <li>Include a screenshot of your plotter output and create an image in the README so we know what to look for.</li>
+  </ol>
+
+  <p><em>Be sure to add all your new Java files to the repo for submission.</em></p>
+
+  <p>Don’t forget to include this thing type in your UML diagram.</p>
+</blockquote>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

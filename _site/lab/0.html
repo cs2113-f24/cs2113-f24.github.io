@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/0" />
+<meta property="og:url" content="http://localhost:4000/lab/0" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#lab-0-git-and-vscode-familiarization">Lab 0: Git and VSCode Familiarization</a><ul><li><a href="#part-0-creating-a-github-account-and-installing-software">Part 0: Creating a github account and installing software</a><ul><li><a href="#if-you-do-not-have-a-github-account">If you do not have a github account</a></li><li><a href="#if-you-do-have-a-github-account">If you do have a github account</a></li><li><a href="#install-git-on-your-system">Install Git on your system</a><ul><li><a href="#mac">Mac</a></li><li><a href="#windows">Windows</a></li><li><a href="#linuxubuntu">Linux/Ubuntu</a></li></ul></li><li><a href="#extras-for-git">Extras for git</a></li></ul></li><li><a href="#part-1-installing-vscode-and-ssh-capabilities">Part 1: Installing VSCode and SSH capabilities</a></li><li><a href="#part-2-accepting-a-github-classroom-assignment-and-submitting-in-vscode">Part 2: Accepting a github classroom assignment and submitting in VScode</a></li><li><a href="#part-3-markdown-and-updates-on-github">Part 3: Markdown and Updates on github</a><ul><li><a href="#editing-in-markdown-on-github">Editing in Markdown on github</a></li></ul></li><li><a href="#part-4-using-vscode-ssh-and-github-to-complete-a-coding-assignment">Part 4: Using VSCode, SSH, and Github to complete a coding assignment</a></li><li><a href="#part-5-adding-files-and-pushing-back-to-github">Part 5: Adding files and pushing back to github</a><ul><li><a href="#git-on-the-command-line">git on the command line</a></li></ul></li><li><a href="#part-6-github-issues">Part 6: Github Issues</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View the video explainer for this lab on <a href="https://youtu.be/JGwK5nwuAps">youtube</a></em></p>
+      <h1 id="lab-0-git-and-vscode-familiarization">
+        
+        
+          Lab 0: Git and VSCode Familiarization <a href="#lab-0-git-and-vscode-familiarization">#</a>
+        
+        
+      </h1>
+    
+
+<p>The goal of this lab is to get you more comfortable with using <code class="language-plaintext highlighter-rouge">git</code>. This lab is worth 2% of your grade, but more importantly, you will not be able to complete latter assignments without finishing this one.</p>
+      <h2 id="part-0-creating-a-github-account-and-installing-software">
+        
+        
+          Part 0: Creating a github account and installing software <a href="#part-0-creating-a-github-account-and-installing-software">#</a>
+        
+        
+      </h2>
+    
+
+<p>You are <strong>required</strong> to have a github account for this class.</p>
+      <h3 id="if-you-do-not-have-a-github-account">
+        
+        
+          If you do not have a github account <a href="#if-you-do-not-have-a-github-account">#</a>
+        
+        
+      </h3>
+    
+
+<p>You need to sign up for one :-) Not just for this class, but git is an industry standard used by just about any team that is writing code. Decide if you’d like to keep this git account for your entire career (don’t worry, you can make your repos private!) or use one just for this class.</p>
+
+<ol>
+  <li>Go to https://github.com/ and enter your info to “Sign up for GitHub”.</li>
+  <li>Select a username and password – your username is your github id
+    <ul>
+      <li>For your github id, choose something tasteful. Your name with a hyphen, like <code class="language-plaintext highlighter-rouge">firstname-lastname</code> could be a good choice, but choose something you like and represents you. However, remember that your github username is publicly-visible.</li>
+      <li>Note that for job interviews, you may want to advertise your github id, so don’t choose something like <code class="language-plaintext highlighter-rouge">youallsuxor</code> …</li>
+    </ul>
+  </li>
+  <li>Use an email address you have access to and check frequently. When there are issues/updates to your submissions, you’ll get an email. You may want to use your GW email address for this. You can change your email in the future when you graduate.</li>
+</ol>
+      <h3 id="if-you-do-have-a-github-account">
+        
+        
+          If you do have a github account <a href="#if-you-do-have-a-github-account">#</a>
+        
+        
+      </h3>
+    
+
+<p>Please go to your account and check that …</p>
+
+<blockquote>
+  <p>You are using an email address that you check often because you will get important notifications.</p>
+</blockquote>
+      <h3 id="install-git-on-your-system">
+        
+        
+          Install Git on your system <a href="#install-git-on-your-system">#</a>
+        
+        
+      </h3>
+    
+
+<p>You may already have <code class="language-plaintext highlighter-rouge">git</code> command installed on your system. But if not, you need to do so now. Here’s how you do it in various contexts:</p>
+      <h4 id="mac">
+        
+        
+          Mac <a href="#mac">#</a>
+        
+        
+      </h4>
+    
+
+<p>On Mac, you will need to install the command line tools. To see if the command line tools are installed, Open a terminal a try to use <code class="language-plaintext highlighter-rouge">git</code> by simply type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git
+</code></pre></div></div>
+
+<p>If it is installed, you’ll see a usage info appear. If it is not installed, you will be prompted to install the command line tools. Do so. It will take about 5-10 minutes, but then you’ll have all sorts of good stuff installed, including <code class="language-plaintext highlighter-rouge">git</code>.</p>
+      <h4 id="windows">
+        
+        
+          Windows <a href="#windows">#</a>
+        
+        
+      </h4>
+    
+
+<p>On windows, you can install git from this <a href="https://git-scm.com/download/win">link</a>, but perhaps a better option for you is to install the Windows Subsystem Linux (WSL), which provies a full ubuntu/linux subsystem, as if it is a virtual machine.</p>
+
+<p>This is a <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">great guide from Microsoft</a>. Once you do so, open a WSL terminal and follow the linux guide above.</p>
+      <h4 id="linuxubuntu">
+        
+        
+          Linux/Ubuntu <a href="#linuxubuntu">#</a>
+        
+        
+      </h4>
+    
+
+<p>If you are running a linux/ubuntu system, you can simply type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install git
+</code></pre></div></div>
+
+<p>For other linux distros, refer to your package manager, but the command will be similar for <code class="language-plaintext highlighter-rouge">yum</code> or <code class="language-plaintext highlighter-rouge">rpm</code>.</p>
+
+<p>At this point you should also install some other packages that you may want for the class</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install gcc make manpages default-jdk valgrind libreadline-dev
+</code></pre></div></div>
+      <h3 id="extras-for-git">
+        
+        
+          Extras for git <a href="#extras-for-git">#</a>
+        
+        
+      </h3>
+    
+
+<p>Setup an ssh-key for your github account. This is a huge time saver and much more secure than using a password. Check out this <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">guide</a>.</p>
+
+<p>You can also generate an access token, which you could (should!) use in place of a password when using git’s https access. Check out this <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token">guide</a>.</p>
+      <h2 id="part-1-installing-vscode-and-ssh-capabilities">
+        
+        
+          Part 1: Installing VSCode and SSH capabilities <a href="#part-1-installing-vscode-and-ssh-capabilities">#</a>
+        
+        
+      </h2>
+    
+
+<p>In the first part of this class, we will make heavy use of VSCode and SSH to program in C.</p>
+
+<p>You should begin by following <a href="/guides/vscode-ssh">this</a> guide to set up SSH capabilities on your system. <em>Ensure that you follow this guide completely and set up your git configuration of email and name!</em></p>
+
+<p>The rest of this guide assumes that you are SSHed into the server shown in the above guide.</p>
+      <h2 id="part-2-accepting-a-github-classroom-assignment-and-submitting-in-vscode">
+        
+        
+          Part 2: Accepting a github classroom assignment and submitting in VScode <a href="#part-2-accepting-a-github-classroom-assignment-and-submitting-in-vscode">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now that you have a github account and SSH capabilities, the next step is to accept an assignment and join the class organization. Do so by clicking on the following link (or copy and pasting the url) below. Be sure your logged into the github account you created/updated previously.</p>
+
+<p>Github Classroom Link: <a href="https://classroom.github.com/a/KHrzElMC">https://classroom.github.com/a/KHrzElMC</a></p>
+
+<p>Since this is the first assignment for the class, it will ask you to join the organization. When you do so, please be sure to use your REAL NAME and GW netid for associating with this class so that we can properly grade your assignments.</p>
+
+<p>Following that, github will automatically fork/clone the assignment into a new repository entitled <code class="language-plaintext highlighter-rouge">lab0-&lt;username&gt;</code> in the <code class="language-plaintext highlighter-rouge">cs2113-s22</code> github organization where <code class="language-plaintext highlighter-rouge">&lt;username&gt;</code> is replaced by your github ID.</p>
+
+<p>You might find this youtube tutorial helpful for navigating github classroom submisions.</p>
+
+<p><img src="https://www.youtube.com/watch?v=10krMetDSWs" alt="" /></p>
+
+<blockquote>
+  <p>Requirement Part 1</p>
+  <ul>
+    <li>Join the github classroom</li>
+    <li>Accept this lab-0 assignment: <a href="https://classroom.github.com/a/M3HfbwAT">https://classroom.github.com/a/M3HfbwAT</a></li>
+  </ul>
+</blockquote>
+      <h2 id="part-3-markdown-and-updates-on-github">
+        
+        
+          Part 3: Markdown and Updates on github <a href="#part-3-markdown-and-updates-on-github">#</a>
+        
+        
+      </h2>
+    
+
+<p>Follow this <a href="/guides/vscode-git">guide</a> to checkout the assignment and load it onto the SSH server. Once you have cloned the repository, it will now reside as a local copy on the SSH server. The version of your assignment on the server, and the version that you see on GitHub, are different entities. Any changes that you make to the files in the new folder will not immmediately affect the remote repository (the one on GitHub).</p>
+
+<p>You can now open the repo in VScode, and open <code class="language-plaintext highlighter-rouge">README.md</code>.</p>
+
+<p>This extension <code class="language-plaintext highlighter-rouge">.md</code> indicates that it is formatted in markdown, which is a markup language, like HTML, that describes how to display text. That’s what I’m writing this in right now.</p>
+
+<p><em>Click on <code class="language-plaintext highlighter-rouge">README.md</code> to open up that file.</em></p>
+      <h3 id="editing-in-markdown-on-github">
+        
+        
+          Editing in Markdown on github <a href="#editing-in-markdown-on-github">#</a>
+        
+        
+      </h3>
+    
+
+<p>For example, you can make text bold or italic by enclosing it *’s:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">*italic*</code> : <em>italic</em></li>
+  <li><code class="language-plaintext highlighter-rouge">**bold**</code> : <em>bold</em></li>
+</ul>
+
+<p>You can make code blocks by using three backticks `. The backtick is the key above the tab button on most keyboards.</p>
+
+<p><img src="https://i.stack.imgur.com/TOn1U.png" alt="backtick on the keyboard" /></p>
+
+<p>For example, to include C code, you might type something like the <em>left</em>, to render something like the <em>right</em>. Note the <code class="language-plaintext highlighter-rouge">c</code> at the top to tell Markdown how to color highlight using C.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <pre>
+```c
+int main(){
+  printf("Hello, World!\n")
+}
+```
+</pre>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>You can find more about markdown from the <a href="https://guides.github.com/features/mastering-markdown/">github guide on markdown</a>.</p>
+
+<blockquote>
+  <p>Part 3: Requirements</p>
+  <ol>
+    <li>Complete the instructions in there and commit your changes</li>
+    <li>You should be able to see them page reformat on github</li>
+  </ol>
+</blockquote>
+      <h2 id="part-4-using-vscode-ssh-and-github-to-complete-a-coding-assignment">
+        
+        
+          Part 4: Using VSCode, SSH, and Github to complete a coding assignment <a href="#part-4-using-vscode-ssh-and-github-to-complete-a-coding-assignment">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now we integrate VSCode and <code class="language-plaintext highlighter-rouge">git</code> so that you can complete and submit a basic programming assignment in C.</p>
+
+<blockquote>
+  <p>Part 4: Requirements</p>
+  <ol>
+    <li>Start by accepting this assignment: <a href="https://classroom.github.com/a/KHrzElMC">https://classroom.github.com/a/KHrzElMC</a></li>
+    <li>Follow this <a href="/guides/vscode-git">guide</a> to checkout the assignment and load it onto the SSH server.</li>
+    <li>View the <code class="language-plaintext highlighter-rouge">README.md</code> to complete the coding assignment</li>
+    <li>Then edit the file <code class="language-plaintext highlighter-rouge">survey.md</code> (also in the repo) and answer the questions there.</li>
+  </ol>
+</blockquote>
+      <h2 id="part-5-adding-files-and-pushing-back-to-github">
+        
+        
+          Part 5: Adding files and pushing back to github <a href="#part-5-adding-files-and-pushing-back-to-github">#</a>
+        
+        
+      </h2>
+    
+
+<p>Still in VSCode from before, in this part of the assignment, you need to add two files and push all your changes back to github.</p>
+
+<p>To create a file, you can navigate the menu <code class="language-plaintext highlighter-rouge">File-&gt;New File</code> or use the keyboard shortcut ⌘N or Ctrl-N. Once you create that new file, VSCode allows you to select the language. Modify the file as you see fit, and then save it using <code class="language-plaintext highlighter-rouge">File-&gt;Save</code>, ⌘S or Ctrl-S. You’ll be prompted to give it a name in the command pallet.</p>
+
+<p>Once the file is saved, you’ll see that the repository symbol has updated</p>
+
+<p><img src="/images/vscode-repo-symbol.png" alt="" /></p>
+
+<p>Click on that, and if you mouse over the file, you will see a <code class="language-plaintext highlighter-rouge">+</code> symbol. Clicking this will add the file to the next commit. Click it!</p>
+
+<p><img src="/images/vscode-git-add.png" alt="" /></p>
+
+<p>Next at the top of the panel you will see a ✓. Clicking it will perform the commit, and you’ll be prompted to provide a message that is somewhat meaningful, like “adding a new file”. Then hit enter. Do this now.</p>
+
+<p>Finally, you need to push your changes to github. To do this click the <code class="language-plaintext highlighter-rouge">...</code> at the top of the panel, selecting <strong>push</strong>. This will push your changes back to github.</p>
+
+<p><img src="/images/vscode-git-push.png" alt="" /></p>
+
+<blockquote>
+  <p>Part 5: Requirements</p>
+  <ol>
+    <li>Create a new file called <code class="language-plaintext highlighter-rouge">bio.txt</code> that contains 2-to-3 sentences about yourself.</li>
+    <li>Add it to the repo, commit it, and push it to github</li>
+    <li>Go to your github repo on github and verify that the new file is there.</li>
+    <li>Make a small modification to the file, and commit with the message <code class="language-plaintext highlighter-rouge">Part 5 complete!</code> and push this change to github.</li>
+    <li>Again go to your github repo on github and verify the new file is there.</li>
+  </ol>
+</blockquote>
+      <h3 id="git-on-the-command-line">
+        
+        
+          git on the command line <a href="#git-on-the-command-line">#</a>
+        
+        
+      </h3>
+    
+
+<p>Note that you can also do all of this from the command line in the integrated terminal within VSCode</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add file.txt        #add a new file to the commit
+git commit -m "message" #perform the commit with the commit message
+git push                #push the commit to github 
+</code></pre></div></div>
+      <h2 id="part-6-github-issues">
+        
+        
+          Part 6: Github Issues <a href="#part-6-github-issues">#</a>
+        
+        
+      </h2>
+    
+
+<p>We will be using Github issues for communicating about your assignments in this class. Let’s quickly practice creating an issue now. At the top bar of options on your repository, click on <code class="language-plaintext highlighter-rouge">Issues</code>, then click the green button <code class="language-plaintext highlighter-rouge">New Issue</code>.</p>
+
+<p>Name your issue “Lab 0 Testing Issues” for the <code class="language-plaintext highlighter-rouge">Title</code> and then in the body, answer the following questions by copy pasting the below into the box. (Note that the issue box understands markdown, and you can also preview it.)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. What time locally is it for you right now?
+   &gt; PUT YOUR ANSWER HERE (leave in &gt; for a quote)
+2. How many hours did you spend working on this lab
+   &gt; PUT YOUR ANSWER HERE (leave in &gt; for a quote)
+3. What is your favorite color?
+   &gt; PUT YOUR ANSWER HERE (leave in &gt; for a quote)
+4. What is your favorite ice cream flavor?
+   &gt; PUT YOUR ANSWER HERE (leave in &gt; for a quote)
+5. What is your favorite number? 
+   &gt; PUT YOUR ANSWER HERE (leave in &gt; for a quote)
+</code></pre></div></div>
+
+<blockquote>
+  <p>Part 5 Requirements:</p>
+  <ol>
+    <li>Follow the instructions above and open an issue</li>
+    <li>Answer the questions</li>
+  </ol>
+</blockquote>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

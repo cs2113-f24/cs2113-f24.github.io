@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/2" />
+<meta property="og:url" content="http://localhost:4000/j/2" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#polymorphism-and-abstract-classes">Polymorphism and Abstract Classes</a><ul><li><a href="#inheritance-following-is-a-to-its-logical-conclusion">Inheritance: following “is-a” to its logical conclusion</a></li><li><a href="#polymorphism">Polymorphism</a></li><li><a href="#we-are-all-instances-of-class-object">We are all instances of class <code class="language-plaintext highlighter-rouge">Object</code></a></li></ul></li><li><a href="#example-of-using-polymorphism">Example of Using Polymorphism</a><ul><li><a href="#basic-expense-report-generator">Basic Expense Report Generator</a></li><li><a href="#polymorphic-expense-report-generator">Polymorphic Expense Report Generator</a></li></ul></li><li><a href="#casting-polymorphism-and-instanceof">Casting, Polymorphism and <code class="language-plaintext highlighter-rouge">instanceof</code></a></li><li><a href="#abstract-classes">Abstract Classes</a><ul><li><a href="#abstract-gwperson-class">Abstract GWPerson Class</a></li><li><a href="#extending-an-abstract-gwperson-class">Extending an Abstract GWPerson Class</a></li><li><a href="#leveraging-abstract-class">Leveraging Abstract Class</a></li></ul></li><li><a href="#oop-design-activity">OOP Design Activity</a></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSMKR0ZOuz1AHmFPoD6MrMcy">single playlist on youtube</a></em></p>
+      <h1 id="polymorphism-and-abstract-classes">
+        
+        
+          Polymorphism and Abstract Classes <a href="#polymorphism-and-abstract-classes">#</a>
+        
+        
+      </h1>
+    
+
+<p>Recall that there are four basic mechanisms / ideas underlying object oriented programming:</p>
+
+<ol>
+  <li>encapsulation</li>
+  <li>information hiding</li>
+  <li>inheritance</li>
+  <li>polymorphism</li>
+</ol>
+
+<p><strong>Encapsulation</strong> (bundling together data and the functions that operate on that data) and <strong>information hiding</strong> (language mechanisms to enforce the separation of interface from implementation) “solved” the first of our three problems with Procedural Programming not giving us full separation of interface from implementation: the “what to do with structs” problem.</p>
+
+<p>We’ve covered both of these over the last two weeks. We’ve also covered <strong>inheritance</strong> as a mechanism to modify or extend functionality. It solves the second of the three problems with procedural programming not giving us full separation of interface from implementation: modifying or extending functionality without having to access implementation.</p>
+
+<p>In this lesson, we will cover <strong>polymorphism</strong>, which is the last of the four basic mechanisms/ideas behind object oriented programming. It solves our last “problem”: how to allow multiple implementations for the same interface.</p>
+      <h2 id="inheritance-following-is-a-to-its-logical-conclusion">
+        
+        
+          Inheritance: following “is-a” to its logical conclusion <a href="#inheritance-following-is-a-to-its-logical-conclusion">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s return the example from <a href="/j/1">J1 notes</a> of <code class="language-plaintext highlighter-rouge">Points</code> and <code class="language-plaintext highlighter-rouge">LabPoints</code>. Recall the two interfaces and their primary functionality:</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="kd">extends</span> <span class="nc">Point</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">lab</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lab</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">lab</span> <span class="o">=</span> <span class="n">lab</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">lab</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>For starters, let’s consider a simple program involving only <code class="language-plaintext highlighter-rouge">Point</code> objects.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex1</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+    <span class="nc">Point</span> <span class="n">v</span>  <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+    <span class="nc">Point</span> <span class="n">w</span>  <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+    <span class="nc">Point</span> <span class="n">u</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="o">(</span><span class="n">rand</span><span class="o">.</span><span class="na">nextBoolean</span><span class="o">())</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+    <span class="k">else</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="o">;</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Hopefully you see that what this program does is instantiate two points [(3,4) and (5,2)], and then randomly choose one of the two and assign reference <code class="language-plaintext highlighter-rouge">u</code> to point to it. You run this program and you might see <code class="language-plaintext highlighter-rouge">3 4</code> printed out. Run it again, and you might see <code class="language-plaintext highlighter-rouge">5 2</code> instead. It’s random.</p>
+
+<p>Now, recall that inheritance is supposed to give us an “is-a” relationship, as in “an object of type <code class="language-plaintext highlighter-rouge">LabPoint</code> is-a <code class="language-plaintext highlighter-rouge">Point</code>. If that’s true, then the variable <code class="language-plaintext highlighter-rouge">u</code> should be able to point to a <code class="language-plaintext highlighter-rouge">LabPoint</code> just as much as it can point to a <code class="language-plaintext highlighter-rouge">Poin</code>. So let’s try it. The following program, <code class="language-plaintext highlighter-rouge">Ex2.java</code>, is just like the earlier program, except that the second <code class="language-plaintext highlighter-rouge">Point</code> <code class="language-plaintext highlighter-rouge">w</code> we instantiate is actually the <code class="language-plaintext highlighter-rouge">LabPoint</code> (5,2) with label “A”, rather than just the plain-ol’ <code class="language-plaintext highlighter-rouge">Point</code> (5,2). The code compiles, which certainly proves that the compiler is at peace with the prospect of the variable <code class="language-plaintext highlighter-rouge">u</code> referencing a <code class="language-plaintext highlighter-rouge">LabPoint</code> rather than a plain-ol’ <code class="language-plaintext highlighter-rouge">Point</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Random</span>   <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+    <span class="nc">Point</span>    <span class="n">v</span>    <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+    <span class="nc">LabPoint</span> <span class="n">w</span>    <span class="o">=</span> <span class="k">new</span> <span class="nc">LabPoint</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"A"</span><span class="o">);</span>
+    <span class="nc">Point</span>    <span class="n">u</span><span class="o">;</span>
+
+    <span class="k">if</span><span class="o">(</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextBoolean</span><span class="o">()</span> <span class="o">)</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+    <span class="k">else</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="o">;</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, here’s the $1,000,000 question: when you run this program and the random choice is to set <code class="language-plaintext highlighter-rouge">u = w</code>, what gets printed out? Do I get <code class="language-plaintext highlighter-rouge">5 2</code> — since <code class="language-plaintext highlighter-rouge">u</code> is declared as a reference to a <code class="language-plaintext highlighter-rouge">Point</code> — or do I get <code class="language-plaintext highlighter-rouge">5 2 A</code> — since the object <code class="language-plaintext highlighter-rouge">u</code> refers to is actually a <code class="language-plaintext highlighter-rouge">LabPoint</code>? What do you think? The answer is … drum-roll please … <code class="language-plaintext highlighter-rouge">5 2 A</code>!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Ex2
+5.0 2.0 A
+</code></pre></div></div>
+
+<p>This is actually pretty amazing. “Why?”, you ask? Because the the <em>compiler</em> didn’t know which function was going to be called! It couldn’t know, because ultimately which actual method gets executed depends (down to the millisecond) on when the user chooses to execute the program. The random number generator is seeded on the current time. Moreover, from one run to the next, without re-compiling, a different method gets executed. This is truly new. You have never before seen code where you couldn’t tell exactly which function/method would execute at a given call site. In this example, it’s only at <em>run-time</em> that we can determine which function to execute. BTW: The only sane way for this to work (and the way it does work) is for the virtual machine, when it comes to the site of the call <code class="language-plaintext highlighter-rouge">u.toString()</code>, to check what type of object <code class="language-plaintext highlighter-rouge">u</code> points to at runtime and allow that to determine which version of <code class="language-plaintext highlighter-rouge">toString()</code> gets executed.</p>
+
+<p>A call site like this is called polymorphic. The word means “many shapes” and it’s trying to get at the idea that many different functions may result from a single call site. Another common term to refer to a call like this is as a <em>dynamic function call</em>. A function call for which the actual function to be executed can be determined at compile time is referred to as static, because it is “unchanging” from run-to-run of the program, whereas a call for which the question of which actual function to execute can only be determined as the program executes is called dynamic, because it changes from run-to-run or even from call-to-call within a single program execution.</p>
+      <h2 id="polymorphism">
+        
+        
+          Polymorphism <a href="#polymorphism">#</a>
+        
+        
+      </h2>
+    
+
+<p>Suppose we have a class <code class="language-plaintext highlighter-rouge">Class1</code> and classes <code class="language-plaintext highlighter-rouge">Class2</code>, <code class="language-plaintext highlighter-rouge">Class3</code>, … <code class="language-plaintext highlighter-rouge">ClassK</code>, that are derived from <code class="language-plaintext highlighter-rouge">Class1</code>, either directly or through a chain of <code class="language-plaintext highlighter-rouge">extends</code>. Suppose further that the base class <code class="language-plaintext highlighter-rouge">Class1</code> defines a method <code class="language-plaintext highlighter-rouge">method(Type1,Type2,...,TypeN)</code>, and that many of the derived classes override this method. If a variable <code class="language-plaintext highlighter-rouge">var</code> is declared as a reference to the base class <code class="language-plaintext highlighter-rouge">Class1</code>, then when the call structure below</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Class1</span> <span class="kt">var</span><span class="o">;</span>
+
+<span class="kt">var</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Class3</span><span class="o">(...);</span>
+
+<span class="kt">var</span><span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="n">arg1</span><span class="o">,...,</span><span class="n">argn</span><span class="o">)</span> <span class="c1">// calls Class3's method, not Class1 </span>
+</code></pre></div></div>
+
+<p>the actual method that gets executed is based on the type of the object <code class="language-plaintext highlighter-rouge">var</code> currently references <strong>not</strong> the type in which <code class="language-plaintext highlighter-rouge">var</code> was declared. So, if <code class="language-plaintext highlighter-rouge">var</code> currently points to an object of class <code class="language-plaintext highlighter-rouge">ClassI</code>, then the <code class="language-plaintext highlighter-rouge">ClassI</code> version of the method is the one that actually gets called.</p>
+
+<p>The typing of <code class="language-plaintext highlighter-rouge">var</code> as a <code class="language-plaintext highlighter-rouge">Class1</code> is still correct. But the inheritance says that all sub-types of <code class="language-plaintext highlighter-rouge">Class1</code> are <em>really</em> a <code class="language-plaintext highlighter-rouge">Class1</code>, just with “more stuff.” So there is nothing wrong with using <code class="language-plaintext highlighter-rouge">var</code> to reference a <code class="language-plaintext highlighter-rouge">Class2</code> or a <code class="language-plaintext highlighter-rouge">ClassK</code>.</p>
+
+<p>But, the thing that <code class="language-plaintext highlighter-rouge">var</code> references may not be exactly a <code class="language-plaintext highlighter-rouge">Class1</code>, so when you use the <code class="language-plaintext highlighter-rouge">.</code> operator to access a member or method, you’re really access the more specific version, namely a <code class="language-plaintext highlighter-rouge">Class2</code> or <code class="language-plaintext highlighter-rouge">ClassK</code>.</p>
+
+<p>This polymorphism of <code class="language-plaintext highlighter-rouge">var</code> is extremely powerful! It allows you to write generic interfaces, say for example the <code class="language-plaintext highlighter-rouge">toString()</code> interface for converting an object to a <code class="language-plaintext highlighter-rouge">String</code> in <code class="language-plaintext highlighter-rouge">println()</code>, and then each implementation can be used slightly differently without the caller/designer of the interface having having to know the specific type.</p>
+      <h2 id="we-are-all-instances-of-class-object">
+        
+        
+          We are all instances of class <code class="language-plaintext highlighter-rouge">Object</code> <a href="#we-are-all-instances-of-class-object">#</a>
+        
+        
+      </h2>
+    
+
+<p>We can see a slightly more interesting example of a polymorphic function call if I let you in on a little secret: all classes are derived from a class called <code class="language-plaintext highlighter-rouge">Object</code>. Specifically, when you define a class without the <code class="language-plaintext highlighter-rouge">extends</code> keyword, that class implicitly “extends” <code class="language-plaintext highlighter-rouge">Object</code>. So the class <code class="language-plaintext highlighter-rouge">Point</code> above is an <code class="language-plaintext highlighter-rouge">Object</code>. Now you can look <code class="language-plaintext highlighter-rouge">Object</code> up in the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">Java API documentation</a>, and you’ll see that it has some methods. Most notably for us, it has the method “<code class="language-plaintext highlighter-rouge">toString()</code>”. That means you can call <code class="language-plaintext highlighter-rouge">.toString()</code> for any object. So let’s expand our example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Object
+      ^
+      |
+    Point
+      ^
+      |
+   LabPoint
+
+</code></pre></div></div>
+
+<p>And the method <code class="language-plaintext highlighter-rouge">println()</code> takes advantage of this polymorphism by calling the <code class="language-plaintext highlighter-rouge">toString()</code> method of all objects passed to it; the implementation of <code class="language-plaintext highlighter-rouge">toString()</code> depends on the actual type of that instance of the <code class="language-plaintext highlighter-rouge">Object</code>. The fact that <code class="language-plaintext highlighter-rouge">Object</code> has a <code class="language-plaintext highlighter-rouge">toString()</code> method (inherited by all other objects) means this will <em>always</em> succeed in printing something.</p>
+
+<p>Using this knowledge, the polymorphism in the following program really comes to the front:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex3</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Random</span>   <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Random</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+    <span class="nc">Point</span>    <span class="n">v</span>    <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+    <span class="nc">LabPoint</span> <span class="n">w</span>    <span class="o">=</span> <span class="k">new</span> <span class="nc">LabPoint</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="s">"A"</span><span class="o">);</span>
+    <span class="nc">String</span>   <span class="n">x</span>    <span class="o">=</span> <span class="s">"I'm a string"</span><span class="o">;</span>
+    <span class="nc">Scanner</span>  <span class="n">y</span>    <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+    <span class="nc">Object</span> <span class="n">u</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+
+    <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="o">;</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="o">)</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+    <span class="k">else</span>
+      <span class="n">u</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">u</span><span class="o">);</span> <span class="c1">//&lt;--</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h1 id="example-of-using-polymorphism">
+        
+        
+          Example of Using Polymorphism <a href="#example-of-using-polymorphism">#</a>
+        
+        
+      </h1>
+    
+
+<p>Hopefully you’ve got the idea that polymorphism is a really cool mechanism. But what should we do with it? It’s a hammer, what’s the nail? Well, polymorphism solves the last of the three “problems” that we had with Procedural Programming not fully separating interface from implementation: how to allow multiple implementations for the same interface.</p>
+
+<p>Below is a non-trivial example that shows how polymorphism can be harnnesed to write non-trivial programs with ease.</p>
+      <h2 id="basic-expense-report-generator">
+        
+        
+          Basic Expense Report Generator <a href="#basic-expense-report-generator">#</a>
+        
+        
+      </h2>
+    
+
+<p>Suppose we’re writing a software to enter expense reports. There are number of different expenses one can enter, for example, a meal, a plane ticket, or various incidentals (like tipping the valet at the fancy hotel you just travelled to!). Our goal is to write a program like the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$./java ExpenseReport
+Enter dollar amount for lodging (0 for none): 357.89
+Enter dollar amount for meals (0 for none): 170.08
+Enter dollar amount for incidentals (0 for none): 58.23
+
+ $0357.89  lodging
+ $0170.08  meals
+ $0058.23  incidentals
+---------
+ $0586.20  total
+</code></pre></div></div>
+
+<p>Your OOP spidey-sense should be tingling! Let’s start with defining an expense class to manage expenses. This is straight forward: we’ll need to categorize the name of the expense and the amount, plus some other setters and getters. We will also want a method to “get” or “ask” for the expense amount.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Expense</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">descrip</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">amount</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="nf">Expense</span><span class="o">(</span><span class="nc">String</span> <span class="n">descrip</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getDescrip</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAmount</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAmount</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">);</span>
+
+  <span class="c1">// Get amount from user and set</span>
+  <span class="c1">// amount appropriately.</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ask</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The actual code for <code class="language-plaintext highlighter-rouge">Expense</code> doesn’t matter, we can imagine we only got the class description, not the source code. But, if you’re interesed, you can find the source code by expanding the link below.</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.expense-java').toggle('slow')">Expense.java </a></li>
+</ul>
+<div class="expense-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mport</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.*;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Expense</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">descrip</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">double</span> <span class="n">amount</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Expense</span><span class="o">(</span><span class="nc">String</span> <span class="n">descrip</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">descrip</span> <span class="o">=</span> <span class="n">descrip</span><span class="o">;</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAmount</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ask</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter dollar amount for "</span>
+                     <span class="o">+</span> <span class="n">getDescrip</span><span class="o">()</span>
+                     <span class="o">+</span> <span class="s">" (0 for none): "</span><span class="o">);</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getDescrip</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">descrip</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getAmount</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">amount</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Given a set of expenses, next we need a way to generate a report. For that, we’ll use a procedural program (i.e., a static method) that takes an array of <code class="language-plaintext highlighter-rouge">Expense</code>s perform an <code class="language-plaintext highlighter-rouge">ask()</code> on each of them, and then print out the full report.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReportGenerator</span> <span class="o">{</span>
+  <span class="c1">// Query users for amounts of the</span>
+  <span class="c1">// expense categories listed in</span>
+  <span class="c1">// array e, and output expense report.</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">create</span><span class="o">(</span><span class="nc">Expense</span><span class="o">[]</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Again, the actual details of this code are not important, we can assume we simply get the class and not the source. But if you’re interested, you can expand the link below:</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.reportGenerator-java').toggle('slow')">ReportGenerator.java </a></li>
+</ul>
+<div class="reportGenerator-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReportGenerator</span> <span class="o">{</span>
+  <span class="c1">// Query users for amounts of the</span>
+  <span class="c1">// expense categories listed in</span>
+  <span class="c1">// array e, and output expense report.</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">create</span><span class="o">(</span><span class="nc">Expense</span><span class="o">[]</span> <span class="n">expenses</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">e</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">expenses</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">ask</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="kt">double</span> <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">e</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">expenses</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getAmount</span><span class="o">();</span>
+      
+      <span class="c1">//round up to the nearest penny</span>
+      <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">floor</span><span class="o">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">)</span> <span class="o">/</span> <span class="mf">100.0</span><span class="o">;</span>
+      
+      <span class="n">total</span> <span class="o">+=</span> <span class="n">y</span><span class="o">;</span>
+      
+      <span class="c1">//format print all pretty</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">" $%07.2f\t%s\n"</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">expenses</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getDescrip</span><span class="o">());</span>
+    <span class="o">}</span>
+    <span class="c1">//print the total</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"---------\n $%07.2f\ttotal\n"</span><span class="o">,</span> <span class="n">total</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div>  </div>
+</div>
+
+<p>At this point it should be clear, with a simple <code class="language-plaintext highlighter-rouge">main()</code> method we can produce the functionality we desire from above.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExpenseReport</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Expense</span><span class="o">[]</span> <span class="n">e</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"lodging"</span><span class="o">),</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"meals"</span><span class="o">),</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"incidentals"</span><span class="o">)</span>
+    <span class="o">};</span>
+    <span class="nc">ReportGenerator</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="polymorphic-expense-report-generator">
+        
+        
+          Polymorphic Expense Report Generator <a href="#polymorphic-expense-report-generator">#</a>
+        
+        
+      </h2>
+    
+
+<p>This example makes use of good OOP but not inheritance nor polymorphism. But let’s consider what happens when we want to add a slightly more complicated expense, that is “per-item.”</p>
+
+<p>A great example of such an expense, is mileage for car travel. You get reimbursed a fix rate per mile (as in it’s a per-item, or per-mile expense.) The current structure of <code class="language-plaintext highlighter-rouge">Expense</code> cannot accommodate a per-item expense, like mileage, but we can expand <code class="language-plaintext highlighter-rouge">Expense</code> to do just that.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PerItemExpense</span> <span class="kd">extends</span> <span class="nc">Expense</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">rate</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">item</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">PerItemExpense</span><span class="o">(</span><span class="nc">String</span> <span class="n">descrip</span><span class="o">,</span>
+                          <span class="nc">String</span> <span class="n">kind</span><span class="o">,</span>
+                          <span class="kt">double</span> <span class="n">rate</span><span class="o">){</span>
+    
+        <span class="c1">//initialize Expense with per-itme info</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">descrip</span> <span class="o">+</span> <span class="s">"(at "</span> <span class="o">+</span> <span class="n">rate</span> <span class="o">+</span> <span class="s">"dollers per "</span> <span class="o">+</span> <span class="n">kind</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rate</span> <span class="o">=</span> <span class="n">rate</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">kind</span> <span class="o">=</span> <span class="n">kind</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">ask</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter amount of "</span> <span class="o">+</span> <span class="n">kind</span> <span class="o">+</span> <span class="s">": "</span><span class="o">);</span>
+        <span class="n">setAmount</span><span class="o">(</span><span class="n">sc</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">()</span> <span class="o">*</span> <span class="n">rate</span><span class="o">);</span> <span class="c1">//set amount at rate</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With this new class, let’s consider two things:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">PerItemExpense</code> is-a <code class="language-plaintext highlighter-rouge">Expense</code> in the sense that it inherits from <code class="language-plaintext highlighter-rouge">Expense</code> and thus can be used <em>anywhere</em> that <code class="language-plaintext highlighter-rouge">Expense</code> is used.</li>
+  <li><code class="language-plaintext highlighter-rouge">PerItemExpense</code> has overwritten the functionality of <code class="language-plaintext highlighter-rouge">Expense</code> but keeps the same API, as in, it’s a different implementation of how expenses are recorded and calculated, but it uses the same interface of calling <code class="language-plaintext highlighter-rouge">ask()</code> and encoding values in the description and the amount is retrievable via <code class="language-plaintext highlighter-rouge">getAmount()</code>.</li>
+</ol>
+
+<p>What this means, is that we <strong>DO NOT</strong> have to overwrite any new code in <code class="language-plaintext highlighter-rouge">ReportGenerator</code> to handle this new expense type. It already takes as input an array of <code class="language-plaintext highlighter-rouge">Expense</code>s – <code class="language-plaintext highlighter-rouge">PerItemExpense</code> is an <code class="language-plaintext highlighter-rouge">Expense</code>. In the method, it uses <code class="language-plaintext highlighter-rouge">ask()</code> and <code class="language-plaintext highlighter-rouge">getAmmount()</code> to generator a report — if it’s a per-item expense, at the method call site, the per-item functionality will be used, and if it’s a normal expense, the normal functionality will be used. In other words, the computer can know, at runtime, which is the correct method to call, based on the runtime type of the object as opposed to the compile time type of the object.</p>
+
+<p>We achieve the Nirvana of OOP in quite a simple non-trivial program. The <code class="language-plaintext highlighter-rouge">main()</code> method only changes like so</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExpenseReport</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Expense</span><span class="o">[]</span> <span class="n">expenses</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"lodging"</span><span class="o">),</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"meals"</span><span class="o">),</span>
+      <span class="k">new</span> <span class="nf">Expense</span><span class="o">(</span><span class="s">"incidentals"</span><span class="o">),</span>
+      <span class="k">new</span> <span class="nf">PerItemExpense</span><span class="o">(</span><span class="s">"mileage"</span><span class="o">,</span><span class="s">"miles"</span><span class="o">,</span>  <span class="mf">0.31</span><span class="o">)</span> <span class="c1">//Also an Expense                       </span>
+    <span class="o">};</span>
+
+    <span class="nc">ReportGenerator</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">expenses</span><span class="o">);</span><span class="c1">//polymorphism will ensure the right </span>
+                              <span class="c1">//functionality is achived at the call site</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>In the <code class="language-plaintext highlighter-rouge">create</code> method, which calls <code class="language-plaintext highlighter-rouge">ask</code> on each expense, the computer will look at the runtime type of that expense and call the matching <code class="language-plaintext highlighter-rouge">ask</code> method for that class; note that in the <code class="language-plaintext highlighter-rouge">create</code> method the expenses are passed in as being of type <code class="language-plaintext highlighter-rouge">Expense</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static void create(Expense[] expenses)
+</code></pre></div></div>
+<p>and yet, different <code class="language-plaintext highlighter-rouge">ask</code> methods are being called from a single line of code inside that <code class="language-plaintext highlighter-rouge">create</code> method:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    for (int i = 0; i &lt; e.length; i++) {
+      expenses[i].ask(sc);
+    }
+</code></pre></div></div>
+
+<p>And now we get the following output</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java ExpenseReport
+Enter dollar amount for lodging (0 for none): 357.89
+Enter dollar amount for meals (0 for none): 170.08
+Enter dollar amount for incidentals (0 for none): 58.23
+Enter amount of miles: 302
+
+ $0357.89  lodging
+ $0170.08  meals
+ $0058.23  incidentals
+ $0093.62  mileage (at 0.31 dollars per miles)
+---------
+ $0679.82  total
+</code></pre></div></div>
+      <h1 id="casting-polymorphism-and-instanceof">
+        
+        
+          Casting, Polymorphism and <code class="language-plaintext highlighter-rouge">instanceof</code> <a href="#casting-polymorphism-and-instanceof">#</a>
+        
+        
+      </h1>
+    
+
+<p>Polymorphism implies that you might have use a more general type (say an <code class="language-plaintext highlighter-rouge">Expense</code>) to reference a more expressive type (say an <code class="language-plaintext highlighter-rouge">PerItemExpense</code>), like in the example above. For example, we know that in <code class="language-plaintext highlighter-rouge">ExpenseReport</code> that if we did the following</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Expence</span> <span class="n">a</span> <span class="o">=</span> <span class="n">e</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span> <span class="c1">//a is really a PerItemExpense</span>
+</code></pre></div></div>
+
+<p>We know that <code class="language-plaintext highlighter-rouge">a</code> is a per-item expense because we wrote the code, and we could, technically cast that to a <code class="language-plaintext highlighter-rouge">PerItemExpense</code> if we wanted to.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PerItemExpense</span> <span class="n">a</span> <span class="o">=</span> <span class="o">(</span><span class="nc">PerItemExpense</span><span class="o">)</span> <span class="n">e</span><span class="o">[</span><span class="mi">3</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>But this is quite dangerous, and should feel a bit ugly (because it is). For starters, we just happen to know that this is a <code class="language-plaintext highlighter-rouge">PerItemExpense</code> but from <code class="language-plaintext highlighter-rouge">ReportGenerator.create()</code>’s perspective, it sees everything as an <code class="language-plaintext highlighter-rouge">Expense</code>. So this cast is <strong>dangerous</strong> and cause runtime errors and will sometimes cause compile time warnings. It’s also not neccesary because the interface for <code class="language-plaintext highlighter-rouge">Expense</code> is consistent with <code class="language-plaintext highlighter-rouge">PerItemExpense</code> and so we can take advantage of polymorphism.</p>
+
+<p>However, there are times where you will need to know what is the real class-type of an instance object. Java has a method for doing that using <code class="language-plaintext highlighter-rouge">instanceof</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">e</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="k">instanceof</span> <span class="nc">PerItemExpense</span> <span class="o">)</span>
+    <span class="c1">//... do something specific to this class</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>While there are some programs where this is unavoidable (we often see this when writing our own <code class="language-plaintext highlighter-rouge">equals()</code> methods), you should typical try to design your code such that it’s fully polymorphic, as in it doesn’t matter which of the specific sub-types the instance is.</p>
+      <h1 id="abstract-classes">
+        
+        
+          Abstract Classes <a href="#abstract-classes">#</a>
+        
+        
+      </h1>
+    
+
+<p>Consider that we’re developing a program to represent individuals at GW, simplified for now to consider just faculty and students (we know that there are more than just professors and students at GW). We also need to be able to be able to quickly read in a <code class="language-plaintext highlighter-rouge">Person</code> (e.g., using a <code class="language-plaintext highlighter-rouge">Scanner</code>), sort all the persons we read in in alphabetic order, and retrieve their email addresses.</p>
+
+<p>Before learning about OOP, you may be tempted to program two classes separately a <code class="language-plaintext highlighter-rouge">GWStudent</code> class and a <code class="language-plaintext highlighter-rouge">GWFaculty</code> class, but now we know that we should leverage inheritance to find commonality between professors and students in a super class, perhaps a <code class="language-plaintext highlighter-rouge">GWPerson</code> class. Like so</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         GWPerson
+         ^     ^
+        .'     '.
+       |        | 
+ GWStudent    GWFaculty
+</code></pre></div></div>
+
+<p>This is great! This means we can create array’s of <code class="language-plaintext highlighter-rouge">GWPerson</code>s like so and take advantage of both inheritance and polymorphism in the code we design</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">GWPerson</span> <span class="n">persons</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWPerson</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+<span class="n">persons</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWStudent</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+<span class="n">persons</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWProfessor</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+<span class="c1">//...</span>
+<span class="c1">//sort persons using before method.</span>
+</code></pre></div></div>
+
+<p>But let’s think about this for a second; would we ever instantiate a <code class="language-plaintext highlighter-rouge">GWPerson</code> object? No. The whole universe at GW are students and professors. Yes, they are both <code class="language-plaintext highlighter-rouge">GWPerson</code>s but each person must be either a student or professor.</p>
+
+<p>Moreover, there is going to be some functionality that doesn’t make sense to implement in the <code class="language-plaintext highlighter-rouge">GWPerson</code> class because it will have to be overwritten in the sub-class. For example, consider a method <code class="language-plaintext highlighter-rouge">email()</code> which returns the person’s email. This is wholy dependent on if the person is a student or a professor.</p>
+
+<blockquote>
+  <p>Note that a student’s email address is <code class="language-plaintext highlighter-rouge">@gwmail.gwu.edu</code> and a faculty email address is ``@email.gwu.edu`.</p>
+</blockquote>
+
+<p>There is no reason to then implement <code class="language-plaintext highlighter-rouge">email()</code> at all at the <code class="language-plaintext highlighter-rouge">GWPerson</code> level, but instead it must be implemented in the subtype, specific to students or professors. We don’t know the domain of the email until we know which sub-class of <code class="language-plaintext highlighter-rouge">GWPerson</code> (either student of faculty).</p>
+
+<p>While it may be impossible to implement an <code class="language-plaintext highlighter-rouge">email()</code> method, there are other possible  methods of <code class="language-plaintext highlighter-rouge">GWPerson</code> that should be common to a <code class="language-plaintext highlighter-rouge">GWStudent</code> and <code class="language-plaintext highlighter-rouge">GWFaculty</code>. For example, a <code class="language-plaintext highlighter-rouge">fullname()</code> method that prints the full name (first and last together) is the same for everyone.</p>
+
+<p>As such, we have a super class, <code class="language-plaintext highlighter-rouge">GWPerson</code>, that is both obvious in that it should be implemented and included in the class hierarchy, but has features that cannot actually be implemented. Additionally, a <code class="language-plaintext highlighter-rouge">GWPerson</code> object should never need to be instantiated … so what really is <code class="language-plaintext highlighter-rouge">GWPerson</code> in this class hierarchy?</p>
+      <h2 id="abstract-gwperson-class">
+        
+        
+          Abstract GWPerson Class <a href="#abstract-gwperson-class">#</a>
+        
+        
+      </h2>
+    
+
+<p>In Java, we have a notion of <strong>abstract classes</strong> to solve this very problem. It allows the program to describe a class that fits into a class hierarchy for inheritance and code-reuse, e.g., <code class="language-plaintext highlighter-rouge">GWPerson</code>, but should never actually be instantiated because some features/methods cannot exist until properly defined in a sub class.</p>
+
+<p>To indicate that a class or method is “abstract” we use the <code class="language-plaintext highlighter-rouge">abstract</code> keyword to note it when declaring the class, and also in which methods are <code class="language-plaintext highlighter-rouge">abstract</code>. Like below.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">GWPerson</span> <span class="o">{</span> <span class="c1">//note GWPerson is abstract !</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">fname</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">GWPerson</span><span class="o">(</span><span class="nc">String</span> <span class="n">fname</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">,</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">);</span>
+    
+    <span class="c1">//these methods can be same for all persons but perhaps overwritten</span>
+    <span class="c1">//to include more specifics in subclasses</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">before</span><span class="o">(</span><span class="nc">Person</span> <span class="n">p</span><span class="o">);</span> <span class="c1">//returns True if this "before" p in</span>
+                                     <span class="c1">//alphabetic ordering</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">fullname</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">();</span>
+
+
+    <span class="c1">//this method cannot be defined here and must be implemnted in the subclass</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="nc">String</span> <span class="nf">email</span><span class="o">();</span> <span class="c1">//abstract method</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>To see the full implementation, click below.</p>
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.gwperson-java').toggle('slow')">GWPerson.java </a></li>
+</ul>
+<div class="gwperson-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">GWPerson</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">fname</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">GWPerson</span><span class="o">(</span><span class="nc">String</span> <span class="n">fname</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">,</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">fname</span><span class="o">=</span><span class="n">fname</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lname</span><span class="o">=</span><span class="n">lname</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">GWID</span><span class="o">=</span><span class="no">GWID</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">uname</span><span class="o">=</span><span class="n">uname</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">before</span><span class="o">(</span><span class="nc">GWPerson</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//last name not the same</span>
+        <span class="k">if</span><span class="o">(!</span> <span class="k">this</span><span class="o">.</span><span class="na">lname</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">lname</span><span class="o">)){</span> 
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">lname</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">lname</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">//first name not the same</span>
+        <span class="k">if</span><span class="o">(!</span> <span class="k">this</span><span class="o">.</span><span class="na">fname</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">fname</span><span class="o">)){</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">fname</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">fname</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">//first and last name the same, compare GWID's</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">GWID</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">GWID</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">fullname</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">fname</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">lname</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">lname</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">fname</span> <span class="o">+</span> <span class="s">"("</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">GWID</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">uname</span> <span class="o">+</span> <span class="s">")"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="nc">String</span> <span class="nf">email</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Declaring a class <code class="language-plaintext highlighter-rouge">abstract</code> means that this class cannot be directly instantiated. For example, the following code <strong>will not compile</strong>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">GWPerson</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWPerson</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>That’s because <code class="language-plaintext highlighter-rouge">GWPerson</code> is simply an abstract representation of a person and not fully implemented. Only (non abstract) subclasses of <code class="language-plaintext highlighter-rouge">GWPerson</code> instantiate a person (via polymorphism). For example,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">GWPerson</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWStudent</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>In this case, <code class="language-plaintext highlighter-rouge">GWStudent</code> is-a <code class="language-plaintext highlighter-rouge">GWPerson</code> as it will <code class="language-plaintext highlighter-rouge">extends</code> the <code class="language-plaintext highlighter-rouge">GWPerson</code> class. The same will be the case for <code class="language-plaintext highlighter-rouge">GWFaculty</code> class.</p>
+      <h2 id="extending-an-abstract-gwperson-class">
+        
+        
+          Extending an Abstract GWPerson Class <a href="#extending-an-abstract-gwperson-class">#</a>
+        
+        
+      </h2>
+    
+
+<p>When you extend an abstract class, the Java compiler requires you to finish the implementation of that class. In this case, we must overwrite the method <code class="language-plaintext highlighter-rouge">email()</code>. If we were to implement a <code class="language-plaintext highlighter-rouge">GWStudent</code>, we must implement the abstract methods, including the <code class="language-plaintext highlighter-rouge">email()</code> method and the <code class="language-plaintext highlighter-rouge">read()</code> method. If you do not, the compiler provides the following warning:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GWStudent.java:1: error: GWStudent is not abstract and does not override abstract method email() in GWPerson
+public class GWStudent extends GWPerson{
+       ^
+1 error
+</code></pre></div></div>
+
+<p>Once we do implement <code class="language-plaintext highlighter-rouge">email()</code>, implementing <code class="language-plaintext highlighter-rouge">GWStudent</code> and <code class="language-plaintext highlighter-rouge">GWFaculty</code> are relatively straight forward</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GWStudent</span> <span class="kd">extends</span> <span class="nc">GWPerson</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">classYear</span><span class="o">;</span> <span class="c1">//e.g., class of 2024</span>
+
+    <span class="kd">public</span> <span class="nf">GWStudent</span><span class="o">(</span><span class="nc">String</span> <span class="n">fname</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">,</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">,</span> <span class="kt">int</span> <span class="n">classYear</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">fname</span><span class="o">,</span> <span class="n">lname</span><span class="o">,</span> <span class="no">GWID</span><span class="o">,</span> <span class="n">uname</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">classYear</span> <span class="o">=</span> <span class="n">classYear</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//implmenting abstract method</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">email</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">uname</span> <span class="o">+</span> <span class="s">"@gwmail.gwu.edu"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">//overwriting super method</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">" -- Class of "</span><span class="o">+</span><span class="k">this</span><span class="o">.</span><span class="na">classYear</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//adding new static method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">GWStudent</span> <span class="nf">read</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">lname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="no">GWID</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">uname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">year</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">GWStudent</span><span class="o">(</span><span class="n">fname</span><span class="o">,</span> <span class="n">lname</span><span class="o">,</span> <span class="no">GWID</span><span class="o">,</span> <span class="n">uname</span><span class="o">,</span> <span class="n">year</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GWFaculty</span> <span class="kd">extends</span> <span class="nc">GWPerson</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">dept</span><span class="o">;</span> <span class="c1">//department</span>
+
+    <span class="kd">public</span> <span class="nf">GWFaculty</span><span class="o">(</span><span class="nc">String</span> <span class="n">fname</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lname</span><span class="o">,</span> <span class="nc">String</span> <span class="no">GWID</span><span class="o">,</span> <span class="nc">String</span> <span class="n">uname</span><span class="o">,</span> <span class="nc">String</span> <span class="n">dept</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">fname</span><span class="o">,</span> <span class="n">lname</span><span class="o">,</span> <span class="no">GWID</span><span class="o">,</span> <span class="n">uname</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">dept</span> <span class="o">=</span> <span class="n">dept</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">email</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">uname</span> <span class="o">+</span> <span class="s">"@email.gwu.edu"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">" -- "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">dept</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//adding new static method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">GWFaculty</span> <span class="nf">read</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">lname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="no">GWID</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">uname</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">dept</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">GWFaculty</span><span class="o">(</span><span class="n">fname</span><span class="o">,</span> <span class="n">lname</span><span class="o">,</span> <span class="no">GWID</span><span class="o">,</span> <span class="n">uname</span><span class="o">,</span> <span class="n">dept</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+      <h2 id="leveraging-abstract-class">
+        
+        
+          Leveraging Abstract Class <a href="#leveraging-abstract-class">#</a>
+        
+        
+      </h2>
+    
+
+<p>Abstract classes provide a way to guarantee a subclass of the given class implements all the necessary functionality (i.e., the abstract methods). That means, you can program using the abstract class in a polymorphic way with the expectation that you’ll have those methods available to you.</p>
+
+<p>For example, consider this program that reads in information about students and faculty, sorts them, and prints it out in a nice format.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReadPersons</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">GWPerson</span> <span class="n">persons</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GWPerson</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+
+        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="c1">//read in students and faculty</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Select:\n"</span><span class="o">+</span>
+                               <span class="s">"(s) Student\n"</span><span class="o">+</span>
+                               <span class="s">"(f) Faculty\n"</span><span class="o">+</span>
+                               <span class="s">"(d) Done"</span><span class="o">);</span>
+            <span class="nc">String</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">opt</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"s"</span><span class="o">))</span> 
+                <span class="n">persons</span><span class="o">[</span><span class="n">n</span><span class="o">++]</span> <span class="o">=</span> <span class="nc">GWStudent</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">opt</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"f"</span><span class="o">))</span>
+                <span class="n">persons</span><span class="o">[</span><span class="n">n</span><span class="o">++]</span> <span class="o">=</span> <span class="nc">GWFaculty</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+            <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">opt</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"d"</span><span class="o">))</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Unknown option"</span><span class="o">);</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//before a bubble sort</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">before</span><span class="o">(</span><span class="n">persons</span><span class="o">[</span><span class="n">j</span><span class="o">]))</span> <span class="o">{</span>
+                    <span class="nc">GWPerson</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                    <span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">persons</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+                    <span class="n">persons</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-----"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+
+        <span class="c1">//print out the info</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">" -- "</span> <span class="o">+</span> <span class="n">persons</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">email</span><span class="o">());</span> 
+        <span class="o">}</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Importantly, note that we are able to refer to <code class="language-plaintext highlighter-rouge">persons</code> array of type <code class="language-plaintext highlighter-rouge">GWPerson[]</code> despite <code class="language-plaintext highlighter-rouge">GWPerson</code> being an abstract class. The only instances of <code class="language-plaintext highlighter-rouge">GWPerson</code> are either <code class="language-plaintext highlighter-rouge">GWFaculty</code> or <code class="language-plaintext highlighter-rouge">GWStudent</code>, and the functionality differences rely on <em>both</em> polymorphism and inheritance.</p>
+
+<p>For example, with the following inputs:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s John Smith G12245 jsmith 2021
+s Yang Li G22213 yli 2023
+s Taylor Swift G3123565 tswift 2024
+s Priyanka Chopra G123052 pchopra 2025
+f Adam Aviv G8182309 aaviv Computer Science
+f Pablo Frank-Bolton G0731345 pfrank Computer Science
+s Harry Styles G120345 styles 2026
+d
+</code></pre></div></div>
+
+<p>We would get the following output from this program</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Aviv, Adam (G8182309,aaviv) --  Computer Science -- aaviv@email.gwu.edu
+Chopra, Priyanka (G123052,pchopra) -- Class of 2025 -- pchopra@gwmail.gwu.edu
+Frank-Bolton, Pablo (G0731345,pfrank) --  Computer Science -- pfrank@email.gwu.edu
+Li, Yang (G22213,yli) -- Class of 2023 -- yli@gwmail.gwu.edu
+Reynolds, Ryan (G123052,rrey) -- Class of 2025 -- rrey@gwmail.gwu.edu
+Smith, John (G12245,jsmith) -- Class of 2021 -- jsmith@gwmail.gwu.edu
+Styles, Harry (G120345,styles) -- Class of 2026 -- styles@gwmail.gwu.edu
+
+</code></pre></div></div>
+      <h1 id="oop-design-activity">
+        
+        
+          OOP Design Activity <a href="#oop-design-activity">#</a>
+        
+        
+      </h1>
+    
+
+<p>Let’s take a moment and look at a sample program and try and develop a design for a program using our OOP skills of encapsulation, inheritance, and (now!) polymorphism.  In particular we are going to consider a family household simulation. There are both regular expenses and payments.</p>
+
+<p>For example, you expect the following inputs to the simulation:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>every 14 days start 1/6/2021 income Paycheck
+every 1 months start 1/15/2021 expense Mortgage Due
+every 1 months start 1/6/2021 expense Cable Due
+every 3 months start 3/21/2021 expense Water/Sewer Due
+every 3 months start 3/26/2021 income Stock Dividend
+every 1 months start 1/23/2021 expense Credit Card Due
+every 1 months start 1/11/2021 expense Car Payment Due
+every 1 months start 1/2/2021 expense Car Insurance Due
+every 1 months start 1/17/2021 expense Cell Phone Due
+every 1 days start 1/7/2021 prob 0.143 expense Groceries
+every 1 days start 1/1/2021 prob 0.15 expense Dinner Out
+every 7 days start 1/3/2021 prob 0.5 expense Breakfast Out
+every 4 days start 1/1/2021 prob 0.5 expense Gas
+every 1 days start 1/1/2021 prob 0.01 expense Car Repair
+every 12 months start 4/15/2021 expense Taxes Due
+every 1 months for 12 start 1/16/2021 expense Etsy AfterPay Payment Due
+</code></pre></div></div>
+
+<p>Some of these items should be obvious, others require a bit more explanation.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">every 3 months start 3/26/2016 income Stock Dividend</code><br />
+This indicates that “Stock Dividend” is an event that first occurs on 3/26/2016 and occurs every three months from that point on. So, for example, the next occurence would be 6/26/2016.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">every 14 days start 1/6/2016 income Paycheck</code><br />
+ This indicates that “Paycheck” is an event that first occurs on 1/6/2016 and occurs every 14 days from that point on. So, for example, the next occurence would be 1/20/2016.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">every 1 months for 12 start 1/16/2016 expense Etsy AfterPay Payment Due </code><br />
+This indicates that “Etsy AfterPay Payment Due” is an event that first occurs on 1/16/2016 and occurs monthly from that point on until it has occurred 12 times. So, for example, the next occurence would be 2/16/2016, and the last occurrence would be 12/16/2016. The limit on the number of occurrences only happens with “every X months” events.</p>
+  </li>
+</ul>
+
+<p>And once all that is loaded in, the simulation runs indicating income and expenses. Like below</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1/1/2021: - Dinner Out, - Gas
+1/2/2021: - Car Insurance Due
+1/3/2021: - Breakfast Out
+1/5/2021: - Gas
+1/6/2021: + Paycheck, - Cable Due
+1/7/2021: - Groceries, - Dinner Out
+1/9/2021: - Gas
+1/10/2021: - Breakfast Out
+1/11/2021: - Car Payment Due
+1/13/2021: - Groceries
+1/15/2021: - Mortgage Due
+1/16/2021: - Etsy AfterPay Payment Due
+1/17/2021: - Cell Phone Due, - Breakfast Out
+1/18/2021: - Dinner Out
+1/20/2021: + Paycheck
+1/21/2021: - Gas
+1/23/2021: - Credit Card Due
+1/24/2021: - Groceries
+1/25/2021: - Gas
+1/29/2021: - Gas
+2/2/2021: - Car Insurance Due, - Dinner Out
+2/3/2021: - Paycheck
+2/5/2021: - Dinner Out
+2/6/2021: - Cable Due, - Dinner Out, - Gas
+2/7/2021: - Breakfast Out
+2/8/2021: - Groceries
+2/10/2021: - Dinner Out
+2/11/2021: - Car Payment Due, - Groceries
+2/12/2021: - Groceries, - Dinner Out
+2/14/2021: - Breakfast Out
+2/15/2021: - Mortgage Due
+...
+</code></pre></div></div>
+
+<p>Take a moment to think of a class hierarchy structure that would make sense for this simulator. You can either draw a UML diagram, or write out your classes members and methods (withou implementation). I do the later below, and click <a href="javascript:void(0)" onclick="$('.exercise').toggle('slow')">REVEAL</a> to see my solution.</p>
+
+<div class="exercise" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HouseholdItem</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">;</span>  <span class="c1">//starts</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">every</span><span class="o">;</span> <span class="c1">//14,2,7 ...</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">;</span> <span class="c1">//"days","months","years",etc..</span>
+    <span class="kd">protected</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span> <span class="c1">//what type of item</span>
+
+    <span class="kd">public</span> <span class="nf">HouseholdItem</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">every</span><span class="o">,</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">startDate</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">every</span> <span class="o">=</span> <span class="n">every</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="c1">//return if the item applies to today</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isAppliedToday</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">curDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//compare to the current date and determine if the item applies to today</span>
+        <span class="c1">//... (implementation not shown)</span>
+    <span class="o">}</span>
+    
+    <span class="c1">//returns name of item</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+</code></pre></div>  </div>
+
+  <p>Checkout the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html">Calendar</a> in <code class="language-plaintext highlighter-rouge">java.util</code>.</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExpenseItem</span> <span class="kd">extends</span> <span class="nc">HouseholdItem</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ExpenseItem</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">every</span><span class="o">,</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">startDate</span><span class="o">,</span> <span class="n">every</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"- "</span> <span class="o">+</span> <span class="kd">super</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IncomeItem</span> <span class="kd">extends</span> <span class="nc">HouseholdItem</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">IncomeItem</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">every</span><span class="o">,</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">startDate</span><span class="o">,</span> <span class="n">every</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"+ "</span> <span class="o">+</span> <span class="kd">super</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProbExpense</span> <span class="kd">extends</span> <span class="nc">ExpenseItem</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">prob</span><span class="o">;</span>
+    <span class="nc">Random</span> <span class="n">rand</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">ProbExpense</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">every</span><span class="o">,</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">double</span> <span class="n">prob</span><span class="o">,</span> <span class="nc">Random</span> <span class="n">rand</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">startDate</span><span class="o">,</span> <span class="n">every</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">prob</span> <span class="o">=</span> <span class="n">prob</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rand</span> <span class="o">=</span> <span class="n">rand</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isAppliedToday</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">curDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="kd">super</span><span class="o">.</span><span class="na">isAppliedToday</span><span class="o">())</span> <span class="o">{</span>
+            <span class="c1">//do the probabilities</span>
+            <span class="k">return</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">()</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">prob</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+<span class="o">}</span>
+ 
+</code></pre></div>  </div>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LimitedExpense</span> <span class="kd">extends</span> <span class="nc">ExpenseItem</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LimitedExpense</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">startDate</span><span class="o">,</span> <span class="kt">int</span> <span class="n">every</span><span class="o">,</span> <span class="nc">String</span> <span class="n">unit</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">limit</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">startDate</span><span class="o">,</span> <span class="n">every</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isAppliedToday</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">curDate</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="kd">super</span><span class="o">.</span><span class="na">isAppliedToday</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">limit</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>  </div>
+
+  <p>I leave the input parsing for this simulator as additional exercise, but the key idea is the following:</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Simulator</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+       <span class="nc">HouseholdItems</span> <span class="n">items</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HouseholdItems</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+       <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//number of items read, initially 0</span>
+
+       <span class="c1">//Read in up to 100 items (implementaiton not included)</span>
+       <span class="c1">//set the valuye of n</span>
+
+       <span class="nc">Calendar</span> <span class="n">curtDate</span> <span class="o">=</span> <span class="nc">Calendar</span><span class="o">();</span>
+       <span class="n">startDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2021</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> 
+
+       <span class="kt">int</span> <span class="n">days</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+       <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+           <span class="nc">String</span> <span class="n">itemNames</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+
+           <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+               <span class="k">if</span><span class="o">(</span><span class="n">items</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">isAppliedToday</span><span class="o">(</span><span class="n">curDate</span><span class="o">))</span>
+                   <span class="n">itemNames</span> <span class="o">+=</span> <span class="n">items</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">", "</span><span class="o">;</span>
+
+           <span class="c1">//print out with trailing ',' removed</span>
+           <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">curDate</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">itemNames</span><span class="o">.</span><span class="na">subString</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">itemNames</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">2</span><span class="o">));</span> 
+
+           <span class="n">curDate</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">DATE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">//add one day</span>
+       <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+
+</div><hr />
+<p><em>Material from this unit was adopted and/or derived from USNA ic211 (spring 2019)</em></p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

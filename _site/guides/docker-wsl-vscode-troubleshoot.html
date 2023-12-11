@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Troubleshooting Docker, WSL, VSCode | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Troubleshooting Docker, WSL, VSCode" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/guides/docker-wsl-vscode-troubleshoot" />
+<meta property="og:url" content="http://localhost:4000/guides/docker-wsl-vscode-troubleshoot" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Troubleshooting Docker, WSL, VSCode" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"Troubleshooting Docker, WSL, VSCode","url":"http://localhost:4000/guides/docker-wsl-vscode-troubleshoot"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="dockervscodewsl-issues"><strong>Docker/VSCode/WSL Issues</strong></h1>
+<blockquote>
+  <p>NOTE: This is not a required or mandatory step for this class. WSL is a utility for Windows that allows a Linux-based workflow. If you want more information on WSL, please read <a href="https://docs.microsoft.com/en-us/learn/modules/get-started-with-windows-subsystem-for-linux/">this article</a>.</p>
+</blockquote>
+
+<blockquote>
+  <p>Before starting, you should have attempted the <a href="guide/vscode">VScode Setup Guide with Docker</a>. This page will provide common troubleshooting steps when attempting to get Docker working within VSCode and WSL. WSL can be used to emulate Linux if you are more familiar with that workflow. <em>It is not required that you use WSL!</em> This page assumes that you have Docker’s desktop client already installed.</p>
+</blockquote>
+
+<blockquote>
+  <p>If you are unable to get WSL working in a timely fashion, please just refer to the guide above, and priortize having a functional setup for class. Further assistance can be found within Hunter’s office hours.</p>
+</blockquote>
+
+<blockquote>
+  <p>This guide also assumes that you have downloaded your relevant repository within your WSL filesystem, as well as set up the necessary utilities within WSL (Git, mainly). It is important to note that there is a <em>big</em> difference in pulling a Git repository in your Windows filesystem, and within the WSL filespace. If you need more guidance</p>
+</blockquote>
+<hr />
+
+<h3 id="step-0-i-dont-have-wsl"><strong>Step 0: I don’t have WSL!</strong></h3>
+<blockquote>
+  <p>Scenario: <em>I don’t have WSL, and I’m not sure where to find it.</em></p>
+</blockquote>
+
+<h3 id="solution"><strong>Solution</strong></h3>
+<p>You can find a rather verbose installation guide for WSL on <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps">Microsoft’s website</a>. It will guide you through installation, and provide the commands you can just copy and paste.</p>
+
+<p>If you are stuck and don’t know what distribution of Linux to use, Ubuntu 20.04 is an easy one to work with, and has plenty of support and troubleshooting forums on sites such as StackOverflow.</p>
+<hr />
+
+<h3 id="step-05-wsl-doesnt-work-with-vscode"><strong>Step 0.5: WSL doesn’t work with VSCode!</strong></h3>
+<blockquote>
+  <p>Scenario: <em>I’ve installed VSCode, but it doesn’t just work.</em></p>
+</blockquote>
+
+<h3 id="solution-1"><strong>Solution</strong></h3>
+<p>You can find another guide for this problem on <a href="https://code.visualstudio.com/docs/remote/wsl">VSCode’s website</a></p>
+
+<hr />
+
+<h3 id="step-1-theres-a-pop-up-but-i-get-an-error"><strong>Step 1: There’s a pop-up, but I get an error!</strong></h3>
+<blockquote>
+  <p>Scenario: <em>I’ve installed VSCode and WSL. If I open VSCode with the assignment, Docker won’t open.</em></p>
+</blockquote>
+
+<p>If the error message appears as below, it means that WSL2 has to be set up, and you are on an older version of WSL. You will need admin priviliges on your computer in order to make further changes and solve this problem (i.e. you need to be using your own computer).</p>
+
+<p><img src="/images/wsl_docker_vscode_container_error.PNG" alt="Error Message" /></p>
+
+<h3 id="solution-2"><strong>Solution</strong></h3>
+<p>A) Open a Windows Powershell window (can be done on the Windows searchbar) and enter</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl -l -v
+</code></pre></div></div>
+<p>You may see less instances on your own machine, but you should see a WSL instance that does not have Docker in the name (Ubuntu in the image below, yours may vary).</p>
+
+<p><img src="/images/powershell_distributions.PNG" alt="Powershell Distributions Listing" /></p>
+
+<p>Make a note of the distribution. The asterisk to the left of the distribution indicates the currently active distribution, it isn’t necessarily indicative of the one you are wanting.</p>
+
+<p>B) You will now need to change the version of this WSL instance with</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version [Distribution Name] 2
+</code></pre></div></div>
+<p>You should substitute the relevant distribution name in place of the brackets (but do not include the brackets in your final command). For example, my command would look like</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --set-version Ubuntu 2
+</code></pre></div></div>
+
+<p>After this, the underlying filesystem will be converted, and it will take a few minutes.</p>
+
+<p>C) Next, open up Docker Desktop and go to the settings (the cog in the top right of the window). You should select the option that enables WSL backend support. Ensure that you apply the changes on this screen!</p>
+
+<p><img src="/images/docker_wsl_suppport.PNG" alt="Docker Desktop Enable WSL" /></p>
+
+<p>You should then click Resources on the left list of options, and the click “WSL Integration” to enable your selected distribution. Also ensure that you have checked the  that enables integration.</p>
+
+<p><img src="/images/docker_wsl_integration.PNG" alt="Docker WSL Integration" /></p>
+
+<p>Make sure you  hit Apply and Restart!</p>
+
+<p>After this, it should work. If not, you may need to enable CPU Virtualization in your BIOS settings. More details can be seen in Problem 1.</p>
+<hr />
+
+<h3 id="step-2-theres-no-docker-pop-up"><strong>Step 2: There’s no Docker Pop-Up!</strong></h3>
+<blockquote>
+  <p>Scenario: I open VSCode, and I do not get a pop-up that lets me open the Docker container in VSCode.</p>
+</blockquote>
+
+<p>Normally this will open up in the bottom right of the screen and <em>should</em> appear like the box below. <img src="/images/vscode_docker_popup.PNG" alt="Github Repo Link" /></p>
+
+<h3 id="solution-3"><strong>Solution</strong></h3>
+<p>A.) You should first ensure that you have opened up a WSL window within VSCode by pressing F1, searching for “WSL”, and then select the “Remote-WSL: New WSL Window” option. This gives you a VSCode window that is connected to your WSL filesystem. <img src="/images/new_wsl_window.PNG" alt="New WSL Window" /></p>
+
+<p>B.) Reopen the window that contains the Docker container by going to File -&gt; Open Folder… and selecting the relevant folder. This assumes that you have cloned the relevant git repository (your assignment repository) into your WSL system. This will require that you install Git within WSL (sudo apt install git-all), and have completed set-up of Git on your own within WSL.</p>
+
+<p><img src="/images/open_folder_vscode.PNG" alt="Open Folder" /></p>
+
+<p>C.) The pop-up should reappear, and you should be able to attempt to open the Docker container.</p>
+<hr />
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h3 id="problem-1-ive-installed-wsl-but-it-wont-launch"><strong>Problem 1: I’ve installed WSL, but it won’t launch!</strong></h3>
+<blockquote>
+  <p>Scenario: <em>I’ve completed the installation of WSL with Microsoft’s guide, and double checked that I followed all the steps. WSL still won’t launch.</em></p>
+</blockquote>
+
+<h3 id="solution-4"><strong>Solution</strong></h3>
+<p>This can sometimes occur when CPU virtualization is turned off. Course staff is still working on further diagnosing this issue as well. One fix is changing this setting in your computer’s BIOS settings.</p>
+
+<p>You can access your computers BIOS settings by shutting it down, pressing the power button, and pressing the key that is indicated on the bootup screen. This text might be formatted in a manner similar to</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Press F12 to enter BIOS settings
+</code></pre></div></div>
+<p>The specific key that you have to press can vary based on architectures or laptop manufacturer.</p>
+
+<p>Once you enter the BIOS settings, you should find a way to enter into Advanced Settings. From there you are looking for a setting that relates to CPU Virtualization. Sometimes this is called SVM mode as well.</p>
+
+<p>This step can take some trial and error, and requires time and patience. If you need further help with this, please either post on Ed or come to office hours so we can help you further.</p>
+
+<hr />
+
+<h3 id="problem-18446744073709551615--my-problem-isnt-listed-here"><strong>Problem 18,446,744,073,709,551,615 : My problem isn’t listed here!</strong></h3>
+<blockquote>
+  <p>Scenario: <em>I don’t see a problem that I am encountering listed on this webpage.</em></p>
+</blockquote>
+
+<h3 id="solution-5"><strong>Solution</strong></h3>
+<p>Please post a question on the class Ed page, and we will help you as soon as possible. Be sure to be detailed in your post about what you have tried, what you are hoping to do, and what the exact problem is. Screenshots help us help you much faster!</p>
+<hr />
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

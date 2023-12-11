@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/7" />
+<meta property="og:url" content="http://localhost:4000/lab/7" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/7"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="lab-7-gui-enigma-replacement">Lab 7: GUI Enigma (Replacement)</h1>
+
+<p><em>View the video for this lab on <a href="https://youtu.be/XLK8MnmXqmw">YouTube</a></em></p>
+
+<p><strong>This lab is not required. If you choose to complete it, you can earn up to 5 bonus points on the Java exam.</strong></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<h3 id="github-link">Github Link</h3>
+
+<p>Accept this assignment here: <a href="https://classroom.github.com/a/iK8qQkCB">https://classroom.github.com/a/iK8qQkCB</a></p>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p>This lab can be developed locally on your machine using any java installation.</p>
+
+<h3 id="running-your-program">Running your program</h3>
+
+<p>Run your lab on the command line by executing the following pipeline</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java EnigmaGUI
+</code></pre></div></div>
+
+<h3 id="testing-your-lab">Testing your lab</h3>
+
+<p>There is no test script for this lab. Your grade is based on running your GUI and testing different input/outputs as well as additional functionality. We will also read your code for object-oriented design principles.</p>
+
+<h1 id="enigma-gui">Enigma GUI</h1>
+
+<p>In this lab, you are going to write a GUI wrapper around the Enigma program you wrote as part of <a href="/lab/5">lab-5</a>.</p>
+
+<h2 id="reviewing-how-engima-worked">Reviewing how Engima worked</h2>
+
+<p>If you recall, that lab required you to complete three classes</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rotor</code> : representing a rotor of an Engima Machine</li>
+  <li><code class="language-plaintext highlighter-rouge">Enigma</code> : representation of an Enigma Machine</li>
+  <li><code class="language-plaintext highlighter-rouge">Comms</code> : the communication (and main method) of an enigma machine.</li>
+</ul>
+
+<p>To decrypt and encrypt, you provided the settings as command line arguments:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                  ,-- inner rotor initially positioned so X is on top
+                  |,-- middle rotor initially positioned so # is on top
+                  ||  ,-- outer rotor initially positioned so Y is on top
+                  || /
+java Comms 4 2 3 "X#Y" encrypt
+           | | |
+           | | `-- outer rotor is rotor 3
+           | `-- middle rotor is rotor 2
+           `-- inner rotor is rotor 4
+</code></pre></div></div>
+
+<p>And then the input and output on the command line</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 1 2 3 "###" encrypt
+AAA
+NDU
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 3 1 2 "SAT" encrypt
+DO#YOUR#BEST#AND#KEEP#ON#KEEPIN#ON
+ACAAFAEOZFWKBQKPXZOGIKXTNPEBDXWQCZ
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 5 2 4 "EST" decrypt
+CSHIAWDFGDCOE#EZKJHRWAZDDCBCILON#PKUJEXEXSHINZ
+THE#NATIONAL#ANIMAL#OF#SCOTLAND#IS#THE#UNICORN
+</code></pre></div></div>
+
+<h2 id="building-a-gui">Building a GUI</h2>
+
+<p>The purpose of this lab is to wrap all that functionality into a GUI. For example, here is a screenshot of a GUI implementation that you should be able to achieve:</p>
+
+<p><img src="/images/Engima-GUI.png" alt="Enigma GUI" width="60%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>You must use the following GUI elements in completing this lab</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JComboBox</code> : for selecting the rotor numbers</li>
+  <li><code class="language-plaintext highlighter-rouge">JTextField</code> : for selecting the start of the rotors</li>
+  <li><code class="language-plaintext highlighter-rouge">JTextArea</code> : for providing input to and output from Enigma</li>
+  <li><code class="language-plaintext highlighter-rouge">JButton</code> : for selecting encrypt or decrypt</li>
+  <li><code class="language-plaintext highlighter-rouge">JLabel</code> : for including other text references, such as “Inner” or “Middle”</li>
+</ul>
+
+<p>You can use any layout scheme you want for including these elements, but it should look something similar to the screenshot and be obvious in how to use it. For reference, I only used the <code class="language-plaintext highlighter-rouge">BorderLayout</code>, but you may find other layouts effective here.  (<em>Hint: you may also find it useful to create additional <code class="language-plaintext highlighter-rouge">JPanels</code> which organize different parts of your GUI, like the settings and the input/output areas.</em>)</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<div class="requirement">
+
+  <p>You must submit <em>at least</em> two classes</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">EnigmaGUI.java</code> : the main method for launching the GUI</li>
+    <li><code class="language-plaintext highlighter-rouge">EnigmaFrame.java</code> : the JFrame that contains the GUI</li>
+  </ul>
+
+  <p>You may also create additional classes as you see fit to complete this assignment.</p>
+
+  <p>You should use your completed Enigma code from <a href="/lab/5">lab-5</a>, but if you did not fully finish that assignment, you can use the following class files to complete this assignment. (Note that only compiled version of <code class="language-plaintext highlighter-rouge">Enigma</code> and <code class="language-plaintext highlighter-rouge">Rotor</code> are provided, but the full src of <code class="language-plaintext highlighter-rouge">Comms</code> is available.)</p>
+  <ul>
+    <li><a href="/src/Enigma.class">Enigma.class</a></li>
+    <li><a href="/src/Rotor.class">Rotor.class</a></li>
+    <li><a href="/src/Comms.java">Comms.java</a></li>
+  </ul>
+
+  <p>These class files are included in the starter code for your repository. If you want to use your own version, copy over your <code class="language-plaintext highlighter-rouge">Enigma.java</code> and <code class="language-plaintext highlighter-rouge">Rotor.java</code> file and compiles those, which will replace the existing class files.</p>
+</div>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

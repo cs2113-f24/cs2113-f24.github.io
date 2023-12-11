@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/3" />
+<meta property="og:url" content="http://localhost:4000/j/3" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/3"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#motivating-interfaces">Motivating Interfaces</a><ul><li><a href="#the-multiple-inheritance-problem">The Multiple Inheritance Problem</a></li><li><a href="#gwstaff-interface">GWStaff Interface</a></li><li><a href="#using-interfaces">Using interfaces</a></li></ul></li><li><a href="#realizing-multiple-interfaces">Realizing multiple interfaces</a><ul><li><a href="#declaring-a-type-for-certain-interface">Declaring a type for certain interface</a></li><li><a href="#yes-you-can-cast-but-you-shouldnt">Yes, you can cast, but you shouldn’t.</a></li></ul></li><li><a href="#java-generics-and-interface">Java Generics and Interface</a><ul><li><a href="#using-object-to-generalize">Using <code class="language-plaintext highlighter-rouge">Object</code> to generalize</a></li><li><a href="#java-generics">Java Generics</a></li><li><a href="#generics-as-an-erasure-to-object">Generics as an Erasure to Object</a></li><li><a href="#restrictions-on-generics">Restrictions on Generics</a><ul><li><a href="#cannot-use-primitive-types">Cannot use primitive types</a></li><li><a href="#cannot-create-instances-of-generic-types">Cannot create instances of generic types</a></li><li><a href="#cannot-create-arrays-of-generic-types">Cannot create arrays of generic types</a></li></ul></li></ul></li><li><a href="#exploring-common-java-interfaces-and-their-realizations">Exploring Common Java Interfaces and their Realizations</a><ul><li><a href="#comparable-interface">Comparable Interface</a></li><li><a href="#iterable-and-iterator-interface">Iterable and Iterator Interface</a></li><li><a href="#java-collections">Java Collections</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<style>
+.uml-size {
+  text-align: center;
+  width: 350px;
+}
+</style>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSMjoXDXUFkq6HX0i6mYNMGR">single playlist on youtube</a></em></p>
+      <h1 id="motivating-interfaces">
+        
+        
+          Motivating Interfaces <a href="#motivating-interfaces">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="the-multiple-inheritance-problem">
+        
+        
+          The Multiple Inheritance Problem <a href="#the-multiple-inheritance-problem">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s return the example of <code class="language-plaintext highlighter-rouge">GWPerson</code>, <code class="language-plaintext highlighter-rouge">GWFaculty</code>, and <code class="language-plaintext highlighter-rouge">GWStudent</code> example from the prior lesson. As a refresher, we had the following class hierarchy:</p>
+
+<p><img src="/images/uml-person-student-faculty.png" alt="UML for GWPerson, GWFaculty, and GWStudent" width="250" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Now let’s suppose we want to add another class to this model, <code class="language-plaintext highlighter-rouge">GWStaff</code>. Simple enough, we can add the following to our model, and at this point, we should be able to imagine what features a <code class="language-plaintext highlighter-rouge">GWStaff</code> member may have.</p>
+
+<p><img src="/images/uml-person-student-faculty-staff.png" alt="UML for GWPerson, GWFaculty, GWStudent and GWStaff" width="270" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Ok … now, what if we want to add a class for a student that is <em>also</em> on staff, which is actually quite common due to work study programs and tuition remission programs. Perhaps this class could be a <code class="language-plaintext highlighter-rouge">GWStudentStaff</code> and we place it in the diagram like below.</p>
+
+<p><img src="/images/uml-person-student-faculty-staff-studentstaff.png" alt="UML for GWPerson, GWFaculty, GWStudent, GWStaff and GWStudentStaff" width="290" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>There is nothing necessarily wrong with this model, where <code class="language-plaintext highlighter-rouge">GWStudentStaff</code> inherits from <em>both</em> <code class="language-plaintext highlighter-rouge">GWStudent</code> and <code class="language-plaintext highlighter-rouge">GWStaff</code> and in a number of OOP languages, like Python, this is totally normal.</p>
+
+<p><strong>In Java, though, you <span style="text-decoration:underline">cannot</span> inherit from multiple classes.</strong> Java uses a single inheritance model. That means, you can only list one class following an <code class="language-plaintext highlighter-rouge">extends</code> statement.</p>
+
+<p>So how do you represent the models like above?</p>
+      <h2 id="gwstaff-interface">
+        
+        
+          GWStaff Interface <a href="#gwstaff-interface">#</a>
+        
+        
+      </h2>
+    
+
+<p>Within our toy model, we can define the features needed for staff as having two primary functions:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">getSalary()</code> and <code class="language-plaintext highlighter-rouge">setSalary()</code> : how much the staff member get’s paid</li>
+  <li><code class="language-plaintext highlighter-rouge">getManager()</code> and <code class="language-plaintext highlighter-rouge">setManager()</code> : who the staff person reports to</li>
+</ul>
+
+<p>In a world of multiple inheritance, we could imagine defining a class (or abstract class) where these features are defined and would be overwritten in sub-classes. But since there is no multiple inheritance in Java, we instead can define a <code class="language-plaintext highlighter-rouge">GWStaff</code> as an <strong>interface</strong>.</p>
+
+<p>An <strong>interface</strong> in java is a specification of methods that must be defined when a class <strong>implements</strong> the interface. It’s essentially, a way to guarantee certain functionality in the class that <strong>realizes</strong> the implementation.</p>
+
+<p>For example, we’d defined the interface like, below.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">GWStaff</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getSalary</span><span class="o">();</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSalary</span><span class="o">(</span><span class="kt">double</span> <span class="n">salary</span><span class="o">);</span>
+   <span class="kd">public</span> <span class="nc">GWPerson</span> <span class="nf">getManager</span><span class="o">();</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSalary</span><span class="o">(</span><span class="nc">GWPerson</span> <span class="n">manager</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Note this is the entirety of the code needed to define this interface. The implementation of each of these methods must occur in the class realizing this implementation.</p>
+
+<p>Moreover, thinking of this interface, as faculty are also paid and have a manager, namely the department chair, it would make sense for <code class="language-plaintext highlighter-rouge">GWFaculty</code> to also implement this interface. We then get the following class declarations in this model.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">GWPerson</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">GWStaff</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GWStudent</span> <span class="kd">extends</span> <span class="nc">GWPerson</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GWFaculty</span> <span class="kd">extends</span> <span class="nc">GWPerson</span> <span class="kd">implements</span> <span class="nc">GWStaff</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GWStudentStaff</span> <span class="kd">extends</span> <span class="nc">GWStudent</span> <span class="kd">implements</span> <span class="nc">GWStaff</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+</code></pre></div></div>
+
+<p>Which we can visualize using the following UML diagram.</p>
+
+<p><img src="/images/uml-staff-interface.png" alt="UML for GWStaff interface" width="400" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Here the solid line with solid arrowheads indicate classes that inerit from another, like <code class="language-plaintext highlighter-rouge">GWStudent</code> inherits from <code class="language-plaintext highlighter-rouge">GWPerson</code>. A dotted line with a solid arrowhead indicates a class that <em>realizes</em> an interface, like <code class="language-plaintext highlighter-rouge">GWFaculty</code> realizing <code class="language-plaintext highlighter-rouge">GWStaff</code>. Finally, an interface is annotaed with <code class="language-plaintext highlighter-rouge">&lt;&lt;&gt;&gt;</code> markers in its name.</p>
+      <h2 id="using-interfaces">
+        
+        
+          Using interfaces <a href="#using-interfaces">#</a>
+        
+        
+      </h2>
+    
+
+<p>Like abstract classes, we can use the interface as the type name, and due to polymorphism, we can have different implementations of that realize that interface. For example, consider a payroll program that determines the total compensation for a collection of staff members.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//array of class that realize the GWStaff interface</span>
+<span class="nc">GWStaff</span> <span class="n">staff</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="nc">GWStudentStaff</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">),</span>
+                   <span class="k">new</span> <span class="nf">GWFaculty</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">),</span>
+                   <span class="k">new</span> <span class="nf">GWFaculty</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">),</span>
+                   <span class="k">new</span> <span class="nf">GWStudentStaff</span><span class="o">(</span><span class="cm">/*...*/</span><span class="o">)};</span>
+
+<span class="kt">double</span> <span class="n">totalCompensation</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">staff</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+    <span class="n">totalCompensation</span> <span class="o">+=</span> <span class="n">staff</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">getSalary</span><span class="o">();</span> <span class="c1">//interface ensures that this</span>
+                                               <span class="c1">//method is implemented</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In many ways, just like inheritance, realizing an interface is an “is-a” relationship. So we can refer to all classes using the type annotation of the interface. In this case, that would be <code class="language-plaintext highlighter-rouge">GWStaff</code>.</p>
+      <h1 id="realizing-multiple-interfaces">
+        
+        
+          Realizing multiple interfaces <a href="#realizing-multiple-interfaces">#</a>
+        
+        
+      </h1>
+    
+
+<p>Importantly, a class can implement multiple interfaces. Note that an interface, unlike a class inheritance, does not reuse any code defined in methods nor data members. An interface is simply a contract that a realizing class implements the following features. So it is natural that a class can realize different interfaces.</p>
+
+<p>An example of this, which we take a bit more time to explore below, is in Java collections, which is Java’s built in data structure library. For example, recall from your data structures class that we have a set interface for lists (just for int’s in the example below):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IntList</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span><span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToHead</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToTail</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">rmFromHead</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">rmFromTail</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">();</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>A realization of this interface would be a <code class="language-plaintext highlighter-rouge">IntLinkedList</code> or an <code class="language-plaintext highlighter-rouge">IntArrayList</code> that implements all these methods. But, these same data structures could also realize other APIs, such as <code class="language-plaintext highlighter-rouge">IntQueue</code> or <code class="language-plaintext highlighter-rouge">IntStack</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IntQueue</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dequeue</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IntStack</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>So when we declare our <code class="language-plaintext highlighter-rouge">IntLinkedList</code> (or <code class="language-plaintext highlighter-rouge">IntArrayList</code>) we describe that it realizes <em>all</em> interfaces!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntLinkedList</span> <span class="kd">implements</span> <span class="nc">IntList</span><span class="o">,</span> <span class="nc">IntQueue</span><span class="o">,</span> <span class="nc">IntStack</span> <span class="o">{</span>
+    <span class="c1">// All the LinkedList implementation stuff</span>
+    <span class="c1">//... plus all List methods realized </span>
+ 
+    <span class="c1">//IntQueue interface realized</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">dequeue</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rmFromTail</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+    <span class="c1">//IntStack interface relized</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">rmFromHead</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="declaring-a-type-for-certain-interface">
+        
+        
+          Declaring a type for certain interface <a href="#declaring-a-type-for-certain-interface">#</a>
+        
+        
+      </h2>
+    
+
+<p>Continuing with the example above of <code class="language-plaintext highlighter-rouge">IntList</code>, <code class="language-plaintext highlighter-rouge">IntStack</code>, and <code class="language-plaintext highlighter-rouge">IntQueue</code>, which should you use in code? For example, what’s the difference between each of the lines of code below?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">IntList</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IntLinkedList</span><span class="o">();</span>
+<span class="nc">IntStack</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IntLinkedList</span><span class="o">();</span>
+<span class="nc">IntQueue</span> <span class="n">q</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IntLinkedList</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Technically, <code class="language-plaintext highlighter-rouge">l</code> and <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">q</code> are all realized by the same underlying class, namely a <code class="language-plaintext highlighter-rouge">IntLinkedList</code>, so why call them by different types? The answer is twofold.</p>
+
+<p>First, we use the type annotations of being a list (or a stack, or a queue) to indicate to us (the programmer) the kinds of functionality we are drawing on for our program. Sure, we all know that any reasonable linked list implementation can be used like a stack, but it’s much easier to read the code when we say so explicitly.</p>
+
+<p>Second, when we declare a variable to be a type of the interface, we are restricted the scope of the methods we can call using that type. For example, calling <code class="language-plaintext highlighter-rouge">s.addToHead()</code> would cause a compile error – <code class="language-plaintext highlighter-rouge">IntStacks</code> do not have a method <code class="language-plaintext highlighter-rouge">addToHead()</code>.</p>
+
+<p>But we know that <code class="language-plaintext highlighter-rouge">s</code> is really a <code class="language-plaintext highlighter-rouge">IntLinkedList</code> and does have such a method. So in a way, using a specific interface provides a form of <strong>encapsulation</strong> of functionality (rather than data) whereby we restrict the methods associated with the realized class such that we get a pure representation of that interface. For example, if we want to use a stack, it doesn’t make sense that we can use <code class="language-plaintext highlighter-rouge">s.insert()</code> as this violates the properties of a stack.</p>
+      <h2 id="yes-you-can-cast-but-you-shouldnt">
+        
+        
+          Yes, you can cast, but you shouldn’t. <a href="#yes-you-can-cast-but-you-shouldnt">#</a>
+        
+        
+      </h2>
+    
+
+<p>Casting in java is much like pointer casting in C — it doesn’t change the underlying data, but only how we interpret that data. This make sense because an object in Java is technically a reference type, like a pointer.</p>
+
+<p>So yes, continuing with the example above, we can cast <code class="language-plaintext highlighter-rouge">s</code> or <code class="language-plaintext highlighter-rouge">q</code> or <code class="language-plaintext highlighter-rouge">l</code> to a <code class="language-plaintext highlighter-rouge">IntLinkedList</code> if we want and have access to the full functionality. Like the code below:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">((</span><span class="nc">IntLinkedList</span><span class="o">)</span> <span class="n">s</span><span class="o">).</span><span class="na">insert</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>But this should feel awkward and wrong. If we wanted <code class="language-plaintext highlighter-rouge">s</code> to be a full feature linked list, than it is on the programmer to declare it as such. Casting is a shortcut around the elegance of OOP, and it can also cause unexpected runtime errors.</p>
+
+<p>For example, consider a method that expects <code class="language-plaintext highlighter-rouge">IntStack</code> as input, like below.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">reverseStack</span><span class="o">(</span><span class="nc">IntStack</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// which implementation of an IntStack is s?</span>
+  <span class="nc">IntLinkedList</span> <span class="n">l</span> <span class="o">=</span>  <span class="o">(</span><span class="nc">IntLinkedList</span><span class="o">)</span> <span class="n">s</span><span class="o">;</span>  <span class="c1">//this could cause a runtime error</span>
+  <span class="c1">//...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>The programmer is making a strong assumption about the nature of <code class="language-plaintext highlighter-rouge">s</code>, specifically it the <code class="language-plaintext highlighter-rouge">IntStack</code> is realized via an <code class="language-plaintext highlighter-rouge">IntLinkedList</code> and so it can be directly cast. This may not be the case. <code class="language-plaintext highlighter-rouge">IntStack</code> could be realized by an <code class="language-plaintext highlighter-rouge">IntArrayList</code> or some other class that can realize an <code class="language-plaintext highlighter-rouge">IntStack</code> that is yet to be written.</p>
+      <h1 id="java-generics-and-interface">
+        
+        
+          Java Generics and Interface <a href="#java-generics-and-interface">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="using-object-to-generalize">
+        
+        
+          Using <code class="language-plaintext highlighter-rouge">Object</code> to generalize <a href="#using-object-to-generalize">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s consider the example of <code class="language-plaintext highlighter-rouge">IntList</code>, <code class="language-plaintext highlighter-rouge">IntStack</code> and <code class="language-plaintext highlighter-rouge">IntQueue</code> interfaces we defined above. One aspect of these interfaces that should appear somewhat abnormal is the <code class="language-plaintext highlighter-rouge">Int</code> aspect — they are only defined for lists of ints, a stack of ints, and queue of ints. It would definitely be better if we could define some universe <code class="language-plaintext highlighter-rouge">List</code>, <code class="language-plaintext highlighter-rouge">Stack</code> and <code class="language-plaintext highlighter-rouge">Queue</code> because if we wanted to define an interface for a <code class="language-plaintext highlighter-rouge">String</code> (as opposed to an <code class="language-plaintext highlighter-rouge">int</code>), we’d need to totally rewrite the interface for every possible <code class="language-plaintext highlighter-rouge">Object</code>.</p>
+
+<p>But… couldn’t we take advantage of the fact that all classes extend <code class="language-plaintext highlighter-rouge">Object</code>? Yes, and we could define a generic interface for <code class="language-plaintext highlighter-rouge">List</code> that uses the <code class="language-plaintext highlighter-rouge">Object</code> type. Such as,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToHead</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToTail</span><span class="o">(</span><span class="nc">Object</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">rmFromHead</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">rmFromTail</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now we can define a <code class="language-plaintext highlighter-rouge">LinkedList</code> and an <code class="language-plaintext highlighter-rouge">ArrayList</code> that realizes this interface at the <code class="language-plaintext highlighter-rouge">Object</code> type. (Note the same would be true for <code class="language-plaintext highlighter-rouge">Queue</code> and <code class="language-plaintext highlighter-rouge">Stack</code> interfaces.)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span> <span class="kd">extends</span> <span class="nc">List</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">};</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span> <span class="kd">extends</span> <span class="nc">List</span><span class="o">{</span><span class="cm">/*...*/</span><span class="o">};</span>
+</code></pre></div></div>
+
+<p>But using these generic <code class="language-plaintext highlighter-rouge">Object</code> version limits us. While we can store any kind of object in our <code class="language-plaintext highlighter-rouge">LinkedList</code>, this is both a blessing and a curse. There is nothing stopping us from accidentally storing objects of different runtime type in this list;</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">l</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="s">"inserting a string"</span><span class="o">);</span>
+<span class="n">l</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="k">new</span> <span class="nc">Integer</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span> <span class="c1">//or an Integer object</span>
+<span class="n">l</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="k">new</span> <span class="nc">Double</span><span class="o">(</span><span class="mf">3.14</span><span class="o">));</span> <span class="c1">//or an Double object</span>
+<span class="c1">//... and many others</span>
+</code></pre></div></div>
+
+<p>While there may be good reasons to mix class types within the list, there are also (often better) reasons to restrict the list to a single type, so you know what class to expect on removal. For example, using the list above, if you were to do a <code class="language-plaintext highlighter-rouge">rmFromTail()</code>, how would you properly determine which type to cast back to?!</p>
+      <h2 id="java-generics">
+        
+        
+          Java Generics <a href="#java-generics">#</a>
+        
+        
+      </h2>
+    
+
+<p>The issue of implementing generic interfaces that can function for any class type is a known problem and is solved differently in different languages. In Java, note that the example above with generic <code class="language-plaintext highlighter-rouge">Object</code> interfaces is technically correct and if the programmer followed a single type everything would work correctly. In fact, prior to Java 8, this was the recommended way to write generic interfaces. The issue with this approach is that if you want to restrict the class type, there is no way to do so. We need to add an additional annotation to generic interfaces to indicate what class type to expect. Then the compiler can check for that type in your code, ensuring consistency and identifying errors.</p>
+
+<p>This is called java <strong>generics</strong>, and the class type annotation is noted using <code class="language-plaintext highlighter-rouge">&lt;&gt;</code>. For example, we can define our generic <code class="language-plaintext highlighter-rouge">List</code> interface with a generic type <code class="language-plaintext highlighter-rouge">T</code> that is stand in for <code class="language-plaintext highlighter-rouge">Object</code>, as if it is a variable for a more specific type, like <code class="language-plaintext highlighter-rouge">String</code> that will be defined later. In fact, java refers to this as the <strong>type argument</strong>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="no">T</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="o">(</span><span class="kt">int</span> <span class="n">idx</span><span class="o">,</span> <span class="no">T</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToHead</span><span class="o">(</span><span class="no">T</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addToTail</span><span class="o">(</span><span class="no">T</span> <span class="n">val</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">rmFromHead</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">rmFromTail</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Then when we realize this interface, we continue annotating the generic variable, as if it was passed as an argument in a function call.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">List</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span><span class="cm">/*...*/</span><span class="o">}</span>
+</code></pre></div></div>
+
+<p>Finally, when we instantiate a <code class="language-plaintext highlighter-rouge">List</code>, we pass a type argument within <code class="language-plaintext highlighter-rouge">&lt;&gt;</code> to indicate at which class type the list should be invoked.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="n">l</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="s">"l is expecting String types to be added to it"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>And if we tried to insert a non <code class="language-plaintext highlighter-rouge">String</code> to <code class="language-plaintext highlighter-rouge">l</code>, we would get a compiler error:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span><span class="o">.</span><span class="na">addToHead</span><span class="o">(</span><span class="nc">Integer</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span> <span class="c1">//&lt;-- this will cause a compiler error</span>
+</code></pre></div></div>
+      <h2 id="generics-as-an-erasure-to-object">
+        
+        
+          Generics as an Erasure to Object <a href="#generics-as-an-erasure-to-object">#</a>
+        
+        
+      </h2>
+    
+
+<p>Generics in Java are not runtime mechanisms. They are <strong>compile time</strong> type checks; that is, they are annotations on the class type that can be validated via the type checker to ensure consistency. When the type argument mismatches, you get a compile error, not a runtime error.</p>
+
+<p>Under the hood, after compilation, all the generic type annotation is <strong>erased</strong> and replaced with <code class="language-plaintext highlighter-rouge">Object</code> with appropriate casting. For example,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;;</span>
+<span class="c1">//...</span>
+<span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="na">rmFromHead</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Becomes the following after erasure</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">;</span><span class="c1">//no generic type argument</span>
+                        <span class="c1">//using Object instead</span>
+<span class="c1">//...</span>
+<span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">l</span><span class="o">.</span><span class="na">rmFromHead</span><span class="o">();</span> <span class="c1">//adds cast for type argument</span>
+</code></pre></div></div>
+
+<p>That’s right. You are essentially just using the same generic <code class="language-plaintext highlighter-rouge">Object</code> implementations as before when your code actually executes, but you gain an important consistency check to ensure that you don’t mix types. It also makes your code more readable, as you can track which types are used where, and also define multiple generic types. For example, for a generic <code class="language-plaintext highlighter-rouge">Map&lt;K,V&gt;</code> that maps some class <code class="language-plaintext highlighter-rouge">K</code> to some class <code class="language-plaintext highlighter-rouge">V</code>.</p>
+      <h2 id="restrictions-on-generics">
+        
+        
+          Restrictions on Generics <a href="#restrictions-on-generics">#</a>
+        
+        
+      </h2>
+    
+
+<p>Because of erasure — that is all generic type arguments are erased to <code class="language-plaintext highlighter-rouge">Object</code> — there are a number of restrictions when using generics.</p>
+      <h3 id="cannot-use-primitive-types">
+        
+        
+          Cannot use primitive types <a href="#cannot-use-primitive-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>Erasure requires all generic types to be objects, not primitive types. So you cannot use <code class="language-plaintext highlighter-rouge">int</code> as a type argument, instead you need to use the <code class="language-plaintext highlighter-rouge">Object</code> representation of basic types. Such as <code class="language-plaintext highlighter-rouge">Integer</code>, <code class="language-plaintext highlighter-rouge">Boolean</code>, <code class="language-plaintext highlighter-rouge">Double</code>, and etc.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+      <h3 id="cannot-create-instances-of-generic-types">
+        
+        
+          Cannot create instances of generic types <a href="#cannot-create-instances-of-generic-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>Consider a generically defined method with a type parameter <code class="language-plaintext highlighter-rouge">T</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooBarBaz</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="kd">public</span>  <span class="no">T</span> <span class="nf">getT</span><span class="o">(){</span>
+       <span class="no">T</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="no">T</span><span class="o">();</span> <span class="c1">//&lt;-- compile error</span>
+       <span class="k">return</span> <span class="n">t</span><span class="o">;</span> 
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Erasure says that <code class="language-plaintext highlighter-rouge">T</code> is actually replaced with <code class="language-plaintext highlighter-rouge">Object</code>, and if allowed to run it would simply produce a instance of <code class="language-plaintext highlighter-rouge">Object</code>, and not of the type T. Worse, you’ll get an invalid cast like below (causing the compile error)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span> <span class="n">t</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">T</code> will most likely be some more specific type (that is a class that extends <code class="language-plaintext highlighter-rouge">Object</code>), this cast is invalid as a generic <code class="language-plaintext highlighter-rouge">Object</code> will not have the functionality of <code class="language-plaintext highlighter-rouge">T</code>.</p>
+
+<p>There is a way to still do this using Java reflections — but that’s a discussion for another day.</p>
+      <h3 id="cannot-create-arrays-of-generic-types">
+        
+        
+          Cannot create arrays of generic types <a href="#cannot-create-arrays-of-generic-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>For the same reason as above, you can’t directly create arrays of generic types. Consider the following code:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooBarBaz</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="no">T</span> <span class="n">array</span><span class="o">[];</span>
+   <span class="kd">public</span> <span class="nc">FooBarBaz</span><span class="o">{</span>
+      <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="no">T</span><span class="o">[];</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>After erasure, we again have an odd cast that can cause a type error:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooBarBaz</span> <span class="o">{</span>
+   <span class="nc">Object</span> <span class="n">array</span><span class="o">[];</span>
+   <span class="kd">public</span> <span class="nc">FooBarBaz</span> <span class="o">{</span>
+      <span class="n">array</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">[])</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[];</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Unfortunately, there are not good solutions to this that do not leverage more advanced tools, like Java reflections — still a lesson for another day.</p>
+
+<p>While you can do some fancy casting with arrays of <code class="language-plaintext highlighter-rouge">Objects</code>, best practice is to use Java collections when you want generic array-like functionality. This is discussed latter in this unit.</p>
+
+<!-- The standard way to do this is to manage the class type directly. For example, we leave the array as a generic `Object` array. But, since *all* classes extend `Object` we can treat this like an array of pointers that can reference any class. -->
+
+<!-- ```java -->
+<!-- public class FooBarBaz<T>{ -->
+<!--    Object array[]; -->
+<!--    public FooBarBaz{ -->
+<!--       array = new Object[]; -->
+<!--    } -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- When we want to get a value out of the array, we cast ourselves. -->
+
+<!-- ```java -->
+<!-- public T getIdx(int idx){ -->
+<!--     //will generate a warning, which we can supress -->
+<!--     @SuppressWarnings("unchecked") -->
+<!--     return (T) array[i]; //explicitely cast for type checking -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- But, this will cause a warning at compile time due to a unchecked weak typing. That is, it is impossible to know at run time if the values in `array` are truly of class type `T`. However, if you know you're doing this right, you can suppress this warning with `@SuppressWarnings("unchecked")`. -->
+
+<!-- ## Using a Upper Bounding Type in Generics -->
+
+<!-- One way to avoid some of the restrictions above is to introduce a **bounding type**. For example, suppose we want know that the generic type argument is a subclass of some other class `Foo`, then we can declare the class as so with a `?` as a wildcard for that other class.  -->
+
+<!-- ```java -->
+<!-- public class Bar<? extends Foo>{ -->
+<!--     Foo array[] -->
+<!--     public Bar(){ -->
+<!--         array = new Foo[]; -->
+<!--     } -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- Taking advantage of inheritance and polymorphous allows us to use `Foo` as a standin as the super type for whichever class is passed as the type argument.  -->
+
+<!-- Unfortunately, this may not work in all situations, for example, if you want to write a list that can be generic to any type, not just subtypes of one type.  -->
+      <h1 id="exploring-common-java-interfaces-and-their-realizations">
+        
+        
+          Exploring Common Java Interfaces and their Realizations <a href="#exploring-common-java-interfaces-and-their-realizations">#</a>
+        
+        
+      </h1>
+    
+
+<p>Now that you have some experience with interface and generics, let’s take a moment to explore some common interfaces that you will likely experience.</p>
+      <h2 id="comparable-interface">
+        
+        
+          Comparable Interface <a href="#comparable-interface">#</a>
+        
+        
+      </h2>
+    
+
+<p>Perhaps the most common interface is the <code class="language-plaintext highlighter-rouge">Comparable</code> interface (see the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html">API</a>). The <code class="language-plaintext highlighter-rouge">Comparable</code> interface declares a single method that must be realized:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="n">interace</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And like <code class="language-plaintext highlighter-rouge">strcmp()</code> in C, this function returns a value less than 0 if <code class="language-plaintext highlighter-rouge">this</code> is less than the other object <code class="language-plaintext highlighter-rouge">o</code>, greater than 0 if <code class="language-plaintext highlighter-rouge">this</code> is greater than the other object <code class="language-plaintext highlighter-rouge">o</code>, and 0 if they are equal.</p>
+
+<p>As an example, let’s consider a simple class <code class="language-plaintext highlighter-rouge">PiggyBank</code> that tracks how many pennies (1c), nickels (5c), dimes (10c) and quarters (25c) it contains. And we want each <code class="language-plaintext highlighter-rouge">PiggyBank</code> to be comparable to other <code class="language-plaintext highlighter-rouge">PiggyBank</code>s not on the total value, but the TOTAL number of coins!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PiggyBank</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">PiggyBank</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">pennies</span><span class="o">,</span> <span class="n">nickels</span><span class="o">,</span> <span class="n">dimes</span><span class="o">,</span> <span class="n">quarters</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">PiggBank</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="n">pennies</span> <span class="o">=</span> <span class="n">nickels</span> <span class="o">=</span> <span class="n">dimes</span> <span class="o">=</span> <span class="n">quarters</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addPenny</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">pennies</span><span class="o">++;</span>
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNickel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">nickels</span><span class="o">++;</span>
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addDime</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">dimes</span><span class="o">++;</span>
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addQuater</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">quarters</span><span class="o">++;</span>
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getDollars</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">pennies</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">nickels</span> <span class="o">+</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">dimes</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">quarters</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">totalCoins</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">pennies</span> <span class="o">+</span> <span class="n">nickes</span> <span class="o">+</span> <span class="n">dimes</span> <span class="o">+</span> <span class="n">quaters</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">PiggyBank</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">tt</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">totalCoins</span><span class="o">();</span>
+         <span class="n">ot</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">totalCoins</span><span class="o">();</span>
+         <span class="k">if</span><span class="o">(</span><span class="n">tt</span> <span class="o">&lt;</span> <span class="n">ot</span><span class="o">)</span> 
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+         <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">tt</span> <span class="o">&gt;</span> <span class="n">ot</span><span class="o">)</span> 
+            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+         <span class="k">else</span> 
+            <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>        
+    <span class="o">}</span>    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now that the generic type argument for the generic is <code class="language-plaintext highlighter-rouge">PiggyBank</code>, we don’t declare a type argument to use within the class. That’s because <code class="language-plaintext highlighter-rouge">PiggyBank</code>s are comparable to <em>other</em> <code class="language-plaintext highlighter-rouge">PiggyBank</code>s not to any generic type.</p>
+
+<p>However, it may be the case that we want to compare to any subclass of <code class="language-plaintext highlighter-rouge">PiggyBank</code>, like a <code class="language-plaintext highlighter-rouge">CatBank</code> (… I have no idea what that is, but let’s just say it exists.) Then since <code class="language-plaintext highlighter-rouge">CatBank</code> is-a <code class="language-plaintext highlighter-rouge">PiggyBank</code> it would make sense we could still compare the two, but the generic type annotation says <em>only</em> PiggyBanks.</p>
+
+<p>Fortunately, generics allows us to describe an upper bound of the type generically. That is, say that it is comparable to all sub-types of the given type.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PiggyBank</span> <span class="kd">implements</span> <span class="nc">Comparable</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">PiggyBank</span><span class="o">&gt;{</span><span class="cm">/*...*/</span><span class="o">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">?</code> is a wildcard for which ever type extends <code class="language-plaintext highlighter-rouge">PiggBank</code>. The rest of the code remains the same, and we can now do the following comparison without having to cast.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PiggyBank</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PiggyBank</span><span class="o">();</span>
+<span class="nc">CatBank</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CatBank</span><span class="o">();</span>
+<span class="c1">//...</span>
+
+<span class="n">p</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>One final note, when we instantiate a <code class="language-plaintext highlighter-rouge">PiggyBank</code> (or a <code class="language-plaintext highlighter-rouge">CatBank</code>) we do not pass a type argument. Again, this is because we define a specific type in the class declaration in the generic – it is a <code class="language-plaintext highlighter-rouge">PiggyBank</code>, there’s nothing more we can annotate here.</p>
+      <h2 id="iterable-and-iterator-interface">
+        
+        
+          Iterable and Iterator Interface <a href="#iterable-and-iterator-interface">#</a>
+        
+        
+      </h2>
+    
+
+<p>Another common interface in Java is the <code class="language-plaintext highlighter-rouge">Iterable</code> and <code class="language-plaintext highlighter-rouge">Iterator</code> interface. These two interfaces work hand-in-hand to enable for-each iteration in Java. That is, being able to iterate over a collection of objects using the following syntax:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">l</span><span class="o">;</span> 
+<span class="c1">//...</span>
+<span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">l</span><span class="o">){</span> <span class="cm">/*...*/</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>You can find the reference documentation here</p>
+<ul>
+  <li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Iterator.html">Iterator</a></li>
+  <li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html">Iterable</a></li>
+</ul>
+
+<p>Consider if we were implementing a linked list that can store any generic type, and we wanted the linked list to also be iterable. We’d have the following class definition where <code class="language-plaintext highlighter-rouge">LinkedList</code> implements <code class="language-plaintext highlighter-rouge">Iterable</code>. Note that we are using the generic type annotation, as this linked list annotation can store any type <code class="language-plaintext highlighter-rouge">T</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+        <span class="no">T</span> <span class="n">vlaue</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LinkedList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//... addToHead(), rmFromHead(), etc ... </span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">Iterable</code> interface requires one method to implemented, <code class="language-plaintext highlighter-rouge">iterator()</code> which returns an <code class="language-plaintext highlighter-rouge">Iterator</code>, which is itself an interface. So to realize the iterator, we have to create a new nested private class that realizes <code class="language-plaintext highlighter-rouge">Iterator</code> for this LinkedList.</p>
+
+<p>There are two required methods that must be realized for an <code class="language-plaintext highlighter-rouge">Iterator</code></p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">boolean hasNext()</code> : returns <code class="language-plaintext highlighter-rouge">false</code> when we’ve reached the end of iterator, otherwise true</li>
+  <li><code class="language-plaintext highlighter-rouge">T next()</code> : returns the value of the next item in the iteration, and increments the counter.</li>
+</ol>
+
+<p>And we can implement them in a straightforward way by creating a <code class="language-plaintext highlighter-rouge">curNode</code> to track our progress in the list</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">class</span> <span class="nc">LinkedListIterator</span> <span class="kd">implements</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">curNode</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">LinkedListIterator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">curNode</span> <span class="o">=</span> <span class="n">head</span> <span class="c1">//start iteration at head</span>
+    <span class="o">};</span> 
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">curNode</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">//exit when reach null</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">next</span><span class="o">()</span> <span class="o">{</span>
+        <span class="no">T</span> <span class="n">data</span> <span class="o">=</span> <span class="n">curNode</span><span class="o">.</span><span class="na">data</span><span class="o">;</span> <span class="c1">//get the data</span>
+        <span class="n">curNode</span> <span class="o">=</span> <span class="n">curNode</span><span class="o">.</span><span class="na">next</span><span class="o">;</span> <span class="c1">//increment the curNode</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">;</span> <span class="c1">//return the data</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The last step is to realize the <code class="language-plaintext highlighter-rouge">Iterable</code> interface in our <code class="language-plaintext highlighter-rouge">LinkedList</code> by having it return a <code class="language-plaintext highlighter-rouge">LinkedListIterator</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">LinkedListIterator</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>With that in place, the following code with a for-each loop is realized</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LinkedList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">l</span><span class="o">;</span> 
+<span class="c1">//...</span>
+<span class="k">for</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span> <span class="o">:</span> <span class="n">l</span><span class="o">){</span> <span class="cm">/*...*/</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>But under the hood, this gets translated into the following while loop using the interface.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nc">Iterator</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="c1">//Iterable interface</span>
+<span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span> <span class="c1">//Iterator interface</span>
+   <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">iter</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span> <span class="c1">//Iterator interface</span>
+   <span class="cm">/*...*/</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="java-collections">
+        
+        
+          Java Collections <a href="#java-collections">#</a>
+        
+        
+      </h2>
+    
+
+<p>The last interface we’ll discuss here is the Java <code class="language-plaintext highlighter-rouge">Collection</code> interface, which is actually a family of interfaces that describe any data structure that stores a collection of objects. And of course, all <code class="language-plaintext highlighter-rouge">Collection</code>s implement <code class="language-plaintext highlighter-rouge">Iterable</code> :)</p>
+
+<p>The whole scope of <code class="language-plaintext highlighter-rouge">Collection</code> can be viewed in the UML diagram below.</p>
+
+<p><img src="/images/uml-collections.png" alt="UML of Collections Interface" width="800" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>A <code class="language-plaintext highlighter-rouge">Collection</code> takes a single generic type argument, <code class="language-plaintext highlighter-rouge">Collection&lt;E&gt;</code>, where <code class="language-plaintext highlighter-rouge">E</code> is the class of the <em>elements</em> in the collection. To highlight a few important implementations and which interfaces they realize.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">LinkedList&lt;E&gt;</code> : implements a <code class="language-plaintext highlighter-rouge">List</code>, <code class="language-plaintext highlighter-rouge">Queue</code> and also a <code class="language-plaintext highlighter-rouge">Deque</code> (which has the same features as a <code class="language-plaintext highlighter-rouge">Stack</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ArrayList&lt;E&gt;</code> : implements a <code class="language-plaintext highlighter-rouge">List</code> and used for random access lists, and has subtypes <code class="language-plaintext highlighter-rouge">Vector&lt;E&gt;</code> and <code class="language-plaintext highlighter-rouge">Stack&lt;T&gt;</code> (although, you should probably use a <code class="language-plaintext highlighter-rouge">Deque</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">HashSet&lt;E&gt;</code> : implements a <code class="language-plaintext highlighter-rouge">Set</code></li>
+  <li><code class="language-plaintext highlighter-rouge">TreeSet&lt;E&gt;</code> : also implements a <code class="language-plaintext highlighter-rouge">Set</code> but is navigable in sorted ordered (<code class="language-plaintext highlighter-rouge">SortedSet</code> and <code class="language-plaintext highlighter-rouge">NavigableSet</code> interfaces)</li>
+  <li><code class="language-plaintext highlighter-rouge">PriorityQueue&lt;E&gt;</code>: A queue where items are removed with some priority (usually implemented uesing a Heap)</li>
+</ul>
+
+<p>Finally, while not technically a <code class="language-plaintext highlighter-rouge">Collection</code>, classes implementing the <code class="language-plaintext highlighter-rouge">Map</code> interface are also included in “java collections”. A <code class="language-plaintext highlighter-rouge">Map</code> is generic on two type arguments, <code class="language-plaintext highlighter-rouge">Map&lt;K,V&gt;</code> as this a key-value store with <code class="language-plaintext highlighter-rouge">K</code> the type of the keys and <code class="language-plaintext highlighter-rouge">V</code> the type of the value. The full family is shown below in the UML diagram:</p>
+
+<p><img src="/images/uml-maps.png" alt="UML of Map Interface" width="500" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>The key classes that you will encounter that realize a <code class="language-plaintext highlighter-rouge">Map</code> are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">HashMap&lt;K,V&gt;</code> : A hash table implementation of a <code class="language-plaintext highlighter-rouge">Map</code></li>
+  <li><code class="language-plaintext highlighter-rouge">LinkedHashMap&lt;K,V&gt;</code> : A hash table that useses a linked list to enable iteration of the hash table.</li>
+  <li><code class="language-plaintext highlighter-rouge">TreeMap&lt;K,V&gt;</code> : A (balanced) tree based implementation of <code class="language-plaintext highlighter-rouge">Map</code> that has the benefit of also being a <code class="language-plaintext highlighter-rouge">NavigableMap</code>, so it can be iterated in some order.</li>
+</ul>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>C Pointer Arithmetic, Double Arrays, and Command Line Args | CS 2113 Software Engineering - Fall 2022</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="C Pointer Arithmetic, Double Arrays, and Command Line Args" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/c/2" />
+<meta property="og:url" content="http://localhost:4000/c/2" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="C Pointer Arithmetic, Double Arrays, and Command Line Args" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"C Pointer Arithmetic, Double Arrays, and Command Line Args","url":"http://localhost:4000/c/2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#c-strings">C Strings</a><ul><li><a href="#advanced-array-declarations">Advanced Array Declarations</a></li><li><a href="#the-quoted-string-declaration">The quoted string declaration</a></li><li><a href="#string-format-input-output-overflows-and-null-deferences">String format input, output, overflows, and <code class="language-plaintext highlighter-rouge">NULL</code> deference’s:</a></li></ul></li><li><a href="#string-library-functions">String Library Functions</a><ul><li><a href="#the-string-library-stringh">The string library <code class="language-plaintext highlighter-rouge">string.h</code></a></li><li><a href="#string-comparison">String Comparison</a></li><li><a href="#string-length-vs-string-size">String Length vs String Size</a></li></ul></li><li><a href="#pointer-arithmetic-and-strings">Pointer Arithmetic and Strings</a><ul><li><a href="#pointer-arithmetic-and-types">Pointer Arithmetic and Types</a></li><li><a href="#character-arrays-as-arbitrary-data-buffers">Character Arrays as Arbitrary Data Buffers</a></li></ul></li><li><a href="#multidimensional-arrays">Multidimensional Arrays</a><ul><li><a href="#declaring-double-arrays">Declaring Double Arrays</a></li><li><a href="#the-type-of-a-double-array">The type of a double array</a></li><li><a href="#memory-layout-of-multidimensional-arrays">Memory Layout of Multidimensional Arrays</a></li><li><a href="#array-of-strings-as-double-arrays">Array of Strings as Double Arrays</a></li></ul></li><li><a href="#command-line-arguments">Command Line Arguments</a><ul><li><a href="#understanding-main-arguments">Understanding <code class="language-plaintext highlighter-rouge">main()</code> arguments</a></li><li><a href="#null-termination-in-args-arrays"><code class="language-plaintext highlighter-rouge">NULL</code> Termination in args arrays</a></li><li><a href="#basic-parsing-of-command-line-arguments-atoi-and-sscanf">Basic Parsing of Command Line Arguments: <code class="language-plaintext highlighter-rouge">atoi()</code> and <code class="language-plaintext highlighter-rouge">sscanf()</code></a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSOrEoPLyNYwZWjWvvSBaJRy">single playlist on youtube</a></em></p>
+      <h1 id="c-strings">
+        
+        
+          C Strings <a href="#c-strings">#</a>
+        
+        
+      </h1>
+    
+
+<p>A string in C is simply an array of <code class="language-plaintext highlighter-rouge">char</code> objects that is <code class="language-plaintext highlighter-rouge">NULL</code> terminated. Here’s a typical C string declaration:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Hello!"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>A couple things to note about the declaration:</p>
+
+<ul>
+  <li>
+    <p>First that we declare <code class="language-plaintext highlighter-rouge">str</code> like an array, but we do not provide it a size.</p>
+  </li>
+  <li>
+    <p>Second, we assign to <code class="language-plaintext highlighter-rouge">str</code> a quoted string.</p>
+  </li>
+  <li>
+    <p>Finally, while we know that strings are <code class="language-plaintext highlighter-rouge">NULL</code> terminated, there is no explicit <code class="language-plaintext highlighter-rouge">NULL</code> termination.</p>
+  </li>
+</ul>
+
+<p>We will tackle each of these in turn below.</p>
+
+<p><a id="org5e55833"></a></p>
+      <h2 id="advanced-array-declarations">
+        
+        
+          Advanced Array Declarations <a href="#advanced-array-declarations">#</a>
+        
+        
+      </h2>
+    
+
+<p>While the declaration looks familiar  without the array size, this actually means that the size will be determined automatically by the assignment. All arrays can be declared in this static way; here is an example for an integer array:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">array</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+</code></pre></div></div>
+
+<p>In that example, the array values are denoted using the <code class="language-plaintext highlighter-rouge">{ }</code> and comma separated within. The length of the array is clearly 3, and the compiler can determine that by inspecting the static declaration, so it is often omitted. However, that does not mean you cannot provide a size, for example</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+</code></pre></div></div>
+
+<p>is also perfectly fine but has a different semantic meaning. The first declaration (without a size) says allocate <em>only</em> enough memory to store the statically declared array. The second declaration (with the size) says to allocate enough memory to store <em>size</em> items of the data type and initialize as many possible values as provided to this array (the values of the remaining indexes are undefined, but typically 0’ed out).</p>
+
+<p>You can see this actually happening in this simple program:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*array_deceleration.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(a):%d sizeof(b):%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> 
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+         <span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a[%d]: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b[%d]: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./array_decleration
+sizeof(a):12 sizeof(b):40
+a[0]: 1
+a[1]: 2
+a[2]: 3
+
+b[0]: 1
+b[1]: 2
+b[2]: 3
+b[3]: 0
+b[4]: 0
+b[5]: 0
+b[6]: 0
+b[7]: 0
+b[8]: 0
+b[9]: 0
+</code></pre></div></div>
+
+<p>As you can see, both declerations work, but the allocation sizes are different. Array <code class="language-plaintext highlighter-rouge">b</code> is allocated to store 10 integers with a size of 40 bytes, while array <code class="language-plaintext highlighter-rouge">a</code> only allocated enough to store the static declaration. Also note that the allocation implicitly filled in 0 for non statically declared array elements in <code class="language-plaintext highlighter-rouge">b</code>, which is behavior you’d expect.</p>
+
+<p><a id="orga4289bc"></a></p>
+      <h2 id="the-quoted-string-declaration">
+        
+        
+          The quoted string declaration <a href="#the-quoted-string-declaration">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now that you have a broader sense of how arrays are declared, let’s adapt this to strings. The first thing we can try and declare is a string, that is an array of <code class="language-plaintext highlighter-rouge">char</code>’s, using the declaration like we had above.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">a</span><span class="p">[]</span>   <span class="o">=</span> <span class="p">{</span><span class="sc">'G'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">' '</span><span class="p">,</span><span class="sc">'B'</span><span class="p">,</span><span class="sc">'u'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'!'</span><span class="p">};</span>
+<span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'G'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">' '</span><span class="p">,</span><span class="sc">'B'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'u'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'!'</span><span class="p">};</span>
+</code></pre></div></div>
+
+<p>Just as before we are declaring an array of the given type which is <code class="language-plaintext highlighter-rouge">char</code>. We also use the static declaration for arrays. At this point we should feel pretty good — we have a string, but not really. Let’s look at an example using this declaration:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*string_declerations.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">a</span><span class="p">[]</span>   <span class="o">=</span> <span class="p">{</span><span class="sc">'G'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">' '</span><span class="p">,</span><span class="sc">'B'</span><span class="p">,</span><span class="sc">'u'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'!'</span><span class="p">};</span>
+  <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'G'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">' '</span><span class="p">,</span><span class="sc">'B'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'u'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'!'</span><span class="p">};</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(a):%d sizeof(b):%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> 
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+         <span class="p">);</span>
+
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">//print char and ASCII value</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a[%d]: %c (%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">//print char and ASCII value</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b[%d]: %c (%d) </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"a: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> <span class="c1">//format print the string</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"b: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="c1">//format print the string</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>izeof(a):8 sizeof(b):10
+
+a[0]: G (71)
+a[1]: o (111)
+a[2]:   (32)
+a[3]: B (66)
+a[4]: u (117)
+a[5]: f (102)
+a[6]: f (102)
+a[7]: ! (33)
+
+b[0]: G (71) 
+b[1]: o (111) 
+b[2]:   (32) 
+b[3]: B (66) 
+b[4]: l (108) 
+b[5]: u (117) 
+b[6]: e (101) 
+b[7]: ! (33) 
+b[8]:  (0) 
+b[9]:  (0) 
+
+a: Go Buff!O //&lt;-- whats that?!?!
+b: Go Blue!
+</code></pre></div></div>
+
+<p>First observations is <code class="language-plaintext highlighter-rouge">sizeof</code> the arrays match our expectations. A <code class="language-plaintext highlighter-rouge">char</code> is 1 byte in size and the arrays are allocated to match either the implicit size (7) or the explicit size (10). We can also print the arrays iteratively, and the ASCII values are inset to provide a reference. However, when we try and format print the string using the <code class="language-plaintext highlighter-rouge">%s</code> format, something strange happens for <code class="language-plaintext highlighter-rouge">a</code> that does not happen for <code class="language-plaintext highlighter-rouge">b</code>.</p>
+
+<p>The problem is that <code class="language-plaintext highlighter-rouge">a</code> is not <code class="language-plaintext highlighter-rouge">NULL</code> terminated, that is, the last <code class="language-plaintext highlighter-rouge">char</code> numeric value in the string is not 0. <code class="language-plaintext highlighter-rouge">NULL</code> termination is very important for determining the length of the string. Without this special marker, the <code class="language-plaintext highlighter-rouge">printf()</code> function is unable to determine when the string ends, so it prints extra characters that are not really part of the string.</p>
+
+<p>We can change the declaration of <code class="language-plaintext highlighter-rouge">a</code> to explicitly <code class="language-plaintext highlighter-rouge">NULL</code> terminate like so:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">a</span><span class="p">[]</span>   <span class="o">=</span> <span class="p">{</span><span class="sc">'G'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">' '</span><span class="p">,</span><span class="sc">'B'</span><span class="p">,</span><span class="sc">'u'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'f'</span><span class="p">,</span><span class="sc">'!'</span><span class="p">,</span> <span class="sc">'\0'</span><span class="p">};</span>
+</code></pre></div></div>
+
+<p>The escape sequence <code class="language-plaintext highlighter-rouge">'\0'</code> is equivalent to <code class="language-plaintext highlighter-rouge">NULL</code>, and now we have a legal string. But, I think we can all agree this is a really annoying way to do string declarations using array formats because all strings should be <code class="language-plaintext highlighter-rouge">NULL</code> terminated anyway. Thus, the double quoted string shorthand is used.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">a</span><span class="p">[]</span>   <span class="o">=</span> <span class="s">"Go Buff!"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The quoted string is the same as statically declaring an array with an implicit <code class="language-plaintext highlighter-rouge">NULL</code> termination, and it is ever so much more convenient to use. You can also more explicitly declare the size, as in the below example, which declares the array of the size, but also will NULL terminate.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">a</span><span class="p">[]</span>   <span class="o">=</span> <span class="s">"Go Buff!"</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"Go Blue!"</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"sizeof(a):%d sizeof(b):%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> 
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+         <span class="p">);</span>
+
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">//print char and ASCII value</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"a[%d]: %c (%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="c1">//print char and ASCII value</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"b[%d]: %c (%d) </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>    
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"a: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> <span class="c1">//format print the string</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"b: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="c1">//format print the string</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./string_declerations 
+sizeof(a):9 sizeof(b):10
+
+a[0]: G (71)
+a[1]: o (111)
+a[2]:   (32)
+a[3]: B (66)
+a[4]: u (117)
+a[5]: f (102)
+a[6]: f (102)
+a[7]: ! (33)
+
+b[0]: G (71) 
+b[1]: o (111) 
+b[2]:   (32) 
+b[3]: B (66) 
+b[4]: l (108) 
+b[5]: u (117) 
+b[6]: e (101) 
+b[7]: ! (33) 
+b[8]:  (0) 
+b[9]:  (0) 
+
+a: Go Buff!
+b: Go Blue!
+</code></pre></div></div>
+<p>You may now be wondering what happens if you do something silly like this,</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">"Go Buff!"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>where you declare the string to be of size 3 but assign a string requiring much more memory? Well … why don’t you try writing a small program to finding out what happen, which you will do in homework.</p>
+
+<p><a id="org6cf0f57"></a></p>
+      <h2 id="string-format-input-output-overflows-and-null-deferences">
+        
+        
+          String format input, output, overflows, and <code class="language-plaintext highlighter-rouge">NULL</code> deference’s: <a href="#string-format-input-output-overflows-and-null-deferences">#</a>
+        
+        
+      </h2>
+    
+
+<p>While strings are not basic types, like numbers, they do have a special place in a lot of operations because we use them so commonly. One such place is in formats.</p>
+
+<p>You already saw above that <code class="language-plaintext highlighter-rouge">%s</code> is the format character to process a string, and it is also the format character used to scan a string. We can see how this all works using this simple example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*format_string*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"What is your name?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello %s!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span> 
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There are two formats. The first will ask the user for their name, and read the response using a <code class="language-plaintext highlighter-rouge">scanf()</code>. Looking more closely, when you provide <code class="language-plaintext highlighter-rouge">name</code> as the second argument to <code class="language-plaintext highlighter-rouge">scanf()</code>, you are saying: “Read in a string and write it to the memory referenced by <code class="language-plaintext highlighter-rouge">name</code>.” Later, we can then print <code class="language-plaintext highlighter-rouge">name</code> using a <code class="language-plaintext highlighter-rouge">%s</code> in a <code class="language-plaintext highlighter-rouge">printf()</code>. Here is a sample execution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./format_string 
+What is your name?
+Adam
+
+Hello Adam!
+</code></pre></div></div>
+
+<p>That works great. Let’s try some other input:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./format_string 
+What is your name?
+Adam Aviv
+
+Hello Adam!
+</code></pre></div></div>
+
+<p>Hmm. That didn’t work like expected. Instead of reading in the whole input “Adam Aviv” it only read a single word, “Adam”. This has to do with the functionality of <code class="language-plaintext highlighter-rouge">scanf()</code> that <code class="language-plaintext highlighter-rouge">%s</code> does not refer to an entire line but just an individual whitespace separated string.</p>
+
+<p>The other thing to notice is that the string <code class="language-plaintext highlighter-rouge">name</code> is of a fixed size, 20 bytes. What happens if I provide input that is longer … much longer.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./format_string 
+What is your name?
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdam
+
+Hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdam!
+ *** stack smashing detected ***: ./format_string terminated
+Aborted (core dumped)
+</code></pre></div></div>
+
+<p>That was interesting. The execution identified that you <em>overflowed</em> the string, that is tried to write more than 20 bytes. This caused a check to go off, and the program to crash. Generally, a segmentation fault occurs when you try to read or write invalid memory, i.e., outside the allowable memory segments.</p>
+
+<p>We can go even further with this example and come up with a name sooooooo long that the program crashes in a different way:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>What is your name?
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
+Segmentation fault (core dumped)
+</code></pre></div></div>
+
+<p>In this case, we got a segmentation fault. The <code class="language-plaintext highlighter-rouge">scanf()</code> wrote so far out of bounds of the length of the array that it wrote memory it was not allowed to do so. This caused the segmentation fault.</p>
+
+<p>Another way you can get a segmentation fault is by dereferencing <code class="language-plaintext highlighter-rouge">NULL</code>, that is, you have a pointer value that equals <code class="language-plaintext highlighter-rouge">NULL</code> and you try to follow the pointer to memory that does not exist.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*null_print.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"This is a bad idea ...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./null_print
+This is a bad idea ...
+Segmentation fault (core dumped)
+</code></pre></div></div>
+
+<p>This example is relatively silly as I purposely dereference <code class="language-plaintext highlighter-rouge">NULL</code> by trying to treat it as a string. While you might not do it so blatantly, you will do something like this at some point. It is a mistake we all make as programmers, and it is a particularly annoying mistake that is inevitable when you program with pointers and strings. It can be frustrating, but we will also go over many ways to debug such errors throughout the semester.</p>
+
+<p><a id="org6006897"></a></p>
+      <h1 id="string-library-functions">
+        
+        
+          String Library Functions <a href="#string-library-functions">#</a>
+        
+        
+      </h1>
+    
+
+<p>Certain programming paradigms that would seem obvious to do in C do not do as you would expect them to do. Here’s an example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*string_badcmp.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter 'Buff' for a secret message:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">str</span> <span class="o">==</span> <span class="s">"Buff"</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Go Buff! Go Blue!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No secret for you.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And if we run this program and enter in the appropriate string, we do not get the result we expect.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./string_badcmp 
+Enter 'Buff' for a secret message:
+Buff
+No secret for you.
+</code></pre></div></div>
+
+<p>What happened? If we look at the if statement expression:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">str</span> <span class="o">==</span> <span class="s">"Buff"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Our intuition is that this will compare the string <code class="language-plaintext highlighter-rouge">str</code> and “Buff” based on the values in the string, that is, is <code class="language-plaintext highlighter-rouge">str</code> “Navy” ? But that is not what this is doing because remember a string is an array of characters and an array is a pointer to memory and so the equality is check to see if the <code class="language-plaintext highlighter-rouge">str</code> and “Buff” are stored in the same place in memory and has nothing to do with the actual strings.</p>
+
+<p>To see that this is case, consider this small program which also does not do what is expected:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*string_badequals.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">s1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Buff"</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">s2</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Buff"</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Go Buff!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Go Blue!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"s1: %p </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"s2: %p </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./string_badequals 
+Go Blue!
+
+s1: 0x7fffe43994f0 
+s2: 0x7fffe4399500 
+</code></pre></div></div>
+
+<p>Looking closely, although both <code class="language-plaintext highlighter-rouge">s1</code> and <code class="language-plaintext highlighter-rouge">s2</code> reference the same string values they are not the <em>same</em> string in memory and have two different addresses. (The <code class="language-plaintext highlighter-rouge">%p</code> formats a memory address in hexadecimal.)</p>
+
+<p>The right way to compare to strings is to compare each character, but that is a lot of extra code and something we don’t want to write every time. Fortunately, its been implemented for us along with a number of other useful functions in the string library.</p>
+
+<p><a id="org8cfaba7"></a></p>
+      <h2 id="the-string-library-stringh">
+        
+        
+          The string library <code class="language-plaintext highlighter-rouge">string.h</code> <a href="#the-string-library-stringh">#</a>
+        
+        
+      </h2>
+    
+
+<p>To see all the goodness in the string library, start by typing <code class="language-plaintext highlighter-rouge">man string</code> in your linux terminal. Up will come the manual page for all the functions in the string library:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STRING(3)                              Linux Programmer's Manual                             STRING(3)
+
+NAME
+       stpcpy,  strcasecmp,  strcat, strchr, strcmp, strcoll, strcpy, strcspn, strdup, strfry, strlen,
+       strncat, strncmp, strncpy, strncasecmp,  strpbrk,  strrchr,  strsep,  strspn,  strstr,  strtok,
+       strxfrm, index, rindex - string operations
+
+SYNOPSIS
+       #include &lt;strings.h&gt;
+
+       int strcasecmp(const char *s1, const char *s2);
+
+       int strncasecmp(const char *s1, const char *s2, size_t n);
+
+       char *index(const char *s, int c);
+
+       char *rindex(const char *s, int c);
+
+       #include &lt;string.h&gt;
+
+       char *stpcpy(char *dest, const char *src);
+
+       char *strcat(char *dest, const char *src);
+
+       char *strchr(const char *s, int c);
+
+       int strcmp(const char *s1, const char *s2);
+
+       int strcoll(const char *s1, const char *s2);
+
+       char *strcpy(char *dest, const char *src);
+
+       size_t strcspn(const char *s, const char *reject);
+
+       char *strdup(const char *s);
+
+       char *strfry(char *string);
+
+       size_t strlen(const char *s);
+
+       ...
+</code></pre></div></div>
+
+<p>To use the string library, the only thing you need to do is include <code class="language-plaintext highlighter-rouge">string.h</code> in the header declarations. You can further explore different functions string library within their own manual pages. The two most relevant to our discussion will be <code class="language-plaintext highlighter-rouge">strcmp()</code> and <code class="language-plaintext highlighter-rouge">strlen()</code>. However, I encourage you to explore some of the others, for example <code class="language-plaintext highlighter-rouge">strfry()</code> will randomize the string to create an anagram – how useful!</p>
+
+<p><a id="orgb010dd6"></a></p>
+      <h2 id="string-comparison">
+        
+        
+          String Comparison <a href="#string-comparison">#</a>
+        
+        
+      </h2>
+    
+
+<p>To solve our string comparison delimina, we will use the <code class="language-plaintext highlighter-rouge">strcmp()</code> function from the string library. Here is the revelant man page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STRCMP(3)                              Linux Programmer's Manual                             STRCMP(3)
+
+NAME
+       strcmp, strncmp - compare two strings
+
+SYNOPSIS
+       #include &lt;string.h&gt;
+
+       int strcmp(const char *s1, const char *s2);
+
+       int strncmp(const char *s1, const char *s2, size_t n);
+
+DESCRIPTION
+       The  strcmp()  function  compares  the two strings s1 and s2.  It returns an integer less than,
+       equal to, or greater than zero if s1 is found, respectively, to be less than, to match,  or  be
+       greater than s2.
+
+       The  strncmp()  function  is similar, except it compares the only first (at most) n bytes of s1
+       and s2.
+
+RETURN VALUE
+       The strcmp() and strncmp() functions return an integer less than, equal  to,  or  greater  than
+       zero if s1 (or the first n bytes thereof) is found, respectively, to be less than, to match, or
+       be greater than s2.
+</code></pre></div></div>
+
+<p>It comes in two varieties. One with a maximum length specified and one that relies on null termination. Both return the same values. If the two strings are equal, then the value is 0, if the first string string is greater (larger alphabetically) than it returns 1, and if the first string is less than (smaller alphabetically) then it returns -1.</p>
+
+<p>Plugging in <code class="language-plaintext highlighter-rouge">strcmp()</code> into our secret message program, we get the desired results.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*string_strncp.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter 'Buff' for a secret message:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">"Buff"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Go Buff! Go Blue!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No secret for you.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./string_strcmp 
+Enter 'Buff' for a secret message:
+Buff
+Go Buff! Go Blue!
+</code></pre></div></div>
+
+<p><a id="orgf218195"></a></p>
+      <h2 id="string-length-vs-string-size">
+        
+        
+          String Length vs String Size <a href="#string-length-vs-string-size">#</a>
+        
+        
+      </h2>
+    
+
+<p>Another really important string library function is <code class="language-plaintext highlighter-rouge">strlen()</code> which returns the length of the string. It is important to differentiate the length of the string from the size of the string.</p>
+
+<ul>
+  <li>
+    <p><em>string length</em>: how many characters, not including the null character, are in the string</p>
+  </li>
+  <li>
+    <p><em>sizeof</em> : how many bytes required to store the string.</p>
+  </li>
+</ul>
+
+<p>One of the most common mistakes when working with C strings is to consider the <code class="language-plaintext highlighter-rouge">sizeof</code> the string and not the length of the string, which are clearly two different values. Here is a small program that can demonstrate how this can go wrong quickly:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Hello!"</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="n">str</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"strlen(str):%d sizeof(str):%d sizeof(s):%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">),</span>  <span class="c1">//the length of the str</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">),</span>  <span class="c1">//the memory size of the str</span>
+         <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>    <span class="c1">//the memory size of a pointer</span>
+         <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./string_length 
+strlen(str):6 sizeof(str):7 sizeof(s):8
+</code></pre></div></div>
+
+<p>Note that when using <code class="language-plaintext highlighter-rouge">strlen()</code> we get the length of the string “Hello!” which has 6 letters. The size of the string <code class="language-plaintext highlighter-rouge">str</code> is how much memory is used to store it, which is 7, if you include the null terminated. However, things get bad when you have a pointer to that string <code class="language-plaintext highlighter-rouge">s</code>. Calling <code class="language-plaintext highlighter-rouge">sizeof()</code> on <code class="language-plaintext highlighter-rouge">s</code> returns how much memory needed to store <code class="language-plaintext highlighter-rouge">s</code> which is a pointer and thus is 8-bytes in size. That has nothing to do with the length of the string or the size of the string. This is why when working with strings always make sure to use the right length not the size.</p>
+      <h1 id="pointer-arithmetic-and-strings">
+        
+        
+          Pointer Arithmetic and Strings <a href="#pointer-arithmetic-and-strings">#</a>
+        
+        
+      </h1>
+    
+
+<p>As noted many times now, strings are arrays, and as such, you can work with them as arrays using indexing with <code class="language-plaintext highlighter-rouge">[ ]</code>; however, often when programmers work with strings, they use pointer arithmetic. For example, here is a routine to print a string to stdout:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">my_puts</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">str</span><span class="p">){</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">){</span>
+    <span class="n">putchar</span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+    <span class="n">str</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This function <code class="language-plaintext highlighter-rouge">my_puts()</code> takes a string and will write the string, char-by-char to stdout using the <code class="language-plaintext highlighter-rouge">putchar()</code> function. What might seem a little odd here is the use of the while loop, so lets unpack that:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<p>What does this mean? First notice that <code class="language-plaintext highlighter-rouge">str</code> is declared as a <code class="language-plaintext highlighter-rouge">char *</code> which is a pointer to a character. We also know that pointers and arrays are the same, so we can say that <code class="language-plaintext highlighter-rouge">str</code> is a string that references the first character in the string’s array. Next the <code class="language-plaintext highlighter-rouge">*str</code> operation is a dereference, which says to follow the pointer and retrieve the value that it references. In this case that would be a character value. Finally, the fact that this operation occurs in the expression part means that we are testing the value that the pointer references for not be false, which is the same as asking if it is not zero or not <code class="language-plaintext highlighter-rouge">NULL</code>.</p>
+
+<p>So, the <code class="language-plaintext highlighter-rouge">while(*str)</code> says to continue looping as long the pointer <code class="language-plaintext highlighter-rouge">str</code> does not reference <code class="language-plaintext highlighter-rouge">NULL</code>. The pointer value of <code class="language-plaintext highlighter-rouge">str</code> does change in the loop and is incremented, <code class="language-plaintext highlighter-rouge">str++</code>, for each interaction after the call to <code class="language-plaintext highlighter-rouge">putchar()</code>.</p>
+
+<p>Now putting it all together, you can see that this routine will iterate through a string using a pointer until the <code class="language-plaintext highlighter-rouge">NULL</code> terminator is reached. Phew. While this might seem like a backwards way of doing this, it is actually a rather common and straightforword programming practice with strings and pointers in general.</p>
+
+<p><a id="orgf358d1b"></a></p>
+      <h2 id="pointer-arithmetic-and-types">
+        
+        
+          Pointer Arithmetic and Types <a href="#pointer-arithmetic-and-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>Something that you might have noticed is that we have been using pointer arithmetic for different types in the same way. That is, consider the two arrays below, one an array of integers and one a string:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span><span class="p">[]</span>  <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+<span class="kt">char</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"Hello!"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Both arrays are the same length, 8, but they are different sizes. Integers are 4-bytes, so to store 8 integers requires 4*8=32 bytes. But characters are 1 byte in size, so to store 7 characters requires just 7 bytes. In memory the two arrays may look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       &lt;------------------------ 24 bytes ----------------------------&gt;
+       .---------------.----------------.--- - - - ---.----------------.
+a   -&gt; |             0 |              1 |             |              7 |
+       '---------------'----------------'--- - - - ---'----------------'
+
+       .---.---.---.---.---.---.
+str -&gt; | H | e | l | l | o | \0|
+       '---'---'---'---'---'---'
+       &lt;-------  7 bytes ------&gt; 
+</code></pre></div></div>
+
+<p>Now consider what happens when we use pointer arithmetic on these arrays to dereference the third index:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*pointer_math.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Hello!"</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"a[3]:%d str[3]:%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">3</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="n">str</span> <span class="o">+</span> <span class="mi">3</span><span class="p">));</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./pointer_math 
+a[3]:3 str[3]:l
+</code></pre></div></div>
+
+<p>Knowing what you know, the output is not consistent. When you add 3 to the array of integers <code class="language-plaintext highlighter-rouge">a</code>, you adjust the pointer by 12 bytes so that you now reference the value 3. However, when you add 3 to the string pointer, you adjust the pointer by 3 bytes to reference the value ‘l’.</p>
+
+<p>The reason for this has to do with pointer arithmetic consideration of typing. When you declare a pointer to reference a particular type, C is aware that adding to the pointer value should consider the type of data being referenced. So when you add 1 to an integer pointer, you are moving the reference forward 4 bytes since that is the size of the integer. If we were to print the pointer values (in hex) and do numerical arithmetic we would see this to be true:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"a = %p a + 3 = %p (a + 3 - a) =%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="p">((</span><span class="kt">long</span><span class="p">)</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">a</span><span class="p">);</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"str = %p str + 3 = %p (str + 3 - str) = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">str</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="p">((</span><span class="kt">long</span><span class="p">)</span> <span class="p">(</span><span class="n">str</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">str</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./pointer_math 
+a[3]:3 str[3]:l
+
+a = 0x7fffa5c4d260 a + 3 = 0x7fffa5c4d26c (a + 3 -a) = 12
+
+str = 0x7fffa5c4d280 str + 3 = 0x7fffa5c4d283 (str + 3 -str) = 3
+</code></pre></div></div>
+
+<p>In the first part <code class="language-plaintext highlighter-rouge">a + 3</code> changed the pointer value by 0xc in hex which is 12, while <code class="language-plaintext highlighter-rouge">str + 3</code> only changes the character value by 0x3 or 3 bytes. More starkly you can see that if we treat the pointer values as longs and do numerical arithmetic after doing pointer arithmetic you see this more clearly.</p>
+
+<p><a id="org79a12a0"></a></p>
+      <h2 id="character-arrays-as-arbitrary-data-buffers">
+        
+        
+          Character Arrays as Arbitrary Data Buffers <a href="#character-arrays-as-arbitrary-data-buffers">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now you may be wondering, how do I access the individual bytes of larger data types? The answer to this is the final peculiarity of character arrays in C.</p>
+
+<p>Consider that a <code class="language-plaintext highlighter-rouge">char</code> data type is 1 byte in size, which is the smallest data element we work with as programmers. Now consider that an array of <code class="language-plaintext highlighter-rouge">char</code>’s matches exactly that many bytes. So when we write something like:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>What we are really saying is: “allocate 4 bytes of data.” We like to think about storing a string of length 3 in that character array with one byte for the null terminator, but we do not have to. In fact, any kind of data can be stored there as long as it is only 4-bytes in size. An integer is four bytes in size. Let’s store an integer in <code class="language-plaintext highlighter-rouge">s</code>.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>    <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>    
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    
+      <span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+    
+      <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+      <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+      <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+      <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+    
+      <span class="kt">int</span> <span class="o">*</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">s</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"*i = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">i</span><span class="p">);</span>
+    
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>What this program does is set all the bytes in the character array to 255, which is the largest value 1-byte can store. The result is that we have 4-bytes of data that are all 1’s, since 255 in binary is 11111111. Four bytes of data that is all 1’s. Next, consider what happens with this cast:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">s</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Now the pointer <code class="language-plaintext highlighter-rouge">i</code> references the same memory as <code class="language-plaintext highlighter-rouge">s</code>, which is 4-bytes of 1’s. What’s different is that <code class="language-plaintext highlighter-rouge">i</code> is an integer pointer not a character pointer. That means the 4-bytes of 1’s is an integer not characters from the perspective of <code class="language-plaintext highlighter-rouge">i</code>. And when we dereference <code class="language-plaintext highlighter-rouge">i</code> to print those bytes as a number, we get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*i = -1
+</code></pre></div></div>
+
+<p>Which is the signed value for all 1’s (remember two’s compliment?). What we’ve just done is use characters as a generic container for data and then used pointer casting to determine how to interpret that data. This may seem crazy — it is — but it is what makes C so low level and useful.</p>
+
+<p>We often refer to character arrays as <strong>buffers</strong> because of this property of being arbitrary containers. A buffer of data is just a bunch of bytes, and a character array is the most direct way to access that data.</p>
+
+<p><a name="lec4"></a></p>
+
+<p><a id="org9f1b8c8"></a></p>
+      <h1 id="multidimensional-arrays">
+        
+        
+          Multidimensional Arrays <a href="#multidimensional-arrays">#</a>
+        
+        
+      </h1>
+    
+
+<p>We continue our discussion of data types in C by looking at double arrays, which is an array of arrays. This will lead directly to command line arguments as these are processed as an array of strings, which are arrays themselves, thus double arrays.</p>
+
+<p><a id="org224229e"></a></p>
+      <h2 id="declaring-double-arrays">
+        
+        
+          Declaring Double Arrays <a href="#declaring-double-arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>Like single arrays, we can declare double arrays using the <code class="language-plaintext highlighter-rouge">[ ]</code>, but with two. We can also do static declarations of values with <code class="language-plaintext highlighter-rouge">{ }</code>. Here’s an example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">darray</span><span class="p">[][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> <span class="p">};</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"darray[%d] = { "</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">darray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span> <span class="c1">//&lt;---</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"}</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Which would print:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>darray[0] = { 0 0 0 0 }
+darray[1] = { 1 1 1 1 }
+darray[2] = { 2 2 2 2 }
+darray[3] = { 3 3 3 3 }
+</code></pre></div></div>
+
+<p>Each index in the array references another array. Like before we allow C to determine the size of the outer array when declaring statically. However, you must define the size of the inner arrays. This is because of the way the memory is allocated. While the array example above is square in size, the double array can be asymmetric.</p>
+
+<p><a id="orgbee8c24"></a></p>
+      <h2 id="the-type-of-a-double-array">
+        
+        
+          The type of a double array <a href="#the-type-of-a-double-array">#</a>
+        
+        
+      </h2>
+    
+
+<p>Let’s think a bit more about what a double array really is given our understanding of the relationship between pointers and arrays. For a single array, the array variable is a pointer that references the first item in the array. For a double array, the array variable references a reference that references the first item in the first array. Here’s a visual of how we can think of the typing</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int**              int*    .---.---.---.---.
+                .---.  _.----&gt; | 0 | 0 | 0 | 0 |  &lt;-- darray[0]
+    darray ---&gt; | .-+-'        '---'---'---'---'
+                |---|          .---.---.---.---.
+                | .-+--------&gt; | 1 | 1 | 1 | 1 |  &lt;-- darray[1]
+                |---|          '---'---'---'---'
+                | .-+-._       .---.---.---.---.
+                |---|   '----&gt; | 2 | 2 | 2 | 2 |  &lt;-- darray[2]
+                | .-+-._       '---'---'---'---'
+                '---'   '._    .---.---.---.---.
+                           '-&gt; | 3 | 3 | 3 | 3 |  &lt;-- darray[3]
+                               '---'---'---'---'               
+</code></pre></div></div>
+
+<p>If we follow the arrays, we see that the type of <code class="language-plaintext highlighter-rouge">darray</code> is actually a <code class="language-plaintext highlighter-rouge">int **</code>. That means, it is a pointer that references a memory address that stores another pointer that references a memory address of an integer. So when we say double array, we are also referring to double pointers.</p>
+
+<p>To demonstrate this further, we can even show the dereferences directly.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">darray</span><span class="p">[][</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span>
+                      <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">}};</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"*(*(darray+2)+2) = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">darray</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">));</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"     daray[2][2] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">darray</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>which prints</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*(*(darray+2)+2) = 2017
+     daray[2][2] = 2017
+</code></pre></div></div>
+
+<p>As you can see it takes two dereferences to get to the integer value.</p>
+      <h2 id="memory-layout-of-multidimensional-arrays">
+        
+        
+          Memory Layout of Multidimensional Arrays <a href="#memory-layout-of-multidimensional-arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>However, how we interpret the typing of double arrays (and multi-dimensional arrays) in C and how C actually lays out that data in memory are two different animals!</p>
+
+<p>As you now know, arrays are memory aligned regions of the same data type. The value of the array variable is the pointer to the first element. A multi-dimensional array, like <code class="language-plaintext highlighter-rouge">int array[2][3]</code>,  operates in the same way (mostly) where <code class="language-plaintext highlighter-rouge">array</code> is of type <code class="language-plaintext highlighter-rouge">int **</code> (a pointer to a pointer) and so <code class="language-plaintext highlighter-rouge">array[0]</code> returns a <code class="language-plaintext highlighter-rouge">int *</code>, a pointer to the start of the array  <code class="language-plaintext highlighter-rouge">array[0]</code>.</p>
+
+<p>Things are not quite as they seem… consider the following program and its output.</p>
+
+<!-- <div class="side-by-side">
+<div class="side-by-side-a"> -->
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>					   
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"array = %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">array</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"  array[%d] = %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+    	<span class="n">printf</span><span class="p">(</span><span class="s">"    array[%d][%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">array</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"p[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"array[%d][%d] = *(p + (%d * 2  + %d)) = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+	     <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">j</span><span class="p">)));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<!-- </div>
+<div class="side-by-side-b"> -->
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array = 0x7ffdcfc269a0
+  array[0] = 0x7ffdcfc269a0
+    array[0][0] = 0
+    array[0][1] = 1
+    array[0][2] = 2
+  array[1] = 0x7ffdcfc269ac
+    array[1][0] = 3
+    array[1][1] = 4
+    array[1][2] = 5
+
+p[0] = 0
+p[1] = 1
+p[2] = 2
+p[3] = 3
+p[4] = 4
+p[5] = 5
+
+array[0][0] = *(p + (0 * 3  + 0)) = 0
+array[0][1] = *(p + (0 * 3  + 1)) = 1
+array[0][2] = *(p + (0 * 3  + 2)) = 2
+array[1][0] = *(p + (1 * 3  + 0)) = 3
+array[1][1] = *(p + (1 * 3  + 1)) = 4
+array[1][2] = *(p + (1 * 3  + 2)) = 5
+</code></pre></div></div>
+<!-- </div>
+</div> -->
+
+<p>For starters, the pointer value <code class="language-plaintext highlighter-rouge">array</code> and <code class="language-plaintext highlighter-rouge">array[0]</code> are the same, and also, we can use an <code class="language-plaintext highlighter-rouge">int * (p)</code> to traverse the entirety of the double array. That’s because C doesn’t really allocated subarrays for each <code class="language-plaintext highlighter-rouge">array[i]</code> but rather uses elaborate pointer math to give the illusion of multiple sub-arrays. Instead, it allocates a larger array of size <code class="language-plaintext highlighter-rouge">2 * 3=6</code> integers. Like in the memory diagram below</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    .--------------.
+    |       |    0 |&lt;--&lt;-. array &lt;-- array[0] 
+    |-------+------|     |
+    |       |    1 |     |
+    |-------+------|     |
+    |       |    2 |     |
+    |-------+------|     |
+    |       |    3 | &lt;---+--- array[1]
+    |-------+------|     |
+    |       |    4 |     |
+    |-------+------|     |
+    |       |    5 |&lt;----+----- p+5, array+5 , array + 1 * 3 + 2
+    |-------+------|     |
+    | p     |   .--+-----'
+    '-------+------'
+</code></pre></div></div>
+
+<p><a id="org45921ee"></a></p>
+      <h2 id="array-of-strings-as-double-arrays">
+        
+        
+          Array of Strings as Double Arrays <a href="#array-of-strings-as-double-arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now let us consider another kind of double array, an array of strings. Recall that a C string is just an array of characters, so an array of strings is a double array of characters. One of the tricky parts of string arrays is the typing declaration.</p>
+
+<p>Before we declared arrays using the following notation:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">str1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"This is a string"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>But now we know that the type of arrays and pointers are really the same, so we can also declare a string this way:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="o">*</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"This is also a string"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Note that there is a difference between these two declarations in how and where C actually stores the string in memory. Consider the output of this program:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="n">str1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"This is a string"</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"This is also a string"</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"str1: %s </span><span class="se">\t\t</span><span class="s"> &amp;str1:%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">str1</span><span class="p">,</span> <span class="n">str1</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"str2: %s </span><span class="se">\t</span><span class="s"> &amp;str2:%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">str2</span><span class="p">,</span> <span class="n">str2</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str1: This is a string 		 &amp;str1:0x7fff4344d090
+str2: This is also a string 	 &amp;str2:0x4006b4
+</code></pre></div></div>
+
+<p>While both strings print fine as strings, the memory address of the two strings are very different. One is located in the stack memory region and other is in the data segment. In later lessons we will explore this further, but for the moment, the important takeaway is that we can now refer to strings as <code class="language-plaintext highlighter-rouge">char *</code> types.</p>
+
+<p>Given we know that <code class="language-plaintext highlighter-rouge">char *</code> is the type of a string, then an array of <code class="language-plaintext highlighter-rouge">char *</code>’s is an array of strings.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">strings</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"monocyte"</span><span class="p">,</span>
+                     <span class="s">"basophil"</span><span class="p">,</span>
+                     <span class="s">"leukocyte"</span><span class="p">,</span>
+                     <span class="s">"neutrophil"</span><span class="p">};</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"strings: %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strings</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"strings[%d]: '%s' %p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strings: 0x7fff7af68080
+strings[0]: 'monocyte' 0x400634
+strings[1]: 'basophil' 0x40063d
+strings[2]: 'leukocyte' 0x400648
+strings[3]: 'neutrophil' 0x400658
+</code></pre></div></div>
+
+<p>Like before we can see that <code class="language-plaintext highlighter-rouge">strings</code> is a pointer that references a pointer to a <code class="language-plaintext highlighter-rouge">char</code>, but that’s just an array of strings or a double array. Another thing you may notice is that the length and size of each of the strings is different. This is because the way the array is declared with <code class="language-plaintext highlighter-rouge">char *</code> as the type of the string rather than <code class="language-plaintext highlighter-rouge">char []</code> which changes how the array is stored.</p>
+
+<p><a id="org3482183"></a></p>
+      <h1 id="command-line-arguments">
+        
+        
+          Command Line Arguments <a href="#command-line-arguments">#</a>
+        
+        
+      </h1>
+    
+
+<p>Now that you have seen an array of strings, where else does that type appear? In the arguments to the <code class="language-plaintext highlighter-rouge">main()</code> function. This is part of the command line arguments and is a very important part of systems programming.</p>
+
+<p>While we will also use standard input, this class will require reading in more input from the user in the form of command line arguments. These will be used as basic settings for the program and are much more efficient than always reading in these settings from standard input.</p>
+
+<p><a id="org008d53a"></a></p>
+      <h2 id="understanding-main-arguments">
+        
+        
+          Understanding <code class="language-plaintext highlighter-rouge">main()</code> arguments <a href="#understanding-main-arguments">#</a>
+        
+        
+      </h2>
+    
+
+<p>You may have noticed that I have been writing main functions slightly differently then you have seen them before.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//</span>
+<span class="c1">//argument ____.             ._____ argument</span>
+<span class="c1">// count       |             |       variables </span>
+<span class="c1">//             v             v</span>
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[]);</span>
+</code></pre></div></div>
+
+<p>The arguments to main correspond to the command line input. The first is the number of such arguments, and the second is a string array of the argument values. Here’s an example that illuminates the arguments:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*print_args.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"argv[%d] = %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./print_args arg1 arg2 arg3 x y z adam aviv
+argv[0] = ./print_args
+argv[1] = arg1
+argv[2] = arg2
+argv[3] = arg3
+argv[4] = x
+argv[5] = y
+argv[6] = z
+argv[7] = adam
+argv[8] = aviv
+</code></pre></div></div>
+
+<p>Looking at the program and its output, you can see that there is correspondence to the arguments provided and the index in the array. It’s important to note that the name of the program being run is <code class="language-plaintext highlighter-rouge">arg[0]</code>, which means that <strong>all</strong> programs have at least one argument, the name of the program. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ ./print_args 
+argv[0] = ./print_args
+</code></pre></div></div>
+
+<p>The name of the program is not compiled into the executable. It is instead passed as a true command line argument by the shell, which forks and executes the program. The mechanics of this will become clear later in the semester when we implement our own simplified version of the shell. To demonstrate this now, consider how the <code class="language-plaintext highlighter-rouge">arg[0]</code> changes when I change the name of the executable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: demo $ cp print_args newnameofprintargs
+aviv@saddleback: demo $ ./newnameofprintargs 
+argv[0] = ./newnameofprintargs
+aviv@saddleback: demo $ ./newnameofprintargs a b c d e f
+argv[0] = ./newnameofprintargs
+argv[1] = a
+argv[2] = b
+argv[3] = c
+argv[4] = d
+argv[5] = e
+argv[6] = f
+</code></pre></div></div>
+
+<p><a id="org1a114e5"></a></p>
+      <h2 id="null-termination-in-args-arrays">
+        
+        
+          <code class="language-plaintext highlighter-rouge">NULL</code> Termination in args arrays <a href="#null-termination-in-args-arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>Another interesting construction of the <code class="language-plaintext highlighter-rouge">argv</code> array is that the array is <code class="language-plaintext highlighter-rouge">NULL</code> terminated much like a string is null terminated. The reason for this is so the OS can determine how many arguments are present. Without null termination there is no way to know the end of the array.</p>
+
+<p>You can use this fact when parsing the array by using pointer arithmetic and checking for a NULL reference:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="o">**</span> <span class="n">curarg</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">curarg</span> <span class="o">=</span> <span class="n">argv</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">//initialize curarg to argv array and i to 0</span>
+       <span class="o">*</span><span class="n">curarg</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">;</span>    <span class="c1">//stop when curarg references NULL</span>
+       <span class="n">curarg</span><span class="o">++</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>     <span class="c1">//increment curarg and i</span>
+
+     <span class="n">printf</span><span class="p">(</span><span class="s">"argv[%d] = %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="n">curarg</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>viv@saddleback: demo $ ./print_args_pointer a b c d e
+argv[0] = ./print_args_pointer
+argv[1] = a
+argv[2] = b
+argv[3] = c
+argv[4] = d
+argv[5] = e
+</code></pre></div></div>
+
+<p>Notice that the pointer incrementing over the <code class="language-plaintext highlighter-rouge">argv</code> arrays is of type <code class="language-plaintext highlighter-rouge">char **</code>. Its a pointer to a string, which is itself an array of chars, so its a pointer to a pointer. (POINTERS ARE MADNESS!)</p>
+
+<p><a id="org2082fd6"></a></p>
+      <h2 id="basic-parsing-of-command-line-arguments-atoi-and-sscanf">
+        
+        
+          Basic Parsing of Command Line Arguments: <code class="language-plaintext highlighter-rouge">atoi()</code> and <code class="language-plaintext highlighter-rouge">sscanf()</code> <a href="#basic-parsing-of-command-line-arguments-atoi-and-sscanf">#</a>
+        
+        
+      </h2>
+    
+
+<p>Something that you will often have to do when writing programs is parse command line arguments. The required error checking procedure can be time consuming, but it is also incredibly important for the overall user experience of your program.</p>
+
+<p>Lets consider a simple program that will print a string a user specified number of times. We would like to execute it this way:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_n_times 5 string
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">string</code> is printed n times. Now, what we know about command line arguments is that they are processed as strings, so both <code class="language-plaintext highlighter-rouge">string</code> and <code class="language-plaintext highlighter-rouge">5</code> are strings. We need to convert “5” into an integer 5.</p>
+
+<p>There are two ways to do this. The first is <code class="language-plaintext highlighter-rouge">atoi()</code> which converts a string to a number, but looking at the manual page for <code class="language-plaintext highlighter-rouge">atoi()</code> we find that <code class="language-plaintext highlighter-rouge">atoi()</code> does not detect errors. For example, this command line arguments will not be detected:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>run_n_times notanumber string
+</code></pre></div></div>
+
+<p>Executing, <code class="language-plaintext highlighter-rouge">atoi("notanumber")</code> will return 0, so a simple routine like:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span> <span class="c1">//does not detect errors</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>will just print nothing and not return the error. While this might be reasonable in some settings, but we might want to detect this error and let the user know.</p>
+
+<p>Instead, we can convert the <code class="language-plaintext highlighter-rouge">argv[1]</code> to an integer using <code class="language-plaintext highlighter-rouge">scanf()</code>, but we have another problem. We have only seen <code class="language-plaintext highlighter-rouge">scanf()</code> in the concept of reading from standard input, but we can also have it read from an arbitrary string. That version of <code class="language-plaintext highlighter-rouge">scanf()</code> is called <code class="language-plaintext highlighter-rouge">sscanf()</code> and works like such:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span> 
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">sscanf</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR: require a number</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//exit the program</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Recall that <code class="language-plaintext highlighter-rouge">scanf()</code> returns the number of items that successfully match the format string. So if no items match, then the user did not provide a number to match the <code class="language-plaintext highlighter-rouge">%d</code> format. So this program successfully error checks the first argument. But, what about the second argument? What happens when we run with these arguments?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run_n_times 5
+</code></pre></div></div>
+
+<p>There is no <code class="language-plaintext highlighter-rouge">argv[2]</code> provided and worse because the <code class="language-plaintext highlighter-rouge">argv</code> array is NULL terminated, <code class="language-plaintext highlighter-rouge">argv[2]</code> references <code class="language-plaintext highlighter-rouge">NULL</code>. When the <code class="language-plaintext highlighter-rouge">printf()</code> dereferences <code class="language-plaintext highlighter-rouge">argv[2]</code> it wlll cause a segmentation fault. How do we fix this? We also have to error check the number of arguments.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">){</span>
+  <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR: invalid number of arguments</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//exit the program</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">sscanf</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">){</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR: require a number</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//exit the program</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And now we have properly error checked user arguments to this simple program. As you can see, error checking is tedious but incredibly important.</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/5" />
+<meta property="og:url" content="http://localhost:4000/lab/5" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/5"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1 id="lab-5-enigma">Lab 5: Enigma</h1>
+
+<p><em>View the videos for this lab on <a href="https://youtu.be/6IrmHfD9aCA">youtube</a></em></p>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<h3 id="github-link">Github Link</h3>
+
+<!--
+* Accept this assignment here: [https://classroom.github.com/a/FtZqm24E](https://classroom.github.com/a/FtZqm24E) -->
+
+<ul>
+  <li>Accept this assignment here: <a href="https://classroom.github.com/a/W4qdTvC6">https://classroom.github.com/a/W4qdTvC6</a></li>
+</ul>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p>This lab can be developed locally on your machine using any java installation or on replit.</p>
+
+<h3 id="runningcompile-your-program">Running/Compile your program</h3>
+
+<p>You should compile your program using <code class="language-plaintext highlighter-rouge">javac</code> and run it with <code class="language-plaintext highlighter-rouge">java</code>. The specific command line arguments are provided below.</p>
+
+<h3 id="testing-your-lab">Testing your lab</h3>
+
+<p>We have provided you with a <code class="language-plaintext highlighter-rouge">test.sh</code> file to help you test your program.</p>
+
+<h2 id="enigma-machines-simplified-model">Enigma Machines (simplified model)</h2>
+
+<p>The Enigma machine was used by the Germans in WWII to send encoded messages. At the time, it was a breakthrough in cryptography, and was essentially an extremely advanced substitution cipher. The Enigma machine is also famous for not just being a very advanced cipher, but also because it was broken by none other than Alan Turning, whom many consider the founder of computer science.</p>
+
+<p>In this lab, we will model a simplified version of the Enigma machine. If you’re interested in learning more, <a href="https://www.usna.edu/Users/cs/taylor/">Prof. Gavin Taylor</a> (USNA) has a comprehensive <a href="https://www.usna.edu/Users/cs/nchamber/courses/ic211/s19/lab/l04/realenigma.html">write up on the topic</a>. (More details and an image are found at the end of this lab.)</p>
+
+<h3 id="what-you-need-to-know-for-this-lab">What you need to know for this lab</h3>
+
+<p>What you need to know for this lab: Enigma machines used interchangeable rotors that could be placed in different orientations to obtain different substitution patterns. More significantly, the rotors rotated after each character was encoded, changing the substitution pattern and making the code very difficult to break. The behavior of the rotating rotors can be modeled, in a simplified form, by a device consisting of labeled, concentric rings. For example, the picture here has three rings labeled with the letters of the alphabet and ‘#’ (representing a space).</p>
+
+<p>To encrypt a character using this model, find the character on the inner rotor (i.e., the inside ring) and note the character aligned with it on the outer rotor (i.e., the outside ring), then find that character on the middle rotor (i.e., the middle ring) and output the one aligned with it on the outer rotor. After a character is encrypted, turn the inner rotor clockwise one step. Whenever the inner rotor returns to its original orientation, the middle rotor turns once in lock-step, just like the odometer in a car.</p>
+
+<div style="text-align:center">
+  <p><img src="/images/enigma.gif" alt="" /></p>
+</div>
+
+<p>For example, in this configuration the character ‘A’ would be encrypted as ‘N’, since ‘A’ on the inner rotor is aligned with ‘H’ on the outer rotor, and ‘H’ on the middle rotor is aligned with ‘N’ on the outer rotor. After performing this encryption, the inner rotor is rotated clockwise, so the letter ‘A’ would next be encrypted as ‘D’.</p>
+
+<p>Note that decrypting a message requires following the same steps, only in reverse: Find the character on the outer rotor, note the character aligned with it on the middle rotor, find that character on the outer rotor, then output the character aligned with it on the inner rotor. Don’t forget to rotate the rotors after each letter is decrypted.</p>
+
+<h2 id="task-requirements">Task Requirements</h2>
+
+<h3 id="the-task">The Task</h3>
+
+<p>You will define a class <code class="language-plaintext highlighter-rouge">Rotor</code> to simulate the workings of a single rotor, and the class <code class="language-plaintext highlighter-rouge">Enigma</code> to simulate the workings of an Enigma machine using <code class="language-plaintext highlighter-rouge">Rotor</code> instances. You will be provided a class <code class="language-plaintext highlighter-rouge">Comms</code> (with a <code class="language-plaintext highlighter-rouge">main</code> method) as part of the initial material. You should read that file to see how <code class="language-plaintext highlighter-rouge">Enigma</code> instances are suppose to be used.</p>
+
+<p><strong>You may not alter <code class="language-plaintext highlighter-rouge">Comms.java</code> in any way.</strong></p>
+
+<p>Your task is to write both <code class="language-plaintext highlighter-rouge">Enigma</code> and <code class="language-plaintext highlighter-rouge">Rotor</code> using proper OOP design with class constructors, information hiding, and encapsulation.</p>
+
+<h3 id="the-rotor-class">The <code class="language-plaintext highlighter-rouge">Rotor</code> Class</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">Rotor</code> class represents a rotor, including the values of the characters in the rotor and its current orientation (which character is currently on top of the rotor). A good strategy for representing this would be to store the characters in a <code class="language-plaintext highlighter-rouge">String</code> of length 27 (<code class="language-plaintext highlighter-rouge">#</code> indicating space) – index 0 is the top most character. Note that <code class="language-plaintext highlighter-rouge">Rotors</code> rotate! And after a full rotation, the next outer rotor rotates (like a odometer in a car). That means you’ll need to remember where the rotor started. All of this can lead to some good OOP! :)</p>
+
+<p>For example, your rotor should be able to do the following</p>
+
+<ol>
+  <li>Be constructed, requiring a <code class="language-plaintext highlighter-rouge">String</code> that defines the rotor and a single character defining the symbol that should be initially at the top of the rotor. Note: in the constructor, you can call other methods, like the method to rotate!</li>
+  <li>Rotate one click clockwise. This should involve changing the <code class="language-plaintext highlighter-rouge">String</code>.</li>
+  <li>Return the index in the <code class="language-plaintext highlighter-rouge">String</code> at which a given character appears.</li>
+  <li>Return the character at a given index.</li>
+</ol>
+
+<p>An example of a rotor <code class="language-plaintext highlighter-rouge">String</code> is <code class="language-plaintext highlighter-rouge">#GNUAHOVBIPWCJQXDKRYELSZFMT</code> … which you are to interpret circularly, so that the last character loops around to the first. If you imagine that the first positition indicates the top spot on the rotor, then:</p>
+
+<p><code class="language-plaintext highlighter-rouge">#GNUAHOVBIPWCJQXDKRYELSZFMT</code> rotated one click clockwise is <code class="language-plaintext highlighter-rouge">T#GNUAHOVBIPWCJQXDKRYELSZFM</code></p>
+
+<h3 id="the-enigma-class">The <code class="language-plaintext highlighter-rouge">Enigma</code> Class</h3>
+
+<p>This we leave partly up to you. We expect your Engima to have 5 possible rotors, and when your Enigma class is created, it chooses which 3 to use along with their rotor starting symbols. You must hardcode the 5 possible rotors in your class as the following <code class="language-plaintext highlighter-rouge">String</code>s:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">#GNUAHOVBIPWCJQXDKRYELSZFMT</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#EJOTYCHMRWAFKPUZDINSXBGLQV</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#BDFHJLNPRTVXZACEGIKMOQSUWY</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#NWDKHGXZVRIFJBLMAOPSCYUTQE</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#TGOWHLIFMCSZYRVXQABUPEJKND</code></li>
+</ol>
+
+<p>You must also have encrypt and decrypt methods for encrypting and decrypting strings. These must be compatible with the Comms.java file that we give you. The behavior in these methods must follow the enigma procedure described above in “Our Simple Model of the Enigma”.</p>
+
+<h3 id="the-comms-class">The <code class="language-plaintext highlighter-rouge">Comms</code> Class</h3>
+
+<p><strong>Note you should not edit the <code class="language-plaintext highlighter-rouge">Comms</code> class</strong>, but you do need to know how it works.</p>
+
+<p>This is the program’s main class, and it is provided for you. The program takes as input (from the command line) the three rotors and their starting characters. A correct call to the program <code class="language-plaintext highlighter-rouge">Comms</code> will provide all the information needed to setup enigma for that encryption/decryption session on the command-line, and the actual string to encrypt/decrypt should be input from standard in.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                  ,-- inner rotor initially positioned so X is on top
+                  |,-- middle rotor initially positioned so # is on top
+                  ||  ,-- outer rotor initially positioned so Y is on top
+                  || /
+java Comms 4 2 3 "X#Y" encrypt
+           | | |
+           | | `-- outer rotor is rotor 3
+           | `-- middle rotor is rotor 2
+           `-- inner rotor is rotor 4
+</code></pre></div></div>
+
+<p>A couple example runs are here. Note that you have to type in the string you want to encrypt/decrypt. You must also make your own tests and fully test your code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 1 2 3 "###" encrypt
+AAA
+NDU
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 3 1 2 "SAT" encrypt
+DO#YOUR#BEST#AND#KEEP#ON#KEEPIN#ON
+ACAAFAEOZFWKBQKPXZOGIKXTNPEBDXWQCZ
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/$ java Comms 5 2 4 "EST" decrypt
+CSHIAWDFGDCOE#EZKJHRWAZDDCBCILON#PKUJEXEXSHINZ
+THE#NATIONAL#ANIMAL#OF#SCOTLAND#IS#THE#UNICORN
+</code></pre></div></div>
+
+<h2 id="submission">Submission</h2>
+
+<div class="requirement">
+  <p>You must submit</p>
+
+  <ol>
+    <li><code class="language-plaintext highlighter-rouge">Enigma.java</code> : <code class="language-plaintext highlighter-rouge">Enigma</code> class</li>
+    <li><code class="language-plaintext highlighter-rouge">Rotor.java</code> : <code class="language-plaintext highlighter-rouge">Rotor</code> class</li>
+    <li><code class="language-plaintext highlighter-rouge">README.md</code> : Answer questions and describe your work in this lab</li>
+  </ol>
+
+  <p>Your <code class="language-plaintext highlighter-rouge">Enigma.java</code> and <code class="language-plaintext highlighter-rouge">Rotor.java</code> must meet the specifications above.</p>
+
+</div>
+
+<hr />
+<p>This lab is adopted from IC211 (spring 2019) at USNA.</p>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

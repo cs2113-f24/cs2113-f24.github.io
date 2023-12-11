@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/project/1" />
+<meta property="og:url" content="http://localhost:4000/project/1" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/project/1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <p><em>View the videos for this project in this <a href="https://youtube.com/playlist?list=PLnVRBITSZMSMdXKuNahum68VgkVT7ZRaf">YouTube playlist</a></em></p>
+
+<h1 id="project-1-boggle-solver">Project 1: Boggle Solver</h1>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<p>In this project, the goal is to implement a data structure in C (notably a hashmap).</p>
+
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/3zBYoC7G">https://classroom.github.com/a/3zBYoC7G</a></li>
+</ul>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p>You should develop using VSCode+SSH.</p>
+
+<h3 id="test-script">Test Script</h3>
+
+<p>To help you complete this project, each part is provided with a test script. The script is not designed to be comprehensive, and you will graded based on a larger array of tests. To execute the test script, run it from anywhere within the lab directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./test.sh
+</code></pre></div></div>
+
+<p>Note that when executing the test script, due to using valgrind, it may take many minutes to complete! So you are better served developing some tests on your own rather than relying on the test script.</p>
+
+<h3 id="compiling-your-code">Compiling your code:</h3>
+
+<h4 id="part-a">Part A</h4>
+<p>For part A (C implementation), we have provided you with a <code class="language-plaintext highlighter-rouge">Makefile</code>. You can compile the spellchecker or boggle solver by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make spellcheck
+make onePlayerBoggle
+</code></pre></div></div>
+
+<p>If you want to compile everything at once, simply type <code class="language-plaintext highlighter-rouge">make</code>. This will produce a number of additional <code class="language-plaintext highlighter-rouge">.o</code> files (or object files), which are compiled C files that are not yet assembled. <strong>Do not add these to your repository as they get overridden on every compilation</strong>.</p>
+
+<p>To clean up your repository, you can use <code class="language-plaintext highlighter-rouge">make clean</code> command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make clean
+</code></pre></div></div>
+
+<p>Cleaning the directory is helpful to remove unwanted files and/or force a recompilation with <code class="language-plaintext highlighter-rouge">make</code>.</p>
+
+<h3 id="vscode-building-and-debugging">VScode Building and Debugging</h3>
+
+<p>As part of the repo for this assignment, we have provided a diretory <code class="language-plaintext highlighter-rouge">.vscode</code> that contains a <code class="language-plaintext highlighter-rouge">task.json</code> and <code class="language-plaintext highlighter-rouge">launch.json</code> for you to have automatic building and launching of the <code class="language-plaintext highlighter-rouge">gdb</code> debugger.</p>
+
+<p>To run the debugger, open the debugging panel on vscode and press the <code class="language-plaintext highlighter-rouge">Run and Debug</code> button. This may prompt you to install an extension in the current container: do so. Then you should see three possible debug launches: (1) <code class="language-plaintext highlighter-rouge">gdb spellcheck</code> (2) <code class="language-plaintext highlighter-rouge">gdb oneplayer 100</code> and (3)<code class="language-plaintext highlighter-rouge">gdb oneplayer 200</code>. Each of these correspond to one of the expected outputs described below.</p>
+
+<p>Also note, you can use <code class="language-plaintext highlighter-rouge">Ctrl-Shift-b</code> or <code class="language-plaintext highlighter-rouge">Cmd-Shift-b</code> to automatically build your code by calling <code class="language-plaintext highlighter-rouge">make</code> for you.</p>
+
+<hr />
+
+<h2 id="data-structure-implementations">Data Structure Implementations</h2>
+
+<p>You will be implementing two basic data structures as part of this project: a Linked List and a Hash Table (or Hashmap).</p>
+
+<h3 id="linked-list">Linked List</h3>
+
+<p>The Linked List you will complete only requires forward pointers on its nodes, and only the <code class="language-plaintext highlighter-rouge">push()</code> operation, that is, put a new node on the front of the list. Each node in the list stores a string value. There is no need for the list to be generic.</p>
+
+<h3 id="hashmap">Hashmap</h3>
+
+<p>The Hashmap data structure is simply a membership Hash Table — unlike a truly generic Hashmap that stores key, value pairs, this table returns <code class="language-plaintext highlighter-rouge">true</code> if an items is stored in the data structure and <code class="language-plaintext highlighter-rouge">false</code> otherwise. Put another way, it’s a Hashmap that maps a value to true. The Hashmap you will implement only needs to store strings. It has the following member functions:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">add(string) -&gt; void</code> : add a string to the hashmap</li>
+  <li><code class="language-plaintext highlighter-rouge">check(string) -&gt; bool</code> : check to see if a string is in the hashamp, return true if present, else false.</li>
+</ul>
+
+<p>The Hashmap should be implemented as a hash table with <em>separate chaining</em>. You may recall from your data structures class, this means that when two elements collide at an index, you add the item on to that spot, using say Linked List.</p>
+
+<p>Following that model, your Hashmap should have an array (or buckets) of Linked Lists. We have included a hash function for you in the start code. After achieving the hash value for a given string (modulo the range of buckets), you <em>push</em> that string onto the Linked List at that index associated with the hash value. Critically, the performance of the Hashmap depends on the length of the lists of each bucket  — if the lists get too long, then the look up operation could become O(n)! That would be quite slow …</p>
+
+<p>The <em>load</em> on a hash table is defined as the number of items stored in the table divided by the number of buckets. High loads means longer lists at each bucket and worse performance. To keep performance steady, once the load reaches 0.75, you have to resize the hash table by doubling the number of buckets and reinserting all the items into their new hash locations. <strong>YOU MUST IMPLEMENT A RESIZE ROUTINE – YOU CANNOT SIMPLY SET YOUR NUMBER OF BUCKETS TO A LARGE VALUE!!</strong></p>
+
+<blockquote>
+  <p>A quick aside: Since the hashmap only maps to true/false we could also describe this as an implementation of a set. That is, we are only concerned with set membership. Is the item in the set, or not?</p>
+</blockquote>
+
+<h3 id="data-structure-implementation">Data Structure Implementation</h3>
+
+<p>The crucial part of this project is the data structure implementations. In C, you typically divide your data structures between a header file (a <code class="language-plaintext highlighter-rouge">.h</code> file) and a source file (a <code class="language-plaintext highlighter-rouge">.c</code> file). The header file contains the structure and function definitions, while the source file contains their implementations. You will primarily work with the source files (<code class="language-plaintext highlighter-rouge">.c</code>).</p>
+
+<h4 id="linked-list-1">Linked List</h4>
+
+<p>As you can see the <code class="language-plaintext highlighter-rouge">llist.h</code>, the Linked List defines two strucures:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//node type stored in lists</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">ll_node</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">ll_node</span> <span class="o">*</span> <span class="n">next</span><span class="p">;</span> <span class="c1">//next node in list</span>
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">val</span><span class="p">;</span> <span class="c1">//string value stored in list</span>
+<span class="p">}</span> <span class="n">ll_node_t</span><span class="p">;</span>
+
+
+
+<span class="c1">//list_t struct to store a list</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="n">ll_node_t</span> <span class="o">*</span> <span class="n">head</span><span class="p">;</span> <span class="c1">//pointer to the node at the head of the list</span>
+  <span class="kt">int</span> <span class="n">size</span><span class="p">;</span> <span class="c1">//the number of nodes in the list</span>
+<span class="p">}</span> <span class="n">llist_t</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">ll_node_t</code> is a node within the linked list, storing the value (a <code class="language-plaintext highlighter-rouge">char *</code> string) and a pointer to the next node. The <code class="language-plaintext highlighter-rouge">llist_t</code> is a structure representation of the list, storing a pointer to the head of the list and it’s current size (number of nodes).</p>
+
+<p>There are three functions that operate over lists, described below. In <code class="language-plaintext highlighter-rouge">llist.c</code> you implement these methods.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Return a newly initialized, empty linked list</span>
+<span class="n">llist_t</span> <span class="o">*</span> <span class="nf">ll_init</span><span class="p">();</span>
+
+<span class="c1">//delete/deallocate a linked list</span>
+<span class="kt">void</span> <span class="nf">ll_delete</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">ll</span><span class="p">);</span>
+
+<span class="c1">//insert the string v (duplicated vis strdup!) onto the front of the list </span>
+<span class="kt">void</span> <span class="nf">ll_push</span><span class="p">(</span><span class="n">llist_t</span> <span class="o">*</span> <span class="n">ll</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="hash-map">Hash Map</h3>
+
+<p>The hashmap data strcucture is defined in <code class="language-plaintext highlighter-rouge">hashmap.h</code> and you will implemented in <code class="language-plaintext highlighter-rouge">hashmap.c</code>. The header file containing the structure and functions can be found below (with comments).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define HM_INIT_NUM_BUCKETS 16
+#define HM_MAX_LOAD 0.75
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="n">llist_t</span> <span class="o">**</span> <span class="n">buckets</span><span class="p">;</span> <span class="c1">//array of `buckets` each pointing to a list_t (see list.h)</span>
+  <span class="kt">int</span> <span class="n">num_buckets</span><span class="p">;</span> <span class="c1">//how many buckets, or lenght of the bucket array (should always be a power of 2)</span>
+  <span class="kt">int</span> <span class="n">size</span><span class="p">;</span> <span class="c1">//how many items stored</span>
+<span class="p">}</span> <span class="n">hashmap_t</span><span class="p">;</span>
+
+
+<span class="c1">//initliaze a hashmap with INITIAL_BUCKETS number of buckets</span>
+<span class="n">hashmap_t</span> <span class="o">*</span> <span class="nf">hm_init</span><span class="p">();</span>
+
+<span class="c1">//delete/deallocate the hashmap</span>
+<span class="kt">void</span> <span class="nf">hm_delete</span><span class="p">(</span><span class="n">hashmap_t</span> <span class="o">*</span> <span class="n">hm</span><span class="p">);</span>
+
+<span class="c1">//add a string value to the hashmap</span>
+<span class="kt">void</span> <span class="nf">hm_add</span><span class="p">(</span><span class="n">hashmap_t</span> <span class="o">*</span> <span class="n">hm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">v</span><span class="p">);</span>
+
+<span class="c1">//see if a string value is in the hashmap</span>
+<span class="n">bool</span> <span class="nf">hm_check</span><span class="p">(</span><span class="n">hashmap_t</span> <span class="o">*</span> <span class="n">hm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">v</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>In the C file you will implement a non-public (as in not in the header file) function <code class="language-plaintext highlighter-rouge">_resize()</code></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">_resize</span><span class="p">(</span><span class="n">hashmap_t</span> <span class="o">*</span> <span class="n">hm</span><span class="p">)</span>
+</code></pre></div></div>
+<p>which is called when the load is greater than 0.75.</p>
+
+<h3 id="spellchecker-40-points">Spellchecker (40 points)</h3>
+
+<p>To help test your Hashmap and Linked List implementation, we’ve provided a simple interactive spellchecker program that allows the user to type phrases (without punctuation) and it will spellcheck it. Here’s some sample inputs and outputs, along with the compilation.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+gcc -Wall -Wno-unused-variable -g -c -o hashmap.o hashmap.c
+gcc -Wall -Wno-unused-variable -g -c -o llist.o llist.c 
+gcc -Wall -Wno-unused-variable -g -o spellcheck spellcheck.c hashmap.o llist.o -lreadline -lm
+gcc -Wall -Wno-unused-variable -g -c -o boggle.o boggle.c
+gcc -Wall -Wno-unused-variable -g -o onePlayerBoggle onePlayerBoggle.c boggle.o hashmap.o llist.o -lreadline -lm
+$ ./spellcheck 
+ERROR: require dictionary file
+$ ./spellcheck dictionary.txt 
+spellcheck &gt; spellcheck all these words at once
+SPELLCHECK -&gt; not a word
+ALL -&gt; WORD
+THESE -&gt; WORD
+WORDS -&gt; WORD
+AT -&gt; WORD
+ONCE -&gt; WORD
+spellcheck &gt; or
+OR -&gt; WORD
+spellcheck &gt; one
+ONE -&gt; WORD
+spellcheck &gt; at
+AT -&gt; WORD
+spellcheck &gt; a
+A -&gt; WORD
+spellcheck &gt; time
+TIME -&gt; WORD
+spellcheck &gt; this adfasdfasdf is not a word
+THIS -&gt; WORD
+ADFASDFASDF -&gt; not a word
+IS -&gt; WORD
+NOT -&gt; WORD
+A -&gt; WORD
+WORD -&gt; WORD
+spellcheck &gt; nor !!! 
+NOR -&gt; WORD
+!!! -&gt; not a word
+spellcheck &gt; 
+$ # type ^D to insert EOF to exit (or ^C)
+</code></pre></div></div>
+
+<h3 id="boggle-solver-60-points">Boggle Solver (60 points)</h3>
+
+<p>Now that you’re Hash Map and Linked List are working, let’s use them to do something a bit more interesting — finding all the words on a boggle board!</p>
+
+<p>The boggle game structure and functions are defined in <code class="language-plaintext highlighter-rouge">boggle.h</code> and you will do most of your work in <code class="language-plaintext highlighter-rouge">boggle.c</code>. A boggle instance is defined as a 5x5 grid of dice, where each dice displays a different character.</p>
+
+<pre><code class="language-C">#define BOGGLE_DIMENSION 5
+
+typedef struct {
+  char board[BOGGLE_DIMENSION][BOGGLE_DIMENSION]; //the boggle board
+  hashmap_t * dict; //dictionary mapping
+} boggle_t;
+
+</code></pre>
+
+<p>When printed the board looks like</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.-----------.
+| S N T A Y |
+| W N T E I |
+| N QuI H I |
+| N F O S U |
+| E E H N L |
+'-----------'
+</code></pre></div></div>
+
+<p>The goal is to find as many words (<strong>at least three letters long</strong>) by traversing from one dice to another in all directions (left, right, up, down, and diagonal) without using a dice more than once. So for example <code class="language-plaintext highlighter-rouge">QUIT</code> is a word found on the board, and so is  <code class="language-plaintext highlighter-rouge">QUITE</code>. (You get a free ‘u’ for your ‘Q’.)</p>
+
+<p>A number of functions are implemented and provided for you in <code class="language-plaintext highlighter-rouge">boggle.c</code>, your main work will be completing the <code class="language-plaintext highlighter-rouge">bg_all_words()</code> function, which will search the boggle board for all words 3 letters to 8 letters in length.</p>
+
+<p>This is a recursive method that will explore outwards from a letter tile using <strong>depth first search</strong>. The idea is that you start a tile, like <code class="language-plaintext highlighter-rouge">Qu</code> and then try all neighbors (via a recursive call), outward, adding letters as you go and checking to see if you found a word. At somepoint you either search off the board or descended too far (checking a 9 letter word), and the recursion returns to explore another path. An algorithmic description is provided in a comment within <code class="language-plaintext highlighter-rouge">boggle.c</code> — see there for more details.</p>
+
+<p>Once you complete, you can run the <code class="language-plaintext highlighter-rouge">onePlayerBoggle</code> program at a given random seed, like the two examples below (warning: you may end up with some inappropriate words if they are in your dictionary and you can see these below, apologies):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vscode ➜ /workspaces/project-1-inst $ ./onePlayerBoggle dictionary.txt 100
+.-----------.
+| R E E M G |
+| N I E D T |
+| O T O W A |
+| K T S H I |
+| C S I I A |
+'-----------'
+SHOW
+WEER
+RIOTED
+AHA
+SHOT
+WHIST
+NIT
+DEW
+TEE
+NOTE
+WHISK
+DEER
+WEED
+TINE
+MEETS
+SHOE
+SHOD
+DEEM
+RITE
+ION
+HOED
+TIER
+TOWED
+SOTS
+TEEN
+TEEM
+SODA
+TIED
+MEOWS
+STEW
+TEED
+AWE
+WETS
+WADE
+STEM
+WHAT
+MEW
+SIT
+SIS
+WHIT
+MET
+WAD
+SHOED
+STONIER
+NOT
+STEER
+HOSTS
+HOST
+TWOS
+TONIER
+STEED
+TOTEM
+WHO
+HAWED
+OHS
+ONTO
+SHOTS
+TOTED
+REIN
+RENTED
+TOWS
+SWAT
+NEED
+HAWS
+NOTED
+ADO
+ITS
+OWED
+MEOW
+HAW
+WOT
+SOW
+HAT
+NITS
+TIN
+SOT
+WEIR
+RIOTS
+TAD
+MEWS
+HIT
+TONE
+HIS
+TIE
+WOE
+HAD
+STOWS
+TIRE
+SOD
+STOWED
+TWEE
+SOIRE
+INTO
+OWE
+RIOT
+SHOWED
+TOED
+SOWED
+AWED
+SITS
+EERIE
+DOTS
+STIR
+SHAT
+MEET
+HOSTED
+WET
+ONE
+STONE
+TWEED
+SHIT
+HITS
+TOW
+IRE
+DOTE
+TOTS
+RENTS
+WOST
+TOT
+RENT
+SHAD
+WEE
+WED
+TON
+HOW
+HOT
+TOTE
+TWO
+HOS
+TOE
+DOT
+STEIN
+DOS
+HOWS
+SHITTIER
+HISS
+TONER
+SHADOW
+HOE
+HOD
+TOST
+TOSS
+DOE
+WHITS
+ITEM
+SHITS
+REED
+ODE
+SHADE
+STOW
+
+Total Points: 205
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vscode ➜ /workspaces/project-1-inst $ ./onePlayerBoggle dictionary.txt 200
+.-----------.
+| A D O N R |
+| G G R I N |
+| T E R S E |
+| C R A T Qu|
+| E E E O N |
+'-----------'
+INSET
+EAST
+TEN
+CREATE
+QUOTAS
+TREAT
+NOISE
+TENS
+TEE
+NOTE
+TEA
+RARER
+TSAR
+RECREATE
+EASE
+RATS
+EGO
+OATEN
+AGO
+GROIN
+ION
+GORIEST
+EGG
+EATER
+EON
+NINES
+EATEN
+RATE
+TEARIEST
+AGE
+EARS
+CREASE
+TENNIS
+GREATER
+ROGER
+CREATES
+OATS
+DREARIES
+INS
+TOQUES
+IRATER
+INN
+RISE
+IRON
+ADORN
+SAT
+ORE
+QUEST
+OAT
+OAR
+ADORE
+SIR
+SIN
+NOT
+NINE
+NOR
+STEER
+CEASE
+ERRS
+GAG
+INNS
+GAD
+ERECT
+IRATE
+RETREAT
+ROD
+GRATE
+RISEN
+REAR
+GEARS
+NOD
+CRATE
+RARE
+NOTES
+ERAS
+GRIST
+TREE
+TREATS
+ARGON
+ESTER
+OARS
+TARGET
+GEAR
+ASTER
+SINE
+RETREATS
+ADO
+GRATES
+GRATER
+DAGGER
+GROINS
+ARISE
+RINSE
+ARTERIES
+ERASE
+GREATS
+TAR
+NET
+RASTER
+ROISTER
+TRIES
+QUOTES
+NETS
+RATES
+ETA
+ATE
+ARTS
+TEATS
+STARTER
+TART
+TARS
+TERN
+GREAT
+DRIES
+TEAT
+TEAS
+TEAR
+TARE
+EGOIST
+ROGERS
+GOD
+TARTER
+QUOTE
+GREASE
+NEST
+QUOTA
+ERGO
+STAR
+GRIN
+GADGET
+AERIE
+AERIES
+TOQUE
+ERR
+ART
+TEASE
+START
+SET
+SATE
+IRE
+GORSE
+ERG
+ERE
+GAGE
+EAT
+EAR
+GET
+ERA
+ARE
+STARE
+TON
+ARC
+TENSION
+TEARS
+DORIES
+SENIOR
+REARS
+CERISE
+AERIEST
+TOE
+TARRIES
+STEIN
+RETRIES
+TRIO
+DON
+ATES
+RISQU
+DOG
+GORE
+EATS
+TERSE
+NOTARIES
+AGONIES
+CRATES
+OGRE
+DRIEST
+DAGGERS
+SIRE
+RAT
+SARI
+ARISEN
+GRINS
+AEON
+
+Total Points: 393
+</code></pre></div></div>
+
+<blockquote>
+  <p>Note that the words are not alphabetical because hash tables are not ordered data structures.</p>
+</blockquote>
+
+<h2 id="bonus-ordered-output-15-points">Bonus: Ordered Output (15 points)</h2>
+
+<blockquote>
+  <p>Create a new branch in your repository called <code class="language-plaintext highlighter-rouge">ordered</code> and work within that branch — do not make these changes on your <code class="language-plaintext highlighter-rouge">main</code> branch otherwise it may affect your grading of part B. Once complete push this branch to the github and also open a issue with the title “BONUS Submission Ordered”</p>
+</blockquote>
+
+<p>Update your data structure (perhaps using a BST?) such that the output of the words from your boggle solver is in alphabetical order.</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

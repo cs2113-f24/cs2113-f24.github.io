@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/4" />
+<meta property="og:url" content="http://localhost:4000/lab/4" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/4"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <p><a id="org54ded3e"></a></p>
+
+<p><em>View the videos for this lab on <a href="https://youtube.com/playlist?list=PLnVRBITSZMSOuHoOPUfxkMrhjFhKVr8qo">youtube</a></em></p>
+
+<h1 id="lab-4-dynamic-memory-management">Lab 4: Dynamic Memory Management</h1>
+
+<!-- * Github Classroom Link: [https://classroom.github.com/a/D9EPvBex](https://classroom.github.com/a/D9EPvBex) -->
+<p>https://classroom.github.com/a/OXUBaieq</p>
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/OXUBaieq">https://classroom.github.com/a/OXUBaieq</a></li>
+</ul>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p>You should develop using VSCode+SSH.</p>
+
+<h3 id="test-script">Test Script</h3>
+
+<p>To help you complete the lab, I have provide a test script that will run basic tests against your program. The script is not designed to be comprehensive, and you will graded based on a larger array of tests. To execute the test script, run it from anywhere within the lab directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./test.sh
+</code></pre></div></div>
+
+<h3 id="readme-file">README file</h3>
+
+<p>You are required to fill out the README.md file in your repository describing your programming process as well as answer any related lab questions.</p>
+
+<h1 id="part-1-debugging-memory-errors-with-valgrind-30-points">Part 1: Debugging Memory Errors with Valgrind (30 points)</h1>
+
+<p>In this lab, you will be required to dynamically allocate memory in multiple contexts, and you are also required to ensure that your program does not have memory leaks or memory violations. Fortunately, there exists a wonderful debugging program which can capture and help you debug both, Valgrind.</p>
+
+<p><a id="org472c4a2"></a></p>
+
+<h2 id="memory-leaks">Memory Leaks</h2>
+
+<p>A memory leak occurs when you have dynamically allocated memory, using <code class="language-plaintext highlighter-rouge">malloc()</code> or <code class="language-plaintext highlighter-rouge">calloc()</code> that you do not free properly. As a result, this memory is lost and can <em>never</em> be freed, and thus a <strong>memory leak</strong> occurs. It is vital that memory leaks are plugged because they can cause system wide performance issues as one program begins to hog all the memory, affecting access to the resources for other programs.</p>
+
+<p>To understand a memory leak, let’s look at perhaps the most offensive memory leaking program ever written – <strong>DON’T RUN THIS PROGRAM WITHOUT CAREFUL SUPERVISION</strong>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">malloc</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span> <span class="c1">//memory leak!</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//slow down the leak</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>At the <code class="language-plaintext highlighter-rouge">malloc()</code>, new memory is allocated, but it is never assigned to a pointer. Thus there is no way to keep track of the memory and no way to deallocate it, thus we have a memory leak. This program is even more terrible in that it <strong>loops forever</strong> leaking memory. If run, it will eventually slow down and cripple your computer. <strong>DON’T RUN THIS PROGRAM WITHOUT CAREFUL SUPERVISION</strong>.</p>
+
+<p>Normally, memory leaks are less offensive. Let’s look at a more common memory leak.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*memleak_example.c*/</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+  <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">);</span>
+
+  <span class="n">a</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d %d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>This is a simple program that uses an integer pointer <code class="language-plaintext highlighter-rouge">a</code> in two allocations. First, it allocates a single integer and assigns the value <code class="language-plaintext highlighter-rouge">10</code> to the allocated memory. Next, it uses <code class="language-plaintext highlighter-rouge">a</code> to reference an array of integers of length 3. It prints out the values for both cases. Here is some program output and compilation. (The <code class="language-plaintext highlighter-rouge">-g</code> is to compile with debugging information, which will become important later.)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; gcc memleak_example.c -g -o memleak_example
+#&gt; ./memleak_example 
+10
+10 20 30
+</code></pre></div></div>
+
+<p>On it’s face, there doesn’t seem to be anything wrong with this program in terms of its intended output. It compiles without errors, and it runs as intended. Yet, this program is wrong, and there is a memory leak in it.</p>
+
+<p>Upon the second allocation and assignment to <code class="language-plaintext highlighter-rouge">a</code>, the previous allocation is not freed. The assignment of the second allocation from <code class="language-plaintext highlighter-rouge">calloc()</code> will overwrite the previous pointer value, which is used to reference the initial allocation, the one by <code class="language-plaintext highlighter-rouge">malloc()</code>. As a result, the previous pointer value and the memory it referenced is lost and cannot be freed; a classic memory leak.</p>
+
+<p>Ok, so we know what a memory leak is and how to recognize one by reading code, but that’s hard. Why can’t the compiler or something figure this out for us? Turns out that this is <strong>not</strong> something that a compiler can easily check for. The only foolproof way to determine if a program has a memory leak is to run it and see what happens.</p>
+
+<p>The valgrind debugger is exactly the tool designed to that. It will run your program and track the memory allocations and checks at the end if all allocated memory has been freed. If not, some memory was lost, then it will generate a warning. Let’s look at the valgrind output of running the above program.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; valgrind ./memleak_example
+==30134== Memcheck, a memory error detector
+==30134== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==30134== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==30134== Command: ./memleak_example
+==30134== 
+10
+10 20 30
+==30134== 
+==30134== HEAP SUMMARY:
+==30134==     in use at exit: 16 bytes in 2 blocks
+==30134==   total heap usage: 2 allocs, 0 frees, 16 bytes allocated
+==30134== 
+==30134== LEAK SUMMARY:
+==30134==    definitely lost: 16 bytes in 2 blocks
+==30134==    indirectly lost: 0 bytes in 0 blocks
+==30134==      possibly lost: 0 bytes in 0 blocks
+==30134==    still reachable: 0 bytes in 0 blocks
+==30134==         suppressed: 0 bytes in 0 blocks
+==30134== Rerun with --leak-check=full to see details of leaked memory
+==30134== 
+==30134== For counts of detected and suppressed errors, rerun with: -v
+==30134== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+</code></pre></div></div>
+
+<p>Check out the <code class="language-plaintext highlighter-rouge">LEAK SUMMARY</code> section, and you find that 16 bytes were “definitely” lost. Let’s rerun the valgrind with the <code class="language-plaintext highlighter-rouge">--leak-check</code> option set to “full” to see more details, which additonally prints the <code class="language-plaintext highlighter-rouge">HEAP SUMMARY</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; valgrind --leak-check=full ./memleak_example
+(...)
+
+==30148== 4 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==30148==    at 0x4C2B6CD: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30148==    by 0x4005F7: main (memleak_example.c:6)
+==30148== 
+==30148== 12 bytes in 1 blocks are definitely lost in loss record 2 of 2
+==30148==    at 0x4C29DB4: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30148==    by 0x400636: main (memleak_example.c:12)
+</code></pre></div></div>
+
+<p>It lists the two allocatoins. The first call to <code class="language-plaintext highlighter-rouge">malloc()</code> allocated 4 bytes, the size of an integer. The second allocation, allocated 3 integers, or 12-bytes, with <code class="language-plaintext highlighter-rouge">calloc()</code>. With this information, the programmer can track down the memory leak and fix it, which is exactly what you’ll do for this task.</p>
+
+<p><a id="org34d4d3b"></a></p>
+
+<h3 id="task-1-15-points">Task 1 (15 points)</h3>
+
+<div class="requirement">
+
+  <p>Change into the <code class="language-plaintext highlighter-rouge">valgrind</code> directory in your lab folder. Compile and execute <code class="language-plaintext highlighter-rouge">memleak.c</code>. Verify the output and try and understand the program.</p>
+
+  <p>Answer the following questions in your worksheet:</p>
+
+  <ol>
+    <li>
+      <p>Run valgrind on the <code class="language-plaintext highlighter-rouge">memleak</code> program, how many bytes does it say have been definitely lost?</p>
+    </li>
+    <li>
+      <p>What line does valgrind indicate the memory leak has occurred?</p>
+    </li>
+    <li>
+      <p>Describe the memory leak.</p>
+    </li>
+    <li>
+      <p>Try and fix the memory leak and verify your fix with valgrind. Describe how you fixed the memory leak.</p>
+    </li>
+  </ol>
+
+  <p>You will submit your fixed <code class="language-plaintext highlighter-rouge">memleak.c</code> program in your submission, and we will verify that you fixed the memory leak.</p>
+
+</div>
+
+<p><a id="orgef78496"></a></p>
+
+<h2 id="memory-violations">Memory Violations</h2>
+
+<p>Memory leaks are not just the only kind of memory errors that valgrind can detect, it can also detect memory violations. A <strong>memory violation</strong> is when you access memory that you shouldn’t or access memory prior to it being initialized.</p>
+
+<p>Let’s look at really simple example of this, printing an uninitialized value.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The problem with this program is clear; we’re printing out the value of <code class="language-plaintext highlighter-rouge">a</code> without having previously assigned to it. This error can be detected by the compiler with the <code class="language-plaintext highlighter-rouge">-Wall</code> option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; gcc -Wall memviolation_simple.c
+memviolation_simple.c:7:18: warning: variable 'a' is uninitialized when used here [-Wuninitialized]
+  printf("%d\n", a);
+</code></pre></div></div>
+
+<p>But other memory violations are harder to recognize particular those involving arrays. Let’s look at the program below. You should be able to spot the error (hint: look at the for loop conditional).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+
+  <span class="n">a</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>However, if we were to compile and just run this program, you may not recognize that anything is wrong:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; ./memviolation_array 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre></div></div>
+
+<p>No errors are reported and the numbers up to 10 are printed, but we know that we are actually writing <em>out-of-bounds</em> in our array, and we shouldn’t do that! Valgrind, fortunately, can detect such errors:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; valgrind ./memviolation_array 
+==30588== Memcheck, a memory error detector
+==30588== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==30588== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==30588== Command: ./memviolation_array
+==30588== 
+==30588== Invalid write of size 4
+==30588==    at 0x4005D8: main (in /home/scs/aviv/git/ic221/current/lab/04/stu/examples/memviolation_array)
+==30588==  Address 0x51f2068 is 0 bytes after a block of size 40 alloc'd
+==30588==    at 0x4C29DB4: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30588==    by 0x4005B4: main (in /home/scs/aviv/git/ic221/current/lab/04/stu/examples/memviolation_array)
+==30588== 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+==30588== Invalid read of size 4
+==30588==    at 0x40060F: main (in /home/scs/aviv/git/ic221/current/lab/04/stu/examples/memviolation_array)
+==30588==  Address 0x51f2068 is 0 bytes after a block of size 40 alloc'd
+==30588==    at 0x4C29DB4: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30588==    by 0x4005B4: main (in /home/scs/aviv/git/ic221/current/lab/04/stu/examples/memviolation_array)
+==30588== 
+10
+==30588== 
+==30588== HEAP SUMMARY:
+==30588==     in use at exit: 40 bytes in 1 blocks
+==30588==   total heap usage: 1 allocs, 0 frees, 40 bytes allocated
+==30588== 
+==30588== LEAK SUMMARY:
+==30588==    definitely lost: 40 bytes in 1 blocks
+==30588==    indirectly lost: 0 bytes in 0 blocks
+==30588==      possibly lost: 0 bytes in 0 blocks
+==30588==    still reachable: 0 bytes in 0 blocks
+==30588==         suppressed: 0 bytes in 0 blocks
+==30588== Rerun with --leak-check=full to see details of leaked memory
+==30588== 
+==30588== For counts of detected and suppressed errors, rerun with: -v
+==30588== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 2 from 2)
+</code></pre></div></div>
+
+<p>If you notice in the execution output, there is an “Invalid read of size 4” occurring when <code class="language-plaintext highlighter-rouge">array[10]</code> is indexed and printed to the screen. This is a rather simple example, but invalid reads and writes and other kinds of memory violations can cause all sorts of problems in your program, and they should be investigated and fixed when possible.</p>
+
+<p><a id="org5c8af4f"></a></p>
+
+<h3 id="task-2-15-points">Task 2 (15 points)</h3>
+
+<div class="requirement">
+
+  <p>Change into the <code class="language-plaintext highlighter-rouge">valgrind</code> directory in your lab folder. Compile and execute the <code class="language-plaintext highlighter-rouge">memviolation.c</code> program. Complete the following tasks and answer the questions in your worksheet.</p>
+
+  <ol>
+    <li>
+      <p>Describe the output and exeuction of the program. Does it seem to be consistent?</p>
+    </li>
+    <li>
+      <p>Run the program under valgrind, identify the line of code that is causing the memory violation and its input.</p>
+    </li>
+    <li>
+      <p>Debug the memory violation and describe the programming bug.</p>
+    </li>
+    <li>
+      <p>Fix the memory violation and verify your fix with valgrind.</p>
+    </li>
+  </ol>
+
+  <p>Your submission will include the fixed <code class="language-plaintext highlighter-rouge">memviolation.c</code> program.</p>
+
+</div>
+
+<p><a id="org74d92c9"></a></p>
+
+<h1 id="part-2-implementing-simplefs-70-points">Part 2: Implementing <code class="language-plaintext highlighter-rouge">simplefs</code> (70 points)</h1>
+
+<p>In this part of the lab you will program a simple filesystem structure based on linked lists. To help you debug and test your file system, we have provided you with a shell interface for the file with three commands:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">touch</code> : create a file if it doesn’t exist or update it’s timestamp if it does</li>
+  <li><code class="language-plaintext highlighter-rouge">rm</code> : remove a file by name</li>
+  <li><code class="language-plaintext highlighter-rouge">ls</code> : list all the current files in the file system</li>
+</ol>
+
+<p>The files will be managed using a linked list, so you must also be able to iterate through a link list, remove items from the list, and add items to the end of the list. Below we outline some additional tools you’ll need to complete the lab</p>
+
+<p><a id="org6a9f310"></a></p>
+
+<h2 id="the-filesystem-structures">The Filesystem Structures</h2>
+
+<p>The structures of the file system are described in the header file, <code class="language-plaintext highlighter-rouge">filesystem.h</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Structure for a file
+ **/</span>
+<span class="k">struct</span> <span class="n">file</span> <span class="p">{</span>
+
+  <span class="kt">char</span> <span class="o">*</span> <span class="n">fname</span><span class="p">;</span> <span class="c1">//name of file</span>
+  <span class="kt">time_t</span> <span class="n">last</span><span class="p">;</span> <span class="c1">//last modified</span>
+
+  <span class="k">struct</span> <span class="n">file</span> <span class="o">*</span> <span class="n">next_file</span><span class="p">;</span>
+
+<span class="p">};</span>
+
+<span class="c1">//typedef to make it easier</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">file</span> <span class="n">file_t</span><span class="p">;</span>
+
+
+<span class="cm">/**
+ * Structure for a diretory
+ **/</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+
+  <span class="n">file_t</span> <span class="o">*</span> <span class="n">flist</span><span class="p">;</span> <span class="c1">//pointer to first file_t in the linked list or the</span>
+                  <span class="c1">//head of the list</span>
+
+  <span class="kt">int</span> <span class="n">nfiles</span><span class="p">;</span>    <span class="c1">//number of files currently stored</span>
+
+<span class="p">}</span> <span class="n">dir_t</span><span class="p">;</span>  
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">file_t</code> structure represents a file and has three fields. The first is <code class="language-plaintext highlighter-rouge">char *</code> which references the string for the name of the file. The second field stores a timestamp for the last time a file was <code class="language-plaintext highlighter-rouge">touch</code>ed, and finally, the last field is a pointer to the next file in the file list. Recall that files will be stored using a linked list, just as you’ve seen before in prior classes.</p>
+
+<p>The directory structure, <code class="language-plaintext highlighter-rouge">dir_t</code>, stores two values. The first is a pointer to the start of the file list, and the second is an integer tracking the number of files in the file system.</p>
+
+<p><a id="org9445dd3"></a></p>
+
+<h2 id="linked-list-review">Linked List Review</h2>
+
+<p>A linked list a data structure by which nodes manage links to other nodes. For example, in the file system structure, the linked list will look like so</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.----------.    .-----------.    .-----------.
+| dir_t    | .-&gt;| file_t    | .-&gt;| file_t    | .-&gt; NULL
+|          | |  | next_file-+-'  | next_file-+-'
+| flist----+-'  '-----------'    '-----------'
+| nfiles=2 |   
+'----------'    
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">dir_t</code> stores the head of the list, which references the first file. There are two files in the list above, and the file references <code class="language-plaintext highlighter-rouge">NULL</code> to indicate the end of the list. If a new item is appended to the list, then the last file will reference it, and the newly appended file will reference <code class="language-plaintext highlighter-rouge">NULL</code>.</p>
+
+<p>One edge condition that is important to consider is when the file list is empty, the directory will reference <code class="language-plaintext highlighter-rouge">NULL</code> and <code class="language-plaintext highlighter-rouge">nfiles</code> should be 0.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.----------.    
+| dir_t    | .-&gt; NULL
+|          | | 
+| flist----+-' 
+| nfiles=0 |   
+'----------'    
+</code></pre></div></div>
+
+<p>If you forget about this edge condition, you will SEGFAULT — 100% guaranteed.</p>
+
+<p><a id="org02af5bb"></a></p>
+
+<h2 id="allocate-a-file-and-its-filename-with-touch">Allocate a file and its filename with touch</h2>
+
+<p>While the starter code allocates the initial directory structure you will need to allocate the files using <code class="language-plaintext highlighter-rouge">malloc()</code>. The function that will be your <code class="language-plaintext highlighter-rouge">touch</code> implementation, which has the prototype:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span>  <span class="nf">simplefs_touch</span><span class="p">(</span><span class="n">dir_t</span> <span class="o">*</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fname</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>It will pass in a pointer to the directory, which stores the head of the list of files. At this point, one of two things could be true: the file with the name <code class="language-plaintext highlighter-rouge">fname</code> exists, in which case you will update its timestamp (see next section), or the file with the name <code class="language-plaintext highlighter-rouge">fname</code> does not exist, in which case you will need to create a new file with that name.</p>
+
+<p>To allocate a new file, use <code class="language-plaintext highlighter-rouge">malloc()</code> or <code class="language-plaintext highlighter-rouge">calloc()</code> like so:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">file_t</span> <span class="o">*</span> <span class="n">new_file</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">file_t</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>which will allocate memory on the heap large enough to store a <code class="language-plaintext highlighter-rouge">file_t</code>. Next we need to set its fields. First we need to set the name of the file. You might be tempted to do this:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">new_file</span><span class="o">-&gt;</span><span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">fname</code> is the one passed to <code class="language-plaintext highlighter-rouge">simplefs_touch</code>, but there’s a problem here. That <code class="language-plaintext highlighter-rouge">fname</code>, the one passed as an argument, may not persist. That is, it might not be allocated on the heap (in fact, it will not be). You need to allocate space for the string and copy it over. To help, I recommend you look up the fuction <code class="language-plaintext highlighter-rouge">strdup()</code> from the string library.</p>
+
+<p><a id="org3548bb8"></a></p>
+
+<h2 id="timestamps-and-time-formats">Timestamps and Time formats</h2>
+
+<p>One the new things in this lab is that you will be using timestamps. A timestamp in Unix is just a number, a <code class="language-plaintext highlighter-rouge">long</code>, that counts the number of seconds since the epoch, Jan 1st 1970. The files in your file system must store the last modification time, the time since touch was last called.</p>
+
+<p>To retrieve the current time, use the <code class="language-plaintext highlighter-rouge">time()</code> command:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">file</span><span class="o">-&gt;</span><span class="n">last</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span> <span class="c1">//get the current time</span>
+</code></pre></div></div>
+
+<p>Every time a file is <code class="language-plaintext highlighter-rouge">touch</code>ed, you should update the timestamp for that file. To print the timestamp, which is a number, in a human readable format, there is a nice library function, <code class="language-plaintext highlighter-rouge">ctime()</code>, which takes a pointer to a timestamp and returns a string representation.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">time_t</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>     <span class="c1">//get the current time</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ts</span><span class="p">));</span> <span class="c1">//convert the current time</span>
+<span class="c1">//                   ^</span>
+<span class="c1">//                   '--- Don't forget to pass the address of the timestamp!</span>
+</code></pre></div></div>
+
+<p><a id="orgb6b8d6c"></a></p>
+
+<h2 id="removing-a-file-from-the-list">Removing a file from the list</h2>
+
+<p>One of the more challenging tasks in this lab will be implementing <code class="language-plaintext highlighter-rouge">rm</code> which requires you to iterate through the list of files, identify the file to be remove based on its name, and then remove that file while maintaing the consistency of the list. This will require careful pointer manipulation. For example consider this scenario below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     .-----------.       .-----------.       .-----------.
+ .-&gt; | fname     |   .-&gt; | fname     |   .-&gt; | fname     |   .-&gt;
+-'   | next_file +---'   | next_file +---'   | next_file +---'
+     '-----------'       '-----------'       '-----------'
+                      (deleting this file)
+</code></pre></div></div>
+
+<p>The file to be deleted is between two other files. In this case we must realign the pointer of the previous file to the one being deleted to reference the file after the deleted file, like below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                     .-----------------.
+     .-----------.   |   xXXXXXXXXXXXx |     .-----------.
+ .-&gt; | fname     |   |   x *****     x '---&gt; | fname     |   .-&gt;
+-'   | next_file +---'   x ********  x       | next_file +---'
+     '-----------'       xXXXXXXXXXXXx       '-----------'
+         (need to have
+               next_file point to the deleted files's next file)
+</code></pre></div></div>
+
+<p><a id="orgc2832ba"></a></p>
+
+<h2 id="deallocation-and-memory-leaks">Deallocation and Memory Leaks</h2>
+
+<p>As you work through this lab, be sure to keep track of all the components that you allocated on the heap. You must deallocate them properly. To simplify this process, the code is organized such that there is a single function for freeing all the memory:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">simplefs_rmfile</span><span class="p">(</span><span class="n">file_t</span> <span class="o">*</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="c1">//TODO: Complete file dealocation </span>
+  <span class="c1">//      (note this is called by simplefs_rmdir() to deallocate individual files)</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This function is called by <code class="language-plaintext highlighter-rouge">simplefs_rmdir()</code>, and should be one of the first things you implement. Use valgrind to check your memory violations.</p>
+
+<h2 id="compiling-your-programs-with-gcc-and-make">Compiling your programs with <code class="language-plaintext highlighter-rouge">gcc</code> and <code class="language-plaintext highlighter-rouge">make</code></h2>
+
+<p>We have provided you with a Makefile to ease the compilation burden for this lab. To compile a given executable, simply type <code class="language-plaintext highlighter-rouge">make</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+</code></pre></div></div>
+
+<p>Before submitting, you should clean your <code class="language-plaintext highlighter-rouge">src</code> directory by typing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make clean
+</code></pre></div></div>
+
+<p>which will remove any lingering executables and other undesirable files. In a later lab, we will review make files for compilation.</p>
+
+<p><a id="org3c679bd"></a></p>
+
+<h2 id="requirements">Requirements:</h2>
+
+<div class="requirement">
+
+  <ul>
+    <li>You must complete all the functions left remaining in the <code class="language-plaintext highlighter-rouge">filesystem.c</code> source code, which includes:
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">simplefs_touch()</code></li>
+        <li><code class="language-plaintext highlighter-rouge">simplefs_rm()</code></li>
+        <li><code class="language-plaintext highlighter-rouge">simplfs_rmfile()</code></li>
+      </ul>
+    </li>
+    <li>
+      <p>Your program must integrate with the shell program for testing purposes. The shell program has the following commands:</p>
+
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">ls</code> : list files</li>
+        <li><code class="language-plaintext highlighter-rouge">rm name</code> : remove file of the name</li>
+        <li><code class="language-plaintext highlighter-rouge">touch name</code> : create a file called name if it doesn’t exist or update the timestamp if it does</li>
+      </ul>
+
+      <p><strong>Do not edit the shell program</strong>, it is provided for you, but you will interact with your file system implementation through it.</p>
+    </li>
+    <li>
+      <p>Your program must not have any memory leaks or violations.</p>
+    </li>
+    <li>
+      <p>Use the <code class="language-plaintext highlighter-rouge">make</code> command to do your compilation because this is somewhat complicated program.</p>
+    </li>
+    <li><strong>(EXTRA CREDIT: 5 points)</strong> Complete two additional functions in <code class="language-plaintext highlighter-rouge">filesystem.c</code> to list the files in different sorted order:
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">simplefs_ls_sorttime()</code> : list file sorted by oldest to newest</li>
+        <li><code class="language-plaintext highlighter-rouge">simplefs_ls_sortname()</code> : sort files alphabetically by name</li>
+      </ul>
+    </li>
+    <li>Sample Output:
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aviv@saddleback: simplefs $ make 
+gcc -Wall -g -c -o filesystem.o filesystem.c
+gcc -Wall -g -c -o shell.o shell.c
+gcc -o shell shell.o filesystem.o -lreadline -lncurses 
+aviv@saddleback: simplefs $ ./shell 
+simplefs &gt; ls
+simplefs &gt; touch a b c 
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:13 2015
+  c	Mon Feb  2 18:09:13 2015
+simplefs &gt; touch b
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:20 2015
+  c	Mon Feb  2 18:09:13 2015
+simplefs &gt; touch c
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:20 2015
+  c	Mon Feb  2 18:09:22 2015
+simplefs &gt; touch d
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:20 2015
+  c	Mon Feb  2 18:09:22 2015
+  d	Mon Feb  2 18:09:26 2015
+simplefs &gt; rm c
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:20 2015
+  d	Mon Feb  2 18:09:26 2015
+simplefs &gt; touch go navy
+simplefs &gt; ls
+  a	Mon Feb  2 18:09:13 2015
+  b	Mon Feb  2 18:09:20 2015
+  d	Mon Feb  2 18:09:26 2015
+  go	Mon Feb  2 18:09:32 2015
+  navy	Mon Feb  2 18:09:32 2015
+simplefs &gt; rm a b d
+simplefs &gt; ls
+  go	Mon Feb  2 18:09:32 2015
+  navy	Mon Feb  2 18:09:32 2015
+simplefs &gt; touch a b d
+simplefs &gt; ls
+  go	Mon Feb  2 18:09:32 2015
+  navy	Mon Feb  2 18:09:32 2015
+  a	Mon Feb  2 18:09:43 2015
+  b	Mon Feb  2 18:09:43 2015
+  d	Mon Feb  2 18:09:43 2015
+simplefs &gt; 
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</div>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/0" />
+<meta property="og:url" content="http://localhost:4000/j/0" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/0"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#object-oriented-programming">Object Oriented Programming</a><ul><li><a href="#so-what-is-object-oriented-programming">So, what is object oriented programming?</a></li><li><a href="#trying-and-failing-to-achieve-oop-in-c">Trying (and failing) to Achieve OOP in C</a></li><li><a href="#why-java">Why Java?</a></li></ul></li><li><a href="#java-review">Java Review</a><ul><li><a href="#hello-world">Hello World</a></li><li><a href="#basic-types">Basic Types</a><ul><li><a href="#operators-over-basic-types">Operators over basic types</a></li></ul></li><li><a href="#string-type">String type</a></li></ul></li><li><a href="#java-objects">Java Objects</a><ul><li><a href="#point-object">Point Object</a><ul><li><a href="#constructor">Constructor</a></li><li><a href="#this">this</a></li><li><a href="#dist-method"><code class="language-plaintext highlighter-rouge">dist</code> method</a></li><li><a href="#main-method"><code class="language-plaintext highlighter-rouge">main</code> method</a></li></ul></li></ul></li><li><a href="#memory-diagrams-in-java">Memory Diagrams in Java</a></li><li><a href="#encapsulation-and-data-hiding">Encapsulation and Data Hiding</a><ul><li><a href="#public-vs-private-data-members">Public vs. Private Data Members</a></li><li><a href="#getter-and-setters">Getter and Setters</a></li><li><a href="#tostring"><code class="language-plaintext highlighter-rouge">toString()</code></a></li></ul></li><li><a href="#more-advanced-object-programming">More advanced object programming</a><ul><li><a href="#line-object">Line object</a></li><li><a href="#method-and-constructor-overloading">Method and Constructor Overloading</a></li><li><a href="#maintaining-encapsulation-with-objects-references">Maintaining Encapsulation with Objects References</a></li><li><a href="#copy-constructor">Copy Constructor</a></li><li><a href="#deep-vs-shallow-copy">Deep vs. Shallow copy</a></li></ul></li><li><a href="#private-methods">Private Methods</a><ul><li><a href="#adding-slope">Adding Slope</a></li></ul></li><li><a href="#static-methods">Static Methods</a><ul><li><a href="#static-slope-calculation">Static Slope Calculation</a></li></ul></li><li><a href="#arrays">Arrays</a><ul><li><a href="#arrays-of-basic-types">Arrays of Basic Types</a></li><li><a href="#arrays-of-objects">Arrays of Objects</a></li><li><a href="#using--to-allocate-an-array">Using <code class="language-plaintext highlighter-rouge">{}</code> to allocate an array</a></li><li><a href="#iterating-over-an-array">Iterating over an Array</a></li></ul></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSOCWpDPjmYceVnpsVOlZUvL">single playlist on youtube</a></em></p>
+      <h1 id="object-oriented-programming">
+        
+        
+          Object Oriented Programming <a href="#object-oriented-programming">#</a>
+        
+        
+      </h1>
+    
+
+<p>In the second major unit of this class, we will focus on programming in Java because it’s an object oriented programming language; C is not. However, the ideas and concepts of the memory model in C will inform both how we think about object oriented programming (or OOP) and kinds of programs we design.</p>
+
+<p>Moreover, as you probably experienced, writing code in C forces you to manage your own memory. Not only does this require extra thinking and coding, but it introduces an entire class of errors that are notoriously difficult to debug. While sometimes C is the best language for the job (as we talked about in class), when possible, it’s better to rely on a language like Java with its garbage collection that obviates this manual memory management.</p>
+      <h2 id="so-what-is-object-oriented-programming">
+        
+        
+          So, what is object oriented programming? <a href="#so-what-is-object-oriented-programming">#</a>
+        
+        
+      </h2>
+    
+
+<p>There is one overarching idea in programming — from small programs, to gigantic systems: <strong>Separation of Interface from Implementation</strong> i.e. separating what you need to know in order to use a tool from how the tool actually works on the inside. This is behind good coding, it’s behind good system design, it is behind the design of protocols like TCP, HTTP and DNS, it’s behind almost anything that involves computing! This separation allows us to manage the complexity of building big programs. It allows us to reuse in a new program code that was written in some other time and place for some other purpose (and to avoid duplicating code within a program, which is wasteful and leads to errors!). It allows us to make changes to some of our code without having to worry about other parts of the program breaking. It makes collaboration easier and less error-prone. It brings many, many other benefits. In short: separating interface from implementation is a really good thing.</p>
+
+<p>In procedural programming, which is what we’ve mostly been doing so far, the language mechanism that supported separating interface from implementation are functions: a function’s prototype (plus some documentation, if we’re lucky) is the interface; its definition is the implementation. Scoping rules actually prohibit us from accessing the local variables and parameters inside the function’s body, so this separation of interface from implementation isn’t just conceptual — it’s actually enforced by the compiler! However, the function mechanism on its own is by no means enough to achieve the nirvana of full separation of Interface from Implementation. Why?</p>
+
+<ol>
+  <li>
+    <p>It doesn’t help with structs. You have to understand how the designer of code intends to manipulate structs to store data in order to use that code. That means understanding implementation details!</p>
+  </li>
+  <li>
+    <p>You can’t modify or extend the behavior of existing functions or existing collections of functions and structs without messing with the function/struct definitions, which means you have to understand those implementation details!</p>
+  </li>
+  <li>
+    <p>You’re limited to a single implementation for each interface (a single function definition for each prototype), which is a real problem. As a simple analogy, that would be like saying each kind of light-bulb has to have a different socket, which would be … difficult. Instead, we live in a world in which the same socket works for 40watt or 60watt bulbs, for incandescent bulbs or for fluorescent bulbs or LED bulbs or black-light bulbs. For many kinds of programming problems we want the same thing: many different implementations of the same interface, just like we want a socket to be compatible with any type of light we might need in a certain room…</p>
+  </li>
+</ol>
+
+<p>Object-oriented programming is a programming paradigm — that means not merely a language but a whole philosophy on what a program is — with the goal of complete separation of interface from implementation. It’s basic ideas are:</p>
+
+<ol>
+  <li>
+    <p>Combine structs and the functions that manipulate those structs into a single entity — such entities are called objects — that offers true separation of the interface to your struct+functions from its implementation. This is said to provide <strong>encapsulation</strong> and <strong>data-hiding</strong>. <em>Note</em>: this addresses Point 1 from above.</p>
+  </li>
+  <li>
+    <p>Use a mechanism called <strong>inheritance</strong> to create new kinds of objects that modify or extend old kinds of objects without having to open up the implementation (in some cases without even having access to the implementation!).<br />
+<em>Note</em>: this addresses Point 2 from above.</p>
+  </li>
+  <li>
+    <p>Use inheritance and a mechanism called <strong>polymorphic function calls</strong> to allow multiple definitions of the same interface.<br />
+<em>Note</em>: this addresses Point 3 from above.</p>
+  </li>
+</ol>
+
+<p>To sum up: The Procedural Programming paradigm sees a program as functions calling functions, with data being passed around as arguments to or return-values from function calls. The Object-Oriented Programming paradigm sees a program as a bunch of data+function bundles (the objects) that communicate by calling each others’ member functions.</p>
+      <h2 id="trying-and-failing-to-achieve-oop-in-c">
+        
+        
+          Trying (and failing) to Achieve OOP in C <a href="#trying-and-failing-to-achieve-oop-in-c">#</a>
+        
+        
+      </h2>
+    
+
+<p>To further motivate this, let’s consider the implementation of object-oriented like implementation of an <code class="language-plaintext highlighter-rouge">ArrayList</code> in C. From that implementation, which is a procedural program, we can observe where procedural programming falls short and where OOP can help us.</p>
+
+<p>In implementing, we need to first define a struct to hold the data of the ArrayList.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//data elements</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">ArrayList</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">len</span><span class="p">;</span> <span class="c1">//number of items in the array</span>
+  <span class="kt">int</span> <span class="n">size</span><span class="p">;</span> <span class="c1">// current size of array</span>
+  <span class="kt">int</span> <span class="o">*</span> <span class="n">array</span><span class="p">;</span>
+  
+<span class="p">}</span> <span class="n">alist_t</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In many ways we can think of this as object, but it is not <em>object-oriented</em>. There are two main reasons for this;</p>
+
+<ol>
+  <li>
+    <p>How to use this ArrayList struct, as an data storage object, is separate from the definition. To put it another way: while we know <em>what</em> it stores the structure by itself doesn’t express <em>how</em> to use it.</p>
+  </li>
+  <li>
+    <p>While this may appear to offer a form of <em>encapsulation</em> — it does place related data fields together into a single structure — it does not provide any <em>data-hiding</em>. If I (as a programmer) had access to an <code class="language-plaintext highlighter-rouge">alist_t</code> I could modify any part of it directly, such as the <code class="language-plaintext highlighter-rouge">len</code>, making all the data inconsistent.</p>
+  </li>
+</ol>
+
+<p>Continuing on, with the structure of the ArrayList defined, we can now define an API over the array list, like the below function prototypes.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define AL_INIT_SIZE 16
+</span>
+<span class="c1">//interface elements</span>
+<span class="n">alist_t</span> <span class="o">*</span> <span class="nf">new_al</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">del</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">);</span>
+
+<span class="c1">//return 0/1 success failure if out of bounds</span>
+<span class="kt">int</span> <span class="nf">get</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">dest</span><span class="p">);</span> <span class="c1">//store what's got at dest</span>
+<span class="kt">int</span> <span class="nf">set</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span> <span class="c1">//set al_list[i] to val</span>
+
+<span class="c1">//return 0/1 success failure if list is empty</span>
+<span class="kt">int</span> <span class="nf">pop_tail</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">dest</span><span class="p">);</span> <span class="c1">//store what's popped at dest</span>
+
+<span class="c1">//always adds to the end, and expands as necessary.</span>
+<span class="kt">void</span> <span class="nf">push_tail</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span> <span class="c1">//add val to the tail</span>
+
+<span class="c1">//internal function</span>
+<span class="kt">void</span> <span class="nf">_expand</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">);</span> <span class="c1">//expand the array</span>
+
+<span class="c1">//useful functions</span>
+<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">alist_t</span> <span class="o">*</span> <span class="n">al</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>One thing you may notice right away, is that each of the functions that operate over ArrayLists must also take in <code class="language-plaintext highlighter-rouge">alist_t</code> as its first argument. That’s again because we do not have full <strong>encapsulation</strong>. The functions are generic but we must specify <em>which</em> ArrayList to operate on. In a object oriented model, the functions implicitly operate over the current instance, as we will see, and thus we do not need to</p>
+
+<p>Another example of an issue with encapsulation is <code class="language-plaintext highlighter-rouge">_expand</code> — this function is called when we run out of space in the array. It’s marked, in comments, as an <code class="language-plaintext highlighter-rouge">internal</code> function, so normal users shouldn’t call it. But there are no mechanisms to offer that protection.</p>
+
+<p>Finally, perhaps the most challenging issue is that this ArrayList is not extensible. It can only store <code class="language-plaintext highlighter-rouge">int</code>s; it only has these features. If we wanted to expand it to have other features, the entire API would need to change.</p>
+
+<p>Essentially, while we can do everything in a procedural way, it’s unpleasant and potentially not as effective. With OOP we can do better.</p>
+      <h2 id="why-java">
+        
+        
+          Why Java? <a href="#why-java">#</a>
+        
+        
+      </h2>
+    
+
+<p>For the rest of this class, we’ll be transitioning to Java programming because Java, by design, is a completely Object Oriented Programming language. Yes. You may already know Java, but we are going to zoom out and then zoom into Java in new ways, particularly focusing in on the features of objects for encapsulation, data-hiding, inheritance, and polymorphism.</p>
+
+<p>We’ll first start by reviewing some of the basic features of Java (as a refresher) and then quickly dive into Java’s object model.</p>
+      <h1 id="java-review">
+        
+        
+          Java Review <a href="#java-review">#</a>
+        
+        
+      </h1>
+    
+
+<p>You already know Java! So let’s just quickly go through the basics, as a refresher. Just in case you’ve forgotten a few things let’s go over a basic program.</p>
+      <h2 id="hello-world">
+        
+        
+          Hello World <a href="#hello-world">#</a>
+        
+        
+      </h2>
+    
+
+<p>We start where we always start, at the beginning, with “Hello, world!” With Java, each file represents a <em>class</em>. A class is a definition of how to create an object … more on that later! For now, we want to create a new class that will print “Hello, world!” We name that file <code class="language-plaintext highlighter-rouge">HelloWorld.java</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, world"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We compile that program with the java compiler <code class="language-plaintext highlighter-rouge">javac</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac HelloWorld.java
+</code></pre></div></div>
+
+<p>This produces a compiled version of our program, a <em>class file</em>, called <code class="language-plaintext highlighter-rouge">HelloWorld.class</code> that contains java bytecode. To execute this byte code, we use the <em>Java virtual machine</em> (JVM) which will interpret and execute the program.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java HelloWorld
+Hello, world!
+</code></pre></div></div>
+
+<p>Looking back at this program, there is a lot of code going on here. Java is quite a bit heavier than other languages, like C, because everything must be part of the object model.</p>
+
+<p>This starts with declaring our hello-world program to be a class, that is, we put it in its own file and say it’s a publicly accessible class: <code class="language-plaintext highlighter-rouge">public class HelloWorld</code>. The main <em>method</em> (or function) also has a lot of modifiers:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">public</code> : allow the method to called outside of the class</li>
+  <li><code class="language-plaintext highlighter-rouge">static</code> : allow the method to be called without instantiating the containing object — that is, you don’t need to create a <em>new</em> HelloWorld object to call <code class="language-plaintext highlighter-rouge">main</code></li>
+  <li><code class="language-plaintext highlighter-rouge">void</code>  : it returns no values</li>
+</ul>
+
+<p>And the arguments are also complicated</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">String args[]</code> : the main method accepts an array of <code class="language-plaintext highlighter-rouge">String</code> types that represent the command line arguments provided to the exection.</li>
+</ul>
+
+<p>Finally, the printing statement <code class="language-plaintext highlighter-rouge">System.out.println()</code> uses the <code class="language-plaintext highlighter-rouge">.</code> operator as it the method <code class="language-plaintext highlighter-rouge">println()</code> operates on the <code class="language-plaintext highlighter-rouge">out</code> object/class which is further found as a member of <code class="language-plaintext highlighter-rouge">System</code> package. Phew!!!</p>
+      <h2 id="basic-types">
+        
+        
+          Basic Types <a href="#basic-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>People like to say that everything in Java is really an object, but that’s not exactly true. Everything but the <em>basic types</em> are objects. The basic types in Java are the same as those you’d find in C, plus two more</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">byte</code></td>
+      <td>8-bit integers: -128 to 127</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">short</code></td>
+      <td>16-bit integers: -32768 to 32767</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td>32-bit integers: -2147483648 to 2147483647</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+      <td>64-bit integers: -9223372036854775808 to 9223372036854775807</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+      <td>32-bit floating point numbers: ± 1.4x10<sup>-45</sup> to ± 3.4028235x10^<sup>38</sup></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">double</code></td>
+      <td>64-bit floating point numbers: ± 4.39x10<sup>-322</sup> to ± 1.7976931348623157x10<sup>308</sup></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>true or false</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">char</code></td>
+      <td>16-bit characters encoded using Unicode</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The key difference between basic types and objects in Java is that basic types can be created on the stack, but objects must be allocated using <code class="language-plaintext highlighter-rouge">new</code>. For example,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">//basic type</span>
+<span class="nc">MyObj</span> <span class="n">o</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">Myobj</span><span class="o">();</span> <span class="c1">//object</span>
+</code></pre></div></div>
+
+<p>That’s kind of what makes them basic … As convention, to further distinguish basic types from objects, classes are given names with upper case letters while basic types are given type names with lower case letters.</p>
+      <h3 id="operators-over-basic-types">
+        
+        
+          Operators over basic types <a href="#operators-over-basic-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>All the basic types are numeric and so the same set of operators as you might expect work on them. This includes,</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x + y</code> : addition</li>
+  <li><code class="language-plaintext highlighter-rouge">x - y</code> : subtraction</li>
+  <li><code class="language-plaintext highlighter-rouge">x * y</code> : multiplication</li>
+  <li><code class="language-plaintext highlighter-rouge">x / y</code> : divisions</li>
+  <li><code class="language-plaintext highlighter-rouge">x % y</code> : modulo</li>
+</ul>
+
+<p>Assignment operators</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x += y</code> : add <code class="language-plaintext highlighter-rouge">x</code> to <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x -= y</code> : subtract <code class="language-plaintext highlighter-rouge">y</code> from <code class="language-plaintext highlighter-rouge">x</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x *= y</code> : multiply <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x /= y</code> : divided <code class="language-plaintext highlighter-rouge">x</code> by <code class="language-plaintext highlighter-rouge">y</code> and store result in <code class="language-plaintext highlighter-rouge">x</code></li>
+</ul>
+
+<p>Then there are unary addition and subtraction for adding/subtracting 1:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x++</code> : add one to <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">++x</code> : add one to <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x+1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">x--</code> : subtract one from <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">--x</code> : subtract one from <code class="language-plaintext highlighter-rouge">x</code> and return <code class="language-plaintext highlighter-rouge">x-1</code></li>
+</ul>
+
+<p>However, when you are working with an object, to perform an operation on that object you must use the <code class="language-plaintext highlighter-rouge">.</code> operator.</p>
+      <h2 id="string-type">
+        
+        
+          String type <a href="#string-type">#</a>
+        
+        
+      </h2>
+    
+
+<p>The only exception to the rules above about basic types, operators, and assignments are strings. The <code class="language-plaintext highlighter-rouge">String</code> object—which is clearly an object based on the upper case letter “S” in String—is the only object that can be declared and used much like a basic type, including the operators. This is the only exception, and it was done because strings are so fundamental to programming that the shortcut made enormous practical sense.</p>
+
+<p>For example, we can declare and operate on a string as if it was a basic type</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"This is a string"</span><span class="o">;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">"This is a different string"</span><span class="o">;</span> <span class="c1">//reassign</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">"One "</span> <span class="o">+</span> <span class="s">" two "</span> <span class="o">+</span> <span class="s">" three "</span><span class="o">;</span>  <span class="c1">//conctenate strings</span>
+<span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"This is also a string!"</span><span class="o">);</span> <span class="c1">//call the String constructor explicitly</span>
+</code></pre></div></div>
+
+<p>However, strings are still objects. So if you were to do the following below, we’d get that <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> are different strings.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I am a string"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"I am a string"</span><span class="o">);</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="o">)</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s and t are the *same* string"</span><span class="o">);</span>
+<span class="k">else</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s and t are *different* strings"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>This is because <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> are objects. The <code class="language-plaintext highlighter-rouge">==</code> operator compares the reference to those objects are the same, as in, does <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">t</code> reference the same object, or two different objects? In this case, it’s two different objects that represent the same string because of the explicit <code class="language-plaintext highlighter-rouge">new</code>.</p>
+
+<p>Note: if above you had <code class="language-plaintext highlighter-rouge">String t = "I am a string";</code> on the second line, doing <code class="language-plaintext highlighter-rouge">s == t</code> can return <code class="language-plaintext highlighter-rouge">true</code> for reasons that have to do with the special place and <a href="https://en.wikipedia.org/wiki/String_interning">properties</a> strings occupy in Java.</p>
+
+<p>Instead, we need to use <code class="language-plaintext highlighter-rouge">.</code> operator to do the compares, and in this case, we get that the two strings are equal using string <code class="language-plaintext highlighter-rouge">.equals()</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I am a string"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">(</span><span class="s">"I am a string"</span><span class="o">);</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">t</span><span class="o">))</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s and t are the *same* string"</span><span class="o">);</span>
+<span class="k">else</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"s and t are *different* strings"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>If you want to access individual <code class="language-plaintext highlighter-rouge">char</code>s in a string, we don’t use the <code class="language-plaintext highlighter-rouge">[ ]</code> operators (strings are not arrays!), but rather the <code class="language-plaintext highlighter-rouge">charAt()</code> method. For example, for the string</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Strings</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I love cs2113!"</span><span class="o">;</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The char at index 3 is "</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+</code></pre></div></div>
+
+<p>Will print <code class="language-plaintext highlighter-rouge">The char at index 3 is o</code></p>
+      <h1 id="java-objects">
+        
+        
+          Java Objects <a href="#java-objects">#</a>
+        
+        
+      </h1>
+    
+
+<p>Java objects are much like <code class="language-plaintext highlighter-rouge">struct</code>s in C; they are a way to group related data together into a single structure. Unlike a <code class="language-plaintext highlighter-rouge">struct</code>, a Java object also allows you to associate methods (both public and private) with that object to operate over the data.</p>
+
+<p>To review this functionality, let’s build up a working example of defining shapes and lines in the Cartesian plane. Recall that this the <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code> coordinate system. For example, perhaps we have three points in the plane.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    y
+    ^   p0
+    |    * (2.3, 4.8)
+    |p1
+    | * (1.1, 3.0)
+    |          
+    |        p2 * (5.8, 0.3)
+&lt;---+---------------&gt; x
+    |
+    v
+</code></pre></div></div>
+
+<p>If we wanted to define these points and some operations over them, say the distances between them, we could write the following program:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PointDistances</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        
+        <span class="c1">//                  p0   p1   p2</span>
+        <span class="kt">double</span> <span class="nc">Xpoints</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mf">2.3</span><span class="o">,</span> <span class="mf">1.1</span><span class="o">,</span> <span class="mf">5.8</span><span class="o">};</span>
+        <span class="kt">double</span> <span class="nc">Ypoints</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mf">4.8</span><span class="o">,</span> <span class="mf">3.0</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">};</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p0, p1) = "</span> <span class="o">+</span>
+                           <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Xpoints</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Xpoints</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                                     <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Ypoints</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Ypoints</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="mi">2</span><span class="o">))</span>
+                           <span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p0, p2) = "</span> <span class="o">+</span>
+                           <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Xpoints</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Xpoints</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                                     <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Ypoints</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Ypoints</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span> <span class="mi">2</span><span class="o">))</span>
+                           <span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p0, p1) = "</span> <span class="o">+</span>
+                           <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Xpoints</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Xpoints</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                                     <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="nc">Ypoints</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">-</span> <span class="nc">Ypoints</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span> <span class="mi">2</span><span class="o">))</span>
+                           <span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>While this provides some structure, it doesn’t quite feel right. Adding another point would require modifying the array and writing a new method. Let’s do better.</p>
+      <h3 id="point-object">
+        
+        
+          Point Object <a href="#point-object">#</a>
+        
+        
+      </h3>
+    
+
+<p>Let’s start by defining a new class for storing a point, we’ll place it in a new file called <code class="language-plaintext highlighter-rouge">Point.java</code>. A <em>class</em> is a recipe for creating objects. It defines what is stored in the object and what methods operate over.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Point.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+
+    <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+
+    <span class="c1">//constructor</span>
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="no">X</span><span class="o">,</span> <span class="kt">double</span> <span class="no">Y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="no">X</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="no">Y</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">dist</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                         <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">y</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This class defines two data members, <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> to store the coordinates. It also defines a constructor for the <code class="language-plaintext highlighter-rouge">Point</code> object, and a method <code class="language-plaintext highlighter-rouge">dist</code>.</p>
+      <h4 id="constructor">
+        
+        
+          Constructor <a href="#constructor">#</a>
+        
+        
+      </h4>
+    
+
+<p>A <em>constructor</em> for an object is a special method that defines how to “build” an object of the current class. In our case this is rather simple. We only need to the know the x and y coordinate, and we wish to store them.</p>
+      <h4 id="this">
+        
+        
+          this <a href="#this">#</a>
+        
+        
+      </h4>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">this</code> variable is special variable that refers to the current object. Recall that the class is a definition for how to create objects, but within methods, like the constructor, we need a way to differentiate between things that are associated with the class and the current object being operated on.</p>
+
+<p>Within the constructor, the <code class="language-plaintext highlighter-rouge">this</code> keyword refers to the new object being constructed. So assigning to <code class="language-plaintext highlighter-rouge">this.x</code> or <code class="language-plaintext highlighter-rouge">this.y</code> says, store the input values <code class="language-plaintext highlighter-rouge">X</code> and <code class="language-plaintext highlighter-rouge">Y</code> within the newly created object.</p>
+
+<p>(Aside: You don’t explicly need to use <code class="language-plaintext highlighter-rouge">this</code>, its implied due to the scoping. Java will look for the most locally bounded <code class="language-plaintext highlighter-rouge">x</code> to use, and in this case that would be the <code class="language-plaintext highlighter-rouge">x</code> within the object being constructed. Where <code class="language-plaintext highlighter-rouge">this</code> would be strictly necessary is when you have variable shadowing. For example, if the constructor were declared as <code class="language-plaintext highlighter-rouge">public Point(double x, double y)</code> — lowercase <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> —then the most locally bound <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are within the function, not the object. I find <code class="language-plaintext highlighter-rouge">this</code> helps disambiguate scoping, so sometimes I use it, but not always.)</p>
+      <h4 id="dist-method">
+        
+        
+          <code class="language-plaintext highlighter-rouge">dist</code> method <a href="#dist-method">#</a>
+        
+        
+      </h4>
+    
+
+<p>The dist method is an object that operates over the object, called via the <code class="language-plaintext highlighter-rouge">.</code> operator, and another <code class="language-plaintext highlighter-rouge">Point</code> object. Via the <code class="language-plaintext highlighter-rouge">.</code> operate we get access to the <code class="language-plaintext highlighter-rouge">Point</code>  object whose method was called, in this case <code class="language-plaintext highlighter-rouge">this</code>, and also the <code class="language-plaintext highlighter-rouge">Point</code> object passed as an argument. Using both of those we can compute the distance between <code class="language-plaintext highlighter-rouge">this</code> point and the <code class="language-plaintext highlighter-rouge">other</code> point, returning the result.</p>
+      <h4 id="main-method">
+        
+        
+          <code class="language-plaintext highlighter-rouge">main</code> method <a href="#main-method">#</a>
+        
+        
+      </h4>
+    
+
+<p>Now we can put it all together, writing a new main method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PointDistances2</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Point</span> <span class="n">p0</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.3</span><span class="o">,</span> <span class="mf">4.8</span><span class="o">);</span>
+        <span class="nc">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">1.1</span><span class="o">,</span> <span class="mf">3.0</span><span class="o">);</span>
+        <span class="nc">Point</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">5.8</span><span class="o">,</span> <span class="mf">0.3</span><span class="o">);</span>
+
+        <span class="kt">double</span> <span class="n">d01</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">d02</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">d12</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span>
+        
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p0, p1) = "</span> <span class="o">+</span> <span class="n">d01</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p0, p2) = "</span> <span class="o">+</span> <span class="n">d02</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"dist(p1, p2) = "</span> <span class="o">+</span> <span class="n">d12</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java PointDistances2.java
+dist(p0, p1) = 2.1633307652783933
+dist(p0, p2) = 5.70087712549569
+dist(p1, p2) = 5.420332093147061
+</code></pre></div></div>
+
+<p>Note that for each <code class="language-plaintext highlighter-rouge">Point</code> we have to create a <code class="language-plaintext highlighter-rouge">new</code> instance of it. That act of calling <code class="language-plaintext highlighter-rouge">new</code> invokes the constructor with the arguments, returning a new object, whose reference is stored in the variable. Later, we can use those objects to calculate distances.</p>
+      <h2 id="memory-diagrams-in-java">
+        
+        
+          Memory Diagrams in Java <a href="#memory-diagrams-in-java">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just like in C, we should also consider memory diagramming in Java. Let’s look at the last program above <code class="language-plaintext highlighter-rouge">PointDistance2</code> and draw the memory diagram.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    STACK                            HEAP
+     
+    .-----------------.             .---------.
+    | p0    |   .-----+-----------&gt; | x | 2.2 | (Point Objects)
+    |-------+---------.             |---+-----|
+    | p1    |   .-----+---.         | y | 4.8 | 
+    |-------+---------.    \        '---------'
+    | p2    |   .-----+--.  '-----&gt; .---------.
+    |-------+---------.   \         | x | 1.1 |
+    | d01   | 2.16... |    \        |---+-----|
+    |-------+---------.     \       | y | 3.0 |
+    | d02   | 5.70... |      \      '---------'
+    |-------+---------.       '---&gt; .---------.
+    | d12   | 5.42... |             | x | 5.8 |
+    '-----------------'             |---+-----|
+                                    | y | 0.3 |
+                                    '---------'
+</code></pre></div></div>
+
+<p>The basic types, in this case <code class="language-plaintext highlighter-rouge">double</code>, is stored on the stack, but the objects are allocated on the heap, via <code class="language-plaintext highlighter-rouge">new</code>. That means the variables in <code class="language-plaintext highlighter-rouge">main</code> <em>reference</em> those objects and thus pointers.</p>
+
+<p>Note to access members of the objects, we always use the <code class="language-plaintext highlighter-rouge">.</code> operator, and never the <code class="language-plaintext highlighter-rouge">-&gt;</code> operator in Java. That’s because in Java you can never have a stack instance of an object: all objects are allocated on the heap and all variables reference a heap stored object. There is no need for two operators, and thus, as programmers are lazy, we opt for the simpler <code class="language-plaintext highlighter-rouge">.</code> operator.</p>
+
+<p>You can also view this through the <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+MyPoint+%7B%0A+++%0A++++double+x%3B%0A++++double+y%3B%0A%0A++++//constructor%0A++++public+MyPoint(double+X,+double+Y)+%7B%0A++++++++this.x+%3D+X%3B%0A++++++++this.y+%3D+Y%3B%0A++++%7D%0A%0A++++public+double+dist(MyPoint+other)+%7B%0A++++++++return+Math.sqrt(Math.pow(this.x+-+other.x,+2)+%2B%0A+++++++++++++++++++++++++Math.pow(this.y+-+other.y,+2))%3B%0A++++%7D%0A%0A++++public+static+void+main(String+args%5B%5D)+%7B%0A%0A++++++++MyPoint+p0+%3D+new+MyPoint(2.3,+4.8)%3B%0A++++++++MyPoint+p1+%3D+new+MyPoint(1.1,+3.0)%3B%0A++++++++MyPoint+p2+%3D+new+MyPoint(5.8,+0.3)%3B%0A%0A++++++++double+d01+%3D+p0.dist(p1)%3B%0A++++++++double+d02+%3D+p0.dist(p2)%3B%0A++++++++double+d12+%3D+p1.dist(p2)%3B%0A++++++++%0A++++++++System.out.println(%22dist(p0,+p1)+%3D+%22+%2B+d01)%3B%0A++++++++System.out.println(%22dist(p0,+p2)+%3D+%22+%2B+d02)%3B%0A++++++++System.out.println(%22dist(p1,+p2)+%3D+%22+%2B+d12)%3B%0A++++++++%0A++++%7D%0A%7D&amp;mode=display&amp;curInstr=50">Java Visualizer for this example</a>.</p>
+      <h2 id="encapsulation-and-data-hiding">
+        
+        
+          Encapsulation and Data Hiding <a href="#encapsulation-and-data-hiding">#</a>
+        
+        
+      </h2>
+    
+
+<p>Java has a strong notion of <em>encapsulation</em>, which means that data and methods within objects should be limited such that they are accessed within scope. For example, the data members <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> are unprotected (default public) – this is typically undesireable.</p>
+
+<p>This means, as in the below example, we can use the <code class="language-plaintext highlighter-rouge">.</code> operator to both read the values of <code class="language-plaintext highlighter-rouge">p.x</code> and <code class="language-plaintext highlighter-rouge">p.y</code> as well as modify them.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PointDistances3</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.3</span><span class="o">,</span> <span class="mf">4.8</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = ("</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+
+        <span class="n">p</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = ("</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>However, this can be dangerous and violates the principal of encapsulation where only access data where most appropriate.</p>
+      <h3 id="public-vs-private-data-members">
+        
+        
+          Public vs. Private Data Members <a href="#public-vs-private-data-members">#</a>
+        
+        
+      </h3>
+    
+
+<p>Java uses a notion of <code class="language-plaintext highlighter-rouge">public</code> and <code class="language-plaintext highlighter-rouge">private</code> declarations on both object data and methods to limit how programmers can use the object. (There is also <code class="language-plaintext highlighter-rouge">protected</code> but we’ll get to that later.)</p>
+
+<p>Perhaps we want to better control access to the data members, we can declare <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> as <code class="language-plaintext highlighter-rouge">private</code> class members.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+
+   <span class="c1">//..</span>
+</code></pre></div></div>
+
+<p>And this will cause a compiler error when accessing <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> directly using the <code class="language-plaintext highlighter-rouge">.</code> operator.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PointAccess.java:9: error: x has private access in Point
+        p.x = 5;
+         ^
+PointAccess.java:10: error: y has private access in Point
+        p.y = 10;
+</code></pre></div></div>
+      <h3 id="getter-and-setters">
+        
+        
+          Getter and Setters <a href="#getter-and-setters">#</a>
+        
+        
+      </h3>
+    
+
+<p>So if we have private members, how do we access these members? We use getter and setter methods.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="no">X</span><span class="o">,</span> <span class="kt">double</span> <span class="no">Y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="no">X</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="no">Y</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getX</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getY</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setX</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setY</span><span class="o">(</span><span class="kt">double</span> <span class="n">y</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">dist</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">){</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span> <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                          <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">y</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And then we call those public methods, rather than accessing the data members directly.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PointAccess2</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.3</span><span class="o">,</span> <span class="mf">4.8</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = ("</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+
+        <span class="n">p</span><span class="o">.</span><span class="na">setX</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">setY</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = ("</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Perhaps, we also want a method in <code class="language-plaintext highlighter-rouge">Point</code> to set both X and Y and the same time. So we can add that as well</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setXY</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="no">X</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="no">Y</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>And wait, that’s also very much like the constructor, so why not call that there?!?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">setXY</span><span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>And now we’re really programming.</p>
+      <h3 id="tostring">
+        
+        
+          <code class="language-plaintext highlighter-rouge">toString()</code> <a href="#tostring">#</a>
+        
+        
+      </h3>
+    
+
+<p>As we start to develop our <code class="language-plaintext highlighter-rouge">Point</code> class, we should still be somewhat unsatisfied with the printing routine.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   System.out.println("p = (" + p.getX() + "," + p.getY() + ")");
+</code></pre></div></div>
+
+<p>This also seems like a violation of encapsulation because the representation of the <code class="language-plaintext highlighter-rouge">Point</code> as “(x,y)” string shouldn’t change regardless of the instance of the <code class="language-plaintext highlighter-rouge">Point</code>. Instead, it should be part of the class definition of the object. It would make a lot more sense to have a method that returned the string representation. Even better, it would be great if we could just do the following, like we do with basic types?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p="</span> <span class="o">+</span> <span class="n">p</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>If you were to try that, what you’d find is that something does print, but not what you expect</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = Point@5acf9800
+p = Point@5acf9800
+</code></pre></div></div>
+
+<p>That string is the Java reference representation. Essentially say that it’s the Point stored at reference <code class="language-plaintext highlighter-rouge">5acf9800</code>. The <code class="language-plaintext highlighter-rouge">+</code> operator with a string and a non-string object will automatically convert the non string object to a string by calling a special method <code class="language-plaintext highlighter-rouge">toString()</code> on that object. If one isn’t defined, then the default <code class="language-plaintext highlighter-rouge">toString()</code> method is called inheritted from the <code class="language-plaintext highlighter-rouge">Object</code> class.</p>
+
+<p>But, we can overwrite the default <code class="language-plaintext highlighter-rouge">toString()</code> to write our own specific for <code class="language-plaintext highlighter-rouge">Point</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"("</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">")"</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, we’ve further simplified our main method</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PointAccess3</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.3</span><span class="o">,</span> <span class="mf">4.8</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = "</span> <span class="o">+</span> <span class="n">p</span><span class="o">);</span>
+
+        <span class="n">p</span><span class="o">.</span><span class="na">setXY</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"p = "</span> <span class="o">+</span> <span class="n">p</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="more-advanced-object-programming">
+        
+        
+          More advanced object programming <a href="#more-advanced-object-programming">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="line-object">
+        
+        
+          Line object <a href="#line-object">#</a>
+        
+        
+      </h3>
+    
+
+<p>Suppose now we want to extend on our object model and create a new <code class="language-plaintext highlighter-rouge">Line</code> class that builds on our notion of <code class="language-plaintext highlighter-rouge">Point</code>. A <code class="language-plaintext highlighter-rouge">Line</code> can simply be defined as a combination of two points, a start and and end. This is relatively straightforward to write the <code class="language-plaintext highlighter-rouge">length()</code> method and <code class="language-plaintext highlighter-rouge">toString()</code> method given our work on <code class="language-plaintext highlighter-rouge">Point</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Point</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Point</span> <span class="n">end</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="kt">double</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">x2</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">length</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">start</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"["</span> <span class="o">+</span> <span class="n">start</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="n">end</span> <span class="o">+</span> <span class="s">"]"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Here’s an example <code class="language-plaintext highlighter-rouge">main</code> method</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LineExample1</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Line</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Line</span><span class="o">(</span><span class="mf">4.0</span><span class="o">,</span> <span class="mf">6.0</span><span class="o">,</span> <span class="mf">5.0</span><span class="o">,</span> <span class="mf">7.0</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"l = "</span> <span class="o">+</span> <span class="n">l</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"l.length = "</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h3 id="method-and-constructor-overloading">
+        
+        
+          Method and Constructor Overloading <a href="#method-and-constructor-overloading">#</a>
+        
+        
+      </h3>
+    
+
+<p>Looking at the constructor for <code class="language-plaintext highlighter-rouge">Line</code>, you might wonder — it’s just taking two <code class="language-plaintext highlighter-rouge">Points</code>, why not pass two <code class="language-plaintext highlighter-rouge">Points</code>? Yes. Totally true, but it would also be nice to keep the other constructor, based on 4 doubles. Good news everyone! You can do both by <em>overloading</em> the constructor.</p>
+
+<p>In our <code class="language-plaintext highlighter-rouge">Line</code> class, let’s define a second constructor. It has the same name of the other constructor, but takes different arguments. Here are the two constructors side by side.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">p1</span><span class="o">;</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">p2</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="kt">double</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">x2</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>How does Java choose between these two constructors? It does type inspection on the arguments and matches to the constructor with the right matching types. So you cannot have two constructors (or methods within scope of an object/class) with the same name and the same arguments (unless their ordered types differ – the compiler has to be able to differentiate them), otherwise Java will not know which method to call.</p>
+      <h3 id="maintaining-encapsulation-with-objects-references">
+        
+        
+          Maintaining Encapsulation with Objects References <a href="#maintaining-encapsulation-with-objects-references">#</a>
+        
+        
+      </h3>
+    
+
+<p>The new <code class="language-plaintext highlighter-rouge">Line</code> constructor that takes two <code class="language-plaintext highlighter-rouge">Point</code>s bring up an interesting new problem regarding encapsulation. Consider the getter method for <code class="language-plaintext highlighter-rouge">Line</code> that retrieves one of the points:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="kd">public</span> <span class="nc">Point</span> <span class="nf">getStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">start</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>If this method were called by the user on a <code class="language-plaintext highlighter-rouge">Line</code> instance, than altering the <code class="language-plaintext highlighter-rouge">Point</code> <code class="language-plaintext highlighter-rouge">start</code> would allow the user to alter the data stored within that <code class="language-plaintext highlighter-rouge">Line</code> instance, even though it is set to <code class="language-plaintext highlighter-rouge">private</code>. Also, consider the new constructor</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">p1</span><span class="o">;</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">p2</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>The user passing the point <code class="language-plaintext highlighter-rouge">p1</code> could still alter it, even after using it in the constructor. To see this, let’s look at a memory diagram, where we can see that we only have one object referenced by <code class="language-plaintext highlighter-rouge">start</code>, <code class="language-plaintext highlighter-rouge">p1</code> and <code class="language-plaintext highlighter-rouge">s</code> at point <code class="language-plaintext highlighter-rouge">**A**</code>. Modification by using <code class="language-plaintext highlighter-rouge">.</code> from any of these references modifies the same object. After modifying, it prints <code class="language-plaintext highlighter-rouge">[(20,10):(2.1,3.4)]</code> despite no calls to <code class="language-plaintext highlighter-rouge">l</code> to modify the underlying data it stores.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LineExample2</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+
+        <span class="nc">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">4.0</span><span class="o">,</span> <span class="mf">8.5</span><span class="o">);</span>
+        <span class="nc">Point</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mf">2.1</span><span class="o">,</span> <span class="mf">3.4</span><span class="o">);</span>
+        <span class="nc">Line</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Line</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">p2</span><span class="o">);</span> 
+
+        <span class="nc">Point</span> <span class="n">s</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="na">getStart</span><span class="o">();</span><span class="c1">//**A**</span>
+
+        <span class="n">s</span><span class="o">.</span><span class="na">setXY</span><span class="o">(</span><span class="mf">20.0</span><span class="o">,</span> <span class="mf">10.0</span><span class="o">);</span>  <span class="c1">//**B**</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"l = "</span> <span class="o">+</span> <span class="n">l</span><span class="o">);</span><span class="c1">// [(20,10):(2.1,3.4)]</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   **A**                                                
+   
+   STACK                    HEAP                       
+                            
+                             .--------.       
+                   .-------&gt; | x | 4.0| &lt;-----.
+  .----------.    /          |--------|       |
+  | p1  |  .-+---'    .----&gt; | y | 8.5|       |
+  |-----+----|       /       '--------'       |
+  | p2  |  .-+----. /                         |
+  |-----+----|     X         .--------.       |
+  | l   |  .-+--. / \        | x | 4.0| &lt;-----+--.
+  |-----+----|   X   '-----&gt; |--------|       |  |
+  | s   |  .-+-./ \          | y | 8.5|       |  |
+  '----------'     \         '--------'       |  |
+                    \                         |  |
+                     \       .----------.     |  |
+                      '----&gt; |start | .-+-----'  |
+                             |------+---|        |
+                             |  end | .-+--------'
+                             '----------'           
+</code></pre></div></div>
+
+<p>Now — before solving this problem, you might ask is this really a problem? It really depends on the program. In many cases this may be the desired functionality. Here, though, we want to ensure that only via calls to modifiers within <code class="language-plaintext highlighter-rouge">Line</code> can we alter the underlying data storage.</p>
+      <h3 id="copy-constructor">
+        
+        
+          Copy Constructor <a href="#copy-constructor">#</a>
+        
+        
+      </h3>
+    
+
+<p>In this case, let’s solve this problem by creating a new overloaded constructor for <code class="language-plaintext highlighter-rouge">Point</code> that takes another <code class="language-plaintext highlighter-rouge">Point</code> instance as it’s argument, constructing a new <code class="language-plaintext highlighter-rouge">Point</code> object based on it’s <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> value. Like in the example below</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span> 
+      <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+
+<p>And in our <code class="language-plaintext highlighter-rouge">Line</code> constructor, that takes two <code class="language-plaintext highlighter-rouge">Point</code>s, we modify that to call this <code class="language-plaintext highlighter-rouge">Point</code> constructor to perform a copy.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span>
+     <span class="k">this</span><span class="o">.</span><span class="na">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span>
+   <span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>Similarly, when we call <code class="language-plaintext highlighter-rouge">getStart()</code> or <code class="language-plaintext highlighter-rouge">getEnd()</code>, we also use this constructor</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nc">Point</span> <span class="nf">getStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">Point</span> <span class="nf">getEnd</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Point</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">end</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Looking at the memory diagram for the main method above, with these modication, we see there are no longer shared references (at <code class="language-plaintext highlighter-rouge">**B**</code>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   **B** 
+   
+   STACK                      HEAP
+                            
+                             .--------.          .--------.
+                   .-------&gt; | x | 4.0|   .----&gt; | x | 4.0|
+  .----------.    /          |--------|   |      |--------|
+  | p1  |  .-+---'           | y | 8.5|   |      | y | 8.5|
+  |-----+----|               '--------'   |      '--------'
+  | p2  |  .-+----.                       |              
+  |-----+----|     \         .--------.   |      .--------.
+  | l   |  .-+--.   \        | x | 4.0|   | .--&gt; | x | 4.0|
+  |-----+----|   \   '-----&gt; |--------|   | |    |--------|
+  | s   |  .-+-.  \          | y | 8.5|   | |    | y | 8.5|
+  '----------'  \  \         '--------'   | |    '--------'
+                 \  \                     | |
+                  \  \       .----------. | |    .--------.
+                   \  '----&gt; |start | .-+-' | .-&gt;| x |20.0|
+                    \        |------+---|   | |  |--------|
+                     \       |  end | .-+---' |  | y |10.0|
+                      \      '----------'     |  '--------'
+                       '----------------------'      
+                             
+</code></pre></div></div>
+      <h3 id="deep-vs-shallow-copy">
+        
+        
+          Deep vs. Shallow copy <a href="#deep-vs-shallow-copy">#</a>
+        
+        
+      </h3>
+    
+
+<p>The new <code class="language-plaintext highlighter-rouge">Point</code> constructor is called <strong>deep copy</strong> constructor because it copies the object to a new object, without any references between them. That is relatively straightforward to do here because <code class="language-plaintext highlighter-rouge">Point</code>’s data members are both basic types. In contrast, a <strong>shallow copy</strong> which creates a new object that shares references.</p>
+
+<p>As an example, consider the following method for create a copy of the current line. (Note, this wouldn’t compile due to <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> as private members.)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Line</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">start</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">end</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">end</span><span class="o">;</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Doing so would mean the new <code class="language-plaintext highlighter-rouge">Line</code> object (<code class="language-plaintext highlighter-rouge">this</code>) and the other <code class="language-plaintext highlighter-rouge">Line</code> object (<code class="language-plaintext highlighter-rouge">other</code>) would actually share the underlying data storage <code class="language-plaintext highlighter-rouge">Point</code>s. This is a <em>shallow</em> copy. Alternatively, we can do a <em>deep</em> copy of the line using the facilities already in place.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Line</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">getStart</span><span class="o">();</span> <span class="c1">//returns a copy of Point start</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">end</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">getEnd</span><span class="o">();</span> <span class="c1">//returns a copy of Point end</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>With that copy constructor in place, we can write a <code class="language-plaintext highlighter-rouge">copy()</code> method really easily</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="nc">Line</span> <span class="nf">copy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Line</span><span class="o">(</span><span class="k">this</span><span class="o">);</span> <span class="c1">//construct new object based on this object</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="private-methods">
+        
+        
+          Private Methods <a href="#private-methods">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just like with data, we can also declare a method private if they shouldn’t be called outside the scope of the object. To see an example of this, let’s consider adding a new data member to the <code class="language-plaintext highlighter-rouge">Line</code> class, <code class="language-plaintext highlighter-rouge">slope</code>.</p>
+
+<p>The slope line is calculated as run over rise. For the example two points below (forming a line), the run is the distance between their <code class="language-plaintext highlighter-rouge">x</code> components (-4), and the rise is the distance between their <code class="language-plaintext highlighter-rouge">y</code> components (8).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    y
+    ^   
+    |    . (2,9)
+    |    :\
+    |  8 : \
+    |    :  \    
+    |    :.... (6,1)
+    |     -4
+&lt;---+---------------&gt; x
+    |
+    v
+</code></pre></div></div>
+
+<p>The slope of a line is run divided by rise, or 8/4 = -2. Importantly, to calculate the slope, we need to order the points by their <code class="language-plaintext highlighter-rouge">x</code> component.</p>
+      <h3 id="adding-slope">
+        
+        
+          Adding Slope <a href="#adding-slope">#</a>
+        
+        
+      </h3>
+    
+
+<p>Let’s start by modifying the <code class="language-plaintext highlighter-rouge">List</code> class to add a private member <code class="language-plaintext highlighter-rouge">slope</code>, and we can set that slope at construction once <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">end</code> is established.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Line</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Point</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Point</span> <span class="n">end</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">slope</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="kt">double</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">x2</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="n">calcSlope</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="n">calcSlope</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="err">\\</span> <span class="o">...</span>
+    
+    <span class="kd">public</span> <span class="nf">getSlope</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">slope</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">double</span> <span class="nf">calcSlope</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">double</span> <span class="n">run</span><span class="o">,</span> <span class="n">rise</span><span class="o">;</span>
+        
+        <span class="k">if</span><span class="o">(</span><span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">run</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+            <span class="n">rise</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="n">run</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">-</span> <span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+            <span class="n">rise</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">-</span> <span class="n">end</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">rise</span> <span class="o">/</span> <span class="n">run</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Looking at the method <code class="language-plaintext highlighter-rouge">calcSlope()</code>, it will never need to be called anywhere but in the constructor for the <code class="language-plaintext highlighter-rouge">Line</code>. It only needs to be called once, and if the user wishes to learn the slope, they can call <code class="language-plaintext highlighter-rouge">getSlope()</code>. As a result, this method doesn’t need to be <code class="language-plaintext highlighter-rouge">public</code>, and so it is declared <code class="language-plaintext highlighter-rouge">private</code>.</p>
+
+<p>Additionally, we could simplify our <code class="language-plaintext highlighter-rouge">calcSlope()</code> with an additional private method that reorders the points during construction such that the start point always has the lower x-value compared to the end point.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">private</span> <span class="kt">void</span> <span class="nf">orderPoints</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">Point</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="o">;</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Again we want this to be a private method; the user shouldn’t call it directly. Instead, it’s called at construction to get the points in order, simplifying the <code class="language-plaintext highlighter-rouge">calcSlope()</code> method in the process.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="kt">double</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y1</span><span class="o">,</span> <span class="kt">double</span> <span class="n">x2</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">x2</span><span class="o">,</span> <span class="n">y2</span><span class="o">);</span>
+        <span class="n">orderPoints</span><span class="o">();</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="n">calcSlope</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Line</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p1</span><span class="o">);</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">p2</span><span class="o">);</span>
+        <span class="n">orderPoints</span><span class="o">();</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="n">calcSlope</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    
+    <span class="kd">private</span> <span class="kt">double</span> <span class="nf">calcSlope</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kt">double</span> <span class="n">run</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+        <span class="kt">double</span> <span class="n">rise</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">rise</span> <span class="o">/</span> <span class="n">run</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">orderPoints</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">end</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">start</span><span class="o">.</span><span class="na">getX</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">Point</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span><span class="o">;</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="static-methods">
+        
+        
+          Static Methods <a href="#static-methods">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">static</code> declarations for classes allow functions and data to be accessible within the class without needing to instantiate an object instance of that class.</p>
+
+<p>The classic example of <code class="language-plaintext highlighter-rouge">static</code> is the <code class="language-plaintext highlighter-rouge">main</code> method. It’s declared static, that’s because when you execute the <code class="language-plaintext highlighter-rouge">main</code> method of a class, you’re not instantiating an instance of that class as an object, and then calling <code class="language-plaintext highlighter-rouge">main</code>. Instead you’re calling <code class="language-plaintext highlighter-rouge">main</code> directly, or statically, without an instance. You can think of this as calling <code class="language-plaintext highlighter-rouge">main</code> <strong>on</strong> the class – infact, this is how static methods are typically called (besides <code class="language-plaintext highlighter-rouge">main</code>, which is special).</p>
+
+<p>Within the object oriented model, we use <code class="language-plaintext highlighter-rouge">static</code> to provide utility functions or constants that don’t require object instantiating. You are probably familiar with <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/Integer.html#parseInt(java.lang.String)"><code class="language-plaintext highlighter-rouge">Integer.parseInt()</code></a>. The <code class="language-plaintext highlighter-rouge">Integer</code> class is an object version of the basic type, and it is common to need to create an <code class="language-plaintext highlighter-rouge">int</code> by parsing a String, like:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">"5"</span><span class="o">);</span> <span class="c1">//a gets then integer 5</span>
+</code></pre></div></div>
+
+<p>You’ll notice that we don’t create a new <code class="language-plaintext highlighter-rouge">Integer</code> object to call the member function <code class="language-plaintext highlighter-rouge">parseInt()</code>. We call <code class="language-plaintext highlighter-rouge">parseInt()</code> directly and statically (on the <code class="language-plaintext highlighter-rouge">Integer</code> class with the dot operator, rather than on an <code class="language-plaintext highlighter-rouge">Integer</code> object).</p>
+      <h3 id="static-slope-calculation">
+        
+        
+          Static Slope Calculation <a href="#static-slope-calculation">#</a>
+        
+        
+      </h3>
+    
+
+<p>Calculating the slope of a line is a fairly useful utility that we can attach to our <code class="language-plaintext highlighter-rouge">Line</code> class as a static method. Doing so means a user doesn’t have to create a <code class="language-plaintext highlighter-rouge">Line</code> in order to calculate the slope of the line that connects two points.</p>
+
+<p>We can write that <code class="language-plaintext highlighter-rouge">static</code> method like so, and note that it’s also <code class="language-plaintext highlighter-rouge">public</code> because it is called outside the context of the class.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">calcSlope</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">p2</span><span class="o">.</span><span class="na">getX</span><span class="o">())</span>
+            <span class="k">return</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">getY</span><span class="o">())</span> <span class="o">/</span> <span class="o">(</span><span class="n">p1</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">getX</span><span class="o">());</span>
+        <span class="k">else</span>
+            <span class="nf">return</span> <span class="o">(</span><span class="n">p2</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="na">getY</span><span class="o">())</span> <span class="o">/</span> <span class="o">(</span><span class="n">p2</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="na">getX</span><span class="o">());</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Additionally, we can’t rely on the points to be properly ordered, since we’re not instantiating a <code class="language-plaintext highlighter-rouge">Line</code>. So we have to use if/else. Now we can write a <code class="language-plaintext highlighter-rouge">main</code> method taking advantage of the new static method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">staticSlope</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">9</span><span class="o">);</span>
+        <span class="nc">Point</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+
+        <span class="c1">//Also, java has printf :)</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"p1: %s p2: %s dist(p1,p2): %.2f slope: %.2f\n"</span><span class="o">,</span>
+                          <span class="n">p1</span><span class="o">,</span> <span class="n">p2</span><span class="o">,</span>
+                          <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p2</span><span class="o">),</span>
+                          <span class="nc">Line</span><span class="o">.</span><span class="na">calcSlope</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">p2</span><span class="o">));</span>
+        <span class="c1">//%.2f -- says print two decimal points </span>
+        
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>And just for fun  — Java also have <code class="language-plaintext highlighter-rouge">printf()</code> :) — which, in some cases is easier to use than <code class="language-plaintext highlighter-rouge">println()</code> or <code class="language-plaintext highlighter-rouge">print()</code>.</p>
+      <h2 id="arrays">
+        
+        
+          Arrays <a href="#arrays">#</a>
+        
+        
+      </h2>
+    
+
+<p>Just like in C, Java has arrays that store aligned data that is indexable with the <code class="language-plaintext highlighter-rouge">[]</code> operator. Unlike C, though, Arrays are actually objects; an <code class="language-plaintext highlighter-rouge">Array</code> object created with a <code class="language-plaintext highlighter-rouge">new</code> call. Like other objects, they are dynamically allocated.</p>
+      <h3 id="arrays-of-basic-types">
+        
+        
+          Arrays of Basic Types <a href="#arrays-of-basic-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>To create an array of a basic type, we must first declare the variable to be an array object. This is done by adding <code class="language-plaintext highlighter-rouge">[]</code> to the variable name at declaration.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="n">intArray1</span><span class="o">[];</span>
+  <span class="kt">int</span><span class="o">[]</span> <span class="n">intArray2</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>Then we need to <em>allocate</em> the array object of that type. This works much like <code class="language-plaintext highlighter-rouge">calloc()</code> call in C. Java determines the size of each element based on the type (in this case <code class="language-plaintext highlighter-rouge">int</code>) and the number of items based on the allocation (in this case 10). As this is a dynamic allocation, we need the <code class="language-plaintext highlighter-rouge">new</code> operator.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">intArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>And just like <code class="language-plaintext highlighter-rouge">calloc()</code>, the new array is zero’ed out. The memory diagram looks like the following.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  STACK                    HEAP
+  
+  .--------------.        .---.
+  | intArray | .-+-----&gt;  | 0 |  intArray[0]
+  '--------------'        |---|
+                          | 0 |  intArray[1]
+                          |---|
+                          :   :
+                          :   :
+                          |---|
+                          | 0 |  intArray[9]
+                          '---'
+
+</code></pre></div></div>
+
+<p>For all basic types, the initial value of the array is always the zero value. For <code class="language-plaintext highlighter-rouge">bool</code>, this would be <code class="language-plaintext highlighter-rouge">false</code>.</p>
+      <h3 id="arrays-of-objects">
+        
+        
+          Arrays of Objects <a href="#arrays-of-objects">#</a>
+        
+        
+      </h3>
+    
+
+<p>Arrays of Objects are declared in the same way. For example, an array of <code class="language-plaintext highlighter-rouge">Point</code>s.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Point</span> <span class="n">pArray</span><span class="o">[]</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">Points</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>And just like with basic types, the new array is zero’ed out. But recall that the value of a object variable is a memory reference. So the zero’ed out value is <code class="language-plaintext highlighter-rouge">null</code>. <em>You still have to instantiate each of the <code class="language-plaintext highlighter-rouge">Point</code> objects of the array</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+      <span class="n">pArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>As a memory diagram, we would have the following</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  STACK                    HEAP
+                                 .-------.
+  .------------.        .---. .-&gt;| x | 0 |
+  | pArray | .-+-----&gt;  | .-+-'  |-------| pArray[0]
+  '------------'        |---|    | y | 0 |
+                        | .-+-.  '-------' 
+                        |---| |  .-------.
+                        :   : '-&gt;| x | 1 |
+                        :   :    |-------| pArray[1]
+                        |---|    | y | 1 |
+                        | .-+-.  '-------'
+                        '---' |     :
+                Array Object  |     :
+                              |  .-------.
+                              '-&gt;| x | 9 |
+                                 |-------| pArray[9]
+                                 | y | 9 |
+                                 '-------'
+                                 
+                                 Point Objects
+</code></pre></div></div>
+      <h3 id="using--to-allocate-an-array">
+        
+        
+          Using <code class="language-plaintext highlighter-rouge">{}</code> to allocate an array <a href="#using--to-allocate-an-array">#</a>
+        
+        
+      </h3>
+    
+
+<p>You can also allocate arrays without a <code class="language-plaintext highlighter-rouge">new</code> call by specifying directly using <code class="language-plaintext highlighter-rouge">{}</code> and the initial values. This works for both basic array types and object array types.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kt">int</span> <span class="n">intArray</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">};</span>
+  <span class="nc">Point</span> <span class="n">pArray</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">),</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">)};</span>
+</code></pre></div></div>
+
+<p>Even when using initial value allocation, it’s still an allocation. Under the covers, Java calls <code class="language-plaintext highlighter-rouge">new</code>, allocates the array, and assigns the initial values for you.</p>
+      <h3 id="iterating-over-an-array">
+        
+        
+          Iterating over an Array <a href="#iterating-over-an-array">#</a>
+        
+        
+      </h3>
+    
+
+<p>Arrays, as objects, carry with them data and methods to support different operation. Most immediate is that an array object stores its length, which you can use to assure you do not access beyond the range of the array. If you do, this throws an exception, and if not caught, your program crashes.</p>
+
+<p>Using the length member, we can simply iterate over the array using indexes. Here’s a routine that prints the distance between consecutive points in the array.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Point</span> <span class="n">lastPoint</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pArray</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span><span class="n">lastPoint</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"dist(%s, %s) = %.2f\n"</span><span class="o">,</span>
+                             <span class="n">lastPoint</span><span class="o">,</span>
+                             <span class="n">pArray</span><span class="o">[</span><span class="n">i</span><span class="o">],</span>
+                             <span class="n">lastPoint</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">pArray</span><span class="o">[</span><span class="n">i</span><span class="o">]));</span>
+       <span class="o">}</span>
+       <span class="n">lastPoint</span> <span class="o">=</span> <span class="n">pArray</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+
+<p>However, you may notice that this is a bit wasteful because <code class="language-plaintext highlighter-rouge">i</code> is only used for indexing. Instead, it would be nice to use a for-each semantic, where we say “for each point in the array” without the index. Java provides a way to simplify iteration when the “for-each” semantic is desired.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Point</span> <span class="n">lastPoint</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p</span> <span class="o">:</span> <span class="n">pArray</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span><span class="n">lastPoint</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"dist(%s, %s) = %.2f\n"</span><span class="o">,</span>
+                             <span class="n">lastPoint</span><span class="o">,</span>
+                             <span class="n">p</span><span class="o">,</span>
+                             <span class="n">lastPoint</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p</span><span class="o">));</span>
+       <span class="o">}</span>
+       <span class="n">lastPoint</span> <span class="o">=</span> <span class="n">p</span><span class="o">;</span>
+   <span class="o">}</span>
+</code></pre></div></div>
+
+<p>At each step the iteration, <code class="language-plaintext highlighter-rouge">p</code> gets assigned the next <code class="language-plaintext highlighter-rouge">Point</code> in the array, without having to use the index feature. Any object that implements <code class="language-plaintext highlighter-rouge">Iterable</code> can be used in this syntax.</p><hr />
+<p>Material on this page adopted  with permission from <a href="https://www.usna.edu/Users/cs/nchamber/courses/ic211/s19/index.html">USNA courses ic211</a>, taught by Nate Chambers, Gavin Taylor, Chris Brown, and many others. Thank you.</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

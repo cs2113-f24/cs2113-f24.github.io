@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/6" />
+<meta property="og:url" content="http://localhost:4000/j/6" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/6"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#java-io">Java I/O</a><ul><li><a href="#reading--whats-the-problem">Reading … What’s the problem?</a></li><li><a href="#bytes-chars-or-tokens">Bytes, Chars or Tokens?</a></li><li><a href="#treat-multiple-sources-of-input-in-a-uniform-way">Treat multiple sources of input in a uniform way</a></li><li><a href="#flexibility-to-add-new-operations-improve-efficiency-or-modify-input-streams-on-the-fly">Flexibility to add new operations, improve efficiency, or modify input streams on the fly</a></li><li><a href="#a-short-note-on-output">A short note on output</a></li></ul></li><li><a href="#networking">Networking</a><ul><li><a href="#what-is-the-internet">What is the internet?</a><ul><li><a href="#packet-switching">Packet Switching</a></li><li><a href="#the-tcpip-protocol-stack">The TCP/IP Protocol Stack</a></li></ul></li><li><a href="#internet-addressing">Internet Addressing</a><ul><li><a href="#ip-addresses">IP Addresses</a></li><li><a href="#domain-names-and-hosts">Domain Names and Hosts</a></li><li><a href="#ports">Ports</a></li></ul></li><li><a href="#clientserver-model">Client/Server Model</a><ul><li><a href="#reliable-transportation-tcp">Reliable Transportation: TCP</a></li><li><a href="#unreliable-transport-udp">Unreliable Transport: UDP</a></li></ul></li></ul></li><li><a href="#networking-command-line-tool-netcat">Networking Command Line Tool: <code class="language-plaintext highlighter-rouge">netcat</code></a><ul><li><a href="#netcat-client"><code class="language-plaintext highlighter-rouge">netcat</code> client</a></li><li><a href="#netcat-server"><code class="language-plaintext highlighter-rouge">netcat</code> Server</a></li></ul></li><li><a href="#socket-programming-in-java">Socket Programming in Java</a><ul><li><a href="#the-socket-class">The <code class="language-plaintext highlighter-rouge">Socket</code> class</a></li><li><a href="#the-serversocket-class">The <code class="language-plaintext highlighter-rouge">ServerSocket</code> class</a></li><li><a href="#threaded-echo-socket-server">Threaded Echo Socket Server</a></li></ul></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSMAnMTQ5Lh5kXGW6Ofjb1uD">single playlist on youtube</a></em></p>
+      <h1 id="java-io">
+        
+        
+          Java I/O <a href="#java-io">#</a>
+        
+        
+      </h1>
+    
+
+<p>A common place where Java programmers first really experience inheritance and polymorphism in action is with I/O (input/output), so let’s take a look at it now. Not only is it something you should know as a Java programmer, but it gives us a nice case study in object oriented design. So we’re going to first try to understand the problem: what requirements do we really have of an I/O system? Then we’ll see how the Java IO package’s object oriented design meets those goals.</p>
+      <h2 id="reading--whats-the-problem">
+        
+        
+          Reading … What’s the problem? <a href="#reading--whats-the-problem">#</a>
+        
+        
+      </h2>
+    
+
+<p>I/O (input and output) is kind of what programs are all about. If we couldn’t instruct the program as to our intentions or we couldn’t somehow perceive the results produced by the program, what would be the point in running it? In this lesson we look at byte and character I/O — I/O concerning files, buffers in memory, network connections, things like that. GUI I/O will be covered later.</p>
+
+<p>Designing a system for handling I/O is a daunting problem for language/library/API developers. These operations are so ubiquitous in programs that getting it wrong means making pretty much every program anyone ever writes more difficult, and getting it right means making pretty much every program anyone ever writes easier. So, let’s consider some desirable properties, some design goals, regarding reading, i.e. the “input” half of I/O. In particular, we’ll look at stream-oriented input and output.</p>
+
+<ul>
+  <li>
+    <p><strong>Bytes or chars or tokens?</strong> Fundamentally, all data in the modern computing world is byte-oriented, and oftentimes we want to read data that way. On the other hand, often we want to read textual data - i.e. data that is character-oriented. In C, where char’s and bytes are synonymous, we don’t need to distinguish between the two. In Java, however, where characters are unicode and not generally single-byte values, we very much have to distinguish between the two. Sometimes the programmer will want to read bytes, sometimes characters, and sometimes tokens - like the textual representations of doubles or booleans.</p>
+  </li>
+  <li>
+    <p><strong>Treat multiple sources of input in a uniform way Input can come from many different sources:</strong> files, network connections, standard in, strings, arrays of bytes, arrays of characters, pipes. etc. We saw in writing C that writing functions that took an <code class="language-plaintext highlighter-rouge">FILE *</code> stream argument, which could equally take a <code class="language-plaintext highlighter-rouge">inputfilestream</code> or <code class="language-plaintext highlighter-rouge">stdin</code>, was a powerful idea. This is just an example of the power of treating multiple sources of input in a uniform way, i.e. with one programming construct that applies to many different actual sources of input.</p>
+  </li>
+  <li>
+    <p><strong>Flexibility to add new operations, improve efficiency, or modify input streams on the fly:</strong> With something as universally used as stream-oriented I/O, there’s no way to design a system that will meet everyone’s needs all of the time. Therefore, the system needs to provide programmers the flexibility to change how things work without abandoning or breaking the whole system.</p>
+  </li>
+</ul>
+      <h2 id="bytes-chars-or-tokens">
+        
+        
+          Bytes, Chars or Tokens? <a href="#bytes-chars-or-tokens">#</a>
+        
+        
+      </h2>
+    
+
+<p>The Java I/O design takes into account issue 1 from the above in a typically OOP way, by having three separate classes of input objects.</p>
+
+<ul>
+  <li><strong>abstract class <a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html">InputStream</a></strong> for byte-based input.
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">read</span><span class="o">();</span> <span class="c1">//returns an int from 0 to 255</span>
+          <span class="c1">//or -1 if at the end of the stream</span>
+<span class="kt">int</span> <span class="nf">read</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">b</span><span class="o">,</span> <span class="kt">int</span> <span class="n">off</span><span class="o">,</span> <span class="kt">int</span> <span class="n">len</span><span class="o">);</span>
+<span class="kt">void</span> <span class="nf">close</span><span class="o">();</span>
+<span class="o">...</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>abstract class <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html">Reader</a></strong> for character-based input
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">read</span><span class="o">();</span> <span class="c1">//returns an int from 0 to 65535</span>
+          <span class="c1">//or -1 if at the end of the stream</span>
+<span class="kt">int</span> <span class="nf">read</span><span class="o">(</span><span class="kt">char</span><span class="o">[]</span> <span class="n">cbuf</span><span class="o">,</span> <span class="kt">int</span> <span class="n">off</span><span class="o">,</span> <span class="kt">int</span> <span class="n">len</span><span class="o">);</span>
+<span class="kt">void</span> <span class="nf">close</span><span class="o">();</span>
+<span class="o">...</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>class <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a></strong> for token-based input
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="nf">next</span><span class="o">();</span>
+<span class="kt">int</span> <span class="nf">nextInt</span><span class="o">();</span>
+<span class="kt">double</span> <span class="nf">nextDouble</span><span class="o">();</span>
+<span class="o">...</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>As a programmer, you have to figure out how you want to read data in. Would you like to read a byte or chunk of bytes at a time? Then you want an InputStream object. Would you like to read a character or chunk of characters at a time? Then you want a Reader object. Would you like to read a token at a time, e.g. a double at a time or String at a time or boolean at a time? Then you want a Scanner object. So far, we’ve focused on reading tokens (an int or word or float) at a time.</p>
+      <h2 id="treat-multiple-sources-of-input-in-a-uniform-way">
+        
+        
+          Treat multiple sources of input in a uniform way <a href="#treat-multiple-sources-of-input-in-a-uniform-way">#</a>
+        
+        
+      </h2>
+    
+
+<p>Here’s how the Java IO system uses OOP to allow multiple sources of input to be treated in a uniform way. First of all, the InputStream and Reader classes are abstract. They are the roots of class hierarchies. Specific sources of bytes of data give rise to classes that extend InputStream. For example, in the API we have:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           InputStream
+               ^  ^
+              /    \
+             /      \
+FileInputStream   ByteArrayInputStream
+</code></pre></div></div>
+
+<p>So if, for example, you want to write code to search for the bytes 0x7F 0x45 0x4C 0x46, which indicates the beginning of a Executable and Linkable Format (ELF) file (i.e. an executable file in Unix, or what <code class="language-plaintext highlighter-rouge">gcc</code> compiles a program into 😜), you would write your method to take an InputStream argument. That way the same method works for both files and byte arrays.</p>
+
+<p>Similarly, specific sources of characters give rise to classes that extend Reader. For example, in the API we have:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>              Reader &lt;-._
+             ^   ^       \____
+            /     \           \
+           /       \           \
+StringReader  CharArrayReader  InputStreamReader
+</code></pre></div></div>
+
+<p>So, if you wanted to write code to count the number of non-alphabetical characters in text, you would write that method to take a Reader argument. That way the same method works for Strings, arrays of chars and (and this is interesting!) any InputStream — because we can make an <code class="language-plaintext highlighter-rouge">InputStream</code> the source of characters for a Reader via the InputStreamReader class! If you look at the API documentation for <a href="https://docs.oracle.com/javase/8/docs/api/java/io/InputStreamReader.html">InputStreamReader</a>, the InputStreamReader constructors take an InputStream as a parameter. And yes, if you’re wondering <code class="language-plaintext highlighter-rouge">System.in</code> is an InputStream, so you can create an <code class="language-plaintext highlighter-rouge">InputStreamReader</code> from <code class="language-plaintext highlighter-rouge">System.in</code>.</p>
+
+<p>Finally, we have our good friend the Scanner.</p>
+
+<p>Class Scanner has constructors that take <code class="language-plaintext highlighter-rouge">InputStreams</code> or <code class="language-plaintext highlighter-rouge">Readers</code> as arguments. So if you wanted to write code to do something like add all the integers in some text, you would write that method to take a Scanner as an argument. That way it would work with files, byte arrays, char arrays or Strings. Putting this together, if you have a file whose name is “data.txt” and you want to read in tokens from it (e.g. ints and double and booleans and strings), you would create a scanner for it like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"data.txt"</span><span class="o">)));</span>
+<span class="cm">/*                                              \_____________________________/
+                                                 an InputStream whose bytes
+                                                 come from file data.txt
+                         \____________________________________________________/
+                          a Reader whose chars come from the bytes in data.txt
+             \_________________________________________________________________/
+    a Scanner whose tokens are made up of chars whose bytes come from data.txt
+*/</span>
+</code></pre></div></div>
+
+<p>There are some shortcuts to all of this. So-called “convenience methods” to make, for example, a Reader directly from a file name.</p>
+
+<blockquote>
+  <p>Two important points here:</p>
+  <ol>
+    <li>Technically there is no <code class="language-plaintext highlighter-rouge">Scanner</code> constructor that takes a <code class="language-plaintext highlighter-rouge">Reader</code> as a parameter. Instead, it takes an object that implements the <code class="language-plaintext highlighter-rouge">Readable</code> interface. However, <code class="language-plaintext highlighter-rouge">Reader</code> implements <code class="language-plaintext highlighter-rouge">Readable</code>, so this constructor works with <code class="language-plaintext highlighter-rouge">Readers</code>, but is in fact a bit more general than that.</li>
+    <li>The <code class="language-plaintext highlighter-rouge">Scanner</code> constructor that takes an InputStream as an argument is actually just a convenience thing. You only really need the constructor that takes a <code class="language-plaintext highlighter-rouge">Reader</code> as an argument. Why is that enough?</li>
+  </ol>
+</blockquote>
+      <h2 id="flexibility-to-add-new-operations-improve-efficiency-or-modify-input-streams-on-the-fly">
+        
+        
+          Flexibility to add new operations, improve efficiency, or modify input streams on the fly <a href="#flexibility-to-add-new-operations-improve-efficiency-or-modify-input-streams-on-the-fly">#</a>
+        
+        
+      </h2>
+    
+
+<p>Finally we get to the third and last of our design goals: the flexibility to add new operations, improve efficiency, or modify input streams on the fly. When we want to modify or extend functionality in OOP, what do we always do? We use inheritance. I’ll give you two examples of where this is done in the Java API, one to modify behavior and one to add functionality.</p>
+
+<p>The first is the class <a href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>. The issue <code class="language-plaintext highlighter-rouge">BufferedReader</code> addresses is this: when a call to <code class="language-plaintext highlighter-rouge">read()</code> is made for a <code class="language-plaintext highlighter-rouge">Reader</code> that has, for example, a file as its ultimate source for data, that call results at some lower level in a system call to fetch that byte. At this low level, however, fetching a byte-at-a-time is tremendously inefficient. It typically takes as much time to fetch something like 1024 or 2048 bytes as it does a single byte. Therefore, it would be nice to have a variant of Reader that would fetch, say, 1024 bytes into a buffer the first time <code class="language-plaintext highlighter-rouge">read()</code> is called, then dole those out one-at-a-time for each <code class="language-plaintext highlighter-rouge">read()</code> call until the buffer is emptied. Only then would it go back to fetch more bytes from the lower-level — another chunk of 1024. That’s what the class <code class="language-plaintext highlighter-rouge">BufferedReader</code> does. What’s kind of funny is that it does it as a wrapper around another <code class="language-plaintext highlighter-rouge">Reader</code>. In other words, <code class="language-plaintext highlighter-rouge">BufferedReader</code> is a <code class="language-plaintext highlighter-rouge">Reader</code> that takes a <code class="language-plaintext highlighter-rouge">Reader</code> and wraps it in this buffering scheme. So for example, if you had a file <code class="language-plaintext highlighter-rouge">data.txt</code> to read tokens (e.g. integers) from, and you were worried about performance, you might create your Scanner like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Scanner</span> <span class="n">sc1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"data.txt"</span><span class="o">))));</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">BufferedReader</code> will make calls like <code class="language-plaintext highlighter-rouge">read(buff,0,1024)</code> to its underlying <code class="language-plaintext highlighter-rouge">InputStreamReader</code>, which will make a call like <code class="language-plaintext highlighter-rouge">read(buff,0,1024)</code> to its underlying <code class="language-plaintext highlighter-rouge">FileInputStream</code>, which will result in a lower-level system call to fetch the next 2024 bytes from the file. The object oriented design of Java’s I/O package makes this possible. By deriving <code class="language-plaintext highlighter-rouge">BufferedReader</code> from <code class="language-plaintext highlighter-rouge">Reader</code>, the Java authors provide modified functionality that can be used anywhere a regular Reader can be used.</p>
+
+<p>The second example to look at is the class <a href="https://docs.oracle.com/javase/8/docs/api/java/io/LineNumberReader.html">LineNumberReader</a>, which is much easier to explain. Sometimes you want to be able to ask what line you’re on as you read input. The <code class="language-plaintext highlighter-rouge">BufferedReader</code> is a great class that buffers the input for you, making the reading process more efficient by making less calls to the input stream. However, it doesn’t track things like what number you are on. It’s an extra piece of functionality you might wish a <code class="language-plaintext highlighter-rouge">BufferedReader</code> had. The class <code class="language-plaintext highlighter-rouge">LineNumberReader</code> extends <code class="language-plaintext highlighter-rouge">BufferedReader</code> to provide just that, and it takes any <code class="language-plaintext highlighter-rouge">Reader</code> as input. We can create one like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LineNumberReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LineNumberReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"data.txt"</span><span class="o">)));</span>
+</code></pre></div></div>
+
+<p>… and whenever you want to know what line number you’re on you can call <code class="language-plaintext highlighter-rouge">r.getLineNumber()</code>. Once again, the object oriented design of Java’s I/O package makes this possible. By deriving <code class="language-plaintext highlighter-rouge">LineNumberReader</code> from <code class="language-plaintext highlighter-rouge">BufferedReader</code>, the Java authors provide new functionality that can use any type of input stream, yet still track the lines that have been processed. What if you still want a Scanner? You can create one for each line that your new reader returns:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">LineNumberReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LineNumberReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">FileInputStream</span><span class="o">(</span><span class="s">"data.txt"</span><span class="o">)));</span>
+<span class="nc">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span> <span class="n">line</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+      
+  <span class="c1">// read your tokens for whatever you need!</span>
+  <span class="c1">// ...</span>
+      
+  <span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"You're on line "</span> <span class="o">+</span> <span class="n">reader</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">());</span>      
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We could dive deeper into the weeds here and talk about what would happen if you wrap a <code class="language-plaintext highlighter-rouge">Scanner</code> around a <code class="language-plaintext highlighter-rouge">LineNumberReader</code> (<code class="language-plaintext highlighter-rouge">new Scanner(new LineNumberReader(...))</code>). While this is allowed (it’s a Reader!), you kind of lose the line number functionality because the <code class="language-plaintext highlighter-rouge">Scanner</code> is using the buffered characteristics of the reader here, and it reads ahead while you’re calling its <code class="language-plaintext highlighter-rouge">next()</code> methods. If you ask for the line number, it will often be too far. Still, it could be useful in getting the general line number if not the precisely correct one.</p>
+
+<blockquote>
+  <p><strong>And then …</strong></p>
+
+  <p>And then we should probably look at the Errors and Exceptions that all these &gt; methods from all these classes throw … but we won’t. You can do that on your own!</p>
+</blockquote>
+      <h2 id="a-short-note-on-output">
+        
+        
+          A short note on output <a href="#a-short-note-on-output">#</a>
+        
+        
+      </h2>
+    
+
+<p>Output is fundamentally a bit easier than input. Why? Because with output your code knows what it wants to write, so it controls the outgoing bytes. With input, your code doesn’t know what’s coming. It must react and adapt to the incoming bytes. So we’re not going to describe output in as much detail.</p>
+
+<p>Similar to the input case, we have two separate hierarchies for output: the hierarchy rooted at <code class="language-plaintext highlighter-rouge">OutputStream</code>, which is for byte-oriented output, and the hierarchy rooted at <code class="language-plaintext highlighter-rouge">Writer</code>, which is for character-oriented output. The distinction is a bit blurrier than for the input case, because the class <code class="language-plaintext highlighter-rouge">PrintStream</code>, which is derived from <code class="language-plaintext highlighter-rouge">OutputStream</code>, provided methods for writing int’s, double’s, String’s, etc., as does <code class="language-plaintext highlighter-rouge">PrintWriter</code>, which is derived from <code class="language-plaintext highlighter-rouge">Writer</code>. The distinction has to do with how characters are encoded as bytes: <code class="language-plaintext highlighter-rouge">PrintStream</code> using the JVM’s default encoding and <code class="language-plaintext highlighter-rouge">PrintWriter</code> allowing the programmer to independently specify that encoding. These are distinctions we won’t go into here. Note, however, that <code class="language-plaintext highlighter-rouge">System.out</code> and <code class="language-plaintext highlighter-rouge">System.err</code> are both <code class="language-plaintext highlighter-rouge">PrintStream</code> objects.</p>
+
+<p>Just to round out this example, let’s look at what it would take to write “Hello World” to a file.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nc">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintWriter</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"output.txt"</span><span class="o">));</span> 
+<span class="c1">//Note that we are not specifiying a character set. Java defaults to unicode</span>
+
+<span class="n">pw</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+<span class="n">pw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">//close the file</span>
+</code></pre></div></div>
+
+<p>As you can see, printing/writing is much more straightforward than reading.</p>
+      <h1 id="networking">
+        
+        
+          Networking <a href="#networking">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="what-is-the-internet">
+        
+        
+          What is the internet? <a href="#what-is-the-internet">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <strong>Internet</strong> by definition is a network of networks composed of computers. As a non-technical term, we use the term Internet as a catchall for all connected computers, but in technical terms, it is just one part of a larger ecosystem of networks and protocols that enable the sharing of information.</p>
+
+<p>This is not a class on networking or the internet, but the ability to communicate over a network is an integral part of modern programming that fits nicely within the OOP models of IO we’ve been discussing with Java so far. But, to really understand network programming, you have to first have a decent understanding of the protocols that underly the Internet, and one thing you learn quickly about network programming is that the protocol is king. Understanding the protocols is will make you a better programmer.</p>
+      <h3 id="packet-switching">
+        
+        
+          Packet Switching <a href="#packet-switching">#</a>
+        
+        
+      </h3>
+    
+
+<p>The internet is a <strong>packet switched</strong> network. A packet is defined as follows:</p>
+
+<p><img src="/images/network-packet.png" alt="Networking Packet" width="80%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>All packets have a header, which stores the address or destination of a packet, and a payload which stores the data or message of the packet. The switching part of packet switching is that at network devices, like routers and switches, the packet arrives, and based solely on the header of the packet, the device knows where to send the data next. There are no pre-defined routs for data but the protocols ensure that the next hop in the path to the destination can be determined. As you might imagine, in such a model, addressing becomes very important.</p>
+      <h3 id="the-tcpip-protocol-stack">
+        
+        
+          The TCP/IP Protocol Stack <a href="#the-tcpip-protocol-stack">#</a>
+        
+        
+      </h3>
+    
+
+<p>The Internet is modelled as a protocol stack where each protocol defines a different interaction layer. Information flows up and down the protocol stack, and at each layer, a different protocol comes to bare for forwarding the packet onward to the next hop.</p>
+
+<p><img src="/images/network-osi.png" alt="Networking Stack" width="80%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Each layer has different goal in mind. Starting with the physical layer, the main purpose is to actually transmit 1’s and 0’s over medium, like a wire. The link layer adds protocols for how the medium is shared across many connected devices, as well as error correction. An example of protocols on the link layer is ethernet or wifi.</p>
+
+<p>The internet and transport layer of are particular interest in this class because you will interact directly with these protocol through their addressing schemes. The purpose of the internet layer is to inter-connect networks; for example,e GW has a network, and if you want to send data to Google, your packets must traverse GW network and potentially many other federated networks before finally reaching a server at Google. The internet layer both describes the protocols for how networks inter connect with each other and the way that computers are identified, via the internet protocol address or ip address.</p>
+
+<p>At a certain point, though, two processes running on different computers are actually sending and receiving data across the vastness of the Internet. The transport layer provides an abstraction for those two process to apear as if they are communicating directly with each other. Since many process can be communicating on the network at the same time, the transport layer also provides a mechanism, called ports, to differentiate communication destined for one process versus another.</p>
+
+<p>Finally, at the application layer, additional protocols are available depending on the task at hand. For example, SMTP is used to transmit email messages and HTTP is used to download web content and BitTorrent is used to pirate music and videos :) From a generic programmers perspective, the application layer is the domain where we get to choose what data is sent and received and how that data is interpreted; the systems programming perspective also concerns itself with system calls that enable that communication.</p>
+      <h2 id="internet-addressing">
+        
+        
+          Internet Addressing <a href="#internet-addressing">#</a>
+        
+        
+      </h2>
+    
+
+<p>Each layer has its own addressing scheme and information needed to perform routing/switching. This information is traditionally encoded within the header of the packet. There are two key addressing systems that we will use in this class, ip addresses and ports. Additionally, we also refer to computers by name, a domain name, which must be translated into an address.</p>
+      <h3 id="ip-addresses">
+        
+        
+          IP Addresses <a href="#ip-addresses">#</a>
+        
+        
+      </h3>
+    
+
+<p>An ip address is a 4-byte/32-bit number in Version 4 of TCP/IP protocol. We usually represented in a dotted quad notation:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     4-bytes
+ _____________
+/             \
+192.168.128.101
+\_/
+ |
+1 byte
+</code></pre></div></div>
+
+<p>A byte is 8-bits, and thus can represent numbers between 0-255, which is why ip addresses do not have numbers greater than 255. The ip address is hierarchical where bytes to the left are more general while bytes to the right are more general. Based on a subset of the bytes, routers can determine where to send a packet next.</p>
+      <h3 id="domain-names-and-hosts">
+        
+        
+          Domain Names and Hosts <a href="#domain-names-and-hosts">#</a>
+        
+        
+      </h3>
+    
+
+<p>While IP addresses are somewhat usable, it is quite a burden to memorize the ip address of all the computers we might want to vist on the web. For exampel, while I might know the ip address of a single computer off hand, e.g., “10.53.37.142” is the ip address of a lab machine, I can’t recall the ip address of Google or Facebook or much of anything else.</p>
+
+<p>Instead, we use domain names to identify a networked device. A hostname, is a dotted string of names, usually ending in the canonical .com or .org or .edu or .gov or etc. For example, the domain name for Google is google.com, but the Internet does not function on domain names. It needs IP addresses. A separate protocol called the Domain Name Service or DNS is tasked with converting domain names into IP addresses.</p>
+
+<p>We can access the DNS system on Unix through the host command. For example, suppose we wanted to learn the IP address of google.com:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; google.com
+google.com has address 74.125.228.110
+google.com has address 74.125.228.103
+google.com has address 74.125.228.96
+google.com has address 74.125.228.99
+google.com has address 74.125.228.104
+google.com has address 74.125.228.101
+google.com has address 74.125.228.102
+google.com has address 74.125.228.97
+google.com has address 74.125.228.100
+google.com has address 74.125.228.105
+google.com has address 74.125.228.98
+google.com has IPv6 address 2607:f8b0:4004:803::1003
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 10 aspmx.l.google.com.
+google.com mail is handled by 50 alt4.aspmx.l.google.com.
+</code></pre></div></div>
+
+<p>The output may not be what you expect. There are many, many different IP addresses available to server google.com, and this is by intention to balance the load of request across multiple machines. In fact, every time you rerun host, you’ll find that you get a different set of IP address:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; host google.com
+google.com has address 74.125.228.104
+google.com has address 74.125.228.101
+google.com has address 74.125.228.102
+google.com has address 74.125.228.97
+google.com has address 74.125.228.100
+google.com has address 74.125.228.105
+google.com has address 74.125.228.98
+google.com has address 74.125.228.110
+google.com has address 74.125.228.103
+google.com has address 74.125.228.96
+google.com has address 74.125.228.99
+google.com has IPv6 address 2607:f8b0:4004:803::1003
+google.com mail is handled by 50 alt4.aspmx.l.google.com.
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 10 aspmx.l.google.com.
+</code></pre></div></div>
+
+<p>If we were to query a less used domain name, one that isn’t serving as much traffic as google, we get IP addresses that are a bit more sane. For example, let’s see what the IP addresses are for <code class="language-plaintext highlighter-rouge">www.cs.gwu.edu</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ host www.cs.gwu.edu
+www.cs.gwu.edu is an alias for www2old.gwu.edu.
+www2old.gwu.edu has address 161.253.128.45
+</code></pre></div></div>
+
+<p>Interesting, you can see that <code class="language-plaintext highlighter-rouge">www.cs.gwu.edu</code> is an analias for another domain <code class="language-plaintext highlighter-rouge">www2old.gwu.edu</code>, which in turn has a stable IP address <code class="language-plaintext highlighter-rouge">161.253.128.45</code>.</p>
+      <h3 id="ports">
+        
+        
+          Ports <a href="#ports">#</a>
+        
+        
+      </h3>
+    
+
+<p>The last bits of addressing relevant to this class is the port address. While the IP address is used to deliver packets to a destination computer, the port address is used to deliver the packets on the computer to the right process. Consider that a single computer all share the same IP address, there are many different applications using that connection at the same time. You might have multiple web pages open with email and playing games and etc, each of those interactions is performed by a separate process but all the data arrives at the computer through a single point.</p>
+
+<p>The port address is a way for the Operating System to divide up the data arriving from the network based on the destination process. Additionally, ports tend to be tightly coupled with applications. For example, to initiate a HTTP connection for web browsing, you connect using port 80; to initiate a secure shell connection with ssh, you connect using port 22; and, to initiate a connection to send email, you connect using port 25, and so on. What makes ports important is that all those services, web server, ssh, and email, can all be running on the same computer. The ports allows the operating system differentiate traffic for each application.</p>
+      <h2 id="clientserver-model">
+        
+        
+          Client/Server Model <a href="#clientserver-model">#</a>
+        
+        
+      </h2>
+    
+
+<p>Most interactions of applications are dictated by the client-server model. In this model there exists clients who are requesting a services for a server.</p>
+
+<p><img src="/images/network-client-server.png" alt="Client Server Diagram" width="60%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>In the model, we describe clients as connecting to servers and servers listening to incoming connections. When a connection is established, or data is received, the server replies to the client with data as required by the application protocol.</p>
+
+<p>While this class will focus on the client server model, there are other models of network interaction. For example, the peer-to-peer model is when clients act as both client and servers. This is common for many distributed systems, such as BitTorrent or Skype.</p>
+      <h3 id="reliable-transportation-tcp">
+        
+        
+          Reliable Transportation: TCP <a href="#reliable-transportation-tcp">#</a>
+        
+        
+      </h3>
+    
+
+<p>The client server model fits into the protocol stack at the transport layer. There are typically two types of transport available for programmers, reliable and unreliable transport. Interestingly, none of the protocols in lower layers ensure any reliability — at any time packets can be drop, misrouted, delayed, or generally deformed without notice. The fact that such things can happen on the network is actually a positive because the lower layers can be much more efficient without having to worry about reliable delivery.</p>
+
+<p><img src="/images/network-TCP.png" alt="Network TCP" width="35%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+      <h3 id="unreliable-transport-udp">
+        
+        
+          Unreliable Transport: UDP <a href="#unreliable-transport-udp">#</a>
+        
+        
+      </h3>
+    
+
+<p>Reliable transport has a cost, though. The cost is the retransmission of lost or deformed packets and acknowledgments of properly received packets. In order to have reliable transportation, all information must be properly acknowledged upon receipt and if a packet was not properly received, then it must be retransmitted. The result is that there exists a significant overhead, and this is worsened by the fact that not all communication needs to be reliable — dropping a few packets here and there never killed anyone, yet.</p>
+
+<p>The complementary protocol to TCP is UDP or User Datagram Protocol, which is an unreliable transport mechanism. The UDP protocol, or DATAGRAM protocol, does not make any guarentees about the delivery if a packet. It might get there … or it might not. Datagram protocols are not session driven either; without reliability, the client and the server need not stay in sync to ensure that all messages are acknowledged. Instead, a server just listens for incoming data from clients and thats that.</p>
+
+<p><img src="/images/network-udp.png" alt="Network UDP" width="35%" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>You might be wondering when would this ever be useful? UDP is quite common for a number of applications; for example, live audio streams. There is no need for audio streams to be reliable, if you miss a packet, so what, you’ll just get the next one and keep playing the music. However, if you were to do this reliably, you’d have to stop the music while missed data was retransmitted, and the result is you might keep getting further and further behind in the live stream.</p>
+      <h1 id="networking-command-line-tool-netcat">
+        
+        
+          Networking Command Line Tool: <code class="language-plaintext highlighter-rouge">netcat</code> <a href="#networking-command-line-tool-netcat">#</a>
+        
+        
+      </h1>
+    
+
+<p>Before we start to write programs to use sockets, it is useful to learn how to test these programs using the “swiss army knife” of networking command line tools, <code class="language-plaintext highlighter-rouge">netcat</code>. Also, you can use a tool called netstat to monitor your open socket connections. As a programmer, these tools are often indispensable for debugging and understanding the functionality of your program.</p>
+
+<p>Later we’ll use this to test the programs we are writing</p>
+
+<blockquote>
+  <p>Note that on a mac <code class="language-plaintext highlighter-rouge">netcat</code> command is run by using <code class="language-plaintext highlighter-rouge">nc</code></p>
+</blockquote>
+      <h3 id="netcat-client">
+        
+        
+          <code class="language-plaintext highlighter-rouge">netcat</code> client <a href="#netcat-client">#</a>
+        
+        
+      </h3>
+    
+
+<p>When working as a client, <code class="language-plaintext highlighter-rouge">netcat</code> takes two arguments:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat dest port
+</code></pre></div></div>
+
+<p>The dest is a destination address, which can either be a IP address as a dotted quad or a domain name. The port is a number representing the port address. This is all we need to make netcat act like a web client, so let’s connect to a web server</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; netcat www.cnn.com 80
+GET /index.html 
+
+
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+&lt;title&gt;CNN.com - Breaking News, U.S., World, Weather, Entertainment &amp;amp; Video News&lt;/title&gt;
+&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"/&gt;
+&lt;meta http-equiv="last-modified" content="2014-04-03T13:48:56Z"/&gt;
+&lt;meta http-equiv="refresh" content="1800;url=http://www.cnn.com/?refresh=1"/&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"/&gt;
+&lt;meta name="robots" content="index,follow"/&gt;
+(...)
+</code></pre></div></div>
+
+<p>What we’ve just done is establish a TCP connection on port 80, the HTTP port for web traffic, and make a request to the HTTP server to send us the main page for cnn.com. And it works!</p>
+      <h3 id="netcat-server">
+        
+        
+          <code class="language-plaintext highlighter-rouge">netcat</code> Server <a href="#netcat-server">#</a>
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">netcat</code> can also act as a sever by listening for incoming connections on a given port. You do this with the <code class="language-plaintext highlighter-rouge">-l</code> option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; netcat -l 1845
+</code></pre></div></div>
+
+<p>There is now a service running on 1845, netcat, and we can connect to it using another netcat client.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; netcat -l 1845
+Hello
+What's your name?
+adam
+me too, how strange.
+strange ......
+#&gt;
+</code></pre></div>    </div>
+  </div>
+</div>
+<div class="side-by-side-b">
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#&gt; netcat localhost 1845
+Hello
+What's your name?
+adam
+me too, how strange.
+strange ......
+^C
+#&gt;
+</code></pre></div>  </div>
+</div>
+<p>&lt;/div&gt;</p>
+
+<p>The domain name <code class="language-plaintext highlighter-rouge">localhost</code> refers to the current computer, this way we don’t always have to remember the IP address. In the above example, information is typed back and forth between the netcat servers and clients.</p>
+      <h2 id="socket-programming-in-java">
+        
+        
+          Socket Programming in Java <a href="#socket-programming-in-java">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now that you have a good idea of how networking works, we turn our attention to how Java enables access to networking API. At this point, it shouldn’t surprising you that this occurs via Objects and that it fits into an already established framework of I/O. That means communicating over the network in a programmatic way is similar to read/writing to files, except the endpoint is not a file, but rather a remote computer.</p>
+
+<p>Java divides socket programming into server and client programming. There are two main classes</p>
+
+<ul>
+  <li>
+    <p><a href="https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html">Socket</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html">ServerSocket</a></p>
+  </li>
+</ul>
+
+<p>We’ll review using both below. And if you want more information, Oracle offers a nice <a href="https://docs.oracle.com/javase/tutorial/networking/sockets/index.html">tutorial</a> of using sockets</p>
+      <h3 id="the-socket-class">
+        
+        
+          The <code class="language-plaintext highlighter-rouge">Socket</code> class <a href="#the-socket-class">#</a>
+        
+        
+      </h3>
+    
+
+<p>In Java, the <code class="language-plaintext highlighter-rouge">Socket</code> class is used as the <strong>client</strong> socket in a two-way communication with a <strong>server</strong>. Key to this idea is that the socket is <em>connected</em> to the server at a ipaddress/host and port. The main constructor you’ll use is</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Socket</span><span class="o">(</span><span class="nc">String</span> <span class="n">host</span><span class="o">,</span> <span class="kt">int</span> <span class="n">port</span><span class="o">);</span> 
+<span class="c1">//Creates a TCP stream socket and connects </span>
+<span class="c1">//it to the specified port number on the named host. </span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Note that all <code class="language-plaintext highlighter-rouge">Socket</code>s in java are TCP (SOCKSTREAM) sockets, if you want to use a different socket type, you’ll need to use one of the other socket classes, like <code class="language-plaintext highlighter-rouge">DatagramSocket</code>.</p>
+</blockquote>
+
+<p>Importantly, the <code class="language-plaintext highlighter-rouge">Socket</code> is to connect to the server, but communication with the server is a two-way procedure. So once we connect to the server, we can <em>both</em> read and write to the socket via the socket’s <code class="language-plaintext highlighter-rouge">InputStream</code> and <code class="language-plaintext highlighter-rouge">OutputStream</code>. And like with other I/O we can wrap those streams in other buffered readers/writers.</p>
+
+<p>Let’s start with a “Hello World” example of a client connecting to a server and writing “Hello World”. Our basic program looks like the following</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloSocket</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+
+        <span class="nc">Socket</span> <span class="n">sock</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>        
+        <span class="k">try</span><span class="o">{</span>
+           <span class="n">sock</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Socket</span><span class="o">(</span><span class="s">"localhost"</span><span class="o">,</span><span class="mi">2021</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Cannot Connect"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">try</span><span class="o">{</span>
+            <span class="nc">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintWriter</span><span class="o">(</span><span class="n">sock</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"HelloWorld"</span><span class="o">);</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">//close the stream</span>
+            <span class="n">sock</span><span class="o">.</span><span class="na">close</span><span class="o">();</span><span class="c1">//close the socket</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"IOException"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Note that we need the try/catch blocks because there are a number of errors that can occur when dealing with I/O. If we were to run this program, we first can start a <code class="language-plaintext highlighter-rouge">netcat</code> server to receive the connection on our localmachine and then run the java program.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ netcat -l 2021
+HelloWorld 
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java HelloSocket
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>The socket is two-way, so we can also “read” for input after having written to the socket. This is a small expansion of the above program</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">try</span><span class="o">{</span>
+            <span class="nc">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintWriter</span><span class="o">(</span><span class="n">sock</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"HelloWorld"</span><span class="o">);</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span> <span class="c1">//flush the output (recall PrintWriters buffer)</span>
+
+            
+            <span class="nc">BufferedReader</span> <span class="n">in</span> <span class="o">=</span>
+                <span class="k">new</span> <span class="nf">BufferedReader</span><span class="o">(</span>
+                         <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">sock</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+
+            <span class="nc">String</span> <span class="n">reply</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span><span class="c1">//read a line from ther server</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Server said: "</span><span class="o">+</span><span class="n">reply</span><span class="o">);</span>
+
+            
+            <span class="n">pw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">//close the stream</span>
+            <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span><span class="c1">//close the input stream</span>
+            <span class="n">sock</span><span class="o">.</span><span class="na">close</span><span class="o">();</span><span class="c1">//close the socket</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"IOException"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now when we run the program, we can type input after “HelloWorld” which get’s written to our client.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ netcat -l 2021
+HelloWorld
+Goodbye cruel world
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java HelloSocket
+Server said: Goodbye cruel world
+</code></pre></div>    </div>
+  </div>
+</div>
+      <h3 id="the-serversocket-class">
+        
+        
+          The <code class="language-plaintext highlighter-rouge">ServerSocket</code> class <a href="#the-serversocket-class">#</a>
+        
+        
+      </h3>
+    
+
+<p>The server side of this works pretty much like the client side, except for an additional step of the server needing to <em>accept</em> an incoming connect. The key class is the <code class="language-plaintext highlighter-rouge">ServerSocket</code> which we initialize like so</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">ServerSocket</span> <span class="n">serverSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServerSocket</span><span class="o">(</span><span class="n">portNumber</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">portNumber</code> is which port we want to be listening for on an incoming connection.  Once the <code class="language-plaintext highlighter-rouge">serverSocket</code> is established we call <code class="language-plaintext highlighter-rouge">accept()</code>, which returns a new <code class="language-plaintext highlighter-rouge">Socket</code> that is used to communicate with that client.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">Socket</span> <span class="n">clientSocket</span> <span class="o">=</span> <span class="n">serverSocket</span><span class="o">.</span><span class="na">accept</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Importantly, the server socket can accept more connections from other client sockets. That is why a new socket is created for each client.</p>
+
+<p>To demonstrate this, we want to create a “Hello World” server that writes “Hello World” every time you connect to it. We put the accept call in a loop.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloServer</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+
+        <span class="nc">ServerSocket</span> <span class="n">serverSock</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        
+        <span class="k">try</span><span class="o">{</span>
+           <span class="n">serverSock</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServerSocket</span><span class="o">(</span><span class="mi">2021</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Cannot open server socket"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">try</span><span class="o">{</span>
+
+            <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+                <span class="nc">Socket</span> <span class="n">clientSock</span> <span class="o">=</span> <span class="n">serverSock</span><span class="o">.</span><span class="na">accept</span><span class="o">();</span>
+
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Connection from: "</span><span class="o">+</span><span class="n">clientSock</span><span class="o">.</span><span class="na">getRemoteSocketAddress</span><span class="o">());</span>
+                
+                <span class="nc">PrintWriter</span> <span class="n">pw</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintWriter</span><span class="o">(</span><span class="n">clientSock</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+                <span class="n">pw</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+
+                
+                <span class="n">pw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">//close the stream</span>
+                <span class="n">clientSock</span><span class="o">.</span><span class="na">close</span><span class="o">();</span><span class="c1">//close the socket</span>
+
+                <span class="c1">//loop and get the new connection</span>
+            <span class="o">}</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"IOException"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Note that we can easily see who is connecting to the server by retrieving the remote socket address and print that out. This gives us the following output, where we continually connect to the server via netcat.</p>
+
+<div class="side-by-side">
+  <div class="side-by-side-a">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ netcat localhost 2021
+Hello World
+$ netcat localhost 2021
+Hello World
+$ netcat localhost 2021
+Hello World
+</code></pre></div>    </div>
+  </div>
+  <div class="side-by-side-b">
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java HelloServer
+Connection from: /127.0.0.1:62800
+Connection from: /127.0.0.1:62801
+Connection from: /127.0.0.1:62802
+</code></pre></div>    </div>
+  </div>
+</div>
+
+<p>Each connection comes from <code class="language-plaintext highlighter-rouge">127.0.0.1</code>, which is the IP address used when connecting within a single localhost computer. Also note that the port changes each time, that’s because once the connection is established, the server is still listening on the original port <code class="language-plaintext highlighter-rouge">2021</code>, so this new connection should use a different port</p>
+      <h3 id="threaded-echo-socket-server">
+        
+        
+          Threaded Echo Socket Server <a href="#threaded-echo-socket-server">#</a>
+        
+        
+      </h3>
+    
+
+<p>The final step in programming a sockets is to consider the threaded socket server. A threaded socket server starts a new thread for each thread so that the main thread can continue to listen to incoming connections. To understand why this would be needed, consider that in the example above that while the server is printing to the client, another client may be queued to connect. In this example, this is probably fine because the action the server does is somewhat complex, but let’s consider a more complex server that echos back to the client anything written to the socket until the client closes the socket.</p>
+
+<p>You should be able to trace the function of this program now …</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EchoSocketServer</span><span class="o">{</span>
+
+    <span class="nc">ServerSocket</span> <span class="n">serverSock</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">EchoSocketServer</span><span class="o">(</span><span class="kt">int</span> <span class="n">port</span><span class="o">){</span>
+
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">serverSock</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServerSocket</span><span class="o">(</span><span class="n">port</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Cannot establish server socket"</span><span class="o">);</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serve</span><span class="o">(){</span>
+
+        <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+            <span class="k">try</span><span class="o">{</span>
+                <span class="c1">//accept incoming connection</span>
+                <span class="nc">Socket</span> <span class="n">clientSock</span> <span class="o">=</span> <span class="n">serverSock</span><span class="o">.</span><span class="na">accept</span><span class="o">();</span>
+                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"New connection: "</span><span class="o">+</span><span class="n">clientSock</span><span class="o">.</span><span class="na">getRemoteSocketAddress</span><span class="o">());</span>
+                
+                <span class="c1">//start the thread</span>
+                <span class="o">(</span><span class="k">new</span> <span class="nc">ClientHandler</span><span class="o">(</span><span class="n">clientSock</span><span class="o">)).</span><span class="na">start</span><span class="o">();</span>
+                
+                <span class="c1">//continue looping</span>
+            <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){}</span> <span class="c1">//exit serve if exception</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">ClientHandler</span> <span class="kd">extends</span> <span class="nc">Thread</span><span class="o">{</span>
+
+        <span class="nc">Socket</span> <span class="n">sock</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">ClientHandler</span><span class="o">(</span><span class="nc">Socket</span> <span class="n">sock</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">sock</span><span class="o">=</span><span class="n">sock</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+            <span class="nc">PrintWriter</span> <span class="n">out</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+            <span class="nc">BufferedReader</span> <span class="n">in</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+            <span class="k">try</span><span class="o">{</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintWriter</span><span class="o">(</span><span class="n">sock</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+                <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">sock</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()));</span>
+
+                <span class="c1">//read and echo back forever!</span>
+                <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">){</span>
+                    <span class="nc">String</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">msg</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span> <span class="c1">//read null, remote closed</span>
+                    <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+                    <span class="n">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+                <span class="o">}</span>
+
+                <span class="c1">//close the connections</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">sock</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                
+            <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">){}</span>
+
+            <span class="c1">//note the loss of the connection</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Connection lost: "</span><span class="o">+</span><span class="n">sock</span><span class="o">.</span><span class="na">getRemoteSocketAddress</span><span class="o">());</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[]){</span>
+        <span class="nc">EchoSocketServer</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EchoSocketServer</span><span class="o">(</span><span class="mi">2021</span><span class="o">);</span>
+        <span class="n">server</span><span class="o">.</span><span class="na">serve</span><span class="o">();</span>
+    <span class="o">}</span>
+       
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>On your own, can you write an EchoClient and connect it to the server so that they go back and forth for ever!!!</p>
+</blockquote>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

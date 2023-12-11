@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/1" />
+<meta property="og:url" content="http://localhost:4000/j/1" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#extending-objects-via-inheritance-and-subtyping">Extending Objects via Inheritance and Subtyping</a><ul><li><a href="#public-interface-of-a-class">Public Interface of a Class</a></li><li><a href="#extending-a-class">Extending a Class</a><ul><li><a href="#points-and-triangles">Points and Triangles</a></li><li><a href="#inheritance-an-is-a-relationship-rather-than-a-has-a">Inheritance: an “is-a” relationship rather than a “has-a”</a></li><li><a href="#deriving-a-new-class-with-extends--adding-fields">Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — adding fields</a></li><li><a href="#deriving-a-new-class-with-extends--constructors">Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — constructors</a></li><li><a href="#deriving-a-new-class-with-extends--adding--methods">Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — adding  methods</a></li><li><a href="#deriving-a-new-class-with-extends--overwriting-methods">Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — overwriting methods</a></li><li><a href="#putting-it-all-together">Putting it all together</a></li></ul></li></ul></li><li><a href="#private-classes">Private classes</a><ul><li><a href="#extending-queue-for-size">Extending Queue for <code class="language-plaintext highlighter-rouge">size()</code></a></li><li><a href="#extending-queue-for-peek">Extending Queue for <code class="language-plaintext highlighter-rouge">peek()</code></a></li></ul></li><li><a href="#uml-diagrams">UML Diagrams</a><ul><li><a href="#classes">Classes</a></li><li><a href="#relationship-between-classes">Relationship between classes</a></li><li><a href="#using-uml-diagrams-to-plan-your-program">Using UML diagrams to (plan) your program</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSM_TFdOK8AZYIvMESjxolI6">single playlist on youtube</a></em></p>
+      <h1 id="extending-objects-via-inheritance-and-subtyping">
+        
+        
+          Extending Objects via Inheritance and Subtyping <a href="#extending-objects-via-inheritance-and-subtyping">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="public-interface-of-a-class">
+        
+        
+          Public Interface of a Class <a href="#public-interface-of-a-class">#</a>
+        
+        
+      </h2>
+    
+
+<p>In the last class, we reviewed how Java works and spent some time defining a <code class="language-plaintext highlighter-rouge">Point</code> class and a <code class="language-plaintext highlighter-rouge">Line</code> class, built using <code class="language-plaintext highlighter-rouge">Points</code>. A key idea we covered was <strong>encapsulation</strong> that the data and methods of the class should be controlled within the class such that there are no unintended side-effects from the programmer.</p>
+
+<p>Another way to view this construction is via <em>information hiding</em> and creating a <strong>public interface</strong>. That is, we encapsulated data and methods such that the programmer only need to know the public interface to the class in order to use it, the rest is hidden.</p>
+
+<p>This is an extremely important idea because often in Java, you’re only provided with the compiled <code class="language-plaintext highlighter-rouge">.class</code> file for a program, and not the source code. You may not, nor should you, know the gritty details of how a program functions, but rather just the interface. For example, you don’t need to know how the <code class="language-plaintext highlighter-rouge">dist()</code> function calculates distance, just that it will return the distance between one object and another.</p>
+      <h2 id="extending-a-class">
+        
+        
+          Extending a Class <a href="#extending-a-class">#</a>
+        
+        
+      </h2>
+    
+
+<p>You might be worried now, what if I want to modify or repurpose classes that were provided to me? If I don’t have the source code, how do I do that? Let’s work through a small example.</p>
+      <h3 id="points-and-triangles">
+        
+        
+          Points and Triangles <a href="#points-and-triangles">#</a>
+        
+        
+      </h3>
+    
+
+<p>Object oriented programming, fortunately, provides a straight forward mechanism for doing that through <strong>inheritance</strong> and <strong>sub-typing</strong>. To see how this works, let’s continue with our example of <code class="language-plaintext highlighter-rouge">Point</code> classes, but this time, let’s assume that these are all ready written and final.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span> <span class="c1">//the x,y fields</span>
+   <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">);</span> <span class="c1">//construct a point from an x,y</span>
+   <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">);</span> <span class="c1">//construct a point from another point</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getX</span><span class="o">();</span> <span class="c1">//return the x component</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getY</span><span class="o">();</span> <span class="c1">//return the y component</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">dist</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">);</span> <span class="c1">//distance to another point</span>
+   <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">();</span> <span class="c1">//return the string representation</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Point</span> <span class="nf">nextPoint</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">);</span> <span class="c1">//given a scanner, read two doubles,</span>
+                                              <span class="c1">//and return a new point</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Let’s also assume we have a <code class="language-plaintext highlighter-rouge">Triangle</code> class with some hand static methods for calculating the area of a triangle and perimeter of the triangle defined by using the <code class="language-plaintext highlighter-rouge">Point</code>. Again, we know the public interface, but not how it’s implemented.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Triangle</span> <span class="o">{</span>
+    <span class="c1">//return perimeter of the triangle defined by points p1,p2,p3</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p3</span><span class="o">);</span>
+    <span class="c1">//return the area of the triangle</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p3</span><span class="o">);</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now you can imagine how these might have been implemented, but it doesn’t matter, as long as it works and the public interface makes sense. If you’re really curious,  you can display/hide the source code by clicking below:</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.point-java').toggle('slow')">Point.java </a></li>
+</ul>
+<div class="point-java" style="display:none">
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Point.java</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Point</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getX</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">getY</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getX</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getY</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">y</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">dist</span><span class="o">(</span><span class="nc">Point</span> <span class="n">other</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">getX</span><span class="o">(),</span> <span class="mi">2</span><span class="o">)</span> <span class="o">+</span>
+                         <span class="nc">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="na">getY</span><span class="o">(),</span> <span class="mi">2</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Point</span> <span class="nf">nextPoint</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">sc</span><span class="o">.</span><span class="na">hasNextDouble</span><span class="o">())</span> <span class="o">{</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">sc</span><span class="o">.</span><span class="na">hasNextDouble</span><span class="o">())</span> <span class="o">{</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Point</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">"("</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">")"</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.triangle-java').toggle('slow')">Triangle.java</a></li>
+</ul>
+<div class="triangle-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Triangle</span> <span class="o">{</span>
+        <span class="c1">//Heron's formula</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">double</span> <span class="n">semiperm</span> <span class="o">=</span> <span class="nc">Triangle</span><span class="o">.</span><span class="na">perimeter</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">p2</span><span class="o">,</span> <span class="n">p3</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">semiperm</span> <span class="o">*</span> <span class="o">(</span><span class="n">semiperm</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p2</span><span class="o">))</span> <span class="o">*</span>
+                                        <span class="o">(</span><span class="n">semiperm</span> <span class="o">-</span> <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p3</span><span class="o">))</span> <span class="o">*</span>
+                                        <span class="o">(</span><span class="n">semiperm</span> <span class="o">-</span> <span class="n">p2</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p3</span><span class="o">)));</span>
+
+        <span class="o">}</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="o">(</span><span class="nc">Point</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p2</span><span class="o">,</span> <span class="nc">Point</span> <span class="n">p3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p2</span><span class="o">)</span> <span class="o">+</span> <span class="n">p1</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p3</span><span class="o">)</span> <span class="o">+</span> <span class="n">p2</span><span class="o">.</span><span class="na">dist</span><span class="o">(</span><span class="n">p3</span><span class="o">);</span>
+        <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+
+<p>Using these public interfaces, we can write a reasonably complex and interesting program that given four <code class="language-plaintext highlighter-rouge">Point</code>s, finds the triangle with the largest area.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LargestArea</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter four points:"</span><span class="o">);</span>
+        <span class="c1">//declare four points in an array</span>
+        <span class="nc">Point</span> <span class="n">points</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Point</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">.</span><span class="na">nextPoint</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//create all four possible triangles by group three points together</span>
+        <span class="nc">Point</span> <span class="n">triangles</span><span class="o">[][]</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">]},</span>
+                                <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]}};</span>
+
+        <span class="c1">//find the triangle with largest area!</span>
+        <span class="kt">int</span> <span class="n">maxI</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//assume it's the first, first</span>
+        <span class="kt">double</span> <span class="n">maxArea</span> <span class="o">=</span> <span class="nc">Triangle</span><span class="o">.</span><span class="na">area</span><span class="o">(</span><span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">triangles</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="kt">double</span> <span class="n">curArea</span> <span class="o">=</span> <span class="nc">Triangle</span><span class="o">.</span><span class="na">area</span><span class="o">(</span><span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                                           <span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                                           <span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+            <span class="k">if</span><span class="o">(</span> <span class="n">curArea</span> <span class="o">&gt;</span> <span class="n">maxArea</span><span class="o">){</span>
+                <span class="n">maxI</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">maxArea</span> <span class="o">=</span> <span class="n">curArea</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">//print out the max triangle</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The largest triangle is:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s %s %s\n"</span><span class="o">,</span><span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"With area %.2f\n"</span><span class="o">,</span><span class="n">maxArea</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Here an example of the output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter four points:
+1 1
+2 3
+4 5
+2 2
+The largest triangle is:
+(2.0,3.0) (4.0,5.0) (2.0,2.0)
+With area 1.00
+</code></pre></div></div>
+      <h3 id="inheritance-an-is-a-relationship-rather-than-a-has-a">
+        
+        
+          Inheritance: an “is-a” relationship rather than a “has-a” <a href="#inheritance-an-is-a-relationship-rather-than-a-has-a">#</a>
+        
+        
+      </h3>
+    
+
+<p>Let’s suppose we want to update our program so that instead of having it print the coordinates of each point, we can apply a label to each point that will print. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter four points:
+P 1 1
+Q 2 3
+R 4 5
+S 2 2
+The largest triangle is:
+Q:(2.0,3.0) R:(4.0,5.0) S:(2.0,2.0)
+With area 1.002
+</code></pre></div></div>
+
+<p>What we would really like to do to solve our problem is to go add a “label” field to the class <code class="language-plaintext highlighter-rouge">Point</code>, so that when we had chosen the three points that defined the triangle of largest area, we could simply write out their labels through a getter method. However, we can’t modify the class <code class="language-plaintext highlighter-rouge">Point</code> — we technically don’t have the source code to <code class="language-plaintext highlighter-rouge">Point</code> — and even if we could, we may want to have <code class="language-plaintext highlighter-rouge">Point</code> objects that don’t have labels.</p>
+
+<p>We already have a mechanism for using existing classes to build new classes. You use it whenever you create a class that has, for example, a <code class="language-plaintext highlighter-rouge">String</code> field (data member). We haven’t given it a special name, but if you want to know, we call this <em>composition</em> of classes. If class <code class="language-plaintext highlighter-rouge">Foo</code> has two <code class="language-plaintext highlighter-rouge">String</code> fields, for instance, we would say that <code class="language-plaintext highlighter-rouge">Foo</code> is composed of two <code class="language-plaintext highlighter-rouge">String</code>s. Composition is a <em>has-a</em> relationship. Foo “has-a” <code class="language-plaintext highlighter-rouge">String</code> field.</p>
+
+<p>If we try to combine a point and a <code class="language-plaintext highlighter-rouge">String</code> label by composition, we get a new class, maybe <code class="language-plaintext highlighter-rouge">LabPoint</code> class like below.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="o">{</span>
+   <span class="nc">Point</span> <span class="n">p</span><span class="o">;</span>
+   <span class="nc">String</span> <span class="n">label</span><span class="o">;</span>
+   <span class="c1">//...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>And it’s memory diagram would look like the following for an instance <code class="language-plaintext highlighter-rouge">lp</code> of <code class="language-plaintext highlighter-rouge">LabPoint</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  STACK           HEAP
+                                                   
+  .--------.      .-----------.        .-------.
+  | lp | .-+-----&gt;|   p   | .-+-------&gt;| x | 4 | Point
+  '----'---'      |-----------|        |-------|
+                  | label | .-+--.     | y | 5 |
+                  '-----------'  |     '-------'
+                    LabPoint     |     .-----.
+                                 '----&gt;| "R" | String
+                                       '-----'
+</code></pre></div></div>
+
+<p>This is really ugly for us. Why? Well this is no longer a point, which means that we can’t just pass three <code class="language-plaintext highlighter-rouge">LabPoint</code>s to the <code class="language-plaintext highlighter-rouge">Triangle</code> constructor anymore so that we can calculate the area, but we constantly have to pull out the “point-part” of the <code class="language-plaintext highlighter-rouge">LabPoint</code> to pass around. In fact, this class has no methods yet at all, and we’d have to recreate all the methods we already have for <code class="language-plaintext highlighter-rouge">Point</code> in the new <code class="language-plaintext highlighter-rouge">LabPoint</code> class. Either that or, we’d need to also write a new <code class="language-plaintext highlighter-rouge">Triangle</code> constructor — which we can’t because we don’t have the source code for that! So instead, we’d also need to write a <em>new</em> <code class="language-plaintext highlighter-rouge">LabTriangle</code> class with new methods to handle <code class="language-plaintext highlighter-rouge">LabPoint</code>s … it’s a mess! And this is because a LabPoint defined this way <em>has-a</em> Point, rather than <em>is-a</em> Point.</p>
+      <h3 id="deriving-a-new-class-with-extends--adding-fields">
+        
+        
+          Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — adding fields <a href="#deriving-a-new-class-with-extends--adding-fields">#</a>
+        
+        
+      </h3>
+    
+
+<p>Instead we can use <strong>inheritance</strong>, as in this new <code class="language-plaintext highlighter-rouge">LabPoint</code> is a <em>decedent</em> of <code class="language-plaintext highlighter-rouge">Point</code>, or put another way, we define <code class="language-plaintext highlighter-rouge">LabPoint</code> as <em>derived</em> from the class Point. In the Java parlance, <code class="language-plaintext highlighter-rouge">LabPoint</code> extends <code class="language-plaintext highlighter-rouge">Point</code> — which means that a <code class="language-plaintext highlighter-rouge">LabPoint</code> object <strong>is-a</strong> <code class="language-plaintext highlighter-rouge">Point</code>, but it is a <code class="language-plaintext highlighter-rouge">Point</code> with some extra features. Thus, all the code that worked for <code class="language-plaintext highlighter-rouge">Point</code>, all the methods of class <code class="language-plaintext highlighter-rouge">Point</code> and methods that take <code class="language-plaintext highlighter-rouge">Point</code>s as arguments, all still works. But we can add more! We are <em>extending</em> the class Point.</p>
+
+<p>The existing class <code class="language-plaintext highlighter-rouge">Point</code> is called the “super-class” and the new class <code class="language-plaintext highlighter-rouge">LabPoint</code> is called the “sub-class”. Sometimes, we’ll use “super-type” and “sub-type” as well, but it means the same thing.</p>
+
+<p>To derive a new class <code class="language-plaintext highlighter-rouge">LabPoint</code> from class <code class="language-plaintext highlighter-rouge">Point</code>, and add a <code class="language-plaintext highlighter-rouge">String</code> label, we would write</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="kd">extends</span> <span class="nc">Point</span> <span class="o">{</span> <span class="c1">//extend the Point</span>
+   <span class="kd">private</span> <span class="nc">String</span> <span class="n">label</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>and a  memory diagram for an an instance <code class="language-plaintext highlighter-rouge">lp</code> of <code class="language-plaintext highlighter-rouge">LabPoint</code> would look like</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  STACK           HEAP
+                           Point
+  .--------.      .----------.
+  | lp | .-+-----&gt;|   x  | 4 | 
+  '----'---'      |----------|
+                  |   y  | 5 |
+                  |..........| 
+                  |..........|    .-----.
+       extended   |label | .-+---&gt;| "R" |  String
+                  '----------'    '-----'
+                  LabPoint
+</code></pre></div></div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">lp</code> is a <code class="language-plaintext highlighter-rouge">Point</code> <strong>and</strong> and a <code class="language-plaintext highlighter-rouge">LabPoint</code> then we can call all the methods of <code class="language-plaintext highlighter-rouge">Point</code> on <code class="language-plaintext highlighter-rouge">lp</code>, including <code class="language-plaintext highlighter-rouge">dist()</code> with other <code class="language-plaintext highlighter-rouge">Points</code> or <code class="language-plaintext highlighter-rouge">LabPoints</code>, as well as <code class="language-plaintext highlighter-rouge">toString()</code>. That is, <code class="language-plaintext highlighter-rouge">LabPoint</code> inherits all the methods and data of <code class="language-plaintext highlighter-rouge">LabPoint</code>.</p>
+      <h3 id="deriving-a-new-class-with-extends--constructors">
+        
+        
+          Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — constructors <a href="#deriving-a-new-class-with-extends--constructors">#</a>
+        
+        
+      </h3>
+    
+
+<p>One problem with our new <code class="language-plaintext highlighter-rouge">LabPoint</code> is that it also inherits the <code class="language-plaintext highlighter-rouge">Point</code> constructor, but the <code class="language-plaintext highlighter-rouge">Point</code> constructor is unaware of the new field <code class="language-plaintext highlighter-rouge">label</code> we added.</p>
+
+<p>The constructor for a <code class="language-plaintext highlighter-rouge">LabPoint</code> would naturally have three values - <code class="language-plaintext highlighter-rouge">x</code>, <code class="language-plaintext highlighter-rouge">y</code>, and label <code class="language-plaintext highlighter-rouge">lab</code>. However, the constructor has to split duties and say that we want the <code class="language-plaintext highlighter-rouge">Point</code> part of the <code class="language-plaintext highlighter-rouge">LabPoint</code> to be initialized with <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>, and the label part with lab. But, once we do that, we find there is another problem.</p>
+
+<p>Consider the following constructor (which does not compile):</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//THIS DOES NOT COMPILE !!</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="kd">extends</span> <span class="nc">Point</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">label</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lab</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span> <span class="c1">//x and y inheritted from Point, but declared private</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span> <span class="c1">//can't read/write them directly</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">=</span> <span class="n">lab</span><span class="o">;</span>
+    <span class="o">}</span>
+        
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>When we try and use <code class="language-plaintext highlighter-rouge">this.x</code> we would find we get a compiler error because we’re access a private field outside the class. While, yes, <code class="language-plaintext highlighter-rouge">LabPoint</code> is a <code class="language-plaintext highlighter-rouge">Point</code>, access to private fields <em>are not</em> inherited!</p>
+
+<p>We could have declared the fields of <code class="language-plaintext highlighter-rouge">Point</code> as <code class="language-plaintext highlighter-rouge">protected</code> instead of <code class="language-plaintext highlighter-rouge">private</code>, which gives all the protections of <code class="language-plaintext highlighter-rouge">private</code> outside the class, but allows sub-classes access to the fields/methods (discussed more later). But, <strong>we cannot edit</strong> point, so how do we solve this problem? We need to set the fields in the super-class, or put another way, we need to call the constructor of the super class.</p>
+
+<p>Java provides a <code class="language-plaintext highlighter-rouge">super</code> which allows us to refer to the super-class and, in this context, allows us to explicitly call the constructor for  <code class="language-plaintext highlighter-rouge">Point</code>, initializing the <code class="language-plaintext highlighter-rouge">Point</code> part of the new object. After, we can initialize the <code class="language-plaintext highlighter-rouge">LabPoint</code> part.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="kd">extends</span> <span class="nc">Point</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">label</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="kt">double</span> <span class="no">X</span><span class="o">,</span> <span class="kt">double</span> <span class="no">Y</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lab</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span> <span class="c1">//initilize the Point part, sets x and y</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">=</span> <span class="n">lab</span><span class="o">;</span> <span class="c1">//initialize LabPoint part</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>At this point, we have a full <code class="language-plaintext highlighter-rouge">LabPoint</code> constructor that has inherited all the fields and methods from <code class="language-plaintext highlighter-rouge">Point</code>, which is great! But, we still need to make some modifications in order to leverage the new field <code class="language-plaintext highlighter-rouge">label</code>.</p>
+      <h3 id="deriving-a-new-class-with-extends--adding--methods">
+        
+        
+          Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — adding  methods <a href="#deriving-a-new-class-with-extends--adding--methods">#</a>
+        
+        
+      </h3>
+    
+
+<p>In our new <code class="language-plaintext highlighter-rouge">LabPoint</code> class, we need to add a new getter method for the <code class="language-plaintext highlighter-rouge">label</code> as it’s <code class="language-plaintext highlighter-rouge">private</code> and inaccessible otherwise. This is not a problem for <code class="language-plaintext highlighter-rouge">LabPoint</code> class, but would not have made sense for <code class="language-plaintext highlighter-rouge">Point</code> as it has no label.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getLabel</span><span class="o">()</span> <span class="o">{</span> 
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">label</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>At this point, you may notice that <code class="language-plaintext highlighter-rouge">LabPoint</code> is <em>more</em> expressive than <code class="language-plaintext highlighter-rouge">Point</code>. For starters, it has an additional data field <code class="language-plaintext highlighter-rouge">label</code> but now it also has an additional method <code class="language-plaintext highlighter-rouge">getLabel()</code>. And this is typically the case with sub-classes, they should trend to higher expressive and more specificity for the item being described. Otherwise, the super-class would have sufficed.</p>
+      <h3 id="deriving-a-new-class-with-extends--overwriting-methods">
+        
+        
+          Deriving a new class with <code class="language-plaintext highlighter-rouge">extends</code> — overwriting methods <a href="#deriving-a-new-class-with-extends--overwriting-methods">#</a>
+        
+        
+      </h3>
+    
+
+<p>We are not quite done with <code class="language-plaintext highlighter-rouge">LabPoint</code>’s definition yet because it has inherited two methods (that would still function) but are not expressive enough, yet.</p>
+
+<p>First the <code class="language-plaintext highlighter-rouge">readPoint()</code> static method which scans in a <code class="language-plaintext highlighter-rouge">Point</code> doesn’t take into account that for a <code class="language-plaintext highlighter-rouge">LabPoint</code> we need the label as well. So we can <em>overwrite</em> that method with a new version, just like we wrote our new constructor. In this case, we can take advantage of the static method <code class="language-plaintext highlighter-rouge">Point.nextPoint()</code>, so we don’t have to complete write it from scratch, but rather add just the needed functionality.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">LabPoint</span> <span class="nf">nextPoint</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(!</span> <span class="n">sc</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">lab</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span> <span class="c1">//read label</span>
+        <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">.</span><span class="na">nextPoint</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span> <span class="c1">//read point</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">p</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">//error check</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">getX</span><span class="o">(),</span> <span class="n">p</span><span class="o">.</span><span class="na">getY</span><span class="o">(),</span> <span class="n">lab</span><span class="o">);</span> <span class="c1">//return new LabPoint</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>We also need to do the same for <code class="language-plaintext highlighter-rouge">toString()</code>. The inherited version from <code class="language-plaintext highlighter-rouge">Point</code> would work fine, but doesn’t account for the <code class="language-plaintext highlighter-rouge">label</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">+</span> <span class="s">":("</span> <span class="o">+</span> <span class="n">getX</span><span class="o">()</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">getY</span><span class="o">()</span> <span class="o">+</span> <span class="s">")"</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>While the above <code class="language-plaintext highlighter-rouge">toString()</code> works fine, it is unsatisfying because we are re-implementing functionality for converting the <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> component of the <code class="language-plaintext highlighter-rouge">Point</code> to a string. Just like with the constructor, we can use the <code class="language-plaintext highlighter-rouge">super</code> keyword to access the super-classes version of <code class="language-plaintext highlighter-rouge">toString</code> to save us some time and maintain good code reuse.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+      <h3 id="putting-it-all-together">
+        
+        
+          Putting it all together <a href="#putting-it-all-together">#</a>
+        
+        
+      </h3>
+    
+
+<p>Now that our <code class="language-plaintext highlighter-rouge">LabPoint</code> class is ready to go, we can modify our <code class="language-plaintext highlighter-rouge">main</code> method from before in only a few spots, using <code class="language-plaintext highlighter-rouge">LabPoint</code> instead of <code class="language-plaintext highlighter-rouge">Point</code> to get the functionality we desired.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">//...</span>
+        <span class="nc">LabPoint</span> <span class="n">points</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LabPoint</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">LabPoint</span><span class="o">.</span><span class="na">nextPoint</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//create all four possible triangles by group three points together</span>
+        <span class="nc">LabPoint</span> <span class="n">triangles</span><span class="o">[][]</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]}};</span>
+        <span class="c1">//...</span>
+</code></pre></div></div>
+<p>The rest of the code stays the same, and in that lies the power of inheritance and extending.  Click below to see the completed versions of the code.</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.labpoint-java').toggle('slow')">LabPoint.java</a></li>
+</ul>
+<div class="labpoint-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LabPoint</span> <span class="kd">extends</span> <span class="nc">Point</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">label</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">,</span> <span class="nc">String</span> <span class="n">lab</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">=</span> <span class="n">lab</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="nc">LabPoint</span> <span class="n">lp</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">lp</span><span class="o">.</span><span class="na">getX</span><span class="o">(),</span> <span class="n">lp</span><span class="o">.</span><span class="na">getY</span><span class="o">());</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="na">getLabel</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getLabel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">label</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">LabPoint</span> <span class="nf">nextPoint</span><span class="o">(</span><span class="nc">Scanner</span> <span class="n">sc</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">sc</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">lab</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span> <span class="c1">//read label</span>
+        <span class="nc">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="nc">Point</span><span class="o">.</span><span class="na">nextPoint</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span> <span class="c1">//read point</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">p</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">LabPoint</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">getX</span><span class="o">(),</span> <span class="n">p</span><span class="o">.</span><span class="na">getY</span><span class="o">(),</span> <span class="n">lab</span><span class="o">);</span> <span class="c1">//return new LabPoint</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.largestarealab-java').toggle('slow')">LargestAreaLab.java</a></li>
+</ul>
+<div class="largestarealab-java" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LargestAreaLab</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter four points:"</span><span class="o">);</span>
+        <span class="c1">//declare four points in an array</span>
+        <span class="nc">LabPoint</span> <span class="n">points</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LabPoint</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nc">LabPoint</span><span class="o">.</span><span class="na">nextPoint</span><span class="o">(</span><span class="n">sc</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//create all four possible triangles by group three points together</span>
+        <span class="nc">LabPoint</span> <span class="n">triangles</span><span class="o">[][]</span> <span class="o">=</span> <span class="o">{</span> <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]},</span>
+                                   <span class="o">{</span><span class="n">points</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">2</span><span class="o">],</span><span class="n">points</span><span class="o">[</span><span class="mi">3</span><span class="o">]}};</span>
+
+        <span class="c1">//find the triangle with largest area!</span>
+        <span class="kt">int</span> <span class="n">maxI</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//assume it's the first, first</span>
+        <span class="kt">double</span> <span class="n">maxArea</span> <span class="o">=</span> <span class="nc">Triangle</span><span class="o">.</span><span class="na">area</span><span class="o">(</span><span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                                       <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">triangles</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">double</span> <span class="n">curArea</span> <span class="o">=</span> <span class="nc">Triangle</span><span class="o">.</span><span class="na">area</span><span class="o">(</span><span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                    <span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                    <span class="n">triangles</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+            <span class="k">if</span><span class="o">(</span> <span class="n">curArea</span> <span class="o">&gt;</span> <span class="n">maxArea</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">maxI</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">maxArea</span> <span class="o">=</span> <span class="n">curArea</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">//print out the max triangle</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The largest triangle is:"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%s %s %s\n"</span><span class="o">,</span> <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">0</span><span class="o">],</span>
+                <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">1</span><span class="o">],</span>
+                <span class="n">triangles</span><span class="o">[</span><span class="n">maxI</span><span class="o">][</span><span class="mi">2</span><span class="o">]);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"With area %.2f\n"</span><span class="o">,</span> <span class="n">maxArea</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</div>
+      <h1 id="private-classes">
+        
+        
+          Private classes <a href="#private-classes">#</a>
+        
+        
+      </h1>
+    
+
+<p>Now that we have a better understanding of inheritance, lets look at another example. Consider that we’ve been provided with a <code class="language-plaintext highlighter-rouge">Queue</code> class for strings with the following fields/methods.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span><span class="o">;</span> <span class="c1">//head of the queue</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">tail</span><span class="o">;</span> <span class="c1">//tail of the queue</span>
+    
+    <span class="c1">//private Node class for the linked list </span>
+    <span class="c1">//implementation of a queue</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="n">data</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nc">Node</span> <span class="n">prev</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">String</span> <span class="n">d</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">();</span><span class="c1">//returns true if empty, false otherwise</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">);</span><span class="c1">//enques the s on the queue</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">();</span><span class="c1">//returns head of queue, or null if empty</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>Again, we can imagine how this was implemented, and for now, we don’t need to know. The public interface is sufficient for us as the programmer to use this class in a program and/or add extensions to it. If you really want to see how the queue is implemented, you can click below, but the beauty of inheritance in OOP is that you don’t really, really need to know.</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.queue').toggle('slow')"> Queue.java</a></li>
+</ul>
+
+<div class="queue" style="display:none">
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span> <span class="c1">//forward pointer</span>
+        <span class="kd">public</span> <span class="nc">Node</span> <span class="n">prev</span><span class="o">;</span> <span class="c1">//back pointer</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="n">data</span><span class="o">;</span> <span class="c1">//data element</span>
+        <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">String</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
+            <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">head</span><span class="o">;</span> <span class="c1">//head pointer</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">tail</span><span class="o">;</span> <span class="c1">//tail pointer</span>
+
+    <span class="kd">public</span> <span class="nf">Queue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//initialize to null</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//create a new node</span>
+        <span class="nc">Node</span> <span class="n">newHead</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
+        <span class="n">newHead</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+
+
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//empty queue</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">;</span>
+            <span class="n">tail</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//&gt;=1 item queue</span>
+            <span class="n">head</span><span class="o">.</span><span class="na">prev</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">;</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">newHead</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">d</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//empty queue</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> 
+        <span class="o">}</span><span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">tail</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//1 item queue</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">tail</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//&gt;1 item queue</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+            <span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">prev</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">d</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+</code></pre></div>  </div>
+</div>
+
+<p>You’ll note that <code class="language-plaintext highlighter-rouge">Queue</code> makes use of a private class <code class="language-plaintext highlighter-rouge">Node</code>. A private class, functions much like any other class in Java, except its scope is within the containing class. That means as the programmer of the class, you can use the private class as you would any other class, when operating within the class. But this class should not be accessible out of the containing class context.</p>
+
+<p>Implementing a Linked List (or other lined structures) is a canonical example of using private classes. It’s a situation where you need additional class structure to implement the containing class, but that additional structure is not relevant to the user of the class. The <code class="language-plaintext highlighter-rouge">Node</code> class used to implement the list is not relevant to the user of the <code class="language-plaintext highlighter-rouge">LinkedList</code> or <code class="language-plaintext highlighter-rouge">Queue</code> as long as they function properly and there is a reasonable interface.</p>
+
+<p>As a private class within a containing class, the containing class <code class="language-plaintext highlighter-rouge">Queue</code>, it is often not necessary to declare fields private, as they are already constrained. Moreover, you generally want the containing class full access for convenience.</p>
+      <h2 id="extending-queue-for-size">
+        
+        
+          Extending Queue for <code class="language-plaintext highlighter-rouge">size()</code> <a href="#extending-queue-for-size">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">Queue</code> defined above is minimal. It’s missing some key functionality, such as the current size of the queue, or how many items are currently enqueued. With <code class="language-plaintext highlighter-rouge">extends</code> this is relatively easy to add, following the same procedures we outlined above with <code class="language-plaintext highlighter-rouge">Point</code> and <code class="language-plaintext highlighter-rouge">LabPoint</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingQueue</span> <span class="kd">extends</span> <span class="nc">Queue</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">count</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nc">CountingQueue</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">();</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>    
+    <span class="kd">public</span> <span class="n">voids</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">count</span><span class="o">++;</span>
+         <span class="k">return</span>  <span class="kd">super</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">if</span><span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">count</span><span class="o">--;</span> <span class="c1">//don't let it get less than 0</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">dequeue</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> <span class="c1">//will return null when empty</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSize</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="extending-queue-for-peek">
+        
+        
+          Extending Queue for <code class="language-plaintext highlighter-rouge">peek()</code> <a href="#extending-queue-for-peek">#</a>
+        
+        
+      </h2>
+    
+
+<p>Another common functionality of a queue is to be able to peek at the first element enqueued by returning it but not actually removing it from the queue. We could write this routine in the same way we extended <code class="language-plaintext highlighter-rouge">Queue</code> for <code class="language-plaintext highlighter-rouge">CountingQueue</code> to produce <code class="language-plaintext highlighter-rouge">PeekaCountingQueue</code> (keeping <code class="language-plaintext highlighter-rouge">CountingQueue</code>’s functionality).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PeekaCountingQueue</span> <span class="kd">extends</span> <span class="nc">CountingQueue</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">peek</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">empty</span><span class="o">())</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">dequeue</span><span class="o">();</span>
+        <span class="n">enqueue</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>But, that is entirely unsatisfying because we are actually dequeing and enqueing when what we really want to do is to write the following version.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PeekaCountingQueue</span> <span class="kd">extends</span> <span class="nc">CountingQueue</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">peek</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">empty</span><span class="o">())</span> 
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>But we cannot do that because <code class="language-plaintext highlighter-rouge">head</code> was declared private in <code class="language-plaintext highlighter-rouge">Queue</code> and thus cannot be accessed directly.</p>
+
+<p>This brings up a dilemma as a programmer of classes. On one hand you want to restrict access to internal fields from users of your class, but on the other you want to allow extensions of the class to be functional and efficient.</p>
+
+<p>From the perspective of the implementer of class <code class="language-plaintext highlighter-rouge">Queue</code>, you would say that it’s impossible to anticipate everything someone would want to do with a <code class="language-plaintext highlighter-rouge">Queue</code> and to provide public methods that make all possible operations implementable. That’s true. A compromise between strict separation of interface from implementation and a wild west all-fields-are-public approach is to use the <strong><code class="language-plaintext highlighter-rouge">protected</code></strong> access modifier.</p>
+
+<p>When a field is marked <code class="language-plaintext highlighter-rouge">protected</code>, it means that it is accessible inside the class and any derived classes, but not from anywhere else (except the package, which we haven’t talked about yet). If we change <code class="language-plaintext highlighter-rouge">head</code> and <code class="language-plaintext highlighter-rouge">tail</code> in <code class="language-plaintext highlighter-rouge">Queue</code> to be protected, implementing <code class="language-plaintext highlighter-rouge">PeekaCountingQueue</code> becomes easy and efficient (as above). The new <code class="language-plaintext highlighter-rouge">Queue</code> class definition would simply change to</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Queue</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="nc">Node</span> <span class="n">head</span><span class="o">;</span> <span class="c1">//head of the queue</span>
+    <span class="kd">protected</span> <span class="nc">Node</span> <span class="n">tail</span><span class="o">;</span> <span class="c1">//tail of the queue</span>
+
+    <span class="c1">//... rest same as before</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>This is a case where we <strong>do want to change the original class</strong> and as a programmer and the designing of the API for a class, you need to plan ahead to make these changes.</p>
+      <h1 id="uml-diagrams">
+        
+        
+          UML Diagrams <a href="#uml-diagrams">#</a>
+        
+        
+      </h1>
+    
+
+<p>A great tool when you begin to plan out the relationships between classes is to visualize how class depend and extend each other. The <strong>UML</strong> (or <strong>Unified Model Language</strong>) is a standard way to describe classes, their members, and relationships. As a starter, consider the UML diagram for the <code class="language-plaintext highlighter-rouge">Point</code> <code class="language-plaintext highlighter-rouge">LabPoint</code> and <code class="language-plaintext highlighter-rouge">Triangle</code> classes used in the prior example. (Note this was generated by IntelliJ via yworks)</p>
+
+<p><img src="/images/LabPoint-uml-intellij.png" alt="intellij UML of labpoint" /></p>
+      <h2 id="classes">
+        
+        
+          Classes <a href="#classes">#</a>
+        
+        
+      </h2>
+    
+<p>Each box represents a class. The name of the class as indicated by <code class="language-plaintext highlighter-rouge">(c)</code> is at the top followed by the fields <code class="language-plaintext highlighter-rouge">(f)</code>. The methods <code class="language-plaintext highlighter-rouge">(m)</code> come below that. If a field or method is private, then a (red) lock 🔒 is used, if it is protected a (silver) key is used 🔑, and if it is public an unlock 🔓 is used. A static method/field uses the diamond ◈.</p>
+
+<p>Note that there are other styles of UML. See this <a href="https://en.wikipedia.org/wiki/Class_diagram">wikipedia</a> article for more details. Here’s the same diagram generated using the <a href="https://sourceforge.net/projects/violet/">Violet UML Editor</a>.</p>
+
+<p><img src="/images/labpoint-uml-violent.png" alt="violet UML of labpoint" /></p>
+
+<p>You’ll note the symbols</p>
+<ul>
+  <li>+ indicates public</li>
+  <li>- indicates private</li>
+  <li># indicates protected (not shown)</li>
+</ul>
+
+<p>It is highly recommend to use Violet UML for developing your UML structure.</p>
+      <h2 id="relationship-between-classes">
+        
+        
+          Relationship between classes <a href="#relationship-between-classes">#</a>
+        
+        
+      </h2>
+    
+
+<p>There are two types of lines in this image, but UML diagrams can represent many different relationships</p>
+
+<div style="text-align:center">
+  <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Uml_classes_en.svg" alt="UML relationship lines" /></p>
+</div>
+
+<p>Most important for the diagrams you will draw are the following:</p>
+<ul>
+  <li><span style="font-size:20pt">B ➝ A</span> : (solid line, solid arrow) : indicates that Class B inherits from Class A</li>
+  <li><span style="font-size:20pt">B ⤍ A</span> : (dashed line, open arrow) : indicates that Class B depends on Class A to meets its functionality. A change in Class A changes the functionality of Class B</li>
+</ul>
+
+<p>In IntelliJ the color of the arrows also indicate if the classes define <code class="language-plaintext highlighter-rouge">extend</code> (<span style="color:blue">blue</span>) or <code class="language-plaintext highlighter-rouge">implement</code> relationships (<span style="color:green">green</span>). We’ll discuss <code class="language-plaintext highlighter-rouge">implement</code> later.</p>
+      <h2 id="using-uml-diagrams-to-plan-your-program">
+        
+        
+          Using UML diagrams to (plan) your program <a href="#using-uml-diagrams-to-plan-your-program">#</a>
+        
+        
+      </h2>
+    
+
+<p>The relationship between UML diagrams and class structures are so tight, that in many IDE’s, you can actually lay out your entire class structure in UML, and the IDE will create all the classes for you. In <a href="/project/2">Project 2</a> you will be required to develop a UML diagram of your objects <em>before</em> you program.</p>
+
+<p>As an example, let’s consider the following program requirements. Suppose that we want to design an object model for an HR system at a company:</p>
+<ul>
+  <li>Everyone is a employee; they have a first name, last name, salary, an address, and a list of organizational units</li>
+  <li>Some employees are managers and they manage a number of other employees (including managers) as their direct reports</li>
+  <li>Every unit has a unit manager</li>
+  <li>The CEO is a special manager that has direct reports and also unit managers that report to them</li>
+</ul>
+
+<p>Take a moment to try and draw out this diagram. When you’re finished, click below to reveal the diagram below (with an explanation).</p>
+
+<ul>
+  <li><a href="javascript:void(0)" onclick="$('.company-uml').toggle('slow')"> Company UML</a></li>
+</ul>
+
+<div class="company-uml" style="display:none">
+  <div style="text-align:center">
+    <p><img src="/images/company-uml.jpg" alt="Company UML" /></p>
+  </div>
+
+  <p>As a brief explanation of this UML diagram, we should start with the base <code class="language-plaintext highlighter-rouge">Employee</code> class. This stores all the core employee information, and from this we can derive the <code class="language-plaintext highlighter-rouge">Manager</code> class. The <code class="language-plaintext highlighter-rouge">Manager</code> also need to track their direct reports, in addition to being a normal employee. These employees can be stored in an <code class="language-plaintext highlighter-rouge">EmployeeList</code>, which we must define. In this example, that list is a linked list.</p>
+
+  <p>Also, as all employees are parts of a <code class="language-plaintext highlighter-rouge">Unit</code>, we add that class as well, whose fields is the <code class="language-plaintext highlighter-rouge">Manager</code> and the list of employees in that Unit.</p>
+
+  <p>Finally, the <code class="language-plaintext highlighter-rouge">CEO</code> is a derived from the <code class="language-plaintext highlighter-rouge">Manager</code>, but also maintains a list of the <code class="language-plaintext highlighter-rouge">unitManagers</code>.</p>
+
+  <p>Finally, finally, the public/private/protected fields are not included as it would get quite large quite quickly with having to implement getters and setters. So you can assume all members are protected and have getters/setters.</p>
+</div><hr />
+<p>Material on this page adopted  with permission from <a href="https://www.usna.edu/Users/cs/nchamber/courses/ic211/s19/index.html">USNA courses ic211</a>, taught by Nate Chambers, Gavin Taylor, Chris Brown, and many others. Thank you.</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/j/4" />
+<meta property="og:url" content="http://localhost:4000/j/4" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/j/4"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="table-of-contents">
+      <h2>
+        
+        
+           Table of Contents 
+        
+        
+      </h2>
+    
+  <div class="text-table-of-contents">
+    <ul><li><a href="#java-guis">Java GUIs</a></li><li><a href="#windows-and-events">Windows and Events</a><ul><li><a href="#windows-creating-displaying-destroying">Windows: creating, displaying, destroying</a></li><li><a href="#but-main-is-over-why-doesnt-the-program-just-end-as-soon-as-it-starts">But main is over!?!? Why doesn’t the program just end as soon as it starts?</a></li><li><a href="#handling-events-in-swing-counting-dead-windows">Handling events in Swing: counting dead windows</a></li><li><a href="#extending-jframes">Extending JFrames</a></li><li><a href="#retrieving-the-window-from-the-event">Retrieving the window from the event</a></li></ul></li><li><a href="#fuller-feature-guis">Fuller Feature GUIs</a><ul><li><a href="#adding-a-jbutton-and-the-wonderful-world-of-layoutmanagers">Adding a JButton and the wonderful world of LayoutManagers</a></li><li><a href="#layouts-within-layouts-jpanel">Layouts within layouts: <code class="language-plaintext highlighter-rouge">JPanel</code></a></li><li><a href="#button-action-events">Button Action Events</a></li><li><a href="#anonymous-classes">Anonymous classes</a></li><li><a href="#lambda-expressions">Lambda Expressions</a></li><li><a href="#bigger-example-converter-gui">Bigger Example: Converter GUI</a></li></ul></li></ul>
+
+  </div>
+</div>
+
+<div class="goto-top">
+  <a href="#top"> ^ Top of page</a>
+</div>
+
+<p><em>View all the videos from this unit a <a href="https://youtube.com/playlist?list=PLnVRBITSZMSPvh46eEg3CzPgU4BJZyj8O">single playlist on youtube</a></em></p>
+      <h1 id="java-guis">
+        
+        
+          Java GUIs <a href="#java-guis">#</a>
+        
+        
+      </h1>
+    
+
+<p>Now that we have a solid sense of Object Oriented Programming, in the next few units we are going to explore examples of OOP in different areas. First up, is Graphical User Interfaces (or GUIs).</p>
+
+<blockquote>
+  <p>While the material below should get your started on this topic, a really good tutorial that you should also read is provided by Oracle (the maintainer of Java):</p>
+
+  <p><a href="https://docs.oracle.com/javase/tutorial/uiswing/TOC.html">https://docs.oracle.com/javase/tutorial/uiswing/TOC.html</a></p>
+</blockquote>
+
+<p>There are a few basic ideas we should consider with GUIs:</p>
+
+<ul>
+  <li>We have windows, buttons, menus, labels, drawing areas, text boxes, etc., and</li>
+  <li>As the user interacts with these elements, the program needs to react in application-specific ways.</li>
+</ul>
+
+<p>GUI-based applications for the average user became popular around the 1990s; before then, most things were done through the terminal. GUIs allowed for your “average user” to be able to meaningfully interact with a computer; part of this was due to the intuitive nature of graphical functionality that lent itsef to exploration. So much easier than trying to guess what command is out there and using a <em>man</em> page to understand how ti works…</p>
+
+<p>Even something as simple as a button in a GUI is actually hugely complicated: it has to be drawn, and redrawn whenever its window gets minimized than maximized again, or redrawn when it is partially covered by a window layed over it that subsequently moves out of the way; it has to detect when it has been clicked (and possibly change appearance while the mouse is depressed) and actually cause some kind of action when clicked; it might be grayed out and unclickable for some periods of time; it might have a “tooltip” that tells what it does if the mouse hovers over it for long enough; and so on. And this for only one button! Certainly many, many lines of code must be written (at some level) to handle all this complexity.</p>
+
+<p>What do we want as future GUI programmers? We want to not have to worry about all that stuff! We want:</p>
+
+<ol>
+  <li>to be able to use components like buttons, windows, text-fields, etc. without having to mess with or worry about how they are implemented,</li>
+  <li>to be able to modify specific aspects of components like buttons, windows, text-fields, etc. when necessary without messing up all the other aspects (e.g. making a window change colors for 10 second intervals shouldn’t make the click-X-to-close stop working) and without having to mess with or worry about how they are implemented,</li>
+  <li>to be able to have our programs react to user actions on GUI components (like a button click) without having to mess with or understand how those GUI components are implemented</li>
+</ol>
+
+<p>Doesn’t this sound like the separation of interface from implementation concerns that motivated object oriented programming in the first place? It should scream out to you that these design goals can be met by making GUI components “objects”, i.e. instances of classes, that we can “use” by simply calling methods, that we can modify/customize/build-on via inheritance, all without having to understand or worry about the implementation. So there is a class for buttons (<code class="language-plaintext highlighter-rouge">JButton</code>), and a class for windows (<code class="language-plaintext highlighter-rouge">JFrame</code>), and a class for text input fields (<code class="language-plaintext highlighter-rouge">JTextField</code>) and so on. A button needs one interface for a “click-reactor” that you (and every other programmer) can implement in different ways for each different button you create. So we just have a Java interface for that (<code class="language-plaintext highlighter-rouge">ActionListener</code>) and we hand the button an object that implements that interface and say “when you are clicked, call the react-to-a-click method from the click-reactor interface on this object”. Polymorphism then provides the mechanism for allowing many implementations for that one click-reactor interface.</p>
+
+<p>First, we’re just going to learn how to create the most basic GUI component - a window - and how to react to the most basic user action - clicking the X to close the window. Although that seems very limited, it will show us the basic mechanisms that permeate the whole Java Swing API (the GUI API we’ll use). Later, we’ll do some more work on aligning elements within panels to make more advanced GUIs.</p>
+      <h1 id="windows-and-events">
+        
+        
+          Windows and Events <a href="#windows-and-events">#</a>
+        
+        
+      </h1>
+    
+      <h2 id="windows-creating-displaying-destroying">
+        
+        
+          Windows: creating, displaying, destroying <a href="#windows-creating-displaying-destroying">#</a>
+        
+        
+      </h2>
+    
+
+<p>The basic Java class for a window is <code class="language-plaintext highlighter-rouge">JFrame</code>. You create a <code class="language-plaintext highlighter-rouge">JFrame</code> like you do anything else: you use <code class="language-plaintext highlighter-rouge">new</code> statement!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>However, while this creates the JFrame, it does not display it. It only gets displayed when you set it to be visible.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Now if you create a program with only those two lines, it “works” but is more than a bit underwhelming because we didn’t define the size of the frame or other information. You may only get the control buttons of a window, like below.</p>
+
+<p><img src="/images/gui-jframe-plain.png" alt="JFrame just title with out anything set" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>We can fix this and do something slightly more interesting, and there are several more things that you almost certainly want to do whenever you create a JFrame.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex1Jframe</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"CS2113 GUI Ex1"</span><span class="o">);</span> <span class="c1">// sets title that appears on the top bar</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>          <span class="c1">// sets the size (in pixels) of the frame</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>      <span class="c1">// sets the top-left corner of the window on the desktop</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span> <span class="c1">// makes it so that closing window exits program</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And when we run this, we get something a bit more exciting.</p>
+
+<p><img src="/images/gui-jframe-ex1.png" alt="JFrame with title and sized" width="200px" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Now, to emphasize the fact that a window is nothing more than <code class="language-plaintext highlighter-rouge">JFrame</code> object, let’s create five windows and pop them all up on the screen at once. The following program will create all five first, wait for the user to enter an ‘x’, and only then will it actually display the five on the screen.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex2</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">JFrame</span><span class="o">[]</span> <span class="n">frames</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"CS2113 GUI Ex2 "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span> <span class="c1">// sets title that appears on the top bar   </span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">);</span>
+
+       <span class="c1">//f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+      
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//just as a way to delay</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter x to continue: "</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">console</span><span class="o">().</span><span class="na">readLine</span><span class="o">();</span>
+
+    <span class="c1">//open them all up at once</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/images/gui-jframe-ex2.png" alt="JFrame Ex2 with four windows opening" width="200px" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>You’ll notice that the <code class="language-plaintext highlighter-rouge">EXIT_ON_CLOSE</code> line is commented out. Why? With that uncommented, closing any one window exits the program. On the other hand, with it commented out like it is, even when all five windows have been closed, the program is still running. We have to do a ctrl-c in the terminal window to exit it. That’s something we’ll fix in a bit.</p>
+
+<p>Despite the weirdness of window closing in our example, I hope you’ll see that having windows simply be objects like everything else in Java, is pretty nice. We can create them, store them, and manipulate them with methods calls, just as we do for more familiar things like Strings and Exceptions.</p>
+      <h2 id="but-main-is-over-why-doesnt-the-program-just-end-as-soon-as-it-starts">
+        
+        
+          But main is over!?!? Why doesn’t the program just end as soon as it starts? <a href="#but-main-is-over-why-doesnt-the-program-just-end-as-soon-as-it-starts">#</a>
+        
+        
+      </h2>
+    
+
+<p>One thing about the programs we’ve just looked at should be bothering you. By the time we finishing executing <code class="language-plaintext highlighter-rouge">setVisible(true)</code>, <code class="language-plaintext highlighter-rouge">main()</code> is done. Shouldn’t the program stop at that point? The reason the program doesn’t stop is because programs that use the Swing GUI components (like <code class="language-plaintext highlighter-rouge">JFrame</code>) automatically use at least two threads. A thread is an executing stack of function calls, and we’ll discuss these more in our next unit.</p>
+
+<p>For now, though, all programs you’ve seen up to this point have been single-threaded, which means that there is only one executing stack of function calls. The thread running is the main thread executing from <code class="language-plaintext highlighter-rouge">main()</code>.</p>
+
+<p>In a multi-threaded program there are more than one simultaneously executing stacks of function calls, e.g., one for <code class="language-plaintext highlighter-rouge">main()</code> and one for the GUI. A multi-threaded program doesn’t exit until all threads have finished executing. So, going back to our Swing program with the many <code class="language-plaintext highlighter-rouge">JFrame</code>s, we have the main thread (the stack of function calls with the call to <code class="language-plaintext highlighter-rouge">main()</code> on the bottom) and we have a second thread called the <strong>event dispatch thread</strong> in which executes all code related to displaying the GUI and responding to user actions within the GUI. So, even though the main thread ends as soon as all the <code class="language-plaintext highlighter-rouge">setVisible(true)</code> are done, the event dispatch thread continues running … and so the program continues running.</p>
+
+<p>The fact that all GUI actions run in this even dispatch thread is going to be an important topic in the future. But for now, we’ll comfortably ignore that fact!</p>
+      <h2 id="handling-events-in-swing-counting-dead-windows">
+        
+        
+          Handling events in Swing: counting dead windows <a href="#handling-events-in-swing-counting-dead-windows">#</a>
+        
+        
+      </h2>
+    
+
+<p>The program we ended with in the above had the unfortunate problem that it kept running even after the last window was closed. To handle this properly, i.e. to exit the program only when all five windows have closed, we need to simply count the number of window closures. When that count gets to five, we should exit the program.</p>
+
+<p>The closing of a window is an event, just like button pushes, combo-box selections, or text box changes, all of which we’ll consider in the future. So dealing with this one little problem will give us an opportunity to examine the general design of event handling in Java’s GUI API. That basic model is quite simple: a GUI component keeps a list of <em>Listener</em> objects that are listening to the various events that can occur with that component, and when an event happens the component, it calls a method on the <em>Listener</em> object that is associated with that kind of event, and passes it an <em>Event</em> object that contains information about the details of the event that occurred.</p>
+
+<p>To be concrete, actions on <code class="language-plaintext highlighter-rouge">JFrames</code> generate <code class="language-plaintext highlighter-rouge">WindowEvent</code> objects; listeners for these events are classes that implement the <code class="language-plaintext highlighter-rouge">WindowListener</code> interface. That interface is</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WindowListener</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">windowActivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowClosed</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowDeactivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowDeiconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowIconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowOpened</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>… which shows you all the different events that might occur. When you create a class that realizes that interface, you need to define each of these methods, which means providing the code that you want to execute in response to each of these actions. For starters, let’s simply print out a message every time a window closes, just to show that we can react to these events.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex3</span> <span class="o">{</span>
+
+   <span class="c1">//class for handling events</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">WindowDisposer</span> <span class="kd">implements</span> <span class="nc">WindowListener</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowActivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowClosed</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+
+    <span class="c1">//only care about one event, the rest do nothing</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Closed a window!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowDeactivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowDeiconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowIconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowOpened</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">WindowDisposer</span> <span class="n">wd</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">WindowDisposer</span><span class="o">();</span>
+
+    <span class="nc">JFrame</span><span class="o">[]</span> <span class="n">frames</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"CS2113 GUI Ex3 "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">addWindowListener</span><span class="o">(</span><span class="n">wd</span><span class="o">);</span> <span class="c1">//add the event listener</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter x to continue: "</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">console</span><span class="o">().</span><span class="na">readLine</span><span class="o">();</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>After adding the listener, every time we close the window, <code class="language-plaintext highlighter-rouge">Closed a window!</code> will print. Essentially, our <code class="language-plaintext highlighter-rouge">WindowDisposer</code> class provides the method that should be called to the <code class="language-plaintext highlighter-rouge">JFrame</code> when a given event should occur. It’s the <code class="language-plaintext highlighter-rouge">JFrame</code> that actually calls the method. This style of programming is called <strong>event driven programming</strong>.</p>
+
+<p>You may notice, though, this is a lot of extra code to do a simple task, and if you are like everyone else in the world, you are horrified at this. As a convenience, just to ease that pain, the Java API has defined a class called <code class="language-plaintext highlighter-rouge">WindowAdapter</code> that implements <code class="language-plaintext highlighter-rouge">WindowListener</code>, simply defining all the methods with empty bodies, <code class="language-plaintext highlighter-rouge">{ }</code> (like above). This way, we can define our <code class="language-plaintext highlighter-rouge">WindowDisposer</code> class as extending <code class="language-plaintext highlighter-rouge">WindowAdapter</code> and only override the one method we care about, <code class="language-plaintext highlighter-rouge">windowClosed(WindowEvent e)</code>. The new version of the program below, is functionally the same as the previous version but somewhat shorter and more straightforward.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex4</span> <span class="o">{</span>
+
+  <span class="c1">//extend WindowAdapter</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">WindowDisposer</span> <span class="kd">extends</span> <span class="nc">WindowAdapter</span> <span class="o">{</span>
+  
+    <span class="c1">//only overide windowClosing, the rest are no-ops by default</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Closed a window!"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="c1">//Main method sme as above ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Closing the loop, we are able to solve our original problem by making <code class="language-plaintext highlighter-rouge">WindowDisposer</code> do a simple bit of work: each time a window gets closed, decrement a counter. When the counter gets to zero, exit the program.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex5</span> <span class="o">{</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">WindowDisposer</span> <span class="kd">extends</span> <span class="nc">WindowAdapter</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">WindowDisposer</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">count</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="c1">//initialize with the number of windows</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Closed a window!"</span><span class="o">);</span>
+
+      <span class="k">if</span> <span class="o">(--</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//decrement as closed</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">//finally exit the program</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">WindowDisposer</span> <span class="n">wd</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">WindowDisposer</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+
+    <span class="nc">JFrame</span><span class="o">[]</span> <span class="n">frames</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"CS2113 GUI Ex5 "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="o">);</span>
+      <span class="n">f</span><span class="o">.</span><span class="na">addWindowListener</span><span class="o">(</span><span class="n">wd</span><span class="o">);</span> <span class="c1">//add the event listener</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">f</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter x to continue: "</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">console</span><span class="o">().</span><span class="na">readLine</span><span class="o">();</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>So, what do we take away from this? Java Swing’s event handling mechanism is fundamentally about polymorphism and inheritance (or at least the limited form of inheritance offered by interfaces). In fact, it is a prime example of multiple implementations of the same interface, because every time we need to define how to react to an event (like a window closing) we provide a different implementation of the listener interface.</p>
+      <h2 id="extending-jframes">
+        
+        
+          Extending JFrames <a href="#extending-jframes">#</a>
+        
+        
+      </h2>
+    
+
+<p>A common design pattern in GUIs is that you actually want to extend the core functionality of a GUI component. In this case, that would be a <code class="language-plaintext highlighter-rouge">JFrame</code>. There are many reasons to do this, for example, if you want your <code class="language-plaintext highlighter-rouge">JFrame</code> to maintain some state.</p>
+
+<p>Consider, for example, if we wanted each <code class="language-plaintext highlighter-rouge">JFrame</code> to remember its index in the array <code class="language-plaintext highlighter-rouge">frames</code> in the above sample code. This is actually really hard! The main method runs in its own thread independent of the <code class="language-plaintext highlighter-rouge">JFrame</code>s, there isn’t any way to directly pass this information.</p>
+
+<p>However, a class that extends a <code class="language-plaintext highlighter-rouge">JFrame</code> is still a <code class="language-plaintext highlighter-rouge">JFrame</code>. So we can create our own version of a <code class="language-plaintext highlighter-rouge">JFrame</code> with all the functionality, but also pass to it an id (or an index) reference.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="c1">//Extending JFrame</span>
+<span class="kd">class</span> <span class="nc">DisposableJFrame</span> <span class="kd">extends</span> <span class="nc">JFrame</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">DisposableJFrame</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">WindowDisposer</span> <span class="n">wd</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"CS2113 GUI Ex6 "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">300</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">addWindowListener</span><span class="o">(</span><span class="n">wd</span><span class="o">);</span><span class="c1">//set up the window listener</span>
+  <span class="o">}</span>
+ 
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+  <span class="o">}</span>  
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now in our main class, we can pass instantiate <code class="language-plaintext highlighter-rouge">DisposableJFrame</code>s.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ex6</span> <span class="o">{</span>
+  <span class="c1">//See Ex5 for WindowDisposer</span>
+  
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">WindowDisposer</span> <span class="n">wd</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">WindowDisposer</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+
+    <span class="nc">JFrame</span><span class="o">[]</span> <span class="n">frames</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DisposableJFrame</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">wd</span><span class="o">);</span> <span class="c1">//&lt;---</span>
+    <span class="o">}</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter x to continue: "</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">console</span><span class="o">().</span><span class="na">readLine</span><span class="o">();</span>
+
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">frames</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h2 id="retrieving-the-window-from-the-event">
+        
+        
+          Retrieving the window from the event <a href="#retrieving-the-window-from-the-event">#</a>
+        
+        
+      </h2>
+    
+
+<p>We can even take this example one step further by having the <code class="language-plaintext highlighter-rouge">WindowDisposer</code> print out the id of the frame that was just closed. This is done by referencing the <code class="language-plaintext highlighter-rouge">WindowEvent</code> in the listerner interface.</p>
+
+<p>Recall that the <code class="language-plaintext highlighter-rouge">WindowListerner</code> interface required the realization of the following method formats:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WindowListener</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">windowActivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowClosed</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowDeactivated</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowDeiconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowIconified</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">windowOpened</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>What is <code class="language-plaintext highlighter-rouge">WindowEvent e</code>?  That’s an object that carries information which window generated the event, as well other information about the event. See the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/event/WindowEvent.html">API</a> for reference.</p>
+
+<p>Most relevant to this dicussion is the method <code class="language-plaintext highlighter-rouge">getWindow()</code>, which returns which <code class="language-plaintext highlighter-rouge">Window</code> changed state. A <code class="language-plaintext highlighter-rouge">Window</code> is a class in the swing system, and is the parent of <code class="language-plaintext highlighter-rouge">Frame</code> class, which is the parent of <code class="language-plaintext highlighter-rouge">JFrame</code>. So a <code class="language-plaintext highlighter-rouge">JFrame</code> is-a <code class="language-plaintext highlighter-rouge">Window</code>, and so, we can retrieve <em>which</em> <code class="language-plaintext highlighter-rouge">JFrame</code> generated the event via <code class="language-plaintext highlighter-rouge">e</code>.</p>
+
+<p>This gives us the opportunity to write a slightly more complicated version of the <code class="language-plaintext highlighter-rouge">WindowDisposer</code> class which retrieves the <code class="language-plaintext highlighter-rouge">DisposableJFrame</code> via <code class="language-plaintext highlighter-rouge">e.getWindow()</code> and then the id of that <code class="language-plaintext highlighter-rouge">DisposableJframe</code> to print to the screen.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">WindowDisposer</span> <span class="kd">extends</span> <span class="nc">WindowAdapter</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">count</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">WindowDisposer</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span> <span class="c1">//initialize with the number of windows</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">windowClosing</span><span class="o">(</span><span class="nc">WindowEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//cast to get the true type</span>
+    <span class="nc">DisposableJframe</span> <span class="n">dj</span> <span class="o">=</span> <span class="o">(</span><span class="nc">DisposableJFrame</span><span class="o">)</span> <span class="n">e</span><span class="o">.</span><span class="na">getWindow</span><span class="o">();</span>        
+    
+    <span class="c1">//retrieve the ID</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">dj</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Closed a window "</span> <span class="o">+</span> <span class="n">id</span><span class="o">);</span>
+    
+    <span class="k">if</span> <span class="o">(--</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//decirment as closed</span>
+       <span class="nc">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> <span class="c1">//finally exit the program</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+      <h1 id="fuller-feature-guis">
+        
+        
+          Fuller Feature GUIs <a href="#fuller-feature-guis">#</a>
+        
+        
+      </h1>
+    
+
+<p>Now that you have a better sense of how GUIs work, let’s dive into a few examples that are a bit more complicated that allow for more interaction than just opening and closing a window. This includes buttons, text fields, and layouts.</p>
+      <h2 id="adding-a-jbutton-and-the-wonderful-world-of-layoutmanagers">
+        
+        
+          Adding a JButton and the wonderful world of LayoutManagers <a href="#adding-a-jbutton-and-the-wonderful-world-of-layoutmanagers">#</a>
+        
+        
+      </h2>
+    
+
+<p>One of the big lessons is that GUI components are just objects - i.e. they are simply instances of classes, just like any other. For windows we used the class <code class="language-plaintext highlighter-rouge">JFrame</code>. The class for buttons is <code class="language-plaintext highlighter-rouge">JButton</code>. So you can create a new button with label “Button” with the statement:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">JButton</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Button"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Note that the label could have been “Sally” instead of “Button” and it would all be the same. There is a big difference between a <code class="language-plaintext highlighter-rouge">JFrame</code> and a <code class="language-plaintext highlighter-rouge">JButton</code>, however. A <code class="language-plaintext highlighter-rouge">JFrame</code> is a window that sits on the screen all by itself. But a <code class="language-plaintext highlighter-rouge">JButton</code> is a component that must be placed inside some other GUI container - like a <code class="language-plaintext highlighter-rouge">JFrame</code> or some other component that can act as a container for other GUI elements (such as a <code class="language-plaintext highlighter-rouge">JPanel</code> – more later).</p>
+
+<p>So, for starters we’d like to add the <code class="language-plaintext highlighter-rouge">JButton</code> to a <code class="language-plaintext highlighter-rouge">JFrame</code>. However, now things get a bit complicated. Where in the <code class="language-plaintext highlighter-rouge">JFrame</code> window do we want the <code class="language-plaintext highlighter-rouge">JButton</code> to go? This question is outrageously subtle because there might be lots of components sitting in a container like a <code class="language-plaintext highlighter-rouge">JFrame</code>, and because windows can get resized or, perhaps, were never given a set size at all, and the programmer wants it to be “big enough.”</p>
+
+<p>To deal with this complication of where to place components that get added to containers like <code class="language-plaintext highlighter-rouge">JFrame</code>s, the designers of Java’s Swing library turned to OOP principles: let’s make the positioner of components within the container be … an object. Specifically, there is an interface named <code class="language-plaintext highlighter-rouge">LayoutManager</code>, and objects implementing this interface are used to position components. By default, <code class="language-plaintext highlighter-rouge">JFrame</code>’s have <code class="language-plaintext highlighter-rouge">LayoutManager</code>s of type <code class="language-plaintext highlighter-rouge">BorderLayout</code>, which thinks of the screen being divided up into regions: North, East, South, West and Center. When you add a component to a <code class="language-plaintext highlighter-rouge">JFrame</code>, you specify which <code class="language-plaintext highlighter-rouge">BorderLayout</code> region you want it in. So if <code class="language-plaintext highlighter-rouge">f</code> is a <code class="language-plaintext highlighter-rouge">JFrame</code> you might say if you want a new button with label “Button” added to the Center region,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Button"</span><span class="o">),</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">CENTER</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>and f you want it added to the East region, you say</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Button"</span><span class="o">),</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">EAST</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>These regions automatically expand or shrink to fit the various components into their various regions. For example, we can see this layout in action using the following code sample:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BorderLayoutEx1v</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span><span class="n">v</span><span class="o">{</span>
+        <span class="nc">JButton</span> <span class="n">bEast</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"EAST"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bNorth</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"NORTH"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bSouth</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"SOUTH"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bWest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"WEST"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bCenter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"CENTER"</span><span class="o">);</span>
+
+        <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bEast</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">EAST</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bNorth</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">NORTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bSouth</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">SOUTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bWest</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">WEST</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bCenter</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">CENTER</span><span class="o">);</span>
+
+        <span class="n">f</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span> <span class="c1">//do alignment within the layout</span>
+        
+        <span class="n">f</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><img src="/images/gui-borderlayout-ex.png" alt="Borderlayout Example" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>And if we remove <code class="language-plaintext highlighter-rouge">bEast</code>, the center button will expand into that space.</p>
+
+<p><img src="/images/gui-borderlayout-ex-no-east.png" alt="Borderlayout Example No East" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Finally if we remove <code class="language-plaintext highlighter-rouge">bEeast</code> and <code class="language-plaintext highlighter-rouge">bWest</code> the center button expands into both spaces, perfectly alligning with the <code class="language-plaintext highlighter-rouge">bNorth</code> and <code class="language-plaintext highlighter-rouge">bSouth</code> buttons.</p>
+
+<p><img src="/images/gui-borderlayout-ex-no-east-west.png" alt="Borderlayout Example No East and West" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+      <h2 id="layouts-within-layouts-jpanel">
+        
+        
+          Layouts within layouts: <code class="language-plaintext highlighter-rouge">JPanel</code> <a href="#layouts-within-layouts-jpanel">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now suppose you wanted to align two buttons in the center (or north, or south) of a <code class="language-plaintext highlighter-rouge">BorderLayout</code>, well then you’re in trouble. It can only support one element at time. But that’s ok, because we can create a container for multiple components with its own layout and then add that to the frame.</p>
+
+<p>For example, if we want <em>two</em> buttons in the center, we cannot use the existing frame’s border layout. Instead we need to add a new component within the center of the frame, that itself is controlled with a layout.</p>
+
+<p>We use <code class="language-plaintext highlighter-rouge">JPanel</code> to do this nested components. A <code class="language-plaintext highlighter-rouge">JPanel</code>, like a <code class="language-plaintext highlighter-rouge">JFrame</code>, is a object that can contain other components, but unlike a <code class="language-plaintext highlighter-rouge">JFrame</code> a <code class="language-plaintext highlighter-rouge">JPanel</code> cannot be displayed as a window frame. It needs to be, itself, contained with a <code class="language-plaintext highlighter-rouge">JFrame</code>.</p>
+
+<p>Using a <code class="language-plaintext highlighter-rouge">JPanel</code>, we can now establish the layout as a <code class="language-plaintext highlighter-rouge">BorderLayout</code>, adding two buttons, and then adding the entire panel to the center of the frame.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BorderLayoutEx2</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">JButton</span> <span class="n">bEast</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"EAST"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bNorth</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"NORTH"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bSouth</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"SOUTH"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bWest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"WEST"</span><span class="o">);</span>
+
+        <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+
+        <span class="c1">//add to the frame</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bEast</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">EAST</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bNorth</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">NORTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bSouth</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">SOUTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bWest</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">WEST</span><span class="o">);</span>
+
+        <span class="c1">//A panel is a comonent that can hold other components</span>
+        <span class="nc">JPanel</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JPanel</span><span class="o">();</span>
+        <span class="c1">//set the layout of the panel</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">setLayout</span><span class="o">(</span><span class="k">new</span> <span class="nc">BorderLayout</span><span class="o">());</span>
+
+        <span class="c1">//add components to the panel</span>
+        <span class="nc">JButton</span> <span class="n">bCenterEast</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"CENTER-EAST"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">bCenterWest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"CENTER-WEST"</span><span class="o">);</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bCenterEast</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">EAST</span><span class="o">);</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bCenterWest</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">WEST</span><span class="o">);</span>
+
+        <span class="c1">//add the panel to the frame, in the center</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">CENTER</span><span class="o">);</span>
+        
+        <span class="n">f</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span> <span class="c1">//do alignment within the layout</span>
+        
+        <span class="n">f</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>This results in the following layout</p>
+
+<p><img src="/images/gui-borderlayout-inner-jpanel.png" alt="Borderlayout Example with an inner Jpanel" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>(Quick aside about <code class="language-plaintext highlighter-rouge">JPanel</code>: The <code class="language-plaintext highlighter-rouge">JPanel</code> is the workforce of the GUI’s and you’ll use them a lot. In fact, you can imagine, in a OOP way, extending a <code class="language-plaintext highlighter-rouge">JPanel</code> if there are functionality within that context you want to use, such as adding a number of components. We don’t show that here, but now that you’re developing your OOP skills, you should be able to imagine it.)</p>
+      <h2 id="button-action-events">
+        
+        
+          Button Action Events <a href="#button-action-events">#</a>
+        
+        
+      </h2>
+    
+
+<p>We have buttons, we know where to place them, let’s do something with them! Just like with window closing events, we can implement an <code class="language-plaintext highlighter-rouge">ActionListner</code> that will respond to a button click event.</p>
+
+<p>As a simple example, let’s consider an example of a GUI with a single button and a text label of “Hello” and on every button click, “Hello” changes to “Goodbye.” If “Goodbye” is displayed, it changes back to “Hello”</p>
+
+<p>Let’s start with the setup in the frame</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloGoodbyeEx1</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"Hello/Goodbye Ex1"</span><span class="o">);</span>
+
+        <span class="nc">JLabel</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JLabel</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Click me!"</span><span class="o">);</span>
+
+        <span class="c1">//add event listener for the button</span>
+        <span class="n">b</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">ButtonClickListenerEx1</span><span class="o">(</span><span class="n">l</span><span class="o">));</span>
+        
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">SOUTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">l</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">NORTH</span><span class="o">);</span>
+
+        <span class="n">f</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Two new things here. First is the <code class="language-plaintext highlighter-rouge">JLabel</code>, which is a GUI component for displaying short text. The initial text displayed is “Hello”. Second is the <code class="language-plaintext highlighter-rouge">ButtonClickListenerEx1</code> class. This is where the action is, and so let’s take a look at that code</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ButtonClickListenerEx1</span> <span class="kd">implements</span> <span class="nc">ActionListener</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">JLabel</span> <span class="n">label</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">ButtonClickListenerEx1</span><span class="o">(</span><span class="nc">JLabel</span> <span class="n">label</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">;</span> <span class="c1">//save the label to modify</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nc">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">label</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">label</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Goodbye"</span><span class="o">);</span> <span class="c1">//flip text back and forth</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="n">label</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>When the button is clicked, the <code class="language-plaintext highlighter-rouge">actionPerformed()</code> method is called, which then checks the state of the label, flipping the values.</p>
+      <h2 id="anonymous-classes">
+        
+        
+          Anonymous classes <a href="#anonymous-classes">#</a>
+        
+        
+      </h2>
+    
+
+<p>With that prior example, you may be asking, that’s a lot of programming to simply write a single method? And you’re right. So Java provides for us a way to quickly realize the <code class="language-plaintext highlighter-rouge">ActionListener</code> without actually having to write an entire class.</p>
+
+<p>Let’s look at the same example, this time, all contained within a single class file.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloGoodbyeEx2</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="nc">JFrame</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">"Hello/Goodbye Ex1"</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        
+        <span class="nc">JLabel</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JLabel</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+        <span class="nc">JButton</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Click me!"</span><span class="o">);</span>
+
+        <span class="c1">//using an anonymous (static) class</span>
+        <span class="n">b</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">ActionListener</span><span class="o">()</span> <span class="o">{</span>
+                <span class="c1">//implement the one method here</span>
+                <span class="c1">//shares the name space with the whole class</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nc">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">l</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">))</span> <span class="o">{</span>
+                        <span class="n">l</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Goodbye"</span><span class="o">);</span>
+                    <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                        <span class="n">l</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+        
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">SOUTH</span><span class="o">);</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">l</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">NORTH</span><span class="o">);</span>
+
+        <span class="n">f</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We still add an <code class="language-plaintext highlighter-rouge">ActionListener</code> for the button, but we do not give it a name. Instead we define the single method that needs to be realized <em>in-line</em> with the code. This creates a new class definition for us just for this context. This new class is called an <em>anonymous class</em> because it is an unnamed class.</p>
+      <h2 id="lambda-expressions">
+        
+        
+          Lambda Expressions <a href="#lambda-expressions">#</a>
+        
+        
+      </h2>
+    
+
+<p>You may notice that <code class="language-plaintext highlighter-rouge">ActionListener</code> is an interface that requires only a single method to be realized <code class="language-plaintext highlighter-rouge">actionPerformed</code>. It’s a lot of code to get to just define a single method. Newer versions of Java have recognized this inefficiency and now have a new syntax that allows us to capture the action, the body of the method, without all the extra syntax.</p>
+
+<p>For example, let’s rewrite the <code class="language-plaintext highlighter-rouge">addActionListener</code> portion of the above code in the new syntax:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="n">b</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">((</span><span class="n">e</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">l</span><span class="o">.</span><span class="na">getText</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">))</span> <span class="o">{</span>
+                        <span class="n">l</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Goodbye"</span><span class="o">);</span>
+                    <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                        <span class="n">l</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+</code></pre></div></div>
+
+<p>How does this work? The syntax is pretty straight forward for creating the method.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// .-- argument</span>
+<span class="c1">// v</span>
+  <span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="cm">/*Function BODY*/</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>And then Java looks at the method that is needed to be defined at this point in the code. Namely, that’s the method:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nc">ActionEvent</span> <span class="n">e</span><span class="o">){</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<p>It will then auto-define this method, with that argument and fill in the function body. Yay! So many fewer lines of code.</p>
+
+<div class="requirement">
+
+  <p>An aside …</p>
+
+  <p>Lambda expressions show up in other parts of Java. One where it could be very helpul is to operate over lists. For example, we can define a function to operate for each item in a collection:</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span> <span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="o">}</span> <span class="o">);</span>
+</code></pre></div>  </div>
+
+  <p>This will print out each item in the list. And suppose you want to store the function that will operate over the list? Java defines a <code class="language-plaintext highlighter-rouge">Consumer</code> class that manages such functions</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.function.Consumer</span><span class="o">;</span>
+<span class="c1">//...</span>
+
+<span class="nc">Consumer</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">method</span> <span class="o">=</span> <span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="o">};</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span> <span class="n">method</span> <span class="o">);</span>
+</code></pre></div>  </div>
+
+  <p>There’s a lot, lot, lot more to Lambda’s in Java. They are very useful, but hopefully this can open some of that up to you.</p>
+
+  <p>(Source <a href="https://www.w3schools.com/java/java_lambda.asp">W3Schools</a>)</p>
+</div>
+      <h2 id="bigger-example-converter-gui">
+        
+        
+          Bigger Example: Converter GUI <a href="#bigger-example-converter-gui">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now, let’s look at a slightly more advanced GUI with event handling that can convert  length measurement units from one to another, such as feet to meters, or inches to centimeters, and so on.</p>
+
+<p><img src="/images/GUI-unit-converter.png" alt="Unit Converter" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Here’s the code for this, which you should quickly review, and then we can highlight some important things to note</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnitConverter</span> <span class="kd">extends</span> <span class="nc">JFrame</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">JTextField</span> <span class="n">fromValue</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">JTextField</span> <span class="n">toValue</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nc">JComboBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">fromUnits</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">JComboBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">toUnits</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">units</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="s">"feet"</span><span class="o">,</span> <span class="s">"inches"</span><span class="o">,</span> <span class="s">"meters"</span><span class="o">,</span> <span class="s">"centimeters"</span>
+    <span class="o">};</span>
+    
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span><span class="o">[]</span> <span class="n">cfact</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="mf">1.0000</span><span class="o">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">12</span><span class="o">,</span> <span class="mf">3.28084</span><span class="o">,</span> <span class="mf">0.0328084</span>
+    <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="nf">UnitConverter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">();</span>
+
+        <span class="n">fromValue</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JTextField</span><span class="o">(</span><span class="s">"1.0"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">toValue</span>   <span class="o">=</span> <span class="k">new</span> <span class="nc">JTextField</span><span class="o">(</span><span class="s">"1.0"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">fromUnits</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JComboBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="n">units</span><span class="o">);</span> <span class="c1">//dropdown options of from/to</span>
+        <span class="n">toUnits</span>   <span class="o">=</span> <span class="k">new</span> <span class="nc">JComboBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="n">units</span><span class="o">);</span>
+        <span class="n">toValue</span><span class="o">.</span><span class="na">setEditable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span> <span class="c1">//do not let the result be edited</span>
+
+        <span class="c1">// Create panel with flow layout and add GUI elements</span>
+        <span class="nc">JPanel</span> <span class="n">dpanel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JPanel</span><span class="o">(</span><span class="k">new</span> <span class="nc">FlowLayout</span><span class="o">());</span> 
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">JLabel</span><span class="o">(</span><span class="s">"from: "</span><span class="o">));</span>
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">fromValue</span><span class="o">);</span>
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">fromUnits</span><span class="o">);</span>
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">JLabel</span><span class="o">(</span><span class="s">" to: "</span><span class="o">));</span>
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">toValue</span><span class="o">);</span>
+        <span class="n">dpanel</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">toUnits</span><span class="o">);</span>
+
+        <span class="c1">//add the same action listener for all</span>
+        <span class="nc">CoverterActionListener</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CoverterActionListener</span><span class="o">();</span>
+        
+        <span class="n">fromValue</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="n">a</span><span class="o">);</span> <span class="c1">//change the number in from (when enter is hit)</span>
+        <span class="n">toUnits</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="n">a</span><span class="o">);</span><span class="c1">//change the to units</span>
+        <span class="n">fromUnits</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="n">a</span><span class="o">);</span> <span class="c1">//change the from units</span>
+            
+        
+        <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">dpanel</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="nc">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pack</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">//use a private, inner class to handle events</span>
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">CoverterActionListener</span> <span class="kd">implements</span> <span class="nc">ActionListener</span> <span class="o">{</span>
+
+         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nc">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+
+             <span class="c1">//get the index selected in the comboboxes</span>
+             <span class="kt">int</span> <span class="n">fIdx</span> <span class="o">=</span> <span class="n">fromUnits</span><span class="o">.</span><span class="na">getSelectedIndex</span><span class="o">();</span>
+             <span class="kt">int</span> <span class="n">tIdx</span> <span class="o">=</span> <span class="n">toUnits</span><span class="o">.</span><span class="na">getSelectedIndex</span><span class="o">();</span>
+
+             <span class="c1">//retrieve the from value as a double</span>
+             <span class="kt">double</span> <span class="n">fVal</span> <span class="o">=</span> <span class="nc">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">fromValue</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+
+             <span class="c1">//first convert from value to feet and then divde by the</span>
+             <span class="c1">//convert to units</span>
+             <span class="kt">double</span> <span class="n">tVal</span> <span class="o">=</span> <span class="o">(</span><span class="n">fVal</span> <span class="o">*</span> <span class="n">cfact</span><span class="o">[</span><span class="n">fIdx</span><span class="o">])</span> <span class="o">/</span> <span class="n">cfact</span><span class="o">[</span><span class="n">tIdx</span><span class="o">];</span>
+              
+             <span class="c1">//round to 3 decimal places</span>
+             <span class="n">tVal</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">tVal</span> <span class="o">*</span> <span class="mf">1000.0</span><span class="o">)</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="o">;</span>
+             
+             <span class="n">toValue</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">""</span> <span class="o">+</span> <span class="n">tVal</span><span class="o">);</span> <span class="c1">//set the toValue text field</span>
+         <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="c1">//main method</span>
+        <span class="nc">UnitConverter</span> <span class="n">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UnitConverter</span><span class="o">();</span>
+        <span class="n">u</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>There are a few new GUI element we haven’t used yet, a <code class="language-plaintext highlighter-rouge">JComboBox</code>. This is a drop down option, and it is initialized by passing an array (or a colleciton) of elements for the user to select. In this case, it’s the units</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">fromUnits</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JComboBox</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="n">units</span><span class="o">);</span> <span class="c1">//dropdown options of from/to</span>
+</code></pre></div></div>
+
+<p>The second new element is the <code class="language-plaintext highlighter-rouge">FlowLayout</code>. Like a <code class="language-plaintext highlighter-rouge">BorderLayout</code>, this aligns elements in a container, either a frame or a panel. But it adds them adjacently, horizontally, rather than in a cardinal direction.</p>
+
+<p>The last (somewhat) new thing here is the fact that we use a private, inner class to manage the action events. This works well in this context because the private inner class has access to all the GUI components, and can take appropriate action.</p>
+
+<p>What makes this particularly interesting (at least to me) is that we can use the same action listener for three different components. This is the beauty of OOP: they all rely on the same interface. When we apply the listener to a <code class="language-plaintext highlighter-rouge">JComboBox</code>, the event occurs when a new item is selected. When the listener is applied to a <code class="language-plaintext highlighter-rouge">JTextField</code> the event occurs when <em>enter</em> is hit.</p><hr />
+<p>Material in this unit adopted from IC211 at USNA</p>
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

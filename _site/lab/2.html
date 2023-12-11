@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/lab/2" />
+<meta property="og:url" content="http://localhost:4000/lab/2" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/lab/2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <!--
+- [Preliminaries](#orgd0c7238)
+  - [Lab Learning Goals](#orgfc6aeaa)
+  - [Lab Setup](#orge6967bf)
+  - [Submission Folder](#orge8fe267)
+  - [Submission Instructions](#orgef13726)
+  - [Test Script](#org1b1e284)
+  - [README file](#org44adbba)
+  - [Compiling your code:](#orgd8b4087)
+- [Lab Description and Requirements:](#org2438abc)
+  - [Part 1: Reading Input from the User and Error Checking (20 points)](#orge86dafc)
+    - [Error checking `scanf()`](#orgcf91ac5)
+    - [Requirements](#orgfd822f9)
+  - [Part 2: Printing the array in the right format (20 points)](#orgd842193)
+    - [Passing Arrays as Function Arguments](#org8d56312)
+    - [Requirements](#org61dc06e)
+  - [Part 3: Reversing the array (25 points)](#org62c8fc0)
+    - [Requirements](#orgd8230f6)
+  - [Part 4: Randomizing the array (25 points)](#org04163cd)
+    - [Random Integers](#org7146619)
+    - [Seeding Random Numbers](#orgf9f9e55)
+    - [Pseudocode for array randomization](#orga35975d)
+    - [Requirements](#org9163908)
+  - [Part 5: Sorting the array (10 points)](#org34e2f2b)
+    - [Requirements](#org17b7989)
+
+-->
+
+<p><em>View the video for this lab on <a href="https://youtu.be/Ad2MAxZ1SmM">youtube</a></em></p>
+
+<h1 id="lab-2-working-with-arrays-and-functions">Lab 2: Working with Arrays and Functions</h1>
+
+<p><a id="orgd0c7238"></a></p>
+
+<!--
+* Github Classroom Link: [https://classroom.github.com/a/lqWc1oDt](https://classroom.github.com/a/lqWc1oDt) -->
+<p>https://classroom.github.com/a/snBnL6sR</p>
+
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/snBnL6sR">https://classroom.github.com/a/snBnL6sR</a></li>
+</ul>
+
+<h2 id="preliminary">Preliminary</h2>
+
+<h3 id="development-environment">Development Environment</h3>
+
+<p>You should develop using VSCode+SSH. Remember to access the starter code via git within VSCode. You’ll also be submitting your assignment via git within VSCode. You’ll need to have a remote connection (ssh) in VSCode as well, in order to run this lab on the seas ubuntu server (you need this to be running the same version of C that we will use to grade it). All the other C labs this semester will have similar requirements.</p>
+
+<h3 id="test-script">Test Script</h3>
+
+<p>To help you complete the lab, I have provide a test script that will run basic tests against your program. The script is not designed to be comprehensive, and you will be graded based on a larger array of tests. To execute the test script, run it from anywhere within the repository directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./test.sh
+</code></pre></div></div>
+
+<h3 id="readme-file">README file</h3>
+
+<p>You are required to fill out the README.md file in your repository describing your programming process.</p>
+
+<h3 id="compiling-your-code">Compiling your code:</h3>
+
+<p>To compile your code in the integrated terminal in VSCode, use <code class="language-plaintext highlighter-rouge">gcc</code> the gnu c compiler using the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc -Wall manipulator.c -o manipulator
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-Wall</code> option will provide additional warnings that you mind find helpful for debugging your program.</p>
+
+<h2 id="lab-description-and-requirements">Lab Description and Requirements:</h2>
+
+<p>In this lab you will be programming a single program called <code class="language-plaintext highlighter-rouge">manipulator</code> which will take in user input to construct an array, and then perform basic manipulations over that array as desired by the user. Here is a basic run of the program for reference:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+4
+Enter 4 numbers (space seperated):
+1 2 3 4
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+1
+{ 1 2 3 4 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+2
+{ 4 3 2 1 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+3
+{ 4 1 2 3 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+4
+{ 1 2 3 4 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+$&gt; 
+</code></pre></div></div>
+
+<p><a id="orge86dafc"></a></p>
+
+<h2 id="part-1-reading-input-from-the-user-and-error-checking-20-points">Part 1: Reading Input from the User and Error Checking (20 points)</h2>
+
+<p>The first part of the lab is to get user input, error check that input, and populate the array. See the <code class="language-plaintext highlighter-rouge">TODO PART 1</code> comments to direct you to the appropriate places to work. Below is some additional information to help you complete this task.</p>
+
+<p><a id="orgcf91ac5"></a></p>
+
+<h3 id="error-checking-scanf">Error checking <code class="language-plaintext highlighter-rouge">scanf()</code></h3>
+
+<p>Recall that in the prior lessons that in C we write output and read input using format strings. In this part of the lab you will write a simple program that takes input from the user and manipulates that input in some way depending on the user choice. You must also error check user input.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RETURN VALUES
+
+     These functions return the number of input items assigned.  This
+     can be fewer than provided for, or even zero, in the event of a
+     matching failure.  Zero indicates that, although there was input
+     available, no conversions were assigned; typically this is due to
+     an invalid input character, such as an alphabetic character for a
+     `%d' conversion.  The value EOF is returned if an input failure
+     occurs before any conversion such as an end-of-file occurs.  If
+     an error or end-of-file occurs after conversion has begun, the
+     number of conversions which were successfully completed is
+     returned.
+</code></pre></div></div>
+
+<p>What this means is that if a user enters something that is not a number, then scanf() will return 0, indicating that it could not properly convert the input into a number given the <code class="language-plaintext highlighter-rouge">%d</code> format directive. Note that if you tell <code class="language-plaintext highlighter-rouge">scanf</code> to read in a number, it will stop as soon as it sees a whitespace. We can easily check for such a condition in our code:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">res</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"Enter a number:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"ERROR: Invalid input"</span><span class="p">);</span> <span class="c1">// note in this case, it's ok to use stdout instead of stderr</span>
+  <span class="c1">//exit, return, or take some other action</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a id="orgfd822f9"></a></p>
+
+<h3 id="requirements">Requirements</h3>
+
+<div class="requirement">
+
+  <p>For this part of the lab you must complete the <code class="language-plaintext highlighter-rouge">TODO</code> labels that request user input for the user:</p>
+
+  <ul>
+    <li>
+      <p>You must read in the desired length of the array to be manipulated. If the user input is not a number, you must return 1 and exit with the following print statement:</p>
+
+      <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"ERROR: Invalid input</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>You must read in the appropriate number of values into the array and check to make sure that they are valid integers. If the user input is not a number, you must return 1 and exit with the following print statement:</p>
+
+      <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"ERROR: Invalid input</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>You must set up the logic for dealing with user choice of operations. For example, this means if user chooses 0, then the loop should break, and if an invalid number is entered the loop should continue with the following error printed:</p>
+
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>printf("ERROR: Invalid number. Choose again.\n\n");
+</code></pre></div>      </div>
+    </li>
+  </ul>
+
+  <p>Here is some sample output with the error conditions:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+a
+ERROR: Invalid input
+$&gt; ./manipulator 
+Enter the length:
+5
+Enter 5 numbers (space separated):
+1 2 a d a m
+ERROR: Invalid input
+$&gt; ./manipulator 
+Enter the length:
+5
+Enter 5 numbers (space separated):
+1 2 3 4 5
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+a
+ERROR: Invalid input. Choose again.
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+$&gt; 
+</code></pre></div>  </div>
+
+</div>
+
+<p><a id="orgd842193"></a></p>
+
+<h2 id="part-2-printing-the-array-in-the-right-format-20-points">Part 2: Printing the array in the right format (20 points)</h2>
+
+<p>For this part of the lab you must complete the <code class="language-plaintext highlighter-rouge">print_array()</code> function and properly pass the arguments to the array.</p>
+
+<p><a id="org8d56312"></a></p>
+
+<h3 id="passing-arrays-as-function-arguments">Passing Arrays as Function Arguments</h3>
+
+<p>When you pass arrays to functions you are not actually passing the array, but rather a reference to the array, i.e., a pointer. Recall that pointers and arrays are really the same thing. So if you have a function that takes an array as an argument, it is really taking a pointer. For example:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="n">a</span><span class="p">){</span>
+   <span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It remains ambiguous if <code class="language-plaintext highlighter-rouge">a</code> is a pointer to a array of integers or a single integer, but it is semantically and syntactically correct. If you want to disambiguate the fact that the function takes a reference to an array of integers, that is, a constant pointer, rather than an arbitrary pointer, you can specify it like such:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[]){</span>
+  <span class="c1">//...</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Finally, when you pass an array, since you are only passing a reference, you are not providing any information about the length of the array. While you might be tempted to use <code class="language-plaintext highlighter-rouge">sizeof()</code>, that is incorrect. <code class="language-plaintext highlighter-rouge">sizeof()</code> returns the size in bytes required to store the data item, which for an array of integers is not the length of the array because each integer is 4 bytes.</p>
+
+<p>To manage sizes of arrays, it is customary to pass both the reference to the array and the size of the array to the function to ensure that you do not access the array out of bounds.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">len</span><span class="p">){</span>
+  <span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a id="org61dc06e"></a></p>
+
+<h3 id="requirements-1">Requirements</h3>
+
+<div class="requirement">
+
+  <ul>
+    <li>
+      <p>You must complete the <code class="language-plaintext highlighter-rouge">print_array()</code> function and properly call it in the <code class="language-plaintext highlighter-rouge">main()</code> function when the user provides option 1.</p>
+    </li>
+    <li>
+      <p>The format output of the array must match the following example:</p>
+
+      <p>{ 0 1 2 3 4 }</p>
+    </li>
+    <li>The entire array must be printed with the appropriate values in the right order</li>
+    <li>Numbers must be space separated</li>
+    <li>There must be a leading and trailing brace, <code class="language-plaintext highlighter-rouge">{</code> and <code class="language-plaintext highlighter-rouge">}</code> respectively, which are also space separated.</li>
+    <li>Following printing the array, an additional new line should be printed</li>
+    <li>The array and the length of the array must be passed as arguments to print<sub>array</sub>.</li>
+  </ul>
+
+  <p>Sample output below:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+5
+Enter 5 numbers (space separated):
+0 1 2 3 4 5
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+ERROR: Invalid number. Choose again.
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+1
+{ 0 1 2 3 4 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+</code></pre></div>  </div>
+
+</div>
+
+<p><a id="org62c8fc0"></a></p>
+
+<h2 id="part-3-reversing-the-array-25-points">Part 3: Reversing the array (25 points)</h2>
+
+<p>In this part of the lab you are going to complete the function to reverse the array.</p>
+
+<p><a id="orgd8230f6"></a></p>
+
+<h3 id="requirements-2">Requirements</h3>
+
+<div class="requirement">
+
+  <ul>
+    <li>
+      <p>You must complete the <code class="language-plaintext highlighter-rouge">reverse_array()</code> function and properly call it in the main() function when the user provides the option 2.</p>
+    </li>
+    <li>
+      <p>You must print the array following the completion of the operation. (Hint: you’ve already written this operation, don’t do something twice!)</p>
+    </li>
+  </ul>
+
+  <p>Sample output:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+5
+Enter 5 numbers (space seperated):
+0 1 2 3 4
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+1
+{ 0 1 2 3 4 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+2
+{ 4 3 2 1 0 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+</code></pre></div>  </div>
+
+</div>
+
+<p><a id="org04163cd"></a></p>
+
+<h2 id="part-4-randomizing-the-array-25-points">Part 4: Randomizing the array (25 points)</h2>
+
+<p><a id="org7146619"></a></p>
+
+<h3 id="random-integers">Random Integers</h3>
+
+<p>A random number generator is built into the C standard library: <code class="language-plaintext highlighter-rouge">random()</code> returns a random integer between 0 and 2<sup>64</sup>-1. For the purposes of this lab, you’ll only need random numbers in the range of the length of the array. To properly bound the random numbers being generated, use the modulo operator:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span> <span class="o">%</span> <span class="n">bound</span><span class="p">;</span> <span class="c1">//produce random number between 0 and bound-1</span>
+</code></pre></div></div>
+
+<p><a id="orgf9f9e55"></a></p>
+
+<h3 id="seeding-random-numbers">Seeding Random Numbers</h3>
+
+<p>Additionally, as you test your program, you will likely want your random numbers to be deterministic, that is, be random but predictably random so that each run you get the same random numbers. To make things easier for you, I have seeded the random number generator like so:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">srandom</span><span class="p">(</span><span class="mi">1845</span><span class="p">);</span> <span class="c1">//seed random number generator with seed 1845</span>
+</code></pre></div></div>
+
+<p><a id="orga35975d"></a></p>
+
+<h3 id="pseudocode-for-array-randomization">Pseudocode for array randomization</h3>
+
+<p>Randomizing an array of values is equivalent for performing random swaps for items in the array. It is a bit overkill, but here is some pseudocode to use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foreach index i in array:
+  choose a random index j
+  swap array[i] with array[j]
+</code></pre></div></div>
+
+<p><a id="org9163908"></a></p>
+
+<h3 id="requirements-3">Requirements</h3>
+
+<div class="requirement">
+
+  <ul>
+    <li>
+      <p>You must complete the <code class="language-plaintext highlighter-rouge">randomize_array()</code> and properly call it when the user selects option 3.</p>
+    </li>
+    <li>
+      <p>Your randomization routine must execute as the pseudocode above.</p>
+    </li>
+    <li>
+      <p>You must use the proper seed for testing purposes, as described above.</p>
+    </li>
+  </ul>
+
+  <p>Here is some sample output:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+5
+Enter 5 numbers (space seperated):
+0 1 2 3 4
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+3
+{ 3 1 2 4 0 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+</code></pre></div>  </div>
+
+</div>
+
+<p><a id="org34e2f2b"></a></p>
+
+<h2 id="part-5-sorting-the-array-10-points">Part 5: Sorting the array (10 points)</h2>
+
+<p>The last part of the assignment is the trickiest. You must write a array sort routine. You may or may not have had experience writing sort functions before, so I encourage you to look at insertion sort on wikipedia, which is perhaps the easiest to implement.</p>
+
+<p><a id="org17b7989"></a></p>
+
+<h3 id="requirements-4">Requirements</h3>
+
+<div class="requirement">
+
+  <ul>
+    <li>
+      <p>You must complete the <code class="language-plaintext highlighter-rouge">sort_array()</code> and properly call it when the user selects option 4.</p>
+    </li>
+    <li>
+      <p>Any sorting function you implement will receive credit.</p>
+    </li>
+  </ul>
+
+  <p>Here is some sample output:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ./manipulator 
+Enter the length:
+5   
+Enter 5 numbers (space seperated):
+0 1 2 3 4
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+3
+{ 3 1 2 4 0 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+4
+{ 0 1 2 3 4 }
+
+Choose an operation:
+(0) : exit
+(1) : print array
+(2) : reverse array
+(3) : randomize array
+(4) : sort array
+0
+</code></pre></div>  </div>
+
+</div>
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

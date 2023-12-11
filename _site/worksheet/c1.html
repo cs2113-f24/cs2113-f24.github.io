@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <a name="top"></a><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CS 2113 Software Engineering - Fall 2022 | CS 2113 Software Engineering.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="CS 2113 Software Engineering - Fall 2022" />
+<meta name="author" content="Kinga Dobolyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS 2113 Software Engineering." />
+<meta property="og:description" content="CS 2113 Software Engineering." />
+<link rel="canonical" href="http://localhost:4000/worksheet/c1" />
+<meta property="og:url" content="http://localhost:4000/worksheet/c1" />
+<meta property="og:site_name" content="CS 2113 Software Engineering - Fall 2022" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CS 2113 Software Engineering - Fall 2022" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Kinga Dobolyi"},"description":"CS 2113 Software Engineering.","headline":"CS 2113 Software Engineering - Fall 2022","url":"http://localhost:4000/worksheet/c1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CS 2113 Software Engineering - Fall 2022" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#333333">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 2113 Software Engineering - Fall 2022 </a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/guides">Guides</a><a class="page-link" href="/videos">Videos</a><a class="page-link" href="/schedule.html">Schedule</a><a class="page-link" href="/syllabus.html">Syllabus</a></div>
+      </nav></div>
+
+
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+         
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+<h1 id="worksheet-c1">Worksheet: C1</h1>
+
+<p>Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Worksheets are due by Sunday night before the next lecture.</p>
+
+<!--
+* Github Classroom Link: [https://classroom.github.com/a/nnkSgVZj](https://classroom.github.com/a/nnkSgVZj)-->
+
+<ul>
+  <li>Github Classroom Link: <a href="https://classroom.github.com/a/xZ8Vg93M">https://classroom.github.com/a/xZ8Vg93M</a></li>
+</ul>
+
+<h2 id="questions">Questions</h2>
+
+
+<ol>
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q1'>
+        
+<p>For each of the statements, indicate if it evaluates to True? (Assume all needed headers are included).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">b</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">c</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">d</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">e</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span> <span class="o">*</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q2'>
+        
+<p>Examine the following program closely, and describe what happened when it is run. What output do you expect?</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bigger_largest_uint</span> <span class="o">=</span> <span class="mi">4294967295</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//largest_uint + 1</span>
+<span class="kt">int</span> <span class="n">bigger_largest_int</span> <span class="o">=</span> <span class="mi">2147483647</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//largest_int + 1</span>
+
+<span class="c1">//Before you run this, what do you expect the value to be</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">4294967295</span> <span class="o">&lt;</span> <span class="n">bigger_largest_uint</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"A"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"B"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">2147483647</span> <span class="o">&lt;</span> <span class="n">bigger_largest_int</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"C"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"D"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q3'>
+        
+<p>Describe a situation in which the difference between x++ and ++x would make a significant difference in the operation of the program.</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q4'>
+        
+<p>Why does the expression</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">3</span> <span class="o">&amp;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>differ from</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Your answer should be specific to the output and the underlying reason why they differ.</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q5'>
+        
+<p>What is the output for a, b, and c?</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Can you find a closed-form formula for shifting bits, using the variables x, y, and z?</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">y</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q6'>
+        
+<p>As we discussed in class a pointer (<code class="language-plaintext highlighter-rouge">*</code>) is a variable that stores a memory address. Pointers are further distinguished by the data type that lies at the store memory address. For example <code class="language-plaintext highlighter-rouge">int * p;</code> declares a variable <code class="language-plaintext highlighter-rouge">p</code> that is a pointer to an integer data type. Another way to think about this is <code class="language-plaintext highlighter-rouge">p</code> stores the address of a place in memory, that contains integer data.</p>
+
+<p>Also remember that we can assign a pointer with the <code class="language-plaintext highlighter-rouge">&amp;</code> operator, which gets the address of the variable it is applied to.</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Based on your best reasoning, answer the questions below about pointers (which we will officially cover in future classes). Try your best reason about the questions below without looking them up. Remember, worksheets are about learning and getting experience with class material :)</p>
+
+<ol>
+  <li>What do you think the following declaration signifies? <code class="language-plaintext highlighter-rouge">(int *) * c;</code></li>
+  <li>Do think that <code class="language-plaintext highlighter-rouge">(int *) * c;</code> is an equivalent declaration to <code class="language-plaintext highlighter-rouge">int ** c;</code>?</li>
+</ol>
+
+<p>Finally, draw a memory diagram for each of the designated marks. You can upload the drawing or ASCII art to your repo.</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">**</span> <span class="n">q</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span> <span class="c1">//Mark 0</span>
+    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span> <span class="c1">//Mark 1</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">**</span><span class="n">q</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Mark 2</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Mark 0</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.----------.-------.
+| variable | value |
+|----------+-------|
+| a        | 1     | &lt;-.
+|----------+-------|   |        
+| b        | 2     |   |       
+|----------+-------|   |       
+| c        | 3     |   |       
+|----------+-------|   |         
+| p        | .-----|---' &lt;----.        
+|----------+-------|          |   
+| q        |   .---+----------'  
+|------------------|             
+
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q7'>
+        
+<p>Consider the following snippet of <code class="language-plaintext highlighter-rouge">c</code> code</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">short</span> <span class="n">b</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">char</span> <span class="n">c</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>   
+</code></pre></div></div>
+
+<p>a. What is the <code class="language-plaintext highlighter-rouge">sizeof(a[0])</code>?<br />
+b. What is the <code class="language-plaintext highlighter-rouge">sizeof(a)</code>?<br />
+c. What is the <code class="language-plaintext highlighter-rouge">sizeof(b)</code>?<br />
+d. What is the <code class="language-plaintext highlighter-rouge">sizeof(c)</code>? <br />
+e. What is the <code class="language-plaintext highlighter-rouge">sizeof(p)</code>?<br />
+f. What is the <code class="language-plaintext highlighter-rouge">sizeof(*p)</code>?<br />
+g. Explain the differences in the <code class="language-plaintext highlighter-rouge">sizeof</code> for each of these output?</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q8'>
+        
+<p>Consider the following snippet of <code class="language-plaintext highlighter-rouge">c</code> code. Upload an image to the repo and/or include it in the Markdown file. (You can also do it in ASCII art, like in lecture notes).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+<span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="c1">//MARK 1</span>
+   
+<span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="c1">//MARK 2</span>
+   
+</code></pre></div></div>
+
+<p>a. Draw the memory diagram at <code class="language-plaintext highlighter-rouge">MARK 1</code><br />
+b. Draw the memory diagram at <code class="language-plaintext highlighter-rouge">MARK 2</code></p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q9'>
+        
+
+<p>For the following snippet of <code class="language-plaintext highlighter-rouge">c</code> code, draw a memory diagram for each step in the <code class="language-plaintext highlighter-rouge">for</code> loop at the <code class="language-plaintext highlighter-rouge">MARK</code>. (This requires drawing <strong>4</strong> memory diagrams) Upload an image to the repo and/or include it in the Markdown file. (You can also do it in ASCII art, like in lecture notes).</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="n">foo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="n">bar</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="n">other</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="n">bar</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="n">other</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">foo</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">}</span>
+    <span class="c1">//MARK</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q10'>
+        
+
+<p>Fill in the <code class="language-plaintext highlighter-rouge">sum</code> function so that it adds the elements in array.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="o">&lt;</span><span class="n">ARGUMENTS</span> <span class="n">GO</span> <span class="n">HERE</span><span class="o">!&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//Code goes here!</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">array</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q11'>
+        
+<p>Using the following <code class="language-plaintext highlighter-rouge">struct</code> declaration, print out the <code class="language-plaintext highlighter-rouge">f</code> member of <code class="language-plaintext highlighter-rouge">FOO</code>. (Hint: It might be helpful to first figure out a value that you can then debug with!)</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">struct</span> <span class="n">bar</span> <span class="p">{</span>
+        <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="k">struct</span> <span class="n">foo</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+        <span class="k">struct</span> <span class="n">bar</span> <span class="o">*</span> <span class="n">BAR</span><span class="p">;</span>
+    <span class="p">};</span>
+    
+    <span class="k">struct</span> <span class="n">foo</span> <span class="o">*</span> <span class="n">FOO</span><span class="p">;</span>
+
+    <span class="c1">// ... some code that sets up foo!</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"f = %g"</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">FILL</span><span class="o">-</span><span class="n">IN</span><span class="o">-</span><span class="n">HERE</span><span class="o">&gt;</span> <span class="p">);</span> <span class="c1">//finish this line.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+
+<!-- Go through each h3 block and count them -->
+
+
+
+
+    
+    
+    
+    <li id='li-q12'>
+        
+<p>Using the following struct definition:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">short</span> <span class="n">head</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">left_arm</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span> <span class="n">right_arm</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">left_leg</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="o">*</span> <span class="n">right_leg</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">frankenstein</span><span class="p">;</span>
+
+<span class="n">frankenstein</span> <span class="n">monster</span><span class="p">;</span>
+
+
+<span class="c1">//size of the monster's parts</span>
+<span class="kt">int</span> <span class="n">head_length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">.</span><span class="n">head</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">left_arm_length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">.</span><span class="n">left_arm</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">right_arm_length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">.</span><span class="n">right_arm</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">left_leg_length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">.</span><span class="n">left_leg</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">right_leg_length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">.</span><span class="n">right_leg</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">monster</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>First, without running the code, write down the expected sizes of each of the <code class="language-plaintext highlighter-rouge">int</code> length variables above, including <code class="language-plaintext highlighter-rouge">height</code>.</p>
+
+<p>Second, write a program to reveal the <em>actual</em> sizes. The <code class="language-plaintext highlighter-rouge">height</code> may differ than what you expect, right? Why might you think that’s case. (We’ll go over the true reason in class)</p>
+
+
+        <p>
+        </p>
+        
+        
+        <p>
+        </p>
+        
+    </li>
+    
+
+
+
+
+
+
+    
+    
+
+
+      </div>
+    </main><footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+              CS 2113 Software Engineering - Fall 2022
+            </li>
+          
+          <!-- <li><a href="https://github.com/cs2113-f22"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">cs2113-f22</span></a></li> -->
+        </ul>
+      </div>
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          
+            <li>
+               &#169; Kinga Dobolyi (2022)
+            </li>
+          
+          
+          <li><a href="mailto:kinga@gwu.edu">kinga@gwu.edu</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>
+          <a href="https://cs.seas.gwu.edu/">Computer Science</a> <br/>
+          <a href="https://www.gwu.edu/">The George Washington University</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
