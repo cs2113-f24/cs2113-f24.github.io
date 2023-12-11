@@ -22,13 +22,11 @@ title: Schedule
 | 9    | Mar 18: [Exceptions and I/O](j/exceptions)  <br>&bull; work on Project1 1                                                   | Mar 6: quiz on Project1 (45 minutes)<br>begin [Lab 3 -- Wordcount](lab/3) (Due Mon Mar 25)           1|                                                              |
 | 10    | Mar 25: [J4 - GUIs and Events](j/4) <br>&bull; [J5 Worksheet](worksheet/j5)       | Mar 28: quiz on Lab 3 (45 minutes)<br> begin [Lab 4 -- GUI Enigma](lab/4) (Due Mon Apr 1)                                                                             |
 | 11   | Apr 1: [J5 - Threading and Concurrency](j/5) <br>&bull; [J6 Worksheet](worksheet/j6)                       | Apr 3: quiz on Lab 4 (45 minutes)<br> begin [Project 2 -- GWack GUI Simulator](project/2) (Due Mon Apr 8)    |
-| 11   | Apr 8: [J6 - Java IO and Networking](j/6) <br>&bull; [J7 Worksheet](worksheet/j7)            | Apr 10: [Project 2 -- GWack Channel Simulator](project/2) (Due Tue Nov 14) <br>&bull; [final project](project/3) team assignments handed out                                                             |
-| 12   | Nov 13: [S2 - Software Engineering Development](j/software_engineering)<br>[Final Project](project/3) Organization and Proposal (in class attendance required) <br>&bull; [Final Project](project/3) proposal brainstorm  (Due Tues Nov 13 at 10:45am)                        | Nov 13/15: [Final Project](project/3) Meetings -- prototype requirements, UML design (Due Thurs Nov 16 at noon)
-|      | <i>no class -- Thanksgiving</i> | <i>no lab -- Thanksgiving |
-| 13   | Nov 27:  [Final Project](project/3) Meetings (in class, attendance required)                                                                                         |  Nov 27/29: [final project](project/3) work on prototypes                                                                                                                         | 
-| 14   | Dec 4:  [S3 - Design Patterns](j/design), <br>review for second exam                                                              | Dec 4/6: [final project](project/3) first prototype presentations to TAs (graded)                                                                                                                              |
-|  15  | Dec 11: [Final Project](project/3) presentations (must address TA feedback), code submission, groupswork evals, turned in by end of the day<br> review for final exam                                                                          | <i>no lab</i>                                                                                                                             |
-|    | Final Exam week:  see the regularly scheduled GW date and time for our final (non-cumulative) exam   
+| 12   | Apr 8: [J6 - Java IO and Networking](j/6) <br>&bull; [J7 Worksheet](worksheet/j7)            | Apr 10: quiz on GWackGUI (45 minutes) <br> branches and merges in git begin [Project 2 -- GWack Channel Simulator](project/2) pair project (Due Mon Apr 22)             |
+| 13   | Apr 15: [S2 - Software Engineering Development](j/software_engineering)   <br> work on Project 2| Apr 17: 
+| 14   | Apr 22:  [S3 - Design Patterns](j/design), <br>review for second exam                                                                                            |  Apr 24: quiz on GWack Channel (75 minutes)                                                                                                             | 
+| 15   | Apr 29:  Exam 2 written portion (first 60 minutes) | May 1: <i>no lab</i>                                                        |
+|    | Final Exam week: we do NOT have a final exam in this class
 
 
 
