@@ -92,12 +92,18 @@ Having completed the pre-reqs, you are expected to submit well-written code:
    * 20%: Live coding exam
    * 25%: Written exams (equal weight, not cumulative)
 
+
+### Exams
+
+There will be two non-cumulative exams this semester that students will take in lecture, on paper. 
+
+There will also be one live coding exam that students will take on computers during one lecture/lab session.
    
 ### Self-Guided worksheets
 
 Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lecture; you will be graded only on the problems we covered together during class. 
 
-### Programming assignments and quizzes
+### Labs, programming projects, and quizzes
 
 There are six programming assignments which will form the material that you will be tested on with six quizzes this semester. Quizzes will be on paper, in lab, and although they are not worth any points, they do serve as a cap on the matched programming assignment. For example, if you score a 100% on Lab 3, but your matching quiz score is 45%, your Lab 3 grade will also be reduced to 45%. The spirit of this assessment is to make sure students write their own solutions (without using an LLM, for example), and understand the concepts these programming assignments are meant to exercise.
 
@@ -117,7 +123,7 @@ No assignments will be accepted for re-grade requests after final grades have be
 
 We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
 
-If you miss a quiz in lab, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours before the last day of class (NOT the last day of finals). The makeup quiz will be harder than the quiz the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
+If you miss a quiz in lab or an exam, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours before the last day of classes (NOT the last day of finals). The makeup quiz/exam will be harder than the quiz/exam the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
 
 ## Class Communication
 
