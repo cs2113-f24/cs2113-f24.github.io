@@ -84,12 +84,13 @@ Having completed the pre-reqs, you are expected to submit well-written code:
 ## Grading 
 
 ### Grading Breakdown
-   * 4%: Participation (via in-class worksheets)
+   * 3%: Participation (via in-class worksheets)
    * 2%: Lab 0 and Lab 0.5 (equal weight)
-   * 34%: Labs 1-4 (equal weight)
+   * 20%: Labs 1-4 (equal weight)
    * 30%: Programming projects (not equal weight)
    * 0%: Quizzes on labs and projects (* see below)
-   * 30%: Live coding exam
+   * 20%: Live coding exam
+   * 25%: Written exams (equal weight, not cumulative)
 
    
 ### Self-Guided worksheets
