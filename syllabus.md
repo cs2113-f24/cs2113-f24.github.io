@@ -37,7 +37,7 @@ aside:
 
 ### Course Description 
 
-In this course, students will learn how to write object-oriented code using Java. Concepts will focus on object-oriented thinking, software composition, inheritance and polymorphism, unit testing, and design patterns. Programming techniques, assignments and lab exercises will focus on Java, specifically, the language and its core libraries. The course will be conducted lab-style with a mix of lecture, lab assignments and projects. There will also be an open-ended groupwork assignment at the end of the semester.
+In this course, students will learn how to write object-oriented code using Java. Concepts will focus on object-oriented thinking, software composition, inheritance and polymorphism, unit testing, and design patterns. Programming techniques, assignments and lab exercises will focus on Java, specifically, the language and its core libraries. The course will be conducted lab-style with a mix of lecture, lab assignments and projects. 
 
 ### Learning Outcomes
 By the end of this course, students will be able to:
@@ -70,7 +70,7 @@ The amount of time you spend per week may be more or less, depending on the topi
 
 ### Programming Expectations
 
-The course will be **extremely programming-intensive**. You should be prepared to spend most of your out-of-class and in-class time writing and designing software. You will be submitting one lab assignment, on average, per week, and three projects due throughout the semester. You should also be completing your self-check worksheets assigned for each lecture. 
+The course will be **extremely programming-intensive**. You should be prepared to spend most of your out-of-class and in-class time writing and designing software. 
 
 Having completed the pre-reqs, you are expected to submit well-written code:
 
@@ -84,23 +84,21 @@ Having completed the pre-reqs, you are expected to submit well-written code:
 ## Grading 
 
 ### Grading Breakdown
-   * 5%: Participation (via in-class worksheets)
-   * 5%: Programming assignments (5x 1%)
-   * 50%: Quizzes (5x 10%)
-   * 40%: Exams (2x 20%)
+   * 4%: Participation (via in-class worksheets)
+   * 2%: Lab 0 and Lab 0.5 (equal weight)
+   * 34%: Labs 1-4 (equal weight)
+   * 30%: Programming projects (not equal weight)
+   * 0%: Quizzes on labs and projects (* see below)
+   * 30%: Live coding exam
 
    
-### Self-Guided Worksheets
+### Self-Guided worksheets
 
-Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lecture or lab (as applicable). 
+Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lecture; you will be graded only on the problems we covered together during class. 
 
-### Programming assignments
+### Programming assignments and quizzes
 
-There are five programming assignments which will form the material that you will be tested on with your quizzes. Although they are not worth a lot of points, you will need to complete them in order to be able to do well on the quizzes.
-
-### Exams
-
-There are two non-comprehensive exams in this class during the semester, each worth 20% of your grade.
+There are six programming assignments which will form the material that you will be tested on with six quizzes this semester. Quizzes will be on paper, in lab, and although they are not worth any points, they do serve as a cap on the matched programming assignment. For example, if you score a 100% on Lab 3, but your matching quiz score is 45%, your Lab 3 grade will also be reduced to 45%. The spirit of this assessment is to make sure students write their own solutions (without using an LLM, for example), and understand the concepts these programming assignments are meant to exercise.
 
 ### Participation/Attendance
 
@@ -112,13 +110,13 @@ It is your responsibility to make sure that grades have been correctly entered i
 
 Please be aware that Blackboard does not weight overall course grades correctly. You can calculate your grade in the course at any time by referring to the raw scores on Blackboard, and using the weights above to calculate your grade in the class.
 
-No assignments will be accepted for re-grade requests after final exam grades have been recorded in Blackboard. 
+No assignments will be accepted for re-grade requests after final grades have been recorded in Blackboard. 
 
 ## Submission/Late Work Policy
 
 We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
 
-If you miss an exam, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours. The makeup exam will be harder than the exam the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup (for example, trying to schedule the makeup of the second exam), you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
+If you miss a quiz in lab, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours before the last day of class (NOT the last day of finals). The makeup quiz will be harder than the quiz the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
 
 ## Class Communication
 
@@ -145,18 +143,14 @@ It is very important in this course (and in life), that your work be your own. T
 
 You must:
 
-- Solve all homework, quizzes, projects, labs, and exams on your own, unless you are receiving the help of the instructional staff.
+- Solve all homework, quizzes, projects, and labs on your own, unless you are receiving the help of the instructional staff.
 - Write the names of any students you collaborated with as a comment at the top of your main/README file (subject to the constraints below).
 - Notify your instructor if you are using a tutor (this is not a problem, just let your instructor know).
-
-You may:
-
-- Discuss general approaches to solving the homework problems with other students, but the pen-to-paper, fingers-to-keyboard work should be your own. 
-  - No! You may not collaboratively write an answer and write your names on it and turn it in. 
 
 You may NOT (except for the group project):
 
 - Copy code to or from other students or people outside of the class.
+- Discuss general approaches to solving the homework problems with other students. The pen-to-paper, fingers-to-keyboard work should be your own. 
 - Have another student look at a specific snippet of your code (e.g., 10 lines) to help you debug a programming error.
 - Have someone else write code for you.
 - Copy code from the internet, unless you specifically reference the source and can explain how it works. This should be a tiny minority of the code you submit and you must ask permission in advance on Ed. An exception to this is any code we provided in class or through the notes; this does not need to be cited. 
