@@ -95,8 +95,8 @@ Next, select the toggle button below to be `Private`.
 
 Next, press the green `Create repository` button.
 
-The page will load the homepage of your repo. Under the `Settings` tab at the top, click on `Collaborators` on the left hand menu, click the green `Add people` button, and add the following collaborators (our GTA this semester) to allow them to view your repo:
-`CS2113Kinga`
+The page will load the homepage of your repo. Under the `Settings` tab at the top, click on `Collaborators` on the left hand menu, click the green `Add people` button, and add the following collaborators (our GTA/grader this semester) to allow them to view your repo:
+`jettjacobs`
 
 This will send an invite (that experies in seven days) to your grader(s). They'll be monitoring their inboxes for these items during lab; you must create this repo in your lab session to ensure the grader accepts the invite. This also means you should email the graders first if you have grading questions; the professor is not automatically added to your submissions (in general). 
 
