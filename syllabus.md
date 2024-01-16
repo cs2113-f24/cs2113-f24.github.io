@@ -23,8 +23,8 @@ aside:
 * Lecture: FNGR 209
   * Mon. 8AM - 10:30AM with TBA, and Dr. Kinga (professor)
 * Lab
-  * Wed. 3:35PM - 4:40PM (TOMP 405, section 30) with TBA (lead)
-  * Wed. 3:35PM - 4:40PM (SEH 4040, section 31) with TBA (lead)
+  * Wed. 11:10AM - 12:25PM (TOMP 405, section 30) with Sidra (lead)
+  * Wed. 11:10AM - 12:25PM (SEH 4040, section 31) with Jett (lead)
 
 ### Office hours
 * TBA (LA): TBA
