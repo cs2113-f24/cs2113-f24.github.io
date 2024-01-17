@@ -129,7 +129,7 @@ Even though `HelloWorld.java` is in your folder, it is not a part of your repo u
 ### Commiting your changes
 
 Next, we need to tell git that we're ready to commit to these changes. You can ask it to commit all recent changes with the following command, which also requires a human-readable message:
-`git commit -m "my first attempt"`
+`git commit -a -m "my first attempt"`
 
 The `-m` flag stands for the required message between quotes.
 
@@ -142,7 +142,7 @@ If everything goes through smoothly, you can refresh the website of your repo, a
 
 ## Part 4: Making a change
 
-Finally, we're going to update the file we just pushed to git. Change the string printed in `HelloWorld.java` to include your name. Then, go through the steps above to commit and push those changes (you don't need to add the file to the repo, because it is already there -- only new files need to be added, and only once).
+Finally, we're going to update the file we just pushed to git. Change the string printed in `HelloWorld.java` to include your name. Then, go through the steps above to commit and push those changes (you don't need to `git add` the file to the repo, because it is already there -- only new files need to be added, and only once).
 
 Make sure that when you refresh the browser, you can see your changes there.
 
