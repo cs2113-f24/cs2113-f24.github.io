@@ -145,7 +145,7 @@ Use git, as discussed in lab zero, to submit your work in a repo called `gituser
 |the name of the repo for this lab matches the pattern  `gitusername-lab1` | 4 |
 |the grader has been added as a collaborator to the repo| 4 |
 |the repo has been made private | 4 |
-|the test cases pass (11 points each) | 88 |
+|the test cases pass (11 points each) -- answers that are hard-coded will not receive credit | 88 |
 |TOTAL | 100 |
 
 ---
