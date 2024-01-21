@@ -27,7 +27,9 @@ aside:
   * Wed. 11:10AM - 12:25PM (SEH 4040, section 31) with Jett (lead)
 
 ### Office hours
-* TBA (LA): TBA
+* Maya Bardin (LA): Mondays 2:15pm-5:45pm in TBA
+* Jett Jacobs (GTA): Tuesdays 3pm-4:30pm in TBA
+* Sidra Hussain (UTA): Tuesdays 5pm-6:30pm, Wednesdays 2pm-4pm, Thursdays 11am-1pm in TBA
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
