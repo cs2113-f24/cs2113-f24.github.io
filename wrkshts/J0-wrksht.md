@@ -6,7 +6,7 @@ showsolution: False
 
 # Worksheet: J0
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Worksheets are due by Sunday night before the next lecture.
+Worksheets are self-guided activities that reinforce lectures. They are due, on github by 11:59pm on the day of the lecture.
 
 ## Setup
 

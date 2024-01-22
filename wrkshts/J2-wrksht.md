@@ -6,7 +6,7 @@ showsolution: false
 
 # Worksheet: J2
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Worksheets are due by Sunday night before the next lecture.
+Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. They are due, on github by 11:59pm on the day of the lecture.
 
 Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J2`. Then, add the following file to it:
 
