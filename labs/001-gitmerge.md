@@ -3,8 +3,6 @@ layout: toc
 permalink: lab/001
 ---
 
-*View the video explainer for this lab on [youtube](https://youtu.be/JGwK5nwuAps)*
-
 
 # Lab 0_5: Git Deep Dive
 
