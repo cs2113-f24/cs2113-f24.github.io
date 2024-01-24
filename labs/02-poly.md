@@ -162,12 +162,11 @@ Use git, as discussed in lab zero, to submit your work in a repo called `gituser
 |[**unit test**] the `Thing` class is responsible for movement, utilizing good OOP | 5 |
 |[**unit test**] the `Thing` class contains the appropriate fields, utilizing good OOP | 5 |
 |[**unit test**] the `Thing` class uses abstraction appropriately in all places, utilizing good OOP | 5 |
-|`TypeA` and `TypeB` classes turn appropriately, utilizing good OOP | 5 | 
 |[**unit test**] the `TypeA` and `TypeB` contain the minimum number of fields necessary (declare each on a new line), utilizing good OOP | 5 | 
 |[**unit test**]`TypeA` and `TypeB` contain the minimum number of methods necessary, utilizing good OOP | 5 | 
 |[**unit test**] the `ThingList` class contains the `Node` class as an inner class, utilizing good OOP | 5 |
 |[**unit test**] the `ThingList` class has methods to `addAll`, `moveAll`, and `printAll` `Thing`s inside the list/queue | 5 |
-|the `TypeC` class meets the specifications above | 15 |
+|`TypeA`, `TypeB`, and `TypeC` classes turn appropriately upon visual inspection, utilizing good OOP | 20 | 
 |a README file as specified above is included | 5 |
 |a UML diagram matching the code implementation as been included, that lists all classes and their methods and fields | 10 |
 |the new implementation preserves the original `DotChaser` functionality for `TypeA` and `TypeB` | 5 |
