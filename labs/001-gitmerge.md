@@ -4,11 +4,15 @@ permalink: lab/001
 ---
 
 
-# Lab 0_5: Git Deep Dive
+# Lab 0_5: Git Deep Dive and Markdown
 
 The goal of this lab is to get you more comfortable with using more advanced features of `git`, such as branching, resolving conflicts, and forking.
 
-## Instructions
+We will also go over some Markdown (a text formatting tool) basics that you can apply to your participation worksheets in this class. Markdown is widely used, in general, and very useful for writing text that will go on webpages.
+
+## Part 1: Github
+
+### Instructions
 
 1. Create a repository on github titled `<github_username>-lab0.5` (replace `<github_username>`). Make sure it is private) 
 
@@ -42,7 +46,7 @@ The goal of this lab is to get you more comfortable with using more advanced fea
 
 16. `push` the screenshot of the merge conflict to Github
 
-# Troubleshooting
+### Troubleshooting
 
 **Problem**: git is asking me do set something called *upstream*?
 > The first time you push to a branch, git may ask you to set the *upstream* to a specific remote server; you can just follow the instructions it prints to the terminal to set the upstream to the correct remote branch.
@@ -50,17 +54,38 @@ The goal of this lab is to get you more comfortable with using more advanced fea
 **Problem**: I forgot to push to master before making a new branch!
 > It happens! Just make *another* branch, and push to it. You should end up, eventually, with two branches; that's all that matters for this lab.
 
+## Part 2: Markdown
+
+### Instructions
+
+We will be asking you to generate a markdown file that will look like the screenshot below:
+
+![goals](./markdown_goal.png)
+
+You should write the `README.md` directly in GitHub (online) so that you can take advantage of the preview feature. Once you have your file ready to edit, you should take a look at [this github tutorial](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) for instructions on how to get your markdown code to look like the image above.
+
+The TA will explain how to get access to the image you will need to include in your file.
+
 # Grading Rubric
 
+Part 1
 |Item | Points |
-|the name of the repo for this lab matches the pattern  `gitusername-lab0.5` | 10 |
-|the grader has been added as a collaborator to the repo| 10 |
-|the repo has been made private | 10 |
+|the name of the repo for this lab matches the pattern  `gitusername-lab0.5` | 5 |
+|the grader has been added as a collaborator to the repo| 5 |
+|the repo has been made private | 5 |
 |there are (at least) two branches| 10 |
 |there are (at least) three commits in *master* (should be the case if instructions are followed correctly) | 10 |
 |there is (at least) one unique commit in the *new branch* | 10 |
 |the first commit of `HelloWorld.java` in *master* differs from `HelloWorld.java` in the *new branch* | 10 |
 |there are no remnants of a merge conflict in the final commit to *master* | 10 |
-|screenshot proves that you did (at one point) have a merge conflict | 20 |
-| TOTAL | 100 |
+|screenshot proves that you did (at one point) have a merge conflict | 10 |
+| TOTAL | 75 |
 
+Part 2
+|Item | Points |
+|correct different header sizes appear (i.e. # and ##) | 5 |
+|image is successfully displayed| 5 |
+|the numbered list is successfully displayed| 5 |
+|code blocks or code text is succssfully displayed| 5 |
+|italics are successfully displayed | 5 |
+| TOTAL | 25 |
