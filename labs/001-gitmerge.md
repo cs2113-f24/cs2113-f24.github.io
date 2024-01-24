@@ -70,6 +70,7 @@ The TA will explain how to get access to the image you will need to include in y
 
 Part 1
 |Item | Points |
+|-----|-----|
 |the name of the repo for this lab matches the pattern  `gitusername-lab0.5` | 5 |
 |the grader has been added as a collaborator to the repo| 5 |
 |the repo has been made private | 5 |
@@ -83,6 +84,7 @@ Part 1
 
 Part 2
 |Item | Points |
+|-----|-----|
 |correct different header sizes appear (i.e. # and ##) | 5 |
 |image is successfully displayed| 5 |
 |the numbered list is successfully displayed| 5 |
