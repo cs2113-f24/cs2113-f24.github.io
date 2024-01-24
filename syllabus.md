@@ -33,7 +33,8 @@ aside:
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
-* Jett Jacobs (GTA and grading): jett@gwu.edu (no office hours)
+* Jett Jacobs (GTA and grading): jett@gwu.edu 
+* Nandita venkatesh (grading only, quizzes): nandita.venkatesh@gwu.edu
 
 ## Course Details 
 
