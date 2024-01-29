@@ -124,7 +124,9 @@ No assignments will be accepted for re-grade requests after final grades have be
 
 ## Submission/Late Work Policy
 
-We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
+We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late up until the start of your lab (11:09:59am), unless otherwise noted. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
+
+We will not accept late worksheets.
 
 If you miss a quiz in lab or an exam, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours before the last day of classes (NOT the last day of finals). The makeup quiz/exam will be harder than the quiz/exam the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
 
