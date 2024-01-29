@@ -6,7 +6,9 @@ showsolution: false
 
 # Worksheet: J1
 
-Worksheets are self-guided activities that reinforce lectures. They are due, on github by 11:59pm on the day of the lecture.
+Worksheets are self-guided activities that reinforce lectures. 
+
+This worksheet is due at 11:59pm on 1/31/2024.
 
 Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J1`. 
 
@@ -14,6 +16,13 @@ Please submit your answers to the questions as comments in the java file you'll 
 
 
 ## Questions
+
+### q
+
+Finish the in-class exercise for finding the fault in the `checkCode` method.
+
+#### s
+Solution omitted.
 
 ### q
 
