@@ -127,7 +127,7 @@ Mutation testing is automated, in the sense that it solves the *oracle problem*:
 
 Convert your `DriverJava1_sample.java` file from the previous lecture into a Junit test file with the following elements:
 
-* a single unit test for every input class (give it the name of that input partition) -- if you have more than 20 tests, you can skip the rest.
+* a single unit test for every input class (give it the name of that input partition) -- if you have more than 5 tests, you can skip the rest.
 
 Assume that the method under test is called `checkCode` that takes a string as an argument and returns a boolean value whether or not the input was a valid code.
 
