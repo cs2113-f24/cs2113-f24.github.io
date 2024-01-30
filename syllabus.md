@@ -29,7 +29,7 @@ aside:
 ### Office hours
 * Maya Bardin (LA): Mondays 2:15pm-4:15pm and Wednesdays 4pm-5:30pm in SEH 4th floor couches
 * Jett Jacobs (GTA): Tuesdays 2:30pm-4:30pm in SEH 4th floor couches
-* Sidra Hussain (UTA): Tuesdays 5pm-6:30pm, Wednesdays 2pm-4pm, Thursdays 11am-1pm in SEH 4th floor couches
+* Sidra Hussain (UTA): Mondays 11am-12:30pm, Wednesdays 2pm-4pm, Thursdays 11am-1pm in SEH 4th floor couches
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
