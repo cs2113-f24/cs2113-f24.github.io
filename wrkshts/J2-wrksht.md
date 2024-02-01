@@ -34,51 +34,6 @@ String s = "Hello World";
 * In the first two lines, `int` and `double` are basic types.
 * In the last two lines, array and `String` are objects.
 
-### q
-
-Write a Java class `Q2` that asks the user to enter the size of an array, then fills it with
-multiples of two. Finally, it generates a string representation of the array, i.e. `{2, 4, 6, 8, ...}`
-
-
-#### s
-```java
-import java.util.Scanner;
-
-public class Q2 {
-    public static void main(String args[]) {
-        int c;
-        System.out.println("Enter an array length greater than 0 and less than or equal to 15:");
-        
-        Scanner sc = new Scanner(System.in);
-        c = sc.nextInt();
-        sc.close();
-
-        if(c < 0 || c > 15) {
-            System.err.printf("ERROR: Invalid length %d\n",c);
-            System.exit(1);
-        }
-
-        double a[] = new double[c];
-
-        for(int i = 0; i < c; i++) {
-            if(i > 0) {
-                a[i] = (a[i - 1] + 2) *3.15;
-            }else {
-                a[i] = 10.8;
-            }
-        }
-
-        String str = "{ ";
-
-        for(int i = 0; i < c; i++){
-            str += "" + ((int)a[i]) + " ";
-        }
-        str += "}";
-
-        System.out.println(str);
-    }
-}
-```
 
 ### q
 
@@ -100,20 +55,6 @@ public class Hello {
 * Static methods are called directly, or statically, without the need of an object instance.
 * `main` methods need to be static because it needs to be called without instantiating an object of the class.
 
-### q
-
-What is the output of the following main method?
-
-```java
-public static void main(String args[]) {
-    String str = "Java is my favorite language";
-    str += '!';
-    System.out.println(str + " and python is my second");
-}
-```
-
-#### s
-The output is `Java is my favorite language! and python is my second`.
 
 ### q
 
@@ -200,11 +141,11 @@ The output of the main method is `X: 0.0 Y: 0.0`. The reason is in the `Point` c
 What principle of OOP does the `private` declaration for variable and functions achieve? Explain.
 
 #### s
-The priciple of Encapsulation is achieved by `private` declaration of variable and functions. The reason is `private` variable and functions cannot be accessed by other objects.
+The priciple of Information Hiding is achieved by `private` declaration of variable and functions. The reason is `private` variable and functions cannot be accessed by other objects.
 
 ### q
 
-In the Point class below, how does Java choose between the two constructors.
+In the `Point` class below, how does Java choose between the two constructors.
 
 ```java
 public class Point {
