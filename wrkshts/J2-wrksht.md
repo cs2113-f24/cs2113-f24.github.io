@@ -368,7 +368,7 @@ public class FormulaOne extends Racecar {
 
 ### q 
 
-Using the `Racecar` and `FormulaOne` classes above, if we had a main method
+Using the `Racecar` and `FormulaOne` classes above, if we had a main method **in a different class than either of those**,
 
 ```java
 
