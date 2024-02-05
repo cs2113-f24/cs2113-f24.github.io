@@ -394,7 +394,6 @@ The code works at both marks. Each mark is adding a sponsor to two different obj
 
 Consider the UML diagram from the notes. Expand this to include an **intern**. An **intern** is like an employee, has a manager, unit, but has an expiration on their employment. How does this fit into the UML diagram?
 
-Additionally, come up with one additional type for this company, describe it and add it to the UML diagram.
 
 Include your UML diagram and explanation with this worksheet (in the file you're submitting, or as a screenshot/photo/etc).
 
