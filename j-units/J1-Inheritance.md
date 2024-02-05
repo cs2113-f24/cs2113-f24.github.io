@@ -470,7 +470,7 @@ public class LargestAreaLab {
 ```
 </div>
 
-<font color=red><h3>Let's take 10 minutes to go through questions 8-10 on the J2 worksheet.</h3></font>
+<font color=red><h3>Let's take 15 minutes to go through questions 8-11 on the J2 worksheet.</h3></font>
 
 # Private classes 
 
@@ -652,7 +652,7 @@ public class Queue {
 
 This is a case where we **do want to change the original class** and as a programmer and the designing of the API for a class, you need to plan ahead to make these changes. 
 
-<font color=red><h3>Let's take 10 minutes to go through questions 11-15 on the J2 worksheet.</h3></font>
+<font color=red><h3>Let's take 5 minutes to go through questions 12-14 on the J2 worksheet.</h3></font>
 
 # UML Diagrams
 
@@ -717,7 +717,7 @@ Finally, the `CEO` is a derived from the `Manager`, but also maintains a list of
 Finally, finally, the public/private/protected fields are not included as it would get quite large quite quickly with having to implement getters and setters. So you can assume all members are protected and have getters/setters.
 </div>
 
-<font color=red><h3>Let's take 10 minutes to go through question 16 on the J2 worksheet.</h3></font>
+<font color=red><h3>Let's take 10 minutes to go through the last question on the J2 worksheet.</h3></font>
 
 ---
 Material on this page adopted  with permission from [USNA courses ic211](https://www.usna.edu/Users/cs/nchamber/courses/ic211/s19/index.html), taught by Nate Chambers, Gavin Taylor, Chris Brown, and many others. Thank you. 
