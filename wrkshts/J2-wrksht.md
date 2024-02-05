@@ -404,3 +404,7 @@ The intern should have Employee as its parent class, with an additional `Date` f
 
 Additional type left as an exercise to the reader.
 
+
+## Lab this week
+
+Review the instructions for Lab 1 before you arrive at your lab on Wednesday, so you can make the best use of your limited time there!
