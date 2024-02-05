@@ -301,6 +301,12 @@ Explain your answer.
 #### s
 Option 2 is valid. Option 1 and 3 does not compile because `sum_x_y()` is a private method that cannot be accessed by `CustomPoint` class. Option 4 has the correct implementation of the method but does not override `sum_x_y` as it has a different function name.
 
+### q
+
+What is the point of the `protected` modifier? Why do we have it and how does it work in terms of inheritance?
+
+#### s
+The `protected` modifier allows all child (and grand-child, etc) classes to see the variable or method within the inheritance hierachy. Otherwise, like `private`, other classes cannot see these items. It's meant to obviate the need for child classes to use public getters and setters to access these items, especially when we don't actually want them to be fully public to the rest of the world.
 
 ### q
 
