@@ -267,7 +267,7 @@ Now the program compiles and the output is `(10.0, 10.0)`.
 
 ### q
 
-If we want to re-implement `sum_x_y` in our custom point, but first reflect the point before returning the sum, which of the following implementations are valid? (Note: assume that `reflect` has a valid implementation)
+If we want to override `sum_x_y` in our custom point, but first reflect the point before returning the sum, which of the following implementations are valid? (Note: assume that `reflect` has a valid implementation)
 
 ```java
     //Option 1
