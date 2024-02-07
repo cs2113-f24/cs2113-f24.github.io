@@ -104,7 +104,7 @@ Comms.run(args);
 
 The `Comms.run()` method returns a string corresponding to the command (in this example, `encrypt`) applied to the incoming message (`AAA` in this example.)
 
-A couple example runs are here. Note that you have to type in the string you want to encrypt/decrypt. You must also run your the unit tests and fully test your code:
+A couple example runs are here. Note that you have to type in the string you want to encrypt/decrypt. You must also run the unit tests and fully test your code:
 
 ```
 String[] args = {"1", "2", "3", "###", "encrypt", "AAA"};
