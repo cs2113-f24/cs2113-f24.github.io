@@ -527,7 +527,6 @@ Styles, Harry (G120345,styles) -- Class of 2026 -- styles@gwmail.gwu.edu
 
 <font color=red><h3>Let's take 25 minutes to go through the rest of the questions on the J3 worksheet.</h3></font>
 
-</div>
 
 ---
 *Material from this unit was adopted and/or derived from USNA ic211 (spring 2019)*
