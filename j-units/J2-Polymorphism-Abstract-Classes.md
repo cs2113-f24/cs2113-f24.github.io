@@ -244,7 +244,7 @@ This is great! This means we can create array's of `GWPerson`s like so and take 
 ```java
 GWPerson persons[] = new GWPerson[10];
 persons[0] = new GWStudent(/*...*/);
-persons[1] = new GWProfessor(/*...*/);
+persons[1] = new GWFaculty(/*...*/);
 //...
 //sort persons using before method.
 ```
@@ -280,10 +280,10 @@ public abstract class GWPerson { //note GWPerson is abstract !
     
     //these methods can be same for all persons but perhaps overwritten
     //to include more specifics in subclasses
-    public boolean before(Person p); //returns True if this "before" p in
+    public boolean before(Person p){...} //returns True if this "before" p in
                                      //alphabetic ordering
-    public String fullname();
-    public String toString();
+    public String fullname() {...}
+    public String toString() {...}
 
 
     //this method cannot be defined here and must be implemnted in the subclass
