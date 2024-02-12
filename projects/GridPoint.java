@@ -13,13 +13,11 @@ public class GridPoint extends Object{
         this.y = y;
     }
 
-
     //copy construtor
     public GridPoint(GridPoint other){
         this.x = other.x;
         this.y = other.y;
     }
-
 
     //The following two methods let this be used as a Key in a HashMap
     @Override
@@ -38,18 +36,18 @@ public class GridPoint extends Object{
     //Free two-string method prints out in (x,y) - (y,x) format
     @Override
     public String toString(){
-        return "("+this.y+","+this.x+")";
+        return "(" + this.y + "," + this.x + ")";
     }
 
     private int minDist(int a, int b, int n){
-        return Math.min(Math.abs(a-b), //within
-            (Math.min(a,b)-Math.max(a,b)+n)); //wraparound
+        return Math.min(Math.abs(a - b), //within
+            (Math.min(a, b) - Math.max(a, b) + n)); //wraparound
     }
 
     //Distance to another gridPoint is the manhattan distance
     //number of xs away + number of ys away
-    //accounts for wrapping around the edges
+    //accounts for wrapping around 
     public int dist(GridPoint other){
-        return minDist(x,other.x,City.WIDTH) +  minDist(y,other.y,City.HEIGHT);
+        return minDist(x, other.x, City.WIDTH) +  minDist(y, other.y, City.HEIGHT);
     }
 }

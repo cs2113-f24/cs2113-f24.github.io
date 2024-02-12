@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Creature {
+public abstract class Creature {
 
     
     // Note, that output should be in (x,y) format as
@@ -28,13 +28,11 @@ public class Creature {
     public final static int NUM_DIRS = 4;
     public final static int[] DIRS = {NORTH,EAST,SOUTH,WEST};
 
-
     //Use the index of the direction to determine how to add to a row or column
     //For example, if NORTH (index 0), the we subtract 1 from Y, and add 0 to X
     //direction
-    protected final int[] dirY = {-1,0,1,0};
+    protected final int[] dirY = {-1, 0, 1, 0};
     protected final int[] dirX = {0, 1, 0, -1};
-
 
     //Point Colors -- handy contests to use to make your code more readiable
     public final static char LAB_BLACK='k';
@@ -58,9 +56,6 @@ public class Creature {
     //current color label for the point
     protected char lab;
 
-    //random instance
-    protected Random rand;
-
     //City in which this creature lives so that it can update it's
     //location and get other information it might need (like the
     //location of other creatures) when making decisions.    
@@ -72,21 +67,20 @@ public class Creature {
     //how wide the steps are
     protected int stepLen;
 
-    public Creature(int x, int y, City cty, Random rnd){
-        //DEFAULT Constructor
+    public Creature(int x, int y, City cty){
         point = new GridPoint(x,y);
         city = cty;
-        rand = rnd;
         lab = LAB_GRAY;
-        dir = rand.nextInt(NUM_DIRS);
+        dir = city.getNextDir();
         dead= false;
         stepLen=1;
     }
 
-    public boolean isDead(){ return dead;}
-
+    public boolean isDead(){ 
+        return dead;
+    }
     
-    //getter/setter methods
+    //getter methods
     public int getY(){
         return point.y;
     }
@@ -97,39 +91,20 @@ public class Creature {
         return new GridPoint(point); //return a copy to preseve
                                      //encapsulation
     }
-    
-    public char getLab(){
-        return lab;
-    }
-    public void setDir(int dir){
-        this.dir = dir;
-    }
-    public int getDir(){
-        return this.dir;
-    }
 
-
-    //compute the distance to another creature
-    public int dist(Creature c){
-        return point.dist(c.getGridPoint());
-    }
-
-    //make a random turn
     public void randomTurn() {
-        this.dir = rand.nextInt(4);
+        this.dir = city.getNextDir();
     }
 
-    
-    //TODO: add the methods below to the appropriate class(es)
-    //  void step()
-    //  void takeAction()
+    //BEGIN TODO: any additional methods you may need
+    //step()
+    //takeAction();
+    //END TODO
 
 
-    
-    //To string so you can output a creature to the plotter
+    //output a creature to the plotter
     public String toString() {
-        //output in (x,y) format
-        return ""+this.point.x+" "+this.point.y+" "+lab;
+        //output in col,row format or (x,y) format
+        return "" + this.point.x + " " + this.point.y + " " + lab;
     }
-
 }

@@ -2,10 +2,19 @@ import java.util.*;
 
 public class City{
 
+    // used to implement randomization
+    private int[] creatureXs = new int[10000];
+    private int[] creatureYs = new int[10000];
+    private int[] randomTurns = new int[10000];
+    private int[] randomDirs = new int[10000];
+    private int nextX;
+    private int nextY;
+    private int nextTurn;
+    private int nextDir;
 
     //Determine the City Grid based on the size of the Plotter
-    public static final int WIDTH = 80;
-    public static final int HEIGHT = 80;
+    public static final int WIDTH = Plotter.WIDTH/PlotterPoint.POINT_WIDTH;
+    public static final int HEIGHT = Plotter.WIDTH/PlotterPoint.POINT_WIDTH;
 
     
     // The Grid World for your reference
@@ -26,28 +35,64 @@ public class City{
 
 
 
+
     //-------------------------------------
     //The simulation's Data Structures
     //
-    public List<Creature> creatures; //list of all creatues
+    public List<Creature> creatures; //list of all creatures
     public Queue<Creature> creaturesToAdd;
-
-    //Random instance
     private Random rand;
     
-    public City(Random rand, int numMice, int numCats, int numZombieCats) {
+    public City(Random rand, int numMice, int numCats) {
         this.rand = rand;
 
+        generateRandomLists();
+
+        //Intitialize the data structures and populate the city with initial 
+        //creatures.
         this.creatures = new LinkedList<Creature>();
         this.creaturesToAdd = new LinkedList<Creature>();
         
-        /* Populate mice and cats */
-        for (int i=0; i<numMice; i++) addMouse();
-        for (int i=0; i<numCats; i++) addCat();
+        for (int i=0; i<numMice; i++) 
+            addMouse();
+        for (int i=0; i<numCats; i++) 
+            addCat();
         addNewCreatures();
-      
     }
 
+    // this method populates lists of random numbers used by the creatures
+    private void generateRandomLists(){
+        for(int i = 0; i < 10000; i++){
+            creatureXs[i] = Math.abs(this.rand.nextInt(WIDTH));
+            creatureYs[i] = Math.abs(this.rand.nextInt(HEIGHT));
+            randomTurns[i] = Math.abs(this.rand.nextInt(10));
+            randomDirs[i] = Math.abs(this.rand.nextInt(4));
+        }
+    }
+
+    public int getNextX(){
+        int next = creatureXs[nextX];
+        nextX++;
+        return next;
+    }
+
+    public int getNextY(){
+        int next = creatureYs[nextY];
+        nextY++;
+        return next;
+    }
+
+    public int getNextTurn(){
+        int next = randomTurns[nextTurn];
+        nextTurn++;
+        return next;
+    }
+
+    public int getNextDir(){
+        int next = randomDirs[nextDir];
+        nextDir++;
+        return next;
+    }
 
     //Return the current number of creatures in the simulation
     public int numCreatures(){
@@ -55,16 +100,24 @@ public class City{
     }
     
     public void addMouse(){
-        creaturesToAdd.add(new Mouse(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
-    }
-    
-    public void addCat(){
-        
-        creaturesToAdd.add(new Cat(rand.nextInt(HEIGHT),rand.nextInt(WIDTH),this,rand));
-    }
-    
+        int x = getNextX();
+        int y = getNextY();
 
-    //use this method to queue up a create to be added
+        Mouse m = new Mouse(x,y,this);
+        creaturesToAdd.add(m);
+    }
+
+    public void addMouse(int x, int y){
+        Mouse m = new Mouse(x,y,this);
+        creaturesToAdd.add(m);
+    }
+
+    public void addCat(){
+        int x = getNextX();
+        int y = getNextY();
+        creaturesToAdd.add(new Cat(x,y,this));
+    }
+    
     public void addNewCreatures(){
         while(!creaturesToAdd.isEmpty()){
             creatures.add(creaturesToAdd.remove());
@@ -84,7 +137,7 @@ public class City{
         for(Creature c : creatures){
             c.step(); 
         } //move everyone forward one step in simulation
-        
+
         //Second, for all cratures ...
         for(Creature c : creatures){
             c.takeAction(); 
@@ -108,6 +161,5 @@ public class City{
         for(Creature c : creatures){
             System.out.println(c);
         }//print out all creatures
-
     }
 }
