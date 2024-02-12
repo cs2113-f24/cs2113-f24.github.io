@@ -266,7 +266,7 @@ Mice and cats should extend the `Creature` class.
 Additionally, in your simulator, have it such that:
 * Every 100 rounds, a mouse is added to a random location in the city
 * Every 25 rounds, a cat is added to a random location in the city.
-**To pass the unit tests, random turning should be implemented by assigning the `nextInt(4)` from the creature's `Random` object (that is set in the constructor). Recall the entire simulation shares the same `Random` object across all creatures in the city**.
+To pass the unit tests, you must rely on the city's `getNextX()` and `getNextY()` methods each time you need to generate these random X and Y coordinates.
 
 Then, implement the following:
 
@@ -275,7 +275,7 @@ Then, implement the following:
 
 * After 20 rounds of simulation time, a mouse produces a new baby mouse at the same location 
 * A mouse dies after 22 rounds simulation time
-* A mouse randomly changes directions 20% of the time. **To pass the unit tests, have your code look for 0 or 1 as the next random integer out of 0-9 to take the turn. Turning should always happen before stepping**.
+* A mouse randomly changes directions 20% of the time. You must use the city's `getNextTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City`. If the mouse should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
 * A mouse is displayed as a blue dot
 * The `Mouse` class must extend the `Creature` class using good OOP practices 
 
@@ -283,10 +283,10 @@ Then, implement the following:
 
 * A cat eats a mouse if they end up on the same location. That is, the mouse should die and be removed from the simulation.
 * If a cat doesn't eat a mouse within 50 moves, the cat dies.
-* A cat searches up to 20 grid points (as measured by the `GridPoint.distance()` method) for a mouse to chase. **To pass the unit tests, it first checks if the cat needs to move NORTH/SOUTH (if the vertical distance is strictly greater than the horizontal distance); otherwise, it will move EAST/WEST. If the mouse is on the other side of the grid but is flagged as closest due to the grid wrapping, you should let your code go in the naive direction towards the mouse even if that makes it go further away from the target -- see test9 for an example here.**
+* A cat searches up to 20 grid points (as measured by the `GridPoint.distance()` method) for a mouse to chase. To pass the unit tests, it first checks if the cat needs to move NORTH/SOUTH (if the vertical distance is strictly greater than the horizontal distance); otherwise, it will move EAST/WEST. If the mouse is on the other side of the grid but is flagged as closest due to the grid wrapping, you should let your code go in the naive direction towards the mouse even if that makes it go further away from the target (this is easier to code up than the alternative).
 * If the cat finds a mouse, it moves towards the mouse and is displayed using the color cyan. (This is to make it easier for you to debug, and for us to grade). If the cat cannot find a mouse, it moves normaly and is displayed in yellow.
 * Cats *jump* two spaces at a time. They do not traverse the grid point they jump over. That is, if they are on space (1,2) they would move to (1,4). 
-* Cats randomly turn, change direction, 5% of the time. **To pass the unit tests, have your code look for 0-4 as the next random integer out of 0-99 to take the turn. Turning should always happen before stepping**.
+* Cats randomly turn, change direction, 10% of the time. You must use the city's `getNextTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City`. If the cat should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
 * Cats are displayed as a yellow dot.
 
 
