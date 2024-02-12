@@ -437,7 +437,7 @@ public class GWFaculty extends GWPerson {
 
 <font color=red><h3>Let's take 10 minutes to go through questions 6-7 on the J3 worksheet.</h3></font>
 
-## Leveraging Abstract Class
+## Leveraging Abstract Classes
 
 Abstract classes provide a way to guarantee a subclass of the given class implements all the necessary functionality (i.e., the abstract methods). That means, you can program using the abstract class in a polymorphic way with the expectation that you'll have those methods available to you. 
 
