@@ -210,7 +210,7 @@ If we change the implementation of `A` to the following, what does the code belo
 abstract class Letter {
     protected boolean uppercase;
 
-    protected abstract String get_name();
+    public abstract String get_name();
 
     protected abstract int get_alphabet_position();
 }
