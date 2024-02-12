@@ -190,25 +190,33 @@ public class Ex3 {
 
 # Casting, Polymorphism and `instanceof`
 
-Polymorphism implies that you might have use a more general type (say an `Expense`) to reference a more expressive type (say an `PerItemExpense`), like in the example above. For example, we know that in `ExpenseReport` that if we did the following
+Polymorphism implies that you might have use a more general type (say an `Point`) to reference a more expressive type (say an `LabPoint`), like in the example above. For example, we know that in `LabPoint` that if we did the following
  
 ```java
-Expence a = e[3]; //a is really a PerItemExpense
+
+Point p1 = new Point(2, 3);
+Point p2 = new Point(1, 5);
+LabPoint p3 = new LabPoint(3, 4, "yellow");
+Point[] points = {p1, p2, p3};
+
+Point a = points[2]; //a is really a LabPoint
 ```
 
-We know that `a` is a per-item expense because we wrote the code, and we could, technically cast that to a `PerItemExpense` if we wanted to.
+We know that `a` is a `LabPoint` because we wrote the code, and we could, technically cast that to a `LabPoint` if we wanted to.
 
 ```java 
-PerItemExpense a = (PerItemExpense) e[3];
+LabPoint a = (LabPoint) points[2];
+
+LabPoint a = (LabPoint) points[0]; // <---- this will compile, but crash at runtime!
 ```
 
-But this is quite dangerous, and should feel a bit ugly (because it is). For starters, we just happen to know that this is a `PerItemExpense` but from `ReportGenerator.create()`'s perspective, it sees everything as an `Expense`. So this cast is **dangerous** and cause runtime errors and will sometimes cause compile time warnings. It's also not neccesary because the interface for `Expense` is consistent with `PerItemExpense` and so we can take advantage of polymorphism. 
+But this is quite dangerous, and should feel a bit ugly (because it is). For starters, we just happen to know that this is a `LabPoint` but from `points`' perspective, it sees everything as a `Point`. So this cast is **dangerous** and can cause runtime errors and will sometimes cause compile time warnings, for instance, if you are loopoing through the `points` array without knowing what type of object is actually inside of it at each index. It's also not neccesary because the interface for `Point` is consistent with `LabPoint` and so we can take advantage of polymorphism. 
 
 However, there are times where you will need to know what is the real class-type of an instance object. Java has a method for doing that using `instanceof`
 
 ```java
-for(int i=0; i < 4; i++){
-  if( e[i] instanceof PerItemExpense )
+for(int i=0; i < points.length; i++){
+  if( points[i] instanceof LabPoint )
     //... do something specific to this class
 }
 ```
