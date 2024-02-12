@@ -285,28 +285,6 @@ public class PolymorphicOverload {
 
 
 ### q
-Assume that `class A` is implemented in such a way so that the program will compile and run. What is the output? You should do this problem without running the code.
-
-```java
-public class Temp {
-    public static void foo(A a) {
-        System.out.println("foo1: " + a.get_name());
-    }
-    public static void foo(Letter a) {
-        System.out.println("foo2: " + a.get_name());
-    }
-    public static void main(final String args[]) {
-        Letter a = (Letter) new A();
-        foo(a);
-    }
-}
-```
-
-#### s
-The output of this program is `foo2: A`. The variable `a` is declared as `Letter class` which will make `foo(a)` run the second method with declaration `public static void foo(Letter a)`.
-
-
-### q
 Suppose you had the following class structures
 
 
@@ -437,15 +415,7 @@ public class E extends C {
 
 ```
 
-Draw the class hierarchy for the above classes, that is the UML diagram that simply shows who inherits from whom.
-
-#### s
-
-TODO
-
-### q
-
-Continuing with the classes from the previous question, consider a mystery function that returns a object of the given class.  **You do not know the definition of the mystery function, other than it compiles properly and returns an object of the class.** For each of the following method calls marked below, indicate the value of the output, if the output cannot be determined, or if there is an error.
+Consider a mystery function that returns a object of the given class.  **You do not know the definition of the mystery function, other than it compiles properly and returns an object of the class.** For each of the following method calls marked below, indicate the value of the output, if the output cannot be determined, or if there is an error.
 
 ```java
 

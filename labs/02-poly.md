@@ -30,10 +30,6 @@ java DotChaser | java -jar Plotter.jar
 
 The program `Plotter.jar` is provided for you. 
 
-### Testing your lab
-
-There is no test script for this lab. Your grade is based on a code review of your object-oriented design principles; see the grading rubric.
-
 
 # Part 1: Rewriting the code using OOP (75 pts)
 
