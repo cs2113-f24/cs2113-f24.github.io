@@ -180,7 +180,7 @@ public class Ex3 {
       u = x;
     else
       u = y;
-    System.out.println(u); //<--
+    System.out.println(u.toString()); //<--
   }
 }
 ```
