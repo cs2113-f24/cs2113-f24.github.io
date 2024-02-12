@@ -92,7 +92,7 @@ Use Violet UML (or another tool, or paper) to generate a UML diagram for your ma
 
 > Create a UML diagram. Include it in your repo, named 'UML.png' and link it into your README. 
 
-# Part 2: Rewrite `DotChaser` functionality into several classes using good OOP (65 pts)
+# Part 2: Rewrite `DotChaser` functionality into several classes using good OOP 
 
 Rewrite `DotChaser` as an object-oriented program. You will (presumably) be creating other `.java` files as well. The **output of `DotChaser` should not change**, but the design must follow all the good object-oriented design principles we have discussed. In particular, you must use encapsulation, information hiding, inheritance, and polymorphism. Maximize code reuse; keep implementation and interface as separate as possible. Your inheritance should follow the picture on the right.
 
