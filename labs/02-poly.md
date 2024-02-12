@@ -75,6 +75,12 @@ As noted, a list of coordinates is pretty boring, so we also provided you a Plot
 java DotChaser | java -jar Plotter.jar 
 ```
 
+<div class="requirement">
+Troubleshooting
+
+If the GUI window does not load onn Windows, try to either run java through the command line "as administrator", and/or install WSL and run it from a WSL shell. Post to Ed right away if you get stuck -- you may not be able to figure this part out on your own.
+</div>
+
 The output of `DotChaser` is piped into Plotter, which plots each of the dots at the row,col coordinates and color given. The "done" at the end of a group of lines tells us that we are done with the "round", so now the updated display should be shown, and what follows will be values for the next "round". What you get is a really pretty animation like below. 
 
 <center>
@@ -105,7 +111,6 @@ You must do these things:
 * **README.md**: In the  README file and write a paragraph (or two) that explains how your redesign makes use of encapsulation, information hiding, inheritance and polymorphism.
 
 Be sure to add all your new Java files to the repo for submission.
-</div>
 
 # Part 3: Add a new `Thing` 
 
