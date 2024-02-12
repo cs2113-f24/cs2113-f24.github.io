@@ -169,7 +169,7 @@ You may NOT (except for the group project):
 - Write code as a group and then submit identical or slightly modified versions -- if you discuss general approaches to solving a problem together, you still must be writing up your own independent solution.
 - Use any LLM (such as ChatGPT) to generate any of your code, or generate a skeleton of your code that you then modify.
 
-The [Academic Integrity Code](https://github.com/GWU-CSCI3411-Fall16/hw-0-gparmer/blob/master/cs_integrity.md) will apply to this course. Please read through the code carefully. *Penalties for violating the code or the policies described here include failing this course*, and are elaborated in the [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity). Note that the _minimum_ punishment is failure of the assignment. Additional actions could include failure of the class, suspension, or expulsion. 
+*Penalties for violating the code or the policies described here include failing this course*, and are elaborated in the [GW Academic Integrity Code](https://studentconduct.gwu.edu/code-academic-integrity). Note that the _minimum_ punishment is failure of the assignment. Additional actions could include failure of the class, suspension, or expulsion. 
 
 
 **Please note that in the context of this class, all projects and labs are considering programming/coding assignments. Many actions fall under the <u>"You may NOT"</u> list above**
