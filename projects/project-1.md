@@ -139,12 +139,12 @@ To compile all your files at once, use
 You can run the simulator with the following arguments:
 
 ```                  
-                      .-- Number of rounds to simulate
-                      |    .- The seed of the random number generator
-                      v    v
-java Simulator 8 2 0 1000 42 
-               ^ ^ ^
-               | | '-number of inital zombie cats (this was from an old semester, ignore it for now)
+                    .-- Number of rounds to simulate
+                    |    .- The seed of the random number generator
+                    v    v
+java Simulator 8 2 1000 42 
+               ^ ^ 
+               | | 
                | '- number of initial cats
                '- number of initial mice
 ```
@@ -202,7 +202,7 @@ Enter anything to continue:
 Like in Lab 2, we've provided a plotting tool `Plotter.jar` which you can pipe your output to, like so
 
 ```
-java Simulator 8 2 0 1000 42 | java -jar Plotter.jar
+java Simulator 8 2 0 1000 42 | java -jar Plotter.jar --DEBUG
 ```
 
 This will open a visual, like the animation above. There are two arguments you can provide to the plotter.
