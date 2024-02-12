@@ -454,11 +454,13 @@ D.3 : Doesn't Compile, No output
 
 ### q
 
-What is the difference between a `class` and an `abstract class`?
+What is the difference between a `class` and an `abstract class`? From a software engineering perspective, why would you ever want to use an abstract class instead of a regular class?
 
 #### s
 
 An `abstract class` can only be inherited by another class and can not be directly instantiated. A `class` can be instantiated in most contexts, and still inherited by other classes as well. `abstract class`es must also be implemented before code will compile.
+
+You would prefer an abstract class when you want to enforce that the abstract class' constructor can/should never be called. 
 
 
 ### q
@@ -469,14 +471,3 @@ If you were to create an abstract class for a `Car` -- what features could be de
 
 Features such as car brand, model, year, and other attributes that would be highly variable would be defined in the class implmentation. Other functions that would be mostly fixed and more deterministic across different class definitions, such as `toString` and functions that get or set values would be defined in the `abstact` class.
 
-# Grading rubric and submission
-
-Use git, as discussed in Lab 0, to submit your work in a repo called `gitusername-worksheetJ2`. You will be graded on the following:
-
-|Item | Points |
-|the name of the repo for this lab matches the pattern  `gitusername-worksheetJ2` | 10 |
-|the grader has been added as a collaborator to the repo with an invite timestamp during the lecture| 10 |
-|the repo has been made private | 10 |
-|the name of the answers file in your repo is  `worksheet-J2.md` | 10 |
-|worksheet questions have been completed | 60 |
-|TOTAL | 100 |
