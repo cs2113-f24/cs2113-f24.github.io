@@ -31,7 +31,7 @@ java DotChaser | java -jar Plotter.jar
 The program `Plotter.jar` is provided for you. 
 
 
-# Part 1: Rewriting the code using OOP (75 pts)
+# Part 1: Rewriting the code using OOP 
 
 Take a look at the `DotChaser` program. You can compile and run it as is:
 
@@ -75,7 +75,7 @@ As noted, a list of coordinates is pretty boring, so we also provided you a Plot
 java DotChaser | java -jar Plotter.jar 
 ```
 
-The output of DotChaser is piped into Plotter, which plots each of the dots at the row,col coordinates and color given. The "done" at the end of a group of lines tells us that we are done with the "round", so now the updated display should be shown, and what follows will be values for the next "round". What you get is a really pretty animation like below. 
+The output of `DotChaser` is piped into Plotter, which plots each of the dots at the row,col coordinates and color given. The "done" at the end of a group of lines tells us that we are done with the "round", so now the updated display should be shown, and what follows will be values for the next "round". What you get is a really pretty animation like below. 
 
 <center>
 <img src="/images/DotChaser.png" alt="DotChaser" width="50%" height="50%" />
@@ -86,9 +86,9 @@ So what do you have to do? Well, the program `DotChaser` is written entirely as 
 
 Note that the plotter can plot more than just red and blue. Here are your color choices as you make your things: r (red), b (blue), g (green), y (yellow), o (orange), p (pink), m (magenta), k (black).
 
-# Part 1: Create a UML diagram for your `Thing`s (10 pts)
+# Part 1: Create a UML diagram for your `Thing`s 
 
-Use Violet UML (or another tool) to generate a UML diagram for your many `Thing` types after reading the explanations below.
+Use Violet UML (or another tool, or paper) to generate a UML diagram for your many `Thing` types after reading the explanations below.
 
 > Create a UML diagram. Include it in your repo, named 'UML.png' and link it into your README. 
 
@@ -101,13 +101,13 @@ You must do these things:
 * **Refactor the code** only: do not change variable names or method names; reuse the existing fields and methods.
 * **Remove static methods**: only `main()` should be static in all of your classes.
 * **Polymorphism**: You should have `TypeA` and `TypeB` classes; observe how they differ. Your parent class `Thing` most likely will not need a single if statement. If you find you need one/more, make sure there isn't a way to utilize polymorphism instead. If you still find the need for if statements, ask your instructor if they are appropriate. Related to this, your child classes should have at least one method which demonstrates polymorphism. This should naturally come from your design, but we make note of it here as a requirement to give you that extra nudge.
-* **Use a linked list**: Remove `Node` from `main()` and write a `List` or `Queue` class called `ThingList`. You'll have to write this. Your `main()` should not have `Node` variables anymore, but instead a `ThingList` variable with nice calls such as `list.add(thing)`.
+* **Use a linked list**: Remove `Node` from `main()` and write a `List` or `Queue` class called `ThingList`. You'll have to write this. Your `main()` should not have `Node` variables anymore, but instead a `ThingList` variable with nice calls such as `list.add(thing)`. You need to write this code yourself; do not use ChatGPT (for example) to generate this linked list.
 * **README.md**: In the  README file and write a paragraph (or two) that explains how your redesign makes use of encapsulation, information hiding, inheritance and polymorphism.
 
 Be sure to add all your new Java files to the repo for submission.
 </div>
 
-# Part 3: Add a new `Thing` (15 pts)
+# Part 3: Add a new `Thing` 
 
 The original `DotChaser` had two types of Things: `typeA`, which randomly choses left, right or straight at every round; and `typeB`, which randomly chooses left, right or straight every 10th round. Now that you have a nice object-oriented version, create a third type of `Thing` called `TypeC`. What exactly it does is up to you, but it needs to use some diagonal motion (i.e. left-right-left-right-... sequences, or draws a circle, triangle, or other shape). The principal thing to keep in mind is how OOP makes this easier and cleaner. 
 
@@ -118,7 +118,7 @@ Create a third `ThingC` type that must have.
 1. Ensure that the orignal `DotChaser` still works the same as before, even after you've added your new type of `ThingC`. That is, the red and blue dots act normally.
 2. The new type of `ThingC` must move in a *new* way different than `typeA` or `typeB`. 
 3. In your `README.md` indicate the name of the new type and the Java file used to program it. **Be sure to add that file to your repo for submission :)**
-4. Add a paragraph to the `README.md` file that explains how your new OOP design makes adding new types of `ThingCS`s easy.
+4. Add a paragraph to the `README.md` file that explains how your new OOP design makes adding new types of `ThingC` easy.
 5. Add a final paragraph to the `README.md` that explains exactly where in your program there is a polymorphic function call, and how that plays an essential role in the program functioning properly.
 
 *Be sure to add all your new Java files to the repo for submission.*
@@ -163,7 +163,6 @@ Use git, as discussed in lab zero, to submit your work in a repo called `gituser
 |[**unit test**] the `ThingList` class contains the `Node` class as an inner class, utilizing good OOP | 5 |
 |[**unit test**] the `ThingList` class has methods to `addAll`, `moveAll`, and `printAll` `Thing`s inside the list/queue | 5 |
 |`TypeA`, `TypeB`, and `TypeC` classes turn appropriately upon visual inspection, utilizing good OOP | 20 | 
-|a README file as specified above is included | 5 |
+|a README file as specified above is included | 10 |
 |a UML diagram matching the code implementation as been included, that lists all classes and their methods and fields | 10 |
-|the new implementation preserves the original `DotChaser` functionality for `TypeA` and `TypeB` | 5 |
 |TOTAL | 100 |
