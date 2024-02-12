@@ -178,9 +178,9 @@ Consider the first two class declarations. What is the output of compiling the p
 abstract class Letter {
     protected boolean uppercase;
 
-    abstract String get_name();
+    protected abstract String get_name();
 
-    abstract int get_alphabet_position();
+    protected abstract int get_alphabet_position();
 }
 ```
 ```java
