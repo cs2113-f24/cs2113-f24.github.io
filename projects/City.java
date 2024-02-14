@@ -82,7 +82,7 @@ public class City{
         return next;
     }
 
-    public int getNextTurn(){
+    public int getNextRandomTurn(){
         int next = randomTurns[nextTurn];
         nextTurn++;
         return next;
