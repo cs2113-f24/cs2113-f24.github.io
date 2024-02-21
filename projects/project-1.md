@@ -275,7 +275,7 @@ Then, implement the following:
 
 * After 20 rounds of simulation time, a mouse produces a new baby mouse at the same location 
 * A mouse dies after 22 rounds simulation time
-* A mouse randomly changes directions 20% of the time. You must use the city's `getNextRandomTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City` (starting at line 64). If the mouse should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
+* A mouse randomly changes directions 20% of the time. You must use the city's `getNextRandomTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City` (starting at line 64). Check for '0' or '1' to be the number returned by that method for the 20% value. If the mouse should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
 * A mouse is displayed as a blue dot
 * The `Mouse` class must extend the `Creature` class using good OOP practices 
 
@@ -286,7 +286,7 @@ Then, implement the following:
 * A cat searches up to 20 grid points (as measured by the `GridPoint.distance()` method) for a mouse to chase. To pass the unit tests, it first checks if the cat needs to move NORTH/SOUTH (if the vertical distance is strictly greater than the horizontal distance); otherwise, it will move EAST/WEST. If the mouse is on the other side of the grid but is flagged as closest due to the grid wrapping, you should let your code go in the naive direction towards the mouse even if that makes it go further away from the target (this is easier to code up than the alternative).
 * If the cat finds a mouse, it moves towards the mouse and is displayed using the color cyan. (This is to make it easier for you to debug, and for us to grade). If the cat cannot find a mouse, it moves normaly and is displayed in yellow.
 * Cats *jump* two spaces at a time. They do not traverse the grid point they jump over. That is, if they are on space (1,2) they would move to (1,4). 
-* Cats randomly turn, change direction, 10% of the time. You must use the city's `getNextRandomTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City` (starting at line 64). If the cat should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
+* Cats randomly turn, change direction, 10% of the time. You must use the city's `getNextRandomTurn()` method to generate the next random number from which to decide to turn; see how this list of numbers is generated in `City` (starting at line 64). Check for '0' to be the number returned by that method for the 10% value. If the cat should change direction, your code must also rely on the city's `getNextDir()` to get the next random direction in which to turn. Failure to use these methods correctly to implement randomness will cause you to not pass the unit tests.
 * Cats are displayed as a yellow dot.
 
 
