@@ -248,7 +248,7 @@ There are two requirements for this project. The first requirement (Part A) invo
 
 **This part of the project must be signed off by a TA or LA by the due date specified**
 
-For Part A, you should complete a UML diagram and discuss ut in a 5-minute meeting with a TA or LA during lab or office hours. Use this [signup sheet](https://edstem.org/us/courses/39551/discussion/3519133) to select a time to meet with one of the TAs during lab.
+For Part A, you should complete a UML diagram and discuss ut in a 5-minute meeting with a TA or LA during lab or office hours. Use the signup sheet on Ed to select a time to meet with one of the TAs during lab.
 
 * `UML.png` : Create UML diagram for your simulation code and creatures. This should include primarily your creatures but also the interaction with other code. 
 
