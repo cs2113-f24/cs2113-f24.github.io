@@ -264,7 +264,6 @@ Review the following Java util data structures:
 
 * [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) 
 * [`Hashtable`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Hashtable.html)
-* [`TreeMap`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html)
 
 For each, 
 * Provide a two-to-three sentence description of each class
@@ -286,25 +285,6 @@ For each,
 * No other class extends `Dictionary`, but many classes implement map, such as `TreeMap` and `AbstractMap`.
 * `Map` Provides methods so a user can pass some sort of key, and a value is returned. It also guarantees there is some list of keys, values, and key-value mappings available. Finally, it provides users the ability to check if the mapping is empty, if it contains a key or value, and a way to delete or update key-value pairs. See previous for `Cloneable` and `Serializable`
 
-`TreeMap`
-
-* Another map, except that instead of implementing it using a hash table, it is implemented using a Red-Black tree (see [here](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)) for a refresher). What happens, is we search for a node that represents our key-value pair.
-* `AbstractMap`, which is an abstract class implementing `Map` but with only some basic methods implemented
-* `NavigableMap`, `Cloneable`, `Serializable`
-* `NavigableMap` is similar to the `Map` interface, except it also requires that all keys and values can be sorted. The additional methods required are ways for the user to get either the max/min keys and values, or the key/value that is immediately greater/lesser than a given key or value. We see that since a Red-Black tree is a sorted binary tree, that means the data stored in it must be sorted, and so we implement `NavigableMap`.
-
-
-### q
-
-Take a look at the documentation for `LinkedHashSet`: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html)
-and `HashSet`:
-[https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html)
-
-When would it be preferable to use a `LinkedHashSet` instead of a `HashSet`?
-
-
-#### s
-We would use the `LinkedHashSet` when we have a set of items that we want to keep in a specific unchanging order. For example, if we want a set of colors, we'd use `HashSet`, since there can only be at most one instance of a color (it wouldn't make sense to store two identical reds), but there isn't an order to colors (the rainbow is only one way to order them, but it's not THE way to). If we wanted a set of integers, we'd want to use `LinkedHashSet`, since integers are inherently comparable and sortable, and we don't want them to be in a random order.
 
 ### q
 
@@ -398,22 +378,22 @@ For the code below, what does the code "erase" to?
 The Java runtime actually doesn't know anything about generics, when you compile
 a Java program with generics in them, at compilation time all "generic" types
 are replaced with what they should be. Essentially, when we use a generic, at
-compilation time the compiler essentially changes the `Shelf` class to only use the `Object` type, so wherever we see a `T` it's replaced with `Object`. From there, every time we do something that should return as a specific type `T`, we replace with a cast to that specific type. 
+compilation time the compiler essentially changes the `Shelf` class to only use the `String` type, so wherever we see a `T` it's replaced with `String`. From there, every time we do something that should return as a specific type `T`, we replace with a cast to that specific type. 
 
 We see this program then erases to:
 
 ```java
  public static void main(final String args[]) {
         Shelf favorite_words = shelfBuilder();
-        favorite_words.addItem((Object)"Zoetrope");
-        favorite_words.addItem((Object)"Succinct");
+        favorite_words.addItem((String)"Zoetrope");
+        favorite_words.addItem((String)"Succinct");
         //...        
         String s = (String)favorite_words.getItem(1);
         System.out.println(s);
     }
 ```
 
-We see this code won't work as the array doesn't have a size.
+
 ### q
 
 Finish the `main` method in the `TestShelf` class above.
@@ -541,62 +521,6 @@ Continuing with the example above, explain why expanding `LinkedList` to impleme
 
 `Iterable` will keep track of where we are in the linked list, essentially holding a pointer to the last item we were at. This means everytime we get the next item, it'll just return `next` of the current location, and move the pointer forward to the next item. This results in a loop that is only `O(n)`, as we only see every item at most once.
 
-### q
-
-Finish the `main` method below to use the fibonacci iterator to print out the sequence: `1 2 3 5 8 13 21 ...`
-
-```java
-import java.util.Iterator;
-
-class Fibonacci implements Iterable<Integer> {
-    public static void main(final String args[]) {
-        Fibonacci fibonacci = new Fibonacci(21);
-
-        // TODO:  Use the fibonacci iterator to print out the sequence: 1 2 3 5 8 13 21
-    }
-
-    private int max;
-
-    public Fibonacci(int max) {
-        this.max = max;
-    }
-
-    public Iterator<Integer> iterator() {
-        return new FibonacciIterator();
-    }
-
-    private class FibonacciIterator implements Iterator<Integer> {
-        int current = 1;
-        int previous = 0;
-
-        @Override
-        public boolean hasNext() {
-            return current + previous <= max;
-        }
-
-        @Override
-        public Integer next() {
-            int tmp = current;
-            current += previous;
-            previous = tmp;
-            return current;
-        }
-    }
-}
-```
-
-
-#### s
-Iterators are so cool!
-
-```java
-  public static void main(final String args[]) {
-      Fibonacci fibonacci = new Fibonacci(21);
-      for(int i : fibonacci){
-          System.out.print(i+" ");
-      }
-  }
-```
 
 ### q
 
