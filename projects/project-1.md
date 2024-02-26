@@ -168,7 +168,7 @@ Like in Lab 2, the first two numbers are a coordinate, and the letter is a color
 Optionally, you can include `--DEBUG` as the final argument, like below, if you want to iterative step through the simulation
 
 ```
-$ java Simulator 8 2 0 1000 42 --DEBUG
+$ java Simulator 8 2 1000 42 --DEBUG
 42 10 b
 50 3 b
 38 66 b
@@ -202,7 +202,7 @@ Enter anything to continue:
 Like in Lab 2, we've provided a plotting tool `Plotter.jar` which you can pipe your output to, like so
 
 ```
-java Simulator 8 2 0 1000 42 | java -jar Plotter.jar --DEBUG
+java Simulator 8 2 1000 42 | java -jar Plotter.jar --DEBUG
 ```
 
 This will open a visual, like the animation above. There are two arguments you can provide to the plotter.
