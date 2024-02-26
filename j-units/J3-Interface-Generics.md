@@ -95,7 +95,7 @@ margin-right: auto;"/>
 
 Here the solid line with solid arrowheads indicate classes that inerit from another, like `GWStudent` inherits from `GWPerson`. A dotted line with a solid arrowhead indicates a class that *realizes* an interface, like `GWFaculty` realizing `GWStaff`. Finally, an interface is annotaed with `<<>>` markers in its name. 
 
-<font color="red"><b>PAUSE: Let's do exercises 1-3 on the J4 worksheet now for the next ten minutes.<br></b></font>
+<font color="red"><b>PAUSE: Let's do exercises 1-2 on the J4 worksheet now for the next ten minutes.<br></b></font>
 
 ## Using interfaces
 
@@ -220,6 +220,8 @@ public void reverseStack(IntStack s) {
 ```
 The programmer is making a strong assumption about the nature of `s`, specifically it the `IntStack` is realized via an `IntLinkedList` and so it can be directly cast. This may not be the case. `IntStack` could be realized by an `IntArrayList` or some other class that can realize an `IntStack` that is yet to be written. 
 
+
+<font color="red"><b>PAUSE: Let's do exercise 3 on the J4 worksheet now for the next ten minutes.<br></b></font>
 
 # Java Generics and Interface
 
@@ -432,7 +434,7 @@ While you can do some fancy casting with arrays of `Objects`, best practice is t
 
 <!-- Unfortunately, this may not work in all situations, for example, if you want to write a list that can be generic to any type, not just subtypes of one type.  -->
 
-<font color="red"><b>PAUSE: Let's do exercises 5-11 on the J4 worksheet now for the next 20 minutes.<br></b></font>
+<font color="red"><b>PAUSE: Let's do exercises 5-10 on the J4 worksheet now for the next 20 minutes.<br></b></font>
 
 # Exploring Common Java Interfaces and their Realizations
 
@@ -598,6 +600,8 @@ while(iter.hasNext()) { //Iterator interface
 }
 ```
 
+<font color="red"><b>PAUSE: Let's do exercises 11-14 on the J4 worksheet now for the next 20 minutes.<br></b></font>
+
 ## Java Collections
 
 The last interface we'll discuss here is the Java `Collection` interface, which is actually a family of interfaces that describe any data structure that stores a collection of objects. And of course, all `Collection`s implement `Iterable` :) 
@@ -633,8 +637,5 @@ The key classes that you will encounter that realize a `Map` are:
 * `HashMap<K,V>` : A hash table implementation of a `Map`
 * `LinkedHashMap<K,V>` : A hash table that useses a linked list to enable iteration of the hash table. 
 * `TreeMap<K,V>` : A (balanced) tree based implementation of `Map` that has the benefit of also being a `NavigableMap`, so it can be iterated in some order. 
-
-<font color="red"><b>PAUSE: Let's do exercises 12-16 on the J4 worksheet now for the next 20 minutes.<br></b></font>
-
 
 
