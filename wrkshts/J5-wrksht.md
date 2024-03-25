@@ -304,31 +304,4 @@ class Pin extends JFrame {
 }
 ```
 
-### q
-
-For the above program you wrote above, add a new feature. This could be to allow variable length PINs, match different PINs, allow users to select a PIN and then confirm it later, etc.
-
-Describe your extension. 
-
-#### s
-Answers may vary!
-
-
-### q
-
-Add a feature were you listen for key strokes, like '1' or '2' for entering the PIN, and allow the user to either type or use the mouse
-
-#### s
-
-For this you can use a [KeyListener](https://docs.oracle.com/javase/tutorial/uiswing/events/keylistener.html)
-
-
-### q
-
-Add a secret PIN that get's checked. If the user guesses the PIN, have your GUI change in some interesting way, such as change colors, or something else visual
-
-#### s
-
-Answers may vary
-
 

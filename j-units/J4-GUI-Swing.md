@@ -286,6 +286,9 @@ public class Ex5 {
 
 So, what do we take away from this? Java Swing's event handling mechanism is fundamentally about polymorphism and inheritance (or at least the limited form of inheritance offered by interfaces). In fact, it is a prime example of multiple implementations of the same interface, because every time we need to define how to react to an event (like a window closing) we provide a different implementation of the listener interface. 
 
+<br>
+<font color=red>PAUSE: Let's do problem 2 on the J4 worksheet now (5 minutes)</font>
+
 <br><br>
 
 ## Extending JFrames
@@ -459,18 +462,18 @@ public class BorderLayoutEx2 {
         f.add(bWest, BorderLayout.WEST);
 
         //A panel is a comonent that can hold other components
-        JPanel p = new JPanel();
+        JPanel panel = new JPanel();
         //set the layout of the panel
-        p.setLayout(new BorderLayout());
+        panel.setLayout(new BorderLayout());
 
         //add components to the panel
         JButton bCenterEast = new JButton("CENTER-EAST");
         JButton bCenterWest = new JButton("CENTER-WEST");
-        p.add(bCenterEast, BorderLayout.EAST);
-        p.add(bCenterWest, BorderLayout.WEST);
+        panel.add(bCenterEast, BorderLayout.EAST);
+        panel.add(bCenterWest, BorderLayout.WEST);
 
         //add the panel to the frame, in the center
-        f.add(p, BorderLayout.CENTER);
+        f.add(panel, BorderLayout.CENTER);
         
         f.pack(); //do alignment within the layout
         
@@ -489,7 +492,7 @@ margin-right: auto;"/>
 (Quick aside about `JPanel`: The `JPanel` is the workhorse of the GUI's and you'll use it a lot. In fact, you can imagine, in a OOP way, extending a `JPanel` if there are functionality within that context you want to use, such as adding a number of components. We don't show that here, but now that you're developing your OOP skills, you should be able to imagine it.)
 
 <br>
-<font color=red>PAUSE: Let's do problem 4 on the J5 worksheet now (5 minutes)</font>
+<font color=red>PAUSE: Let's do problem 3 on the J5 worksheet now (5 minutes)</font>
 <br><br>
 
 ## Button Action Events
@@ -510,14 +513,14 @@ public class HelloGoodbyeEx1 {
         JFrame f = new JFrame();
         f.setTitle("Hello/Goodbye Ex1");
 
-        JLabel l = new JLabel("Hello");
-        JButton b = new JButton("Click me!");
+        JLabel label = new JLabel("Hello");
+        JButton button = new JButton("Click me!");
 
         //add event listener for the button
-        b.addActionListener(new ButtonClickListenerEx1(l));
+        button.addActionListener(new ButtonClickListenerEx1(label));
         
-        f.add(b, BorderLayout.SOUTH);
-        f.add(l, BorderLayout.NORTH);
+        f.add(button, BorderLayout.SOUTH);
+        f.add(label, BorderLayout.NORTH);
 
         f.pack();
         f.setVisible(true);
@@ -527,7 +530,7 @@ public class HelloGoodbyeEx1 {
 }
 ```
 
-Two new things here. First is the **`JLabel`, which is a GUI component for displaying short text**. The initial text displayed is "Hello". Second is the `ButtonClickListenerEx1` class. This is where the action is, and so let's take a look at that code
+Two new things here. First is the **`JLabel`, which is a GUI component for displaying short text**. The initial text displayed is `Hello`. Second is the `ButtonClickListenerEx1` class. This is where the action is, and so let's take a look at that code:
 
 ```java
 import javax.swing.*;
@@ -575,11 +578,11 @@ public class HelloGoodbyeEx2 {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JLabel label = new JLabel("Hello");
-        JButton b = new JButton("Click me!");
+        JButton button = new JButton("Click me!");
 
         //using an anonymous (static) class
         //avoids having to make ButtonClickListenerEx1 class above
-        b.addActionListener(new ActionListener() {
+        button.addActionListener(new ActionListener() {
                 //implement the one method here
                 //shares the name space with the whole class
                 //has access to the label field above
@@ -592,7 +595,7 @@ public class HelloGoodbyeEx2 {
                 }
             });
         
-        f.add(b, BorderLayout.SOUTH);
+        f.add(button, BorderLayout.SOUTH);
         f.add(label, BorderLayout.NORTH);
 
         f.pack();
@@ -605,12 +608,12 @@ public class HelloGoodbyeEx2 {
 We still add an `ActionListener` for the button, but we do not give it a name. Instead we define the single method that needs to be realized *in-line* with the code. This creates a new class definition for us just for this context. This new class is called an *anonymous class* because it is an unnamed class.
 
 <br>
-<font color=red>PAUSE: Let's do problems 5 and 6 on the J5 worksheet now (10 minutes)</font>
+<font color=red>PAUSE: Let's do problem 4 on the J5 worksheet now (10 minutes)</font>
 <br><br>
 
 ## Lambda Expressions
 
-You may notice that `ActionListener` is an interface that requires only a single method to be realized `actionPerformed`. It's a lot of code to get to just define a single method. Newer versions of Java have recognized this inefficiency and now have a new syntax that allows us to capture the action, the body of the method, without all the extra syntax. Note that this works only if there is a single method to implement.
+You may notice that `ActionListener` is an interface that requires only a single method to be realized `actionPerformed`. It's a lot of code to get to just define a single method. Newer versions of Java have recognized this inefficiency and now have a new syntax that allows us to capture the action, the body of the method, without all the extra syntax. **Note that this works only if there is a single method to implement.**
 
 For example, let's rewrite the `addActionListener` portion of the above code in the new syntax:
 
@@ -673,7 +676,7 @@ There's a lot, lot, lot more to Lambda's in Java. They are very useful, but hope
 </div>
 
 <br>
-<font color=red>PAUSE: Let's do problems 7 and 8 on the J5 worksheet now (5 minutes)</font>
+<font color=red>PAUSE: Let's do problems 5 and 6 on the J5 worksheet now</font>
 <br><br>
 
 ## Bigger Example: Converter GUI
@@ -685,7 +688,7 @@ style="display: block;
 margin-left: auto;
 margin-right: auto;"/>
 
-Here's the code for this, which you should quickly review, and then we can highlight some important things to note
+Here's the code for this, which you should quickly review, and then we can highlight some important things to note;
 
 ```java
 import javax.swing.*;
@@ -780,10 +783,10 @@ The second new element is the `FlowLayout`. Like a `BorderLayout`, this aligns e
 
 The last (somewhat) new thing here is the fact that we use a private, inner class to manage the action events. This works well in this context because the private inner class has access to all the GUI components, and can take appropriate action. 
 
-What makes this particularly interesting (at least to me) is that we can use the same action listener for three different components. This is the beauty of OOP: they all rely on the same interface. When we apply the listener to a `JComboBox`, the event occurs when a new item is selected. When the listener is applied to a `JTextField` the event occurs when *enter* is hit. 
+What makes this particularly interesting (at least to me) is that **we can use the same action listener for three different components**. This is the beauty of OOP: they all rely on the same interface. When we apply the listener to a `JComboBox`, the event occurs when a new item is selected. When the listener is applied to a `JTextField` the event occurs when *enter* is hit. 
 
 <br>
-<font color=red>PAUSE: Let's do problems 9 through 12 on the J5 worksheet now (rest of class)</font>
+<font color=red>PAUSE: Let's do problem 7 on the J5 worksheet now.</font>
 <br><br>
 
 ---
