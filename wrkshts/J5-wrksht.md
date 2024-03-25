@@ -79,68 +79,6 @@ What does the program below produce for a GUI? (You can sketch and upload an ima
 #### s
 ![](/images/J4-9.png)
 
-### q
-What is the output of the below program if we click the `Multiply` window's `Calculate` button?
-```java
-class SimpleMultiplier extends JFrame {
-    public SimpleMultiplier(JButton button) {
-        this.add(button, BorderLayout.CENTER);
-        this.setTitle("Multiply");
-        this.setSize(100, 100);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    public static int calculation(int a, int b) {
-        return a * b;
-    }
-}
-
-class SimpleAdder extends JFrame {
-    public SimpleAdder(JButton button) {
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(calculation(4, 2));
-            }
-        });
-        this.add(button, BorderLayout.CENTER);
-        this.setTitle("Add");
-        this.setSize(100, 100);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public static int calculation(int a, int b){
-        return a + b;
-    }
-}
-
-```
-```java
-class Main {
-    public static int calculation(int a, int b) {
-        return a / b;
-    }
-    public static void main(final String args[]) {
-        JButton multiplyButton = new JButton("Calculate!");
-        multiplyButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(calculation(4, 2));
-            }
-        });
-        JButton addButton = new JButton("Calculate!");
-        SimpleMultiplier multiplier = new SimpleMultiplier(multiplyButton);
-        SimpleAdder adder = new SimpleAdder(addButton);
-        multiplier.setVisible(true);
-        adder.setVisible(true);
-    }
-}
-```
-#### s
-Since we make the button's action listener for `SimpleMultiplier` in `Main`, that means it will use the `calculation` function from `Main`, not `SimpleMultiplier`. The output then will be 2.
-
-### q
-From the previous question, what would happen if we instead had clicked the `Add` window's `Calculate` button?
-
-#### s
-We get 6, following similar logic from the last question, except now the action listener was made in `SimpleAdder`.
 
 ### q
 
