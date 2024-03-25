@@ -84,7 +84,7 @@ What does the program below produce for a GUI? (You can sketch and upload an ima
 
 Modify the `HelloGoodbyeEx2` code to update the number of times the button has been clicked on the button's label itself.
 
-### s
+#### s
 
 ```java
 import javax.swing.*;
