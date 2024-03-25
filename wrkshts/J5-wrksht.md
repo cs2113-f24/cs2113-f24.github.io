@@ -31,18 +31,6 @@ What is the relationship between `WindowListener` and `WindowAdapter`?
 A side philosophy side tangent: a lot of times we can learn more about something based on how it interacts with things, then its actual definition. This is a common thing in most sciences, usually we don't care about what something is, only how it interacts with other things, to the point a lot of definitions are actually based on how things interact with other things, not just what they are. We see here this is a great example, we're defining what a window is by how it can be interacted with, not what it "is".
 
 
-### q
-
-Go to the Java docs for [`WindowAdapter`](https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/event/WindowAdapter.html)
-
-What other kinds of listening does it do other than just those in `WindowListener`?
-
-
-#### s
-`WindowStateListener`: called whenever a window changes state, such as from minimized to active, or active to closed.
-
-`WindowFocusListener`: Called when a window is focused, or not focused.
-
 
 ### q
 What does the program below produce for a GUI? (You can sketch and upload an image or describe it -- do this without running the program to make sure you understand what each line below is doing).
