@@ -13,16 +13,9 @@ In a **single-threaded program**, which is what you've been dealing with up unti
 
 However, there are many reasons to have **multi-threaded execution**. For example, your web browser might have a separate thread running for each individual tab. The web server (host) your browser connects to might also have a pool of threads in order to serve pages. Your text editor (like MSWord) also probably has several concurrent threads running at the same time; one of them might be constantly spell-checking your writing in real-time. These are just some examples; note that they all share some of the same data that the threads all act upon.
 
-Ignoring for the moment the very important issues surrounding how the different threads (i.e. the different executing function call stacks) communicate with, and otherwise interact with one another, the fundamental problems that have to be addressed when designing a threading API are:
-
-1.    How do you start a new thread? I.e. how do you call a function so that instead of the call resulting in a new function call record being pushed on top of the stack record of the caller in the caller's function call stack, a new stack is created and the function call becomes the bottom-most record on the new stack?
-2.    How do you get data into the newly created function call stack when you start it?
-3.    How do you get data out of the new function call stack once it's finished executing?
-
-
 ## Java threads: the very basic basics
 
-You might be surprised to find that Java's answer to this involves ... classes, inheritance and polymorphism. Are you surprised? I hope not! The Java API has a class called `Thread` that includes two important methods: 
+The Java API has a class called `Thread` that includes two important methods: 
 
 ```java
 public void run();
@@ -510,51 +503,6 @@ public class CountFiles {
 <font color="red"><b>PAUSE: Let's do problem 14 on the worksheet (5 minutes)</b></font>
 <br>
 
-## Synchronization with the Event Dispatch Thread
-
-
-Whenever we have two or more threads reading-from/writing-to the same object, we have to worry about the possibility of race conditions. But isn't that, in fact, what we've been doing with GUIs? The Event Dispatch Thread manipulates all of the `JFrame`, `JButtons`, `JLabels` and so on, but in several of our programs the main thread has manipulated these as well, and so have other threads we've spawned. So should we be worried? The short answer is ... yes. **These Swing classes are not "thread safe", meaning they do not employ synchronized methods or other mechanisms to ensure that race conditions don't arise when multiple threads are involved**. So, we have kind of been playing with fire.
-
-The way one is supposed to update Swing objects is to use the "event queue". The event queue, like our `Queue` with synchronized methods, is thread safe. Multiple threads can safely add items to it. What kind of items get added to the event queue? `Runnable` items. These items will be dequeued and their `run()` methods called, but they will be executed in the Event Dispatch Thread. If you do everything related to a GUI component this way, the component is only ever modified in the Event Dispatch Thread, so there is no concurrency, and thus no race conditions. **When you have an action you'd like to take in order to update a GUI component, instead of executing the action directly in whatever thread you are in, you should enqueue a `Runnable` object with the `invokeLater` method.**
-
-For example, suppose have a `JTextField tf` and you want to set its text to "0.0". Instead of executing the statement: 
-
-```java
-tf.setText("0.0");
-```
-
-you should create the class: 
-
-```java
-public class MyRunnable implements Runnable {
-  private JTextField t;
-  public void MyRunnable(JTextField t) { this.t = t; }
-  public void run() { t.setText("0.0"); }
-}
-```
-
-and then, where you would have had `tf.setText("0.0");` you would write: 
-
-```
-java.awt.EventQueue.invokeLater(new myRunnable(tf));
-```
-
-This way, when the Event Dispatch Thread has a spare moment, it will dequeue this `MyRunnable` object and call its `run()` method, which will cause it to set `tf`'s text to "0.0". 
-
-This idiom causes a proliferation of classes, which is a bit ugly and awkward, so Java allows you to define and instantiate a class "inline", using what are called anonymous classes. Using this mechanism, we can set our text with the following: 
-
-```java
-final JTextField tfp = tf;
-java.awt.EventQueue.invokeLater(
-   new Runnable() {
-     public void run() { tfp.setText("0.0"); }
-   }
-);
-```
-
-The `final JTextField tfp` is there because of a technicality, which is that any local variable you reference from within the anonymous class has to be `final`. 
-
-Because it rapidly involves a lot of anonymous classes, which we're not covering in-depth, we'll mostly stick to "playing with fire" in our simple GUIs for this class, and access GUI elements from outside the Event Dispatch Thread. Let's just hope we don't get burned! 
 
 
 ---
