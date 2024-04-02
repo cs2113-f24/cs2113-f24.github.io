@@ -24,7 +24,7 @@ Use git, as discussed in Lab 0, to create a repo called `gitusername-project2`, 
 
 ### Testing/Grading
 
-There are no test scripts. You will be graded based on functionality and OOP design.
+There are test cases to check most of your client and server functionality. The GUI functionality will be graded by hand.
 
 
 ### Compiling and Running your Code
@@ -65,7 +65,7 @@ see Ed for details
 
 You can use this server to design and test your GUI, before you actually implement the server yourself later.
 
-> IMPORTANT: These channels are shared for the entire class. We will monitor the connections and what is posted to these channels. Any behavior considered hateful (broadly defined) may result in disciplinary and academic actions.
+> IMPORTANT: These channels are shared for the entire class. We will monitor the connections and what is posted to these channels. Any behavior considered inappropriate (broadly defined) may result in disciplinary and academic actions.
 
 
 ### Client/Server Protocol
@@ -85,7 +85,7 @@ username
 
 > Note that there are newlines `\n` here. It is important for parsing you send each as a complete line. So your server can read a line, then expect the next line, and so on.
 
-> Note that `username` should be replace with whatever this client chooses as a username. Like if they were named `george` it would be `george` instead of `username`
+> Note that `username` should be replaced with whatever this client chooses as a username. Like if they were named `george` it would be `george` instead of `username`
 
 If successful, the server responds with the member list (see below), otherwise, the server will simply close the connection. The server must check that the SECRET sent by the user matches that expected value on the server side.
 
@@ -137,20 +137,6 @@ style="display: block;
 margin-left: auto;
 margin-right: auto;"/>
 
-### Required methods and classes
-
-Your GWack Client GUI must have the following code, in addition to the GUI widgets:
-* a class named `GWackClientGUI` which extends `JFrame` and containds the necessary GUI widgets
-* `GWackClientGUI` must have an instance of a`GWackClientNetworking` class as a field (to manage the networking components)
-* `GWackClientGUI` must have the methods `newMessage(String message)`, `updateClients(String clients)`, and `sendMessage()` to implement the required functionality for those logical components
-* `GWackClientGUI` must define, as private classes, a `ConnectActionListener` and `DisconnectActionListener` to help implement the required functionality for connecting and disconnecting. When the user clicks Connect, this listener will then change the button's text to be Disconnect, and it should remove the `ConnectActionListener` and add the `DisconnectActionListener`. You can do that with the following methods:
-`GWackClientGUI.this.connectButton.removeActionListener(this);` and `GWackClientGUI.this.connectButton.addActionListener(new DisconnectActionListener());`. The behavior will be symmetric inside the DisconnectActionListener's actionPerformed method.
-
-Your `GWackClientNetworking` class must have the following code:
-* fields to store the information needed for a single connection
-* `writeMessage(String message)`, `isConnected()`, and `disconnect()` methods to implement the required functionality
-* a private class called `ReadingThread` that extends `Thread` and is used to start a new thread in the `GWackClientNetworking` constructor to serve this specific connection (so it must have a `run()` method)
-
 
 ### Connecting and Disconnecting
 
@@ -174,17 +160,16 @@ You should also consider making the text-areas non-editable once connected as we
 
 ### ERROR reporting
 
-You should have some mechanism for reporting errors with connections. I choose to use [message dialogs](https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html), like the following. You can use something else, but you have to have something. 
+You should have some mechanism for reporting errors with connections. Use [message dialogs](https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html), like the following. 
 
 <img src="/images/project-3/gui-client-connected-error.png" alt="GUI Display Error" width="50%"
 style="display: block;
 margin-left: auto;
 margin-right: auto;"/>
 
-Some errors to consider:
+You must implement error reporting for and invalid port. You can also feel free to implement error reporting for:
 * Cannot connect to server
 * Invalid host
-* Invalid port
 * Server disconnected
 
 ### Message Sending and Display
@@ -206,28 +191,6 @@ The second display should be used to draft messages, this should be editable. Th
 style="display: block;
 margin-left: auto;
 margin-right: auto;"/>
-
-
-Additionally, you should have a key listener so that messages send when the user hits ENTER:
-
-```java
-msgTextArea.addKeyListener(new KeyListener(){
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if(e.getKeyChar() == '\n'){
-                    sendMessage();
-                }                
-            }
-            @Override
-            public void keyPressed(KeyEvent e) {}
-            @Override
-            public void keyReleased(KeyEvent e) {}
-
-        }); 
-```
-
-> Important: the user can either send a message by hitting "ENTER" or clicking the button. 
 
 ### Members in the channel
 
@@ -255,45 +218,43 @@ Your GWack server (`GWackChannel`) should host a single chatroom or channel at a
 
 ### Required methods and classes
 
+Your GWack GUI must have the following functionality:
+* a class named `GWackClientGUI` that represents the GUI and contains the `main` method to display the GUI.
+* a class named `ClientNetworking` that is used by the GUI to set up a connection to the server and manages messages to and from the server. This class should store some kind of `Thread` object (which you should declare inside of this class as a private class that extends `Thread`) which has a `run` method that collects messages passed down from the server and updates the GUI accordingly.
+
 Your GWack channel must have the following functionality:
-* a class named `GWackChannel` that represents the server and contains the `main` method
-* a private class `GWackConnectedClient` inside of `GWackChannel` that is used to manage individual connections to the server. This class must extend the `Thread` class, and have the following methods: `sendMessage(String message)`, `isValid()`, `getClientName()`, and `run()`
-* `serve()`, `addClient(GWackConnectedClient client)`, `enqueuMessage(String message)`, `dequeueAll()`, and `getClientList()` methods to implement the required functionality
+* a class named `GWackChannel` that represents the server and contains the `main` method, as well as a `serve` method, and any methods referenced in the unit tests. The `serve` method takes an argument; when its argument is `-1`, the while loop inside of serve should run forever; otherwise, the while loop should run as many times as the integer passed in (see unit tests for an example of how the latter is used).
+* a class named `ClientThread` that is used to manage individual connections to the server. This class must extend the `Thread` class, and have the methods referred to in the unit tests. As this is a thread, you will also want to provide a `run()` method.
 
 # Grading rubric and submission
 
-Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-project2`. You will be graded on the following:
+Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-project2`. The total score for all portions of the project is out of 135 points. You will be graded on the following:
 
-## GWackClientGUI grading
+## GWackClientGUI skeleton grading
 
 |Item | Points |
 |The name of the repo for this lab matches the pattern  `gitusername-project2` | 3 |
-|The grader has been added as a collaborator to the repo| 4 |
+|The grader has been added as a collaborator to the repo| 3 |
 |The repo has been made private | 3 |
-|There is a single button to connect/disconnect, who's label toggles when the button is pressed | 8 |
-|Three labelled fields except a name, host, and port | 8 |
-|The connect button allows the GUI to connect to one of the sample servers (doesn't have work)| 1 |
+|There is a single button to connect/disconnect, who's label toggles when the button is pressed | 2 |
+|There are three labelled fields that accept a name, host, and port | 3 |
+|There is a connect button allows the GUI to connect to one of the sample servers (doesn't have work)| 1 |
 |The members list has a place to be displayed | 1 |
-|There is a field to type in a message | 8 |
+|There is a text area to type in a message | 1 |
 |There is a button to send a message | 1 |
-|One or more `JPanel`s has been used to create a visually-pleasing layout like in the example image | 8 |
-|TOTAL | 53 |
+|One or more `JPanel`s have been used to create a visually-pleasing layout like in the example image | 5 |
+|TOTAL | 23 |
+
+## GWackClientGUI functionality grading
+
+|Item | Points |
+|The connect button allows the GUI to connect to one of the sample servers successfully | 3 |
+|A popup error message is displayed when the port is missing when trying to connect | 3 |
+|There is a button to send a message, with correct functionality | 3 |
+|The client list is successfully updated when a client connects | 3 |
+|TOTAL | 12 |
 
 ## GWackServer grading
 
-|Item | Points |
-|The connect button allows the GUI to connect to one of the sample servers successfully | 7 |
-|The members list is updated correctly within a second of the connection being made | 7 |
-|The members list is updated regularly through the use of a `Thread` | 8 |
-|There is a button to send a message, with correct functionality | 7 |
-|An error window is raised when the GUI cannot connect to an invalid server | 10 |
-|The messages update regularly with named-associated messages from all clients | 8 |
-|There is an event listener that allows the user to send a message by hitting the enter key | 8 |
-|The `GWackChannel` constructor opens a `ServerSocket` to the incoming port | 10 |
-|The `serve` method runs continuously to accept incoming client connections| 10 |
-|Clients on the server are implemented as objects that extend the `Thread` class correctly | 10 |
-|The `serve` method stores successfully connected clients in a list of appropriate generic type specification | 10 |
-|The server as a method `removeClients` that removes all non-connected clients and updates the members list correctly | 10 |
-|The server uses the `synchronized` keyword correctly in all places necessary | 10 |
-|The server updates all clients with any new message coming from any of the connected clients | 10 |
-|TOTAL | 117 |
+There are ten unit tests, each of them worth ten points.
+
