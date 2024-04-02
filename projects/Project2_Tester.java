@@ -325,6 +325,7 @@ public class Project2_Tester {
 
     } catch (Exception e){
         e.printStackTrace();
+        assertEquals("passed test 9", "failed test 9");
     }
     process.destroy();
   }
@@ -377,6 +378,7 @@ public class Project2_Tester {
 
     } catch (Exception e){
         e.printStackTrace();
+        assertEquals("passed test 10", "failed test 10");
     }
     process.destroy();
   }
