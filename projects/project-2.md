@@ -18,13 +18,15 @@ You should create at least the two files below -- note that they have different 
 * `GWackClientGUI.java`: the client code and GUI for interacting with a server.
 * `GWackChannel.java`: the server code to host a channel/chatroom
 
+Download the [Project2_Tester.java](./Project2_Tester.java) file.
+
 ### Github setup
 
 Use git, as discussed in Lab 0, to create a repo called `gitusername-project2`, add these two files to it, and commit and push the changes to github. The timestamp of your invitation of the grader as a collaborator must be from the lab first session for this project.
 
 ### Testing/Grading
 
-There are test cases to check most of your client and server functionality. The GUI functionality will be graded by hand.
+There are test cases to check most of your client and server functionality. The GUI functionality will be graded by hand. See the rubric at the bottom of this page.
 
 
 ### Compiling and Running your Code
