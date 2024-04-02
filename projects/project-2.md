@@ -256,7 +256,7 @@ Use git, as discussed in lab zero, to submit your work in a repo called `gituser
 |The client list is successfully updated when a client connects | 3 |
 |TOTAL | 12 |
 
-## GWackServer grading
+## GWackServer, ClientThread, and ClientNetworking functionality grading
 
 There are ten unit tests, each of them worth ten points.
 
