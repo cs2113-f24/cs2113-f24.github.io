@@ -221,8 +221,8 @@ Your GWack server (`GWackChannel`) should host a single chatroom or channel at a
 ### Required methods and classes
 
 Your GWack GUI must have the following functionality:
-* a class named `GWackClientGUI` that represents the GUI and contains the `main` method to display the GUI.
-* a class named `ClientNetworking` that is used by the GUI to set up a connection to the server and manages messages to and from the server. This class should store some kind of `Thread` object (which you should declare inside of this class as a private class that extends `Thread`) which has a `run` method that collects messages passed down from the server and updates the GUI accordingly.
+* a class named `GWackClientGUI` that represents the GUI and contains the `main` method to display the GUI. You'll also need to provide all methods required by the unit tests.
+* a class named `ClientNetworking` that is used by the GUI to set up a connection to the server and manages messages to and from the server. This class should store some kind of `Thread` object (which you should declare inside of this class as a private class that extends `Thread`) which has a `run` method that collects messages passed down from the server and updates the GUI accordingly. You'll also need to provide all methods required by the unit tests.
 
 Your GWack channel must have the following functionality:
 * a class named `GWackChannel` that represents the server and contains the `main` method, as well as a `serve` method, and any methods referenced in the unit tests. The `serve` method takes an argument; when its argument is `-1`, the while loop inside of serve should run forever; otherwise, the while loop should run as many times as the integer passed in (see unit tests for an example of how the latter is used).
