@@ -130,7 +130,7 @@ www.cs.gwu.edu is an alias for www2old.gwu.edu.
 www2old.gwu.edu has address 161.253.128.45
 ```
 
-Interesting, you can see that `www.cs.gwu.edu` is an analias for another domain `www2old.gwu.edu`, which in turn has a stable IP address `161.253.128.45`. 
+Interesting, you can see that `www.cs.gwu.edu` is an alias for another domain `www2old.gwu.edu`, which in turn has a stable IP address `161.253.128.45`. 
 
 <font color="red"><b>PAUSE: Let's work on Q5 in the worksheet together now (two minutes)</b></font>
 
@@ -159,33 +159,6 @@ In the model, we describe clients as connecting to servers and servers listening
 
 While this class will focus on the client server model, there are other models of network interaction. For example, the peer-to-peer model is when clients act as both client and servers. This is common for many distributed systems, such as BitTorrent or Skype. 
  
-
-### Reliable Transportation: TCP
-
-The client server model fits into the protocol stack at the transport layer. There are typically two types of transport available for programmers, reliable and unreliable transport. Interestingly, none of the protocols in lower layers ensure any reliability — at any time packets can be drop, misrouted, delayed, or generally deformed without notice. The fact that such things can happen on the network is actually a positive because the lower layers can be much more efficient without having to worry about reliable delivery.
-
-<img src="/images/network-TCP.png" alt="Network TCP"
-width="35%"
-style="display: block;
-margin-left: auto;
-margin-right: auto;"/>
-
-### Unreliable Transport: UDP 
-
-Reliable transport has a cost, though. The cost is the retransmission of lost or deformed packets and acknowledgments of properly received packets. In order to have reliable transportation, all information must be properly acknowledged upon receipt and if a packet was not properly received, then it must be retransmitted. The result is that there exists a significant overhead, and this is worsened by the fact that not all communication needs to be reliable — dropping a few packets here and there never killed anyone, yet.
-
-The complementary protocol to TCP is UDP or User Datagram Protocol, which is an unreliable transport mechanism. The UDP protocol, or DATAGRAM protocol, does not make any guarentees about the delivery if a packet. It might get there … or it might not. Datagram protocols are not session driven either; without reliability, the client and the server need not stay in sync to ensure that all messages are acknowledged. Instead, a server just listens for incoming data from clients and thats that. 
-
-
-<img src="/images/network-udp.png" alt="Network UDP"
-width="35%"
-style="display: block;
-margin-left: auto;
-margin-right: auto;"/>
-
-You might be wondering when would this ever be useful? UDP is quite common for a number of applications; for example, live audio streams. There is no need for audio streams to be reliable, if you miss a packet, so what, you'll just get the next one and keep playing the music. However, if you were to do this reliably, you'd have to stop the music while missed data was retransmitted, and the result is you might keep getting further and further behind in the live stream. 
-
-
 
 ## Socket Programming in Java
 
