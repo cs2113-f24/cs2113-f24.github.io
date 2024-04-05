@@ -20,7 +20,8 @@ You will be writing two additional files from scratch, so you should create them
 
 ### Github setup
 
-Use git, as discussed in Lab 0, to create a repo called `gitusername-lab4`, add these six files to it, and commit and push the changes to github. The timestamp of your invitation of the grader as a collaborator must be from this lab session.
+Use git, as discussed in Lab 0, to create a repo called `gitusername-lab4`, add these five files to it, and commit and push the changes to github. The timestamp of your invitation of the grader as a collaborator must be from this lab session.
+
 ### Running your program
 
 Run your lab on the command line by executing the following pipeline after compiling all your files:
