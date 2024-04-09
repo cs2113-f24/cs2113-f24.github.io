@@ -228,6 +228,18 @@ Your GWack channel must have the following functionality:
 * a class named `GWackChannel` that represents the server and contains the `main` method, as well as a `serve` method, and any methods referenced in the unit tests. The `serve` method takes an argument; when its argument is `-1`, the while loop inside of serve should run forever; otherwise, the while loop should run as many times as the integer passed in (see unit tests for an example of how the latter is used).
 * a class named `ClientThread` that is used to manage individual connections to the server. This class must extend the `Thread` class, and have the methods referred to in the unit tests. As this is a thread, you will also want to provide a `run()` method.
 
+# Junit testing
+
+To run your unit tests -- remember, you need to have the junit jar file in the same directory -- compile and run your code with the following commands on the terminal (depending on your OS):
+
+### Windows
+`javac -classpath ".;junit-platform-console-standalone-1.7.0-M1.jar" *.java`
+`java -classpath ".;junit-platform-console-standalone-1.7.0-M1.jar" org.junit.runner.JUnitCore Project2_Tester`
+
+### Mac/Linux
+`javac -classpath ".:./junit-platform-console-standalone-1.7.0-M1.jar" *.java`
+`java -classpath ".:junit-platform-console-standalone-1.7.0-M1.jar" org.junit.runner.JUnitCore Project2_Tester`
+
 # Grading rubric and submission
 
 Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-project2`. The total score for all portions of the project is out of 135 points. You will be graded on the following:
