@@ -20,7 +20,7 @@ While it is difficult to skip any of these steps for any large-scale system, we'
 
 ## Gathering and specifying requirements
 
-In your classes so far, it was probably rare for you to have to *design* your programs. In most cases, your professors detailed the requirements, either in English, or through unit tests (or some combination of both). In this course, each time you had to draw a UML diagram before writing your code, you were designing your solution. However, besides the project, you likely haven't had a chance to gather requirements and figure out *what* needs to be built, as opposed to *how* you're going to build it (design).
+In your classes so far, it was probably rare for you to have to *design* your programs. In most cases, your professors detailed the requirements, either in English, or through unit tests (or some combination of both). In this course, each time you had to draw a UML diagram before writing your code, you were designing your solution. However, you likely haven't had a chance to gather requirements and figure out *what* needs to be built, as opposed to *how* you're going to build it (design).
 
 Requirements gathering is arguably the most important and most difficult part of software engineering. Any requirement that is incorrectly captured -- or isn't captured at all -- can cause signficiant headaches, rework, and financial loss later in the development lifecycle. Perhaps the worst outcome is that a piece of software is delivered that isn't what the customer or the user even wanted! Fortunately, we have several decades worth of collective software engineering experience to help guide us on how to gather requirements more effectively. 
 
@@ -52,6 +52,8 @@ An example of a non-functional requirement for our calculator above might be: `B
 
 The line between functional and non-functional requirements can be blurry -- this is okay. Just remember that **all requirements need to be testable**.
 
+<br>
+<font color="red"><b>PAUSE: Let's work on Q1-Q3 in the worksheet together now </b></font><br>
 
 ### Use Cases for requirements gathering
 
@@ -74,7 +76,8 @@ Each use case is a bubble in such a diagram, and would also contain notes about 
 * **Preconditons**: anything that has to be true before the use case starts
 * **Scenario**: a table that contains a series of steps to complete the use case. Each step has an *action (or stimulus)* and a *software reaction*
 
-Although not required, we suggest that you build a use case diagram and flesh out the key use case scenarios before you work on formalizing your table of requirements this semester.
+<br>
+<font color="red"><b>PAUSE: Let's work on Q4 in the worksheet together now </b></font><br>
 
 ## Software Development Lifecycle models
 
@@ -98,6 +101,9 @@ In such cases, **agile methods** are more useful, compared to the waterfall appr
 
 Such an approach has the benefit of reducing the number of changes that need to be incorporated later in the development lifecycle due to missing or incorrect initial requirements. The downside with agile approaches is that because they are incremental in terms of what is being completed, the overall system that gets delivered may be less efficient than had it been holistically planned out in the first place. 
 
+<br>
+<font color="red"><b>PAUSE: Let's work on Q5 in the worksheet together now </b></font><br>
+
 ### Project planning
 
 Whether you're using a waterfall or agile approach for developing your software, you'll need need to do some kind of planning in terms of:
@@ -109,3 +115,5 @@ The **critical path** of a project defines an ordered set of components/requirem
 
 A project manager is often used to plan out the timeline, milestones, and deliverables for a software project. This is a different role than the **project lead** who is responsible for motivating the team, creating a vision, and other emotional support and soft skills. For smaller projects they may be the same person.
 
+<br>
+<font color="red"><b>PAUSE: Let's work on Q6 in the worksheet together now </b></font><br>
