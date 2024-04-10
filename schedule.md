@@ -24,8 +24,7 @@ title: Schedule
 | 11   | Apr 1: [J5 - Threading and Concurrency](j/5) <br>&bull; [J6 Worksheet](worksheet/j6)                       | Apr 3: quiz on Lab 4 (15 minutes)<br> begin [Project 2 -- GWack GUI Simulator](project/2) (Due Mon Apr 8)    |
 | 12   | Apr 8: [J6 - Java IO and Networking](j/6) <br>&bull; [J7 Worksheet](worksheet/j7)            | Apr 10: lab is office hours <br> begin [Project 2 -- GWack Channel Simulator](project/2) (Due Mon Apr 22 -- no late deadline!)             |
 | 13   | Apr 15: [S2 - Software Engineering Development](j/software_engineering)<br>&bull; [J8 Worksheet](worksheet/j8)    <br> &bull; quiz on GWackGUI (15 minutes)<br> work on Project 2| Apr 17: branches and merges in git <br> work on project 2
-| 14   | Apr 22:  [S3 - Design Patterns](j/design) <br>review for second exam  <br>&bull; written portion sample exam <br>&bull; 
-live coding submitserver account setup and test                                                                                           |  Apr 24: quiz on GWack Channel (75 minutes)                                                                                                             | 
+| 14   | Apr 22:  [S3 - Design Patterns](j/design) <br>review for second exam  <br>&bull; written portion sample exam <br>&bull; live coding submitserver account setup and test                                                                                           |  Apr 24: quiz on GWack Channel (75 minutes)                                                                                                             | 
 | 15   | Apr 29:  Exam 2 written portion (first 45 minutes)<br>optional live coding makeup (cap of 80 points) | May 1: <i>no lab</i>                                                        |
 |    | Final Exam week: we do NOT have a final exam in this class
 
