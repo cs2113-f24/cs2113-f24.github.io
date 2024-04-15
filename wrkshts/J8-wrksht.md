@@ -40,7 +40,7 @@ Many options here;
 - The system shall load each image within one second
 
 ### q
-Draw a use case diagram for Instagram.com with at least three uses cases shown, where at least one use case extends another, and there are three actors.
+Draw a use case diagram for Instagram.com with at least three uses cases shown, where at least one use case extends another, and there are two actors.
 
 #### s
 Answers given in class.
