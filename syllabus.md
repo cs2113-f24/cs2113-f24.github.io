@@ -20,21 +20,19 @@ aside:
 
 ### Meeting Time and Course Staff
 
-* Lecture: FNGR 209
-  * Mon. 8AM - 10:30AM with TBA, and Dr. Kinga (professor)
+* Lecture: DUQUES 151
+  * Mon. 8AM - 10:30AM with Dr. Kinga (professor)
 * Lab
-  * Wed. 11:10AM - 12:25PM (TOMP 405, section 30) with Sidra (lead)
-  * Wed. 11:10AM - 12:25PM (SEH 4040, section 31) with Jett (lead)
+  * Mon. 2:10PM - 3:20PM (SEH 4040, section 30) with TBA (lead)
+  * Wed. 3:35PM - 4:45PM (TOMP 405, section 31) with TBA (lead)
+  * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with TBA (lead)
 
 ### Office hours
-* Maya Bardin (LA): Mondays Mondays 11am-12:30pm and 2:15pm-4:15pm in SEH 4th floor couches
-* Jett Jacobs (GTA): Wednesdays 12:30pm-2:00pm in SEH 4th floor couches
-* Sidra Hussain (UTA): Mondays 11am-12:30pm, Wednesdays 2pm-4pm, Thursdays 11am-1pm in SEH 4th floor couches
+* TBA (LA): TBA
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
-* Jett Jacobs (GTA and grading): jett@gwu.edu 
-* Nandita venkatesh (grading only, quizzes): nandita.venkatesh@gwu.edu
+* TBA
 
 ## Course Details 
 
@@ -55,14 +53,7 @@ By the end of this course, students will be able to:
 
 ## Textbook and Resources
 
-There are **NO REQUIRED** textbooks for this course. Instead we have a list of recommended resources for you to reference in addition to the course notes provided for you. These include:
-
-- [Learning Java, 5th Edition](https://learning.oreilly.com/library/view/learning-java-5th/9781492056263/) by Marc Loy, Patrick Niemeyer, Daniel Leuck
-- [Head First Design Patterns, 2nd Edition](https://learning.oreilly.com/library/view/head-first-design/9781492077992/) by Eric Freeman and Elisabeth Robson
-- [Head First Java](http://www.headfirstlabs.com/books/hfjava/) by Kathy Sierra and Bert Bates, published by O'Reilly (2nd edition) 
-- [Java in a Nutshell](http://oreilly.com/catalog/9780596007737), by David Flanagan, O'Reilly Publishing. This book is a handy reference that contains a (rather terse) overview of the language, tools and API's. Initially, a beginner will find it difficult to read, but it's probably the only book you will continue to use even after becoming a Java expert. 
-
-All books listed here are available **for free** via [Safari Tech Books](https://learning.oreilly.com/home/) via the GWU library. Just create an account with your GWU email. You can also find a ton more books and resources there. 
+There are **NO REQUIRED** textbooks for this course. You do not need to use outside materials to complete the assignments, except when specifically instructed to do so.
 
 ## Workload 
 
@@ -83,6 +74,7 @@ Having completed the pre-reqs, you are expected to submit well-written code:
 - Submit code that compiles (**non-compiling code will not be graded**).
   - Additionally, your code should be compile in a standard, pre-described way for the class (e.g., `javac` without additional libraries, except perhaps the final project).
 - Be able to describe and answer questions about your code when prompted.
+- Verify your grade on programming assignments on the submitserver; we will be using your scores on the submitserver as your grade.
 
 ## Grading 
 
@@ -104,11 +96,11 @@ There will also be one live coding exam that students will take on computers dur
    
 ### Self-Guided worksheets
 
-Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lecture; you will be graded only on the problems we covered together during class. 
+Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lab the same week; you will be graded only on the problems we covered together during class. 
 
 ### Labs, programming projects, and quizzes
 
-There are six programming assignments which will form the material that you will be tested on with six quizzes this semester. Quizzes will be on paper, in lab, and although they are not worth any points, they do serve as a cap on the matched programming assignment. For example, if you score a 100% on Lab 3, but your matching quiz score is 45%, your Lab 3 grade will also be reduced to 45%. The spirit of this assessment is to make sure students write their own solutions (without using an LLM, for example), and understand the concepts these programming assignments are meant to exercise.
+There are six programming assignments which will form the material that you will be tested on with six quizzes this semester. Quizzes will be on paper, in lecture, and although they are not worth any points, they do serve as a cap on the matched programming assignment. For example, if you score a 100% on Lab 3, but your matching quiz score is 45%, your Lab 3 grade will also be reduced to 45%. The spirit of this assessment is to make sure students write their own solutions (without using an LLM, for example), and understand the concepts these programming assignments are meant to exercise.
 
 ### Participation/Attendance
 
@@ -124,15 +116,15 @@ No assignments will be accepted for re-grade requests after final grades have be
 
 ## Submission/Late Work Policy
 
-We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late up until the start of your lab (11:09:59am), unless otherwise noted. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
+We do not accept late work in this course. However, programming assignments will not be graded until you have taken the respective quiz, so you may turn them in late up until the start of lecture, unless otherwise noted. We will not offer Ed nor office hours support on any assignment which is past due; you will need to complete these on your own.
 
 We will not accept late worksheets.
 
-If you miss a quiz in lab or an exam, you may elect to take an oral makeup with the professor, during a mutually-agreeable time during business hours before the last day of classes (NOT the last day of finals). The makeup quiz/exam will be harder than the quiz/exam the rest of the class would take as you would have had more time to study. If no mutually acceptable time can be found for a makeup, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
+If you miss a quiz in lab or an exam, you may elect to take an oral makeup with the professor the Monday the following week before lecture. Other makeup times will not be supported. The makeup quiz/exam will be harder than the quiz/exam the rest of the class would take as you would have had more time to study. If you miss the exam on the last day of class, you will receive an Incomplete grade in the course and must take the makeup during the first two weeks of the following semester (otherwise you will receive an F in the course).
 
 ## Class Communication
 
-We will use two primary forms of communication in this class: email announcements and [Ed](https://edstem.org/us/courses/49991/discussion/). You are responsible for remaining up to date on any information sent by email or posted to Ed. This may include clarifications to assignments, updates on grading rubrics, and changes in office hours. 
+We will use two primary forms of communication in this class: email announcements and [Ed](https://edstem.org/us/courses/58495/discussion/). You are responsible for remaining up to date on any information sent by email or posted to Ed. This may include clarifications to assignments, updates on grading rubrics, and changes in office hours. 
 
 For all general course information, questions, and clarifications, you should preference to using Ed. An instructor, TA, or even your fellow classmate can then answer a question. You can even post your questions anonymously. 
 
@@ -159,11 +151,11 @@ You must:
 - Write the names of any students you collaborated with as a comment at the top of your main/README file (subject to the constraints below).
 - Notify your instructor if you are using a tutor (this is not a problem, just let your instructor know).
 
-You may NOT (except for the group project):
+You may NOT:
 
 - Copy code to or from other students or people outside of the class.
 - Discuss general approaches to solving the homework problems with other students. The pen-to-paper, fingers-to-keyboard work should be your own. 
-- Have another student look at a specific snippet of your code (e.g., 10 lines) to help you debug a programming error.
+- Have another student look at a specific snippet of your code (e.g., 2+ lines) to help you debug a programming error.
 - Have someone else write code for you.
 - Copy code from the internet, unless you specifically reference the source and can explain how it works. This should be a tiny minority of the code you submit and you must ask permission in advance on Ed. An exception to this is any code we provided in class or through the notes; this does not need to be cited. 
 - Write code as a group and then submit identical or slightly modified versions -- if you discuss general approaches to solving a problem together, you still must be writing up your own independent solution.
@@ -173,13 +165,6 @@ You may NOT (except for the group project):
 
 
 **Please note that in the context of this class, all projects and labs are considering programming/coding assignments. Many actions fall under the <u>"You may NOT"</u> list above**
-
-
-### Groupwork
-
-We will have an in-class, group-based project towards the end of the semester. The project grade will be based on what the group produces. For example, if all team members feel their teammate contributed equally, that teammate recieves all the points for the project earned by the groupwork. If the team feels that a teammate only contributed 50% effort, that teammate will recieve only half the points of the project earned by the groupwork. **Please email the instructor ASAP if you or your team are having trouble with your team members, so we can make arrangements to monitor and resolve the situation (which may involve breaking up teams).** Groupwork disputes will be resolved using git logs only.
-
-Please visit the CS department's [JEDI student resources page](https://www.cs.seas.gwu.edu/justice-equity-diversity-and-inclusion-resources) for information around Justice, Equity, Diversity, and Inclusion resources as these may pertain to groupwork situations in our class.
 
 ### Use of Electronic Course Materials and Class Recordings
 
