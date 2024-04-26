@@ -22,9 +22,9 @@ title: Schedule
 | 8    | Oct 28: quiz on Project1 (15 minutes) <br>&bull; begin [Lab 3 -- Wordcount](lab/3) (Due Fri Nov 1)     | Oct 28/30: work on Lab 3          |                                                              |
 | 9    | Nov 4: [J4 - GUIs and Events](j/4) <br>quiz on Lab 3 (15 minutes)<br>&bull; [J5 Worksheet](worksheet/j5)    | Nov 4/6: Finish J5 worksheet <br> begin [Lab 4 -- GUI Enigma](lab/4) (Due Fri Nov 8)                                                                             |
 | 10   | Nov 11: [J5 - Threading and Concurrency](j/5) <br>&bull;quiz on Lab 4 (15 minutes)<br>&bull; [J6 Worksheet](worksheet/j6)                       | Nov 11/13: Finish J5 worksheet<br> begin [Project 2 -- GWack GUI Simulator](project/2) (Due Fri Nov 15)    |
-| 11   | Nov 18: [J6 - Java IO and Networking](j/6) <br>&bull; [J7 Worksheet](worksheet/j7)            | Nov 18/20: begin [Project 2 -- GWack Channel Simulator](project/2) (Due Wed Dec 4 -- no late deadline!)             |
+| 11   | Nov 18: [J6 - Java IO and Networking](j/6) <br>&bull; [J7 Worksheet](worksheet/j7)   <br> &bull; quiz on GWackGUI (15 minutes)         | Nov 18/20: begin [Project 2 -- GWack Channel Simulator](project/2) (Due Wed Dec 4 -- no late deadline!)             |
 |    | Nov 25: <i>no class</i>          | Nov 25/27: <i>no lab</i>           |
-| 12   | Dec 2: [S2 - Software Engineering Development](j/software_engineering)<br>&bull; [J8 Worksheet](worksheet/j8) <br>[S3 - Design Patterns](j/design)    <br> &bull; quiz on GWackGUI (15 minutes)<br> work on Project 2| Dec 2/4: branches and merges in git <br> work on project 2
+| 12   | Dec 2: [S2 - Software Engineering Development](j/software_engineering)<br>&bull; [J8 Worksheet](worksheet/j8) <br>[S3 - Design Patterns](j/design)    <br> work on Project 2| Dec 2/4: branches and merges in git <br> work on project 2
 | 14   | Dec 9:    <br>&bull; written portion exam2 <br>&bull; quiz on GWackChannel (15 minutes)                                |  Dec 9/11: <i>no lab</i>                                                                                                             |                                               |
 |    | Final Exam week: we do NOT have a final exam in this class
 
