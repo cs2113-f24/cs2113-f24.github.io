@@ -1,7 +1,7 @@
 ---
 layout: worksheet
 permalink: /worksheet/j1
-showsolution: true
+showsolution: false
 ---
 
 # Worksheet: J1
@@ -125,13 +125,31 @@ Mutation testing is automated, in the sense that it solves the *oracle problem*:
 
 ### q
 
+In addition to github, you will be using a submitserver this semester to submit your labs and projects. First, you need to create an account for this server. 
+
+Using the pinned post on Ed, go to this semester's submitserver URL and **click on the link to reset your password**. There, use your **@gwu.edu** email account (so NOT @gwmail.gwu.edu), and a password of your own choosing (that you need to remember) to create a new account. Check your inbox for an activation link. If you're not getting an activation link after a minute or so, reach out to the instruction staff ASAP so we can help you get an account.
+
+You will be checking your submitserver setup on the next question.
+
+Make sure you get a perfect score on the question below when you submit it to the submitserver to check your setup.
+
+#### s
+
+Make sure you get a perfect score on the question below when you submit it to the submitserver to check your setup.
+
+### q
+
 Convert your `DriverJava1_sample.java` file from the previous lecture into a Junit test file with the following elements:
 
-* a single unit test for every input class (give it the name of that input partition) -- if you have more than 5 tests, you can skip the rest.
+* a single unit test for every input class (give it the name of that input partition) -- make sure you include the unit test where you found the bug.
 
 Assume that the method under test is called `checkCode` that takes a string as an argument and returns a boolean value whether or not the input was a valid code.
 
-This is how we will also record that you attempted the in-class example from lecture. Your code doesn't need to compile.
+Create a tarfile to use with the submitserver with the terminal command:
+
+`tar -cvf J1worksheet.tar DriverJava1_sample.java`
+
+Then, login to the submitserver and upload your `J1worksheet.tar` under the link for `J1worksheet` there. Make sure you get a score of 100/100.
 
 #### s
 

@@ -1,7 +1,7 @@
 ---
 layout: worksheet
 permalink: /worksheet/j5
-showsolution: true
+showsolution: false
 ---
 
 # Worksheet: J5
