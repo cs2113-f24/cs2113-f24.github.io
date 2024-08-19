@@ -23,16 +23,16 @@ aside:
 * Lecture: DUQUES 151
   * Mon. 8AM - 10:30AM with Dr. Kinga (professor)
 * Lab
-  * Mon. 2:10PM - 3:20PM (SEH 4040, section 30) with TBA (lead)
-  * Wed. 3:35PM - 4:45PM (TOMP 405, section 31) with TBA (lead)
-  * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with TBA (lead)
+  * Mon. 2:10PM - 3:20PM (SEH 4040, section 30) with Zack Rahbar (lead) and Laura Anker
+  * Wed. 3:35PM - 4:45PM (TOMP 405, section 31) with Ozzy Simpson (lead) and Laith Najjab
+  * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with Abde Manaaf (lead) and Nathan Dixon
 
 ### Office hours
 * TBA (LA): TBA
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
-* TBA
+* Abde Manaaf (GTA), abdemanaaf.ghadiali.gwu@gmail.com
 
 ## Course Details 
 
