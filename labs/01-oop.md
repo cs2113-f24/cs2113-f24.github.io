@@ -152,6 +152,7 @@ Submit your code, as `lab1.tar` on the submitserver.
 You will be graded on the following:
 
 |Item | Points |
+|------|------|
 |your git logs show comments that helpfully and meaningfully describe what updates you were committing | 5 |
 |your git logs show evidence that you committed code at least once during the Enigma lab | 2 |
 |your git logs show at least five commits that are all at least ten minutes apart | 5 |
