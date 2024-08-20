@@ -19,7 +19,9 @@ Download the [Lab1_Tester.java](./Lab1_Tester.java) file.
 
 ### Github setup
 
-Use git, as discussed in Lab 0, to create a repo called `gitusername-lab1`, add these four files to it, and commit and push the changes to github. 
+Use git, as discussed in Lab 0, to create a repo called `gitusername-lab1`, add these four files to it, and commit and push the changes to github. You will not be able to submit other java files, so please stick to just the ones above.
+
+You will need to use this repo effectively to receive full credit on this assignment, even though you will be submitting it on the submitserver. See the grading rubric below.
 
 ## Enigma Machines (simplified model)
 
@@ -139,12 +141,19 @@ To run your unit tests -- remember, you need to have the junit jar file in the s
 
 # Grading rubric and submission
 
-Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-lab1`. You will be graded on the following:
+In your github repo, type the following command to pipe your log to a text file:
+`git log > log_file.txt`
 
+Next, type the following command to compress your files into the required submission format:
+`tar -cvf lab1.tar Comms.java Enigma.java Rotor.java log_file.txt`
+
+Submit your code, as `lab1.tar` on the submitserver. 
+
+You will be graded on the following:
 |Item | Points |
-|the name of the repo for this lab matches the pattern  `gitusername-lab1` | 4 |
-|the grader has been added as a collaborator to the repo| 4 |
-|the repo has been made private | 4 |
+|your git logs show comments that helpfully and meaningfully describe what updates you were committing | 5 |
+|your git logs show evidence that you committed code at least once during the Enigma lab | 2 |
+|your git logs show at least five commits that are all at least ten minutes apart | 5 |
 |the test cases pass (11 points each) -- answers that are hard-coded will not receive credit | 88 |
 |TOTAL | 100 |
 
