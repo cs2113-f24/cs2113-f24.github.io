@@ -71,10 +71,10 @@ Having completed the pre-reqs, you are expected to submit well-written code:
 - Comments must be substantive.
 - Select readable variable names and method names.
 - Use consistent indentation (preferred: two or four spaces).
-- Submit code that compiles (**non-compiling code will not be graded**).
-  - Additionally, your code should be compile in a standard, pre-described way for the class (e.g., `javac` without additional libraries, except perhaps the final project).
 - Be able to describe and answer questions about your code when prompted.
-- Verify your grade on programming assignments on the submitserver; we will be using your scores on the submitserver as your grade.
+- Verify your grade on programming assignments on the submitserver; we will be using your scores on the submitserver as your grade. **It is your responsibility to 
+submit your code early and often to the submitserver** and ensure it passes all the test cases there. Note that, under load, the submitserver may take longer than a few seconds to return your score if many other students are also using it simultaneously. We will not accept any code that has not been submitted to the submitserver before the deadline.
+- Commit your changes incrementally to git, whether in the same day/coding session, or across days. Your git commit history must show evidence that you worked on your code meaningfully over time (as opposed to just checking in large blocks of code). We recommend students commit after they pass a new test case.
 
 ## Grading 
 
@@ -87,6 +87,7 @@ Having completed the pre-reqs, you are expected to submit well-written code:
    * 20%: Live coding exam
    * 25%: Written exams (equal weight, not cumulative)
 
+We reserve the right to request access to the programming assignments for this class on your github repo (via github's collaborator mechanism). Failure to comply with such a request will automatically result in a zero on your programming assignment.
 
 ### Exams
 

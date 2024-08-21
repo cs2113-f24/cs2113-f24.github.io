@@ -18,7 +18,10 @@ Download the [Lab2_Tester.java](./Lab2_Tester.java) file.
 
 ### Github setup
 
-Use git, as discussed in Lab 0, to create a repo called `gitusername-lab2`, add these two files to it, and commit and push the changes to github. The timestamp of your invitation of the grader as a collaborator must be from this lab session.
+Use git, as discussed in Lab 0, to create a repo called `gitusername-lab2`, add these two files to it, and commit and push the changes to github. You will need to submit your git log to the submitserver. You will also want to create five additional class files, `Thing.java`, `TypeA.java`, `TypeB.java`, `TypeC.java`, and `ThingList.java` and store them in your repo -- you will be submitting these five files to the submitserver.
+
+You will need to use this repo effectively to receive full credit on this assignment, even though you will be submitting it on the submitserver. See the grading rubric below.
+
 
 ### Running your program
 
@@ -96,7 +99,7 @@ Note that the plotter can plot more than just red and blue. Here are your color 
 
 Use Violet UML (or another tool, or paper) to generate a UML diagram for your many `Thing` types after reading the explanations below.
 
-> Create a UML diagram. Include it in your repo, named 'UML.png' and link it into your README. 
+> Create a UML diagram. Include it in your repo, named `UML.png`. 
 
 # Part 2: Rewrite `DotChaser` functionality into several classes using good OOP 
 
@@ -108,26 +111,18 @@ You must do these things:
 * **Remove static methods**: only `main()` should be static in all of your classes.
 * **Polymorphism**: You should have `TypeA` and `TypeB` classes; observe how they differ. Your parent class `Thing` most likely will not need a single if statement. If you find you need one/more, make sure there isn't a way to utilize polymorphism instead. If you still find the need for if statements, ask your instructor if they are appropriate. Related to this, your child classes should have at least one method which demonstrates polymorphism. This should naturally come from your design, but we make note of it here as a requirement to give you that extra nudge.
 * **Use a linked list**: Remove `Node` from `main()` and write a `List` or `Queue` class called `ThingList`. You'll have to write this. Your `main()` should not have `Node` variables anymore, but instead a `ThingList` variable with nice calls such as `list.add(thing)`. You need to write this code yourself; do not use ChatGPT (for example) to generate this linked list.
-* **README.md**: In the  README file and write a paragraph (or two) that explains how your redesign makes use of encapsulation, information hiding, inheritance and polymorphism.
 
-Be sure to add all your new Java files to the repo for submission.
 
 # Part 3: Add a new `Thing` 
 
-The original `DotChaser` had two types of Things: `typeA`, which randomly choses left, right or straight at every round; and `typeB`, which randomly chooses left, right or straight every 10th round. Now that you have a nice object-oriented version, create a third type of `Thing` called `TypeC`. What exactly it does is up to you, but it needs to use some diagonal motion (i.e. left-right-left-right-... sequences, or draws a circle, triangle, or other shape). The principal thing to keep in mind is how OOP makes this easier and cleaner. 
+The original `DotChaser` had two types of Things: `TypeA`, which randomly choses left, right or straight at every round; and `TypeB`, which randomly chooses left, right or straight every 10th round. Now that you have a nice object-oriented version, create a third type of `Thing` called `TypeC`. What exactly it does is up to you, but it needs to use some diagonal motion (i.e. left-right-left-right-... sequences, or draws a circle, triangle, or other shape). The principal thing to keep in mind is how OOP makes this easier and cleaner. 
 
 
 <div class="requirement">
 Create a third `ThingC` type that must have.
 
 1. Ensure that the orignal `DotChaser` still works the same as before, even after you've added your new type of `ThingC`. That is, the red and blue dots act normally.
-2. The new type of `ThingC` must move in a *new* way different than `typeA` or `typeB`. 
-3. In your `README.md` indicate the name of the new type and the Java file used to program it. **Be sure to add that file to your repo for submission :)**
-4. Add a paragraph to the `README.md` file that explains how your new OOP design makes adding new types of `ThingC` easy.
-5. Add a final paragraph to the `README.md` that explains exactly where in your program there is a polymorphic function call, and how that plays an essential role in the program functioning properly.
-
-*Be sure to add all your new Java files to the repo for submission.*
-
+2. The new type of `ThingC` must move in a *new* way different than `TypeA` or `TypeB`. 
 
 Here's an example of a solution with an extra yellow thing doing spirals:
 
@@ -151,23 +146,26 @@ To run your unit tests -- remember, you need to have the junit jar file in the s
 `javac -classpath ".:junit-platform-console-standalone-1.7.0-M1.jar" *.java`
 `java -classpath ".:junit-platform-console-standalone-1.7.0-M1.jar" org.junit.runner.JUnitCore Lab2_Tester`
 
+## Submission
+
 Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-lab2`. You will be graded on the following:
 
+In your github repo, type the following command to pipe your log to a text file:
+`git log > log_file.txt`
+
+Next, type the following command to compress your files into the required submission format:
+`tar -cvf lab2.tar Thing.java ThingList.java TypeA.java TypeB.java TypeC.java log_file.txt UML.png`
+
+Submit your code, as `lab2.tar` on the submitserver. 
+
+You will be graded on the following:
+
+
 |Item | Points |
-|the name of the repo for this lab matches the pattern  `gitusername-lab2` | 3 |
-|the grader has been added as a collaborator to the repo| 4 |
-|the repo has been made private | 3 |
-|[**unit test**] `TypeA` and `TypeB` are child classes of `Thing` | 5 |
-|[**unit test**] `Thing` does not use if-statements nor the `instanceof` operator | 5 |
-|[**unit test**] no static methods besides `main` in any of your classes | 5 |
-|[**unit test**] the `Thing` class is responsible for movement, utilizing good OOP | 5 |
-|[**unit test**] the `Thing` class contains the appropriate fields, utilizing good OOP | 5 |
-|[**unit test**] the `Thing` class uses abstraction appropriately in all places, utilizing good OOP | 5 |
-|[**unit test**] the `TypeA` and `TypeB` contain the minimum number of fields necessary (declare each on a new line), utilizing good OOP | 5 | 
-|[**unit test**]`TypeA` and `TypeB` contain the minimum number of methods necessary, utilizing good OOP | 5 | 
-|[**unit test**] the `ThingList` class contains the `Node` class as an inner class, utilizing good OOP | 5 |
-|[**unit test**] the `ThingList` class has methods to `addAll`, `moveAll`, and `printAll` `Thing`s inside the list/queue | 5 |
-|`TypeA`, `TypeB`, and `TypeC` classes turn appropriately upon visual inspection, utilizing good OOP | 20 | 
-|a README file as specified above is included | 10 |
-|a UML diagram matching the code implementation as been included, that lists all classes and their methods and fields | 10 |
+|your git logs show comments that helpfully and meaningfully describe what updates you were committing | 2 |
+|your git logs show evidence that you committed code at least once during the DotChaser lab | 1 |
+|your git logs show at least five commits that are all at least ten minutes apart | 1 |
+|the test cases pass (11 points each) -- answers that are hard-coded will not receive credit | 88 |
+|`TypeA`, `TypeB`, and `TypeC` classes turn appropriately upon visual inspection, utilizing good OOP | 7 | 
+|a UML diagram called UML.png is included that matches the code implementation as been included, that lists all classes and their methods and fields | 1 |
 |TOTAL | 100 |
