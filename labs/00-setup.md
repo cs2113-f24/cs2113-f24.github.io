@@ -174,6 +174,3 @@ You'll be submitting logs for your github repo as part of your grade. To get git
 |based on the logfile, the second commit has a unique, useful message | 10 |
 | TOTAL | 100 |
 
-# Next class: Worksheet J0
-
-Now that you have git installed on your laptop, **remember to create the repo for the worksheet for Monday's upcoming lecture, and submit it**!
