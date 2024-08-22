@@ -5,7 +5,7 @@ title: Schedule
 
 # Course Schedule of Topics and Due Dates
 
-*Due dates are posted deadlines by 11:59pm EST on that date*. All dates listed below are tentative and may be adjusted during the semester.
+*Due dates are posted deadlines by 11:59pm EST on that date except for labs/projects which are due at 8:00amEST*. All dates listed below are tentative and may be adjusted during the semester.
 
 
 

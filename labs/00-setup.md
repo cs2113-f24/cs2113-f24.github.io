@@ -79,7 +79,7 @@ You can also generate an access token, which you could (should!) use in place of
 
 ## Part 1: Creating your first `git` repo and sharing it with the course staff
 
-In order to submit code this semester, you will need to create a repository for each assignment, place your code in there, and upload it. You'll also need to give access to the grading staff. These items will be a part of every project's grading rubric. Let's try it out together for this assignment.
+In order to submit code this semester, you will need to create a repository for each assignment, place your code in there, and upload it. These items will be a part of every project's grading rubric. Let's try it out together for this assignment.
 
 ### Notify us with your github username
 
@@ -95,10 +95,8 @@ Next, select the toggle button below to be `Private`.
 
 Next, press the green `Create repository` button.
 
-The page will load the homepage of your repo. Under the `Settings` tab at the top, click on `Collaborators` on the left hand menu, click the green `Add people` button, and add the following collaborators (our GTA/grader this semester) to allow them to view your repo:
-`jettjacobs`
+The page will load the homepage of your repo. 
 
-This will send an invite (that experies in seven days) to your grader(s). They'll be monitoring their inboxes for these items during lab; you must create this repo in your lab session to ensure the grader accepts the invite. This also means you should email the graders first if you have grading questions; the professor is not automatically added to your submissions (in general). 
 
 ## Part 2: Checking out your repo
 
@@ -146,6 +144,10 @@ Finally, we're going to update the file we just pushed to git. Change the string
 
 Make sure that when you refresh the browser, you can see your changes there.
 
+## Part 5: Getting your logs
+
+You'll be submitting logs for your github repo as part of your grade. To get git to do this, type `git log`, which will display the activity on your project. Pipe the log into a text file with the follow command: `git log > log_file.txt`. Next, submit this logfile to BB for grading.
+
 # Troubleshooting
 
 
@@ -165,12 +167,11 @@ Make sure that when you refresh the browser, you can see your changes there.
 |Item | Points |
 |github username has been posted to Ed | 10 |
 |the name of the repo for this lab matches the pattern  `gitusername-lab0` | 10 |
-|the grader has been added as a collaborator to the repo with an invite timestamp during the lab| 10 |
 |the repo has been made private | 10 |
-|there is an initial commit of `HelloWorld.java` | 20 |
-|the initial commit has a useful message | 10 |
-|there is a second commit where `HelloWorld.java` has been correctly modified to include the student's name/username | 20 |
-|the second commit has a unique, useful message | 10 |
+|based on the logfile, there is an initial commit of `HelloWorld.java` | 20 |
+|based on the logfile, the initial commit has a useful message | 10 |
+|based on the logfile, there is a second commit where `HelloWorld.java` has been correctly modified to include the student's name/username | 30 |
+|based on the logfile, the second commit has a unique, useful message | 10 |
 | TOTAL | 100 |
 
 # Next class: Worksheet J0
