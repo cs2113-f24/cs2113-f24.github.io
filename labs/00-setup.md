@@ -166,11 +166,7 @@ You'll be submitting logs for your github repo as part of your grade. To get git
 
 |Item | Points |
 |github username has been posted to Ed | 10 |
-|the name of the repo for this lab matches the pattern  `gitusername-lab0` | 10 |
-|the repo has been made private | 10 |
-|based on the logfile, there is an initial commit of `HelloWorld.java` | 20 |
-|based on the logfile, the initial commit has a useful message | 10 |
-|based on the logfile, there is a second commit where `HelloWorld.java` has been correctly modified to include the student's name/username | 30 |
-|based on the logfile, the second commit has a unique, useful message | 10 |
+|based on the logfile, the initial commit of `HelloWorld.java` has a useful message | 45 |
+|based on the logfile, the second commit has a unique, useful message | 45 |
 | TOTAL | 100 |
 
