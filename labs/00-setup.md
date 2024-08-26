@@ -164,7 +164,7 @@ You'll be submitting logs for your github repo as part of your grade. To get git
 
 # Grading Rubric
 
-Submit your `log_file.txt` to BlackBoard under the "Lab 0" link when you are finished.
+Submit your `log_file.txt` to BlackBoard under the "Lab 0" link when you are finished. Also make sure to post your username to Ed.
 
 
 |Item | Points |
