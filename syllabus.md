@@ -25,10 +25,15 @@ aside:
 * Lab
   * Mon. 2:10PM - 3:20PM (SEH 4040, section 30) with Zack Rahbar (lead) and Laura Anker
   * Wed. 3:35PM - 4:45PM (TOMP 405, section 31) with Ozzy Simpson (lead) and Laith Najjab
-  * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with Abde Manaaf (lead) and Nathan Dixon
+  * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with Abde Manaaf (lead) and Nate Dixon
 
 ### Office hours
-* TBA (LA): TBA
+* Laura Anker (LA): Mon 4-5pm and Wed 11am-12:30pm
+* Laith Najjab (LA): Mon 5-6pm, Tue 5-6pm, and Thu 5pm-6:30pm
+* Nate Dixon (LA): Mon 2-4pm and Fri 4pm-5pm
+* Zack Rahbar (UTA): Tue 3-5pm and Thu 3-5pm
+* Ozzy Simpson (UTA): Wed 2:30pm-3:30pm, Thu 10am-1pm, Fri 10am-11am
+* Abde Manaaf (GTA): Fri 4pm-6pm
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
