@@ -152,13 +152,16 @@ You must:
 - Write the names of any students you collaborated with as a comment at the top of your main/README file (subject to the constraints below).
 - Notify your instructor if you are using a tutor (this is not a problem, just let your instructor know).
 
+You may:
+-  Discuss any of the English requirements of the assignment specifications with other students; you may ask for clarification, in English, of the assignment requirements. However, you are NOT allowed to discuss high level solutions to these assignments (see below).
+
 You may NOT:
 
 - Copy code to or from other students or people outside of the class.
 - Discuss general approaches to solving the homework problems with other students. The pen-to-paper, fingers-to-keyboard work should be your own. 
 - Have another student look at a specific snippet of your code (e.g., 2+ lines) to help you debug a programming error.
 - Have someone else write code for you.
-- Copy code from the internet, unless you specifically reference the source and can explain how it works. This should be a tiny minority of the code you submit and you must ask permission in advance on Ed. An exception to this is any code we provided in class or through the notes; this does not need to be cited. 
+- Copy code from the internet.
 - Write code as a group and then submit identical or slightly modified versions -- if you discuss general approaches to solving a problem together, you still must be writing up your own independent solution.
 - Use any LLM (such as ChatGPT) to generate any of your code, or generate a skeleton of your code that you then modify.
 
