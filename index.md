@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CS2113 Software Egineering - Fall 2024
+title: CS2113 Software Engineering - Fall 2024
 ---
 
 * [Syllabus and Office Hours](/syllabus.html)
