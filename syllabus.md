@@ -102,7 +102,7 @@ There will also be one live coding exam that students will take on computers dur
    
 ### Self-Guided worksheets
 
-Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by the end of lab the same week; you will be graded only on the problems we covered together during class. 
+Each lecture will be accompanied by a *self-guided worksheet*. This worksheet is to complement in-class content and to assist you in reviewing the material. **Worksheets are graded for completion, but they must be your own work.** Worksheet completion is expected by Friday the same week; you will be graded only on the problems we covered together during class. 
 
 ### Labs, programming projects, and quizzes
 
