@@ -28,7 +28,7 @@ aside:
   * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with Abde Manaaf (lead) and Nate Dixon
 
 ### Office hours
-* Laura Anker (LA): Mon 4-5pm and Wed 11am-12:30pm
+* Laura Anker (LA): Mon 4-6pm and Wed 11am-12:30pm
 * Laith Najjab (LA): Mon 5-6pm, Tue 5-6pm, and Thu 5pm-6:30pm
 * Nate Dixon (LA): Mon 2-4pm and Fri 4pm-5pm
 * Zack Rahbar (UTA): Tue 3-5pm and Thu 3-5pm
