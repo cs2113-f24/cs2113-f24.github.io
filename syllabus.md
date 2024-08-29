@@ -28,12 +28,12 @@ aside:
   * Wed. 3:35PM - 4:45PM (SEH 4040, section 32) with Abde Manaaf (lead) and Nate Dixon
 
 ### Office hours
-* Laura Anker (LA): Mon 4-6pm and Wed 11am-12:30pm
-* Laith Najjab (LA): Mon 5-6pm, Tue 5-6pm, and Thu 5pm-6:30pm
-* Nate Dixon (LA): Mon 2-4pm and Fri 4pm-5pm
-* Zack Rahbar (UTA): Tue 3-5pm and Thu 3-5pm
-* Ozzy Simpson (UTA): Wed 2:30pm-3:30pm, Thu 10am-1pm, Fri 10am-11am
-* Abde Manaaf (GTA): Fri 4pm-6pm
+* Laura Anker (LA): Mon 4-6pm and Wed 11am-12:30pm at SEH 4th floor couches
+* Laith Najjab (LA): Mon 5-6pm, Tue 5-6pm, and Thu 5pm-6:30pm at SEH 4th floor couches
+* Nate Dixon (LA): Fri 12pm-3pm at SEH 4th floor couches
+* Zack Rahbar (UTA): Tue 3-5pm and Thu 3-5pm at SEH 4th floor couches
+* Ozzy Simpson (UTA): Wed 2:30pm-3:30pm, Thu 10am-1pm, Fri 10am-11am at SEH 4th floor couches
+* Abde Manaaf (GTA): Fri 4pm-6pm via [zoom] (https://us04web.zoom.us/j/77357084113?pwd=5jMMTALsQxgITbgZLvqpJU1JqxezW7.1)
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
