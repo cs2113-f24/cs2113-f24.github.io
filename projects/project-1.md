@@ -35,8 +35,7 @@ Your job in this project is use good OOP to design this simulation.
 
 ## A tour of the starter code
 
-You are provided with the following Java files that you should review. They are heavily commented, and will provide the guide posts for completing this project. Not all details are described here, so I strongly encourage you to read through the entirety of the code provided for you. 
-
+You are provided with the following Java files that you should review. 
 ### `MetroSimulator.java`
 
 A class that represents our metro simulation by defining and connecting stations. You'll see that all the required stations are created for you as objects; you will simply need to complete the `makeOrangeLine()`, `makeRedLine()`, and `makePurpleLine()` methods to properly connect them.
