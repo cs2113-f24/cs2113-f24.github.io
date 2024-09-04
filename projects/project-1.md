@@ -237,6 +237,8 @@ Two stations can be connected as primary previous/next stations using the `conne
 
 Refer to these test cases for how you will complete the `makeOrangeLine()`, `makeRedLine()`, and `makePurpleLine()` methods. **You will be required to submit a drawing of the metro system defined by these three methods collectively that has the `previous` and `next` primary connections correctly labelled for each station, as well as the list of transfer connections, inserted in correct order, for full credit.** Please use the format for this diagram that we will show in lecture, otherwise we cannot assign credit for this part. All students should submit their own unique hand- (or computer-) drawn diagrams; this is NOT a group assignment.
 
+Note that you will only be implementing a very small part of the orange and red lines, and then adding a fake purple line; you don't need to create the entire actual metro itself, just what is in these test cases.
+
 ### tests 11-13: Counting the number of stops between stations
 
 The final set of unit tests check that you have correctly written a recursive method, `int tripLength(Station dest)`, that returns the number of stops between the station it is called upon and the destination station. 
