@@ -19,7 +19,7 @@ Download the [Project1_Tester.java](./Project1/Project1_Tester.java) file.
 
 ### Github setup
 
-Use git, as discussed in Lab 0, to create a repo called `gitusername-lab2`, add these three files to it, and commit and push the changes to github. You will need to submit your git log to the submitserver. You will also want to create three additional class files, `Station.java`, `EndStation.java`, and `TransferStation.java` and store them in your repo – you will be submitting these five files to the submitserver.
+Use git, as discussed in Lab 0, to create a repo called `gitusername-project1`, add these three files to it, and commit and push the changes to github. You will need to submit your git log to the submitserver. You will also want to create three additional class files, `Station.java`, `EndStation.java`, and `TransferStation.java` and store them in your repo – you will be submitting these five files to the submitserver.
 
 You will need to use this repo effectively to receive full credit on this assignment, even though you will be submitting it on the submitserver. See the grading rubric below.
 
