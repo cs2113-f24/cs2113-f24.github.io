@@ -272,7 +272,7 @@ There are two requirements for this project. The first requirement (Part A) invo
 Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-project1`. You will be graded on the following:
 
 |Item | Points |
-|a correct drawing/diagram of the metro system described above has been submitted to BB |  3 |
+|a correct drawing/diagram of the metro system described above has been submitted to BB |  4 |
 |your git logs show comments that helpfully and meaningfully describe what updates you were committing |  2 |
 |your git logs show evidence that you committed code at least once during the Project1 lab   |  1 |
 |your git logs show at least five commits that are all at least ten minutes apart  |  2 |
