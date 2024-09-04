@@ -31,7 +31,7 @@ You will need to use this repo effectively to receive full credit on this assign
 
 In this project, you will complete a point simulation of the [WMATA Trip Planner](https://wmata.com/), which can be used to plan how to arrive at a metro station by a certain time. We will only be implementing a much smaller part of this functionality: counting the number of stops between stations. Our metro system will have regular stations, end stations, and transfer stations, but we will not model the trains themselves, as we only have a week or two for this assignment.
 
-Your job in this lab is use good OOP to design this simulation. 
+Your job in this project is use good OOP to design this simulation. 
 
 ## A tour of the starter code
 
