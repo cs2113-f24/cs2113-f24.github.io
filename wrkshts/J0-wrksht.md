@@ -81,7 +81,6 @@ OK (3 tests)
 
 Please reach out to a TA for help if you need it.
 
-When you're finished, take a screenshot of your terminal that shows you compiling your code and running the passing Junit tests. Call the file `screenshot.jpg`.
 
 # Grading rubric and submission
 
