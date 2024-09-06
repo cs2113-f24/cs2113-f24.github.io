@@ -11,7 +11,7 @@ title: Schedule
 
 | Week | Lecture (Mon)                                                                                                            | Lab ( Mon or Wed)     
 | 0    | Aug 26: History of <a href="https://dl.acm.org/doi/pdf/10.1145/1134285.1134288">Software Engineering</a>  | Aug 26/28: [Lab 0 -- git setup](lab/0) (Due Fri Sep 6) |
-|     | <i>no lecture</i>   | Sep 4: <i>No Mon lab<br> Wedlab is office hours</i> |                                                 |
+|     | <i>no lecture</i>   | Sep 4: <i>No Mon lab<br> Wed lab is office hours</i> |                                                 |
 | 1    | Sep 9: [J0 - OOP, Encapsulation, Unit Testing](j/0)<br> &bull; submitserver setup          | Sep 9/11: [J0 Worksheet -- understanding unit tests](worksheet/j0)  |
 | 2    | Sep 16: [S1 - Software Testing](j/software_testing)<br> &bull; [J1 Worksheet](worksheet/j1)  | Sep 16/18:  finish J1 Worksheet      |
 | 3    | Sep 23: [J1 - Inheritance and UML](j/1) <br>&bull; [J2 Worksheet](worksheet/j2)            | Sep23/26: begin [Lab 1 -- Enigma](lab/1) (Due Fri Sep 27)                                                                                 |                                                                        |
