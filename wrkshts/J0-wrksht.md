@@ -85,7 +85,7 @@ Please reach out to a TA for help if you need it.
 # Grading rubric and submission
 
 Create a tar file with your code by running the following command in the terminal:
-`tar -cvf J0.tar UnitTextExample.java`
+`tar -cvf J0.tar UnitTestExample.java`
 
 Then, upload this tarfile to the submitserver, and make sure you see 100/100 displayed there.
 
