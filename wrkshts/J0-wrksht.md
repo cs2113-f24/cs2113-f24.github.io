@@ -6,7 +6,7 @@ showsolution: False
 
 # Worksheet: J0
 
-Worksheets are self-guided activities that reinforce lectures. They are due, on github by 11:59pm on the day of the lecture.
+Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
 ## Setup
 
@@ -85,16 +85,13 @@ When you're finished, take a screenshot of your terminal that shows you compilin
 
 # Grading rubric and submission
 
-Use git, as discussed in Lab 0, to submit your work in a repo called `gitusername-worksheet-J0`. You will be graded on the following:
+Create a tar file with your code by running the following command in the terminal:
+`tar -cvf J0.tar UnitTextExample.java`
+
+Then, upload this tarfile to the submitserver, and make sure you see 100/100 displayed there.
+
+ You will be graded on the following:
 
 |Item | Points |
-|the name of the repo for this lab matches the pattern  `gitusername-worksheet-J0` | 10 |
-|the grader has been added as a collaborator to the repo with an invite timestamp during the lecture| 10 |
-|the repo has been made private | 10 |
-|the second test case has been adjusted to pass (change `moon` to `Moon`) | 10 |
-|the third test case passes after fixing style issues in `UnitTestExample.java` | 30 |
-|a screenshot called `screenshot.jpg` has been submitted | 10 |
-|the screenshot shows you successfully compiling `UnitTestExample.java` | 10 |
-|the screenshot shows you successfully passing the three tests in `UnitTestExample.java` | 10 |
-|TOTAL | 100 |
+|unit tests pass (33 points each) | 100 |
 
