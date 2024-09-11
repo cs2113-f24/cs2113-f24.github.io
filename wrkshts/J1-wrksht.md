@@ -8,9 +8,7 @@ showsolution: false
 
 Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
-Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J1`. 
-
-Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab, which you should add to your repo.
+Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab.
 
 
 ## Questions
@@ -114,20 +112,6 @@ What benefit does *mutation testing* offer over other testing methods discussed 
 #### s
 
 Mutation testing is automated, in the sense that it solves the *oracle problem*: there is no need to define expected outputs, because we assume the current functionality of the program under test is correct (and therefore the correct output). Our goal is not to test the correctness of this code directly, but to test how complete/effective our test suite is. The assumption is that real bugs will be found in the code if we generate a robust enough test suite.
-
-### q
-
-In addition to github, you will be using a submitserver this semester to submit your labs and projects. First, you need to create an account for this server. 
-
-Using the pinned post on Ed, go to this semester's submitserver URL and **click on the link to reset your password**. There, use your **@gwu.edu** email account (so NOT @gwmail.gwu.edu), and a password of your own choosing (that you need to remember) to create a new account. Check your inbox for an activation link. If you're not getting an activation link after a minute or so, reach out to the instruction staff ASAP so we can help you get an account.
-
-You will be checking your submitserver setup on the next question.
-
-Make sure you get a perfect score on the question below when you submit it to the submitserver to check your setup.
-
-#### s
-
-Make sure you get a perfect score on the question below when you submit it to the submitserver to check your setup.
 
 ### q
 

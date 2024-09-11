@@ -19,6 +19,8 @@ First, however, let's review what it means to debug your code. A fancy way of sa
 
 We've had a good amount of practice finding the faults in our code (using print statements, debuggers, and/or tracing). Now let's explore designing our own test cases.
 
+<font color="red"><b>Pause: let's do Q1 on the worksheet together [2 min]</b></font>
+
 ## When to write tests
 
 So far, you've typically only really worried about tests after you've written code. However, it is generally advisable to write test cases *before* you write your code. These can be designed, in part, during the gathering of requirements, or, at a lower level, after you have your UML diagrams.
@@ -32,6 +34,8 @@ It is possible to write your tests before you write code; this is called **Test 
 In some sense, we've been doing TDD this semester, since you were writing code to pass against existing test cases.
 
 At the lowest level (closest to your code), developers typically write **unit tests** (preferably before they write code). You've seen unit tests throughout the semester; these are often written one unit test file per class. We usually write unit tests for each method in a class. Then, you may write tests for checking how classes or modules work together (**module** or **integration testing**), and eventually you may do very high level **system testing**.
+
+<font color="red"><b>Pause: let's do Q2 on the worksheet together [2 min]</b></font>
 
 ## Test Coverage Criteria
 
@@ -267,6 +271,8 @@ Finally, let's look at the smallest and longest valid and invalid tests:
  ("Hi9_jf5D3r" + String.[MAX-10], valid) //longest valid test case
 ```
 
+<font color="red"><b>Pause: let's do Q3 on the worksheet together [5 min]</b></font>
+
 ### Other types of test case coverage criteria
 
 So far we have focused only on testing the inputs of methods, in part, because this is relatively simple to turn into unit tests (which we will do another week). However, there are other types of coverage criteria that we could also write test cases for.
@@ -283,6 +289,8 @@ you could write tests that:
 * make sure every clause (such as `(a > b)` or `G`) is `true` and `false` at least once (clause coverage)
 * check for *active clause coverage*, where each clause must determine the entire predicate outcome 
 
+<font color="red"><b>Pause: let's do Q4 on the worksheet together [5 min]</b></font>
+
 #### Control Flow Graphs
 
 While testing logical expressions is a nice complement to input domain partitioning, it would also be nice if we could go deeper. What about testing all possible paths through the code? This would include some of the concepts from above, but sort of glues together the conditional checking and inputs into paths through the code. 
@@ -294,6 +302,8 @@ Consider the graph below:
 This could represent program statements as well as branches (conditionals). We could then generate test cases that might:
 * cover every unique path through the code (i.e., 12567, 1257, 13567, etc.)
 * cover every path that has a unique variable definition followed by a use (a *def-use pair*); to do this, we'd need to take a look at which nodes define variables and where they are used later in the code.
+
+<font color="red"><b>Pause: let's do Q5 on the worksheet together [5 min]</b></font>
 
 #### Syntactic Structures
 
@@ -322,6 +332,8 @@ some examples of syntactic structures you could mutate are:
 * etc.
 
 Typically, developers would mutate one line of code at a time, re-run the entire test suite, and verify that the seeded bug was detected in the tests. While this process is fully automated, it is resouce-intensive, especially if test suites and programs are large.
+
+<font color="red"><b>Pause: let's do Q6 on the worksheet together [5 min]</b></font>
 
 ## Junit Testing
 
