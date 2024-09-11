@@ -131,42 +131,8 @@ Make sure you get a perfect score on the question below when you submit it to th
 
 ### q
 
-Convert your `DriverJava1_sample.java` file from the previous lecture into a Junit test file with the following elements:
-
-* a single unit test for every input class (give it the name of that input partition) -- make sure you include the unit test where you found the bug.
-
-Assume that the method under test is called `checkCode` that takes a string as an argument and returns a boolean value whether or not the input was a valid code.
-
-Create a tarfile to use with the submitserver with the terminal command:
-
-`tar -cvf J1worksheet.tar DriverJava1_sample.java`
-
-Then, login to the submitserver and upload your `J1worksheet.tar` under the link for `J1worksheet` there. Make sure you get a score of 100/100.
-
-#### s
-
-Answers will vary, but here is a template for your tests:
-
-```java
-
-import org.junit.Test;
-import static org.junit.Assert.*;
-import java.io.*;
-
-public class CheckCodeTester {
-
-    @Test
-    public void valid_inputs() {
-        assertEquals(true, checkCode("Hi9_jf5D3r"));
-    }   
-
-    // your other tests here
-}
-```
-
-### q
-
 Finish the in-class exercise for finding the fault in the `checkCode` method.
 
 #### s
 Solution omitted.
+
