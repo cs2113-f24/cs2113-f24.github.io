@@ -6,13 +6,11 @@ showsolution: false
 
 # Worksheet: J1
 
-Worksheets are self-guided activities that reinforce lectures. 
-
-This worksheet is due at 11:59pm on 1/31/2024.
+Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
 Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J1`. 
 
-Please submit your answers to the questions as comments in the java file you'll be writing in this lab, which you should add to your repo.
+Please submit your answers to the questions as comments in the `DriverJava1_sample.java` file you'll be writing in this lab, which you should add to your repo.
 
 
 ## Questions
