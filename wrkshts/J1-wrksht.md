@@ -10,7 +10,7 @@ Worksheets are self-guided activities that reinforce lectures. They are due Thur
 
 Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J1`. 
 
-Please submit your answers to the questions as comments in the `DriverJava1_sample.java` file you'll be writing in this lab, which you should add to your repo.
+Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab, which you should add to your repo.
 
 
 ## Questions
