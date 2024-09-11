@@ -15,12 +15,6 @@ Please submit your answers to the questions as comments in the `DriverJava1_samp
 
 ## Questions
 
-### q
-
-Finish the in-class exercise for finding the fault in the `checkCode` method.
-
-#### s
-Solution omitted.
 
 ### q
 
@@ -169,3 +163,10 @@ public class CheckCodeTester {
     // your other tests here
 }
 ```
+
+### q
+
+Finish the in-class exercise for finding the fault in the `checkCode` method.
+
+#### s
+Solution omitted.
