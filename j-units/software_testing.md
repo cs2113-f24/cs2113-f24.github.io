@@ -354,7 +354,7 @@ Besides different flavors of assertions, Junit allowd developers fine-grained co
 
 Let's work in groups on an exercise that will ask you to generate test cases for a problem called `checkCode`, where we want to write test cases that a string passed to a method that is supposed to check if an item code (in some warehouse) is of a valid format.
 
-First, download the [DriverJava1_sample](./DriverJava1_sample.java) file to your machine; you will be writing your test cases into this file.
+First, download the [tests.txt](./tests.txt) file to your machine; you will be writing your test cases into this file.
 Also download this [python file for testing your solutions](./tester.py) (you'll need to [install python](https://www.python.org/downloads/) if you don't have it already)
 
 Then, check out the [problem description](./assessment1_sample.html), and write your tests in the Java file. When you're ready, have both files above in the same folder, and run the python testing script from the terminal with:
