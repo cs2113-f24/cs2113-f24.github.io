@@ -23,7 +23,7 @@ def bad(input, output):
 			return True	
 	return False		
 
-file = open("./DriverJava1_sample.java")
+file = open("./tests.txt")
 contents = file.readlines()
 file.close()
 
