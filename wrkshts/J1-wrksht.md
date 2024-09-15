@@ -10,6 +10,16 @@ Worksheets are self-guided activities that reinforce lectures. They are due Thur
 
 Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
 
+# Grading rubric and submission
+
+When you are done, submit your `J1.md` file as well as your `tests.txt` file to BB.
+
+ You will be graded on the following:
+
+|Item | Points |
+|markdown is correctly used as descrived above (5 pts each) | 30 |
+|Answers are completed (for content above) | 20 |
+|our tests.txt file that shows all the test cases you wrote in lab (25 pts for any tests, another 25 pts for finding the bug) | 50 |
 
 ## Questions
 
@@ -126,13 +136,3 @@ Finish the in-class exercise for finding the fault in the `checkCode` method.
 #### s
 Solution omitted.
 
-# Grading rubric and submission
-
-When you are done, submit your `J1.md` file as well as your `tests.txt` file to BB.
-
- You will be graded on the following:
-
-|Item | Points |
-|markdown is correctly used as descrived above (5 pts each) | 30 |
-|Answers are completed (for content above) | 20 |
-|Your tests.txt file that shows all the test cases you wrote in lab (25 pts for any tests, another 25 pts for finding the bug) | 50 |
