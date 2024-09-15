@@ -33,11 +33,11 @@ aside:
 * Nate Dixon (LA): Fri 12pm-3pm at SEH 4th floor couches
 * Zack Rahbar (UTA): Tue 3-5pm and Thu 3-5pm at SEH 4th floor couches
 * Ozzy Simpson (UTA): Wed 2:30pm-3:30pm, Thu 10am-1pm, Fri 10am-11am at SEH 4th floor couches
-* Abde Manaaf (GTA): Fri 4pm-6pm via [zoom] (https://us04web.zoom.us/j/77357084113?pwd=5jMMTALsQxgITbgZLvqpJU1JqxezW7.1)
+* Abde Manaaf (GTA): Fri 4pm-6pm via [zoom](https://us04web.zoom.us/j/77357084113?pwd=5jMMTALsQxgITbgZLvqpJU1JqxezW7.1)
 * Kinga Dobolyi (professor): SEH 4655 Tuesdays from 12:45pm-2:00pm (you can show up at anytime, no appointment needed), [Zoom](https://gwu-edu.zoom.us/j/6378326351) on Wednesdays from 8:45am-10am, or email me for an appointment (between the hours of 9am through 4pm Monday through Thursday, schedule permitting, 15 minute appointment blocks).
 
 ### Grading
-* Abde Manaaf (GTA), abdemanaaf.ghadiali.gwu@gmail.com
+* Abde Manaaf (GTA), abdemanaaf.ghadiali@gwmail.gwu.edu
 
 ## Course Details 
 
