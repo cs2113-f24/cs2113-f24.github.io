@@ -8,7 +8,7 @@ showsolution: false
 
 Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
-Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab.
+Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
 
 
 ## Questions
@@ -16,7 +16,7 @@ Please submit your answers to the questions as comments in a `J1.md` markdown fi
 
 ### q
 
-What is fault localization?
+What is fault localization? Provide your answer using at least one **bolded** phrase using markdown.
 
 
 #### s
@@ -24,7 +24,7 @@ Fault localization typically involves tracing back from the line of code produci
 
 ### q
 
-What are three benefits of Test Driven Development (TDD)?
+What are three benefits of Test Driven Development (TDD)? Provide your answer using an unordered list in markdown.
 
 #### s
 * Your tests are not biased by your code
@@ -41,7 +41,7 @@ Given the example of requirements for generating a password:
 *    It must not contain the website gmail anywhere. (For example if we were generating a password for gmail accounts)
 *    It can only be made up of letters, numbers, and the underscore.
 
-What are the input domain paritions for this exercise?
+What are the input domain paritions for this exercise? Provide your answer using an unordered nested lists in markdown.
 
 #### s
 
@@ -71,6 +71,8 @@ if ( ( (a > b) or G ) and (x < y) )
 
 | a > b | G | x < y | predicate outcome | clause responsible |
 
+Google how to make a table in markdown, and use a table to represent your results, like we did in class.
+
 #### s
 
 | a > b | G | x < y | predicate outcome | clause responsible |
@@ -85,6 +87,8 @@ if ( ( (a > b) or G ) and (x < y) )
 ### q
 
 Consider the control flow graph below. What are all the paths (using node numbers) that would achieve full path coverage as a test criteria? Is this a finite set?
+
+When listing all the paths, style your answer so that it appears like code (a code-like font with a gray background).
 
 ![flow](./flow_graph.png)
 
@@ -107,16 +111,28 @@ The set is infinite because of the loop between 3 and 4:
 
 ### q
 
-What benefit does *mutation testing* offer over other testing methods discussed in class?
+What benefit does *mutation testing* offer over other testing methods discussed in class? Use a link in markdown to link to the definition of mutation testing we have in our lecture notes from today.
 
 #### s
 
 Mutation testing is automated, in the sense that it solves the *oracle problem*: there is no need to define expected outputs, because we assume the current functionality of the program under test is correct (and therefore the correct output). Our goal is not to test the correctness of this code directly, but to test how complete/effective our test suite is. The assumption is that real bugs will be found in the code if we generate a robust enough test suite.
 
+
+
 ### q
 
-Finish the in-class exercise for finding the fault in the `checkCode` method.
+Finish the in-class exercise for finding the fault in the `checkCode` method. 
 
 #### s
 Solution omitted.
 
+# Grading rubric and submission
+
+When you are done, submit your `J1.md` file as well as your `tests.txt` file to BB.
+
+ You will be graded on the following:
+
+|Item | Points |
+|markdown is correctly used as descrived above (5 pts each) | 30 |
+|Answers are completed (for content above) | 20 |
+|Your tests.txt file that shows all the test cases you wrote in lab (25 pts for any tests, another 25 pts for finding the bug) | 50 |
