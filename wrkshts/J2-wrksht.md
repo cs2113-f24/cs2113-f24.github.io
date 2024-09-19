@@ -6,15 +6,20 @@ showsolution: false
 
 # Worksheet: J2
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. They are due, on github by 11:59pm on the day of the lecture.
+Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
-Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J2`. Then, add the following file to it:
+Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
 
-You may submit a single file in any format; Java (with comments), text, and/or markdown (an `.md` file). It can be called anything (reasonable). For the screenshot required in the last question, you can submit it as an additional file with any common extension and reasonable name.
+# Grading rubric and submission
 
-## Note
+When you are done, submit your `J1.md` file as well as your `tests.txt` file to BB.
 
-Attempt to answer these questions before running the code. This will improve your ability to analyize and reason about code without an IDE or compiler. This skill we be helpful on the exams.
+ You will be graded on the following:
+
+|Item | Points |
+|Answers are completed (for content  | 100 |
+
+
 
 ## Questions
 
@@ -395,7 +400,7 @@ The code works at both marks. Each mark is adding a sponsor to two different obj
 Consider the UML diagram from the notes. Expand this to include an **intern**. An **intern** is like an employee, has a manager, unit, but has an expiration on their employment. How does this fit into the UML diagram?
 
 
-Include your UML diagram and explanation with this worksheet (in the file you're submitting, or as a screenshot/photo/etc).
+Include your UML diagram and explanation below in this markdown file.
 
 #### s
 
