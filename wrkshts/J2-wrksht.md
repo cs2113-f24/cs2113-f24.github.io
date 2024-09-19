@@ -17,7 +17,7 @@ When you are done, submit your `J2.md` file to BB.
  You will be graded on the following:
 
 |Item | Points |
-|Answers are completed (for content  | 100 |
+|Answers are completed (for content)  | 100 |
 
 
 
