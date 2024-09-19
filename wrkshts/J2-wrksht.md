@@ -8,11 +8,11 @@ showsolution: false
 
 Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
-Please submit your answers to the questions as comments in a `J1.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
+Please submit your answers to the questions as comments in a `J2.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
 
 # Grading rubric and submission
 
-When you are done, submit your `J1.md` file as well as your `tests.txt` file to BB.
+When you are done, submit your `J2.md` file to BB.
 
  You will be graded on the following:
 
