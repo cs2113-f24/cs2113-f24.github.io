@@ -13,11 +13,11 @@ permalink: /j/1
 
 ## Public Interface of a Class
 
-In the last class, we reviewed how Java works and spent some time defining a `Point` class and a `Line` class, built using `Point`s. A key idea we covered was **encapsulation** that the data and methods of the class should be controlled within the class such that there are no unintended side-effects from the programmer. 
+In the last class, we reviewed how Java works and spent some time defining a `Point` class and a `Line` class, built using `Point`s. A key idea we covered was **encapsulation** that the data and methods of the class should exist within the same class for ease of understanding and organization. 
 
-Another way to view this construction is via *information hiding* and creating a **public interface**. That is, we encapsulated data and methods such that the programmer only need to know the public interface to the class in order to use it, the rest is hidden. 
+Another way to view this construction is via *information hiding* and creating a **public interface**. That is, we encapsulated data and methods such that the programmer only need to know the public interface to the class in order to use it, the rest is hidden via private fields and methods. 
 
-This is an extremely important idea because often in Java, you're only provided with the compiled `.class` file for a program, and not the source code. You may not, nor should you, know the gritty details of how a program functions, but rather just the interface. For example, you don't need to know how the `dist()` function calculates distance, just that it will return the distance between one object and another. 
+This is an extremely important idea because often in Java, you're only provided with the compiled `.class` file for a program, and not the source code. You may not, nor should you, know the gritty details of how a method functions, but rather just the interface. For example, you don't need to know how the `dist()` method calculates distance, just that it will return the distance between one object and another. 
 
 
 ## Extending a Class
@@ -208,16 +208,16 @@ What we would really like to do to solve our problem is to go add a "label" fiel
 
 We already have a mechanism for using existing classes to build new classes. You use it whenever you create a class that has, for example, a `String` field (data member). We haven't given it a special name, but if you want to know, we call this *composition* of classes. If class `Foo` has two `String` fields, for instance, we would say that `Foo` is composed of two `String`s. Composition is a *has-a* relationship. Foo "has-a" `String` field.
 
-If we try to combine a point and a `String` label by composition, we get a new class, maybe `LabPoint` class like below. 
+If we try to combine a point and a `String` label by composition, we get a new class, maybe `LabelPoint` class like below. 
 
 ```java
-public class LabPoint {
+public class LabelPoint {
    Point p;
    String label;
    //...
 }
 ```
-And it's memory diagram would look like the following for an instance `lp` of `LabPoint`:
+And it's memory diagram would look like the following for an instance `lp` of `LabelPoint`:
 
 ```
   STACK           HEAP
@@ -227,29 +227,29 @@ And it's memory diagram would look like the following for an instance `lp` of `L
   '----'---'      |-----------|        |-------|
                   | label | .-+--.     | y | 5 |
                   '-----------'  |     '-------'
-                    LabPoint     |     .-----.
+                    LabelPoint     |     .-----.
                                  '---->| "R" | String
                                        '-----'
 ```
 
-This is really ugly for us. Why? Well **this is no longer a point**, which means that we can't just pass three `LabPoint`s to the `Triangle` constructor anymore so that we can calculate the area, but we constantly have to pull out the "point-part" of the `LabPoint` to pass around. In fact, this class has no methods yet at all, and we'd have to recreate all the methods we already have for `Point` in the new `LabPoint` class. Either that or, we'd need to also write a new `Triangle` constructor --- which we can't because we don't have the source code for that! So instead, we'd also need to write a *new* `LabTriangle` class with new methods to handle `LabPoint`s ... it's a mess! And this is because a LabPoint defined this way *has-a* Point, rather than *is-a* Point.
+This is really ugly for us. Why? Well **this is no longer a point**, which means that we can't just pass three `LabelPoint`s to the `Triangle` constructor anymore so that we can calculate the area, but we constantly have to pull out the "point-part" of the `LabelPoint` to pass around. In fact, this class has no methods yet at all, and we'd have to recreate all the methods we already have for `Point` in the new `LabelPoint` class. Either that or, we'd need to also write a new `Triangle` constructor --- which we can't because we don't have the source code for that! So instead, we'd also need to write a *new* `LabTriangle` class with new methods to handle `LabelPoint`s ... it's a mess! And this is because a LabelPoint defined this way *has-a* Point, rather than *is-a* Point.
 
 
 ### Deriving a new class with `extends` — adding fields
 
-Instead we can use **inheritance**, as in this new `LabPoint` is a *child* of `Point`, or put another way, we define `LabPoint` as *derived* from the class `Point`. In the Java parlance, `LabPoint` extends `Point` — which means that a `LabPoint` object **is-a** `Point`, but it is a `Point` with some extra features. Thus, all the code that worked for `Point`, all the methods of class `Point` and methods that take `Point`s as arguments, all still works. But we can add more! We are *extending* the class Point. 
+Instead we can use **inheritance**, as in this new `LabelPoint` is a *child* of `Point`, or put another way, we define `LabelPoint` as *derived* from the class `Point`. In the Java parlance, `LabelPoint` extends `Point` — which means that a `LabelPoint` object **is-a** `Point`, but it is a `Point` with some extra features. Thus, all the code that worked for `Point`, all the methods of class `Point` and methods that take `Point`s as arguments, all still works. But we can add more! We are *extending* the class Point. 
 
-The existing class `Point` is called the "super-class" (or parent class) and the new class `LabPoint` is called the "sub-class" (or child class). Sometimes, we'll use "super-type" and "sub-type" as well, but it means the same thing.
+The existing class `Point` is called the "super-class" (or parent class) and the new class `LabelPoint` is called the "sub-class" (or child class). Sometimes, we'll use "super-type" and "sub-type" as well, but it means the same thing.
 
-To derive a new class `LabPoint` from class `Point`, and add a `String` label, we would write
+To derive a new class `LabelPoint` from class `Point`, and add a `String` label, we would write
 
 ```java
-public class LabPoint extends Point { //extend the Point
+public class LabelPoint extends Point { //extend the Point
    private String label;
 }
 ```
 
-and a  memory diagram for an an instance `lp` of `LabPoint` would look like
+and a  memory diagram for an an instance `lp` of `LabelPoint` would look like
 
 ```
   STACK           HEAP
@@ -262,16 +262,16 @@ and a  memory diagram for an an instance `lp` of `LabPoint` would look like
                   |..........|    .-----.
        extended   |label | .-+--->| "R" |  String
                   '----------'    '-----'
-                  LabPoint
+                  LabelPoint
 ```
 
-Since `lp` is a `Point` **and** and a `LabPoint` then we can call all the methods of `Point` on `lp`, including `dist()` with other `Points` or `LabPoints`, as well as `toString()`. That is, `LabPoint` inherits all the methods and data of `LabPoint`. 
+Since `lp` is a `Point` **and** and a `LabelPoint` then we can call all the methods of `Point` on `lp`, including `dist()` with other `Points` or `LabelPoints`, as well as `toString()`. That is, `LabelPoint` inherits all the methods and data of `LabelPoint`. 
 
 ### Deriving a new class with `extends` — constructors
 
-One problem with our new `LabPoint` is that it also inherits the `Point` constructor, but the `Point` constructor is unaware of the new field `label` we added. 
+One problem with our new `LabelPoint` is that it also inherits the `Point` constructor, but the `Point` constructor is unaware of the new field `label` we added. 
 
-The constructor for a `LabPoint` would naturally have three values - `x`, `y`, and label `lab`. However, the constructor has to split duties and say that we want the `Point` part of the `LabPoint` to be initialized with `x` and `y`, and the label part with lab. But, once we do that, we find there is another problem. 
+The constructor for a `LabelPoint` would naturally have three values - `x`, `y`, and label `lab`. However, the constructor has to split duties and say that we want the `Point` part of the `LabelPoint` to be initialized with `x` and `y`, and the label part with lab. But, once we do that, we find there is another problem. 
 
 Consider the following constructor (which does not compile):
 
@@ -279,9 +279,9 @@ Consider the following constructor (which does not compile):
 
 //THIS DOES NOT COMPILE !!
 
-public class LabPoint extends Point {
+public class LabelPoint extends Point {
     private String label;
-    public LabPoint(double x, double x, String lab){
+    public LabelPoint(double x, double x, String lab){
         this.x = x; //x and y inheritted from Point, but declared private
         this.y = y; //can't read/write them directly
         this.label = lab;
@@ -291,29 +291,29 @@ public class LabPoint extends Point {
 
 ```
 
-When we try and use `this.x` we would find we get a compiler error because we're access a `private` field outside the class. While, yes, `LabPoint` is a `Point`, **direct access** to `private` fields *are not* inherited! The fields are, however, inhereted (i.e. they can store values), but they're just inaccessible.
+When we try and use `this.x` we would find we get a compiler error because we're access a `private` field outside the class. While, yes, `LabelPoint` is a `Point`, **direct access** to `private` fields *are not* inherited! The fields are, however, inhereted (i.e. they can store values), but they're just inaccessible.
 
 We could have declared the fields of `Point` as `protected` instead of `private`, which gives all the protections of `private` outside the class, but allows sub-classes access to the fields/methods (discussed more later). But, **we cannot edit** `Point`, so how do we solve this problem? We need to set the fields in the super-class, or put another way, we need to call the constructor of the super class.  
 
-Java provides a `super` which allows us to refer to the super-class and, in this context, allows us to explicitly call the constructor for  `Point`, initializing the `Point` part of the new object. After, we can initialize the `LabPoint` part. 
+Java provides a `super` which allows us to refer to the super-class and, in this context, allows us to explicitly call the constructor for  `Point`, initializing the `Point` part of the new object. After, we can initialize the `LabelPoint` part. 
 
 ```java
 
-public class LabPoint extends Point {
+public class LabelPoint extends Point {
     private String label;
-    public LabPoint(double x, double y, String lab) {
+    public LabelPoint(double x, double y, String lab) {
         super(x, y); //initilize the Point part, sets x and y
-        this.label = lab; //initialize LabPoint part
+        this.label = lab; //initialize LabelPoint part
     }
 }
 
 ```
 
-At this point, we have a full `LabPoint` constructor that has inherited all the fields and methods from `Point`, which is great! But, we still need to make some modifications in order to leverage the new field `label`.
+At this point, we have a full `LabelPoint` constructor that has inherited all the fields and methods from `Point`, which is great! But, we still need to make some modifications in order to leverage the new field `label`.
 
-### Deriving a new class with `extends` — adding  methods
+### Deriving a new class with `extends` — adding methods
 
-In our new `LabPoint` class, we need to add a new getter method for the `label` as it's `private` and inaccessible otherwise. This is not a problem for `LabPoint` class, but would not have made sense for `Point` as it has no label.
+In our new `LabelPoint` class, we need to add a new getter method for the `label` as it's `private` and inaccessible otherwise. This is not a problem for `LabelPoint` class, but would not have made sense for `Point` as it has no label.
 
 ```java
 
@@ -322,25 +322,25 @@ public String getLabel() {
 }
 ```
 
-At this point, you may notice that `LabPoint` is *more* expressive than `Point`. For starters, it has an additional data field `label` but now it also has an additional method `getLabel()`. And this is typically the case with sub-classes, they should trend to higher expressive and more specificity for the item being described. Otherwise, the super-class would have sufficed.
+At this point, you may notice that `LabelPoint` is *more* expressive than `Point`. For starters, it has an additional data field `label` but now it also has an additional method `getLabel()`. And this is typically the case with sub-classes, they should trend to higher expressive and more specificity for the item being described. Otherwise, the super-class would have sufficed.
 
 
-### Deriving a new class with `extends` — overwriting methods
+### Deriving a new class with `extends` — overriding methods
 
 
-We are not quite done with `LabPoint`'s definition yet because it has inherited two methods (that would still function) but are not expressive enough, yet. 
+We are not quite done with `LabelPoint`'s definition yet because it has inherited two methods (that would still function) but are not expressive enough, yet. 
 
-First the `readPoint()` static method which scans in a `Point` doesn't take into account that for a `LabPoint` we need the label as well. So we can *overwrite* that method with a new version, just like we wrote our new constructor. In this case, we can take advantage of the static method `Point.nextPoint()`, so we don't have to complete write it from scratch, but rather add just the needed functionality.
+First the `readPoint()` static method which scans in a `Point` doesn't take into account that for a `LabelPoint` we need the label as well. So we can *override* that method with a new version, just like we wrote our new constructor. In this case, we can take advantage of the static method `Point.nextPoint()`, so we don't have to complete write it from scratch, but rather add just the needed functionality.
 
 ```java
-public static LabPoint nextPoint(Scanner sc) {
+public static LabelPoint nextPoint(Scanner sc) {
         if(! sc.hasNext()) 
             return null;
         String lab = sc.next(); //read label
         Point p = Point.nextPoint(sc); //read point
         if(p == null) 
             return null; //error check
-        return new LabPoint(p.getX(), p.getY(), lab); //return new LabPoint
+        return new LabelPoint(p.getX(), p.getY(), lab); //return new LabelPoint
     }
 ```
 
@@ -360,20 +360,21 @@ While the above `toString()` works fine, it is unsatisfying because we are re-im
     }
 ```
 
+There is even an `@Override` annotation (similar to the `@Test` annotation in Junit tests) that you can use in child classes to let the compiler know you intend to override the method from the parent class; if you modify its signature by mistake, the compiler will tell you!
 
 ### Putting it all together
 
-Now that our `LabPoint` class is ready to go, we can modify our `main` method from before in only a few spots, using `LabPoint` instead of `Point` to get the functionality we desired.
+Now that our `LabelPoint` class is ready to go, we can modify our `main` method from before in only a few spots, using `LabelPoint` instead of `Point` to get the functionality we desired.
 
 ```java
         //...
-        LabPoint points[] = new LabPoint[4];
+        LabelPoint points[] = new LabelPoint[4];
         for(int i = 0; i < points.length; i++){
-            points[i] = LabPoint.nextPoint(sc);
+            points[i] = LabelPoint.nextPoint(sc);
         }
 
         //create all four possible triangles by group three points together
-        LabPoint triangles[][] = { {points[0],points[1],points[2]},
+        LabelPoint triangles[][] = { {points[0],points[1],points[2]},
                                    {points[0],points[1],points[3]},
                                    {points[0],points[2],points[3]},
                                    {points[1],points[2],points[3]}};
@@ -381,20 +382,20 @@ Now that our `LabPoint` class is ready to go, we can modify our `main` method fr
 ```
 The rest of the code stays the same, and in that lies the power of inheritance and extending.  Click below to see the completed versions of the code.
 
-* <a href="javascript:void(0)" onclick="$('.labpoint-java').toggle('slow')">LabPoint.java</a> 
-<div class="labpoint-java" style="display:none">
+* <a href="javascript:void(0)" onclick="$('.LabelPoint-java').toggle('slow')">LabelPoint.java</a> 
+<div class="LabelPoint-java" style="display:none">
 ```java
 import java.util.Scanner;
 
-public class LabPoint extends Point {
+public class LabelPoint extends Point {
     private String label;
 
-    public LabPoint(double x, double y, String lab) {
+    public LabelPoint(double x, double y, String lab) {
         super(x, y);
         this.label = lab;
     }
 
-    public LabPoint(LabPoint lp) {
+    public LabelPoint(LabelPoint lp) {
         super(lp.getX(), lp.getY());
         this.label = lp.getLabel();
     }
@@ -403,14 +404,14 @@ public class LabPoint extends Point {
         return this.label;
     }
 
-    public static LabPoint nextPoint(Scanner sc) {
+    public static LabelPoint nextPoint(Scanner sc) {
         if(!sc.hasNext()) 
             return null;
         String lab = sc.next(); //read label
         Point p = Point.nextPoint(sc); //read point
         if(p == null) 
             return null;
-        return new LabPoint(p.getX(), p.getY(), lab); //return new LabPoint
+        return new LabelPoint(p.getX(), p.getY(), lab); //return new LabelPoint
     }
 
     public String toString() {
@@ -431,13 +432,13 @@ public class LargestAreaLab {
 
         System.out.println("Enter four points:");
         //declare four points in an array
-        LabPoint points[] = new LabPoint[4];
+        LabelPoint points[] = new LabelPoint[4];
         for(int i = 0; i < points.length; i++) {
-            points[i] = LabPoint.nextPoint(sc);
+            points[i] = LabelPoint.nextPoint(sc);
         }
 
         //create all four possible triangles by group three points together
-        LabPoint triangles[][] = { {points[0],points[1],points[2]},
+        LabelPoint triangles[][] = { {points[0],points[1],points[2]},
                                    {points[0],points[1],points[3]},
                                    {points[0],points[2],points[3]},
                                    {points[1],points[2],points[3]}};
@@ -574,7 +575,7 @@ As a private class within a containing class, the containing class `Queue`, it i
 
 ## Extending Queue for `size()`
 
-The `Queue` defined above is minimal. It's missing some key functionality, such as the current size of the queue, or how many items are currently enqueued. With `extends` this is relatively easy to add, following the same procedures we outlined above with `Point` and `LabPoint`.
+The `Queue` defined above is minimal. It's missing some key functionality, such as the current size of the queue, or how many items are currently enqueued. With `extends` this is relatively easy to add, following the same procedures we outlined above with `Point` and `LabelPoint`.
 
 ```java
 public class CountingQueue extends Queue {
@@ -656,16 +657,16 @@ This is a case where we **do want to change the original class** and as a progra
 
 # UML Diagrams
 
-A great tool when you begin to plan out the relationships between classes is to visualize how class depend and extend each other. The **UML** (or **Unified Model Language**) is a standard way to describe classes, their members, and relationships. As a starter, consider the UML diagram for the `Point` `LabPoint` and `Triangle` classes used in the prior example. (Note this was generated by IntelliJ via yworks)
+A great tool when you begin to plan out the relationships between classes is to visualize how class depend and extend each other. The **UML** (or **Unified Model Language**) is a standard way to describe classes, their members, and relationships. As a starter, consider the UML diagram for the `Point` `LabelPoint` and `Triangle` classes used in the prior example. (Note this was generated by IntelliJ via yworks)
 
-![intellij UML of labpoint](/images/LabPoint-uml-intellij.png)
+![intellij UML of LabelPoint](/images/LabelPoint-uml-intellij.png)
 
 ## Classes
 Each box represents a class. The name of the class as indicated by `(c)` is at the top followed by the fields `(f)`. The methods `(m)` come below that. If a field or method is private, then a (red) lock &#128274; is used, if it is protected a (silver) key is used &#128273;, and if it is public an unlock &#128275; is used. A static method/field uses the diamond &#9672;. 
 
 Note that there are other styles of UML. See this [wikipedia](https://en.wikipedia.org/wiki/Class_diagram) article for more details. Here's the same diagram generated using the [Violet UML Editor](https://sourceforge.net/projects/violet/). 
 
-![violet UML of labpoint](/images/labpoint-uml-violent.png)
+![violet UML of LabelPoint](/images/LabelPoint-uml-violent.png)
 
 You'll note the symbols
 * &#43; indicates public
