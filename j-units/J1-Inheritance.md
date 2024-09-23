@@ -579,7 +579,7 @@ The `Queue` defined above is minimal. It's missing some key functionality, such 
 
 ```java
 public class CountingQueue extends Queue {
-    private count;
+    private int count;
     
     public CountingQueue {
         super();

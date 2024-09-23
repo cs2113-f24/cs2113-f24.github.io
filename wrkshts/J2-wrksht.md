@@ -277,7 +277,7 @@ If we want to override `sum_x_y` in our custom point, but first reflect the poin
 ```java
     //Option 1
     public double sum_x_y() {
-        this.reflect()
+        this.reflect();
         return super.sum_x_y();
     }
 
@@ -289,7 +289,7 @@ If we want to override `sum_x_y` in our custom point, but first reflect the poin
 
     //Option 3
     public double custom_sum_x_y() {
-        this.reflect()
+        this.reflect();
         return super.sum_x_y();
     }
 
