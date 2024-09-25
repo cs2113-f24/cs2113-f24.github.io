@@ -273,6 +273,17 @@ There are two requirements for this project. The first requirement (Part A) invo
 
 Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-project1`. You will be graded on the following:
 
+In your github repo, type the following command to pipe your log to a text file:
+`git log > log_file.txt`
+
+Next, type the following command to compress your files into the required submission format:
+`tar -cvf project1.tar  Station.java EndStation.java TransferStation.java MetroSimulator.java log_file.txt`
+
+Submit your code, as `project1.tar` on the submitserver. 
+
+You will be graded on the following:
+
+
 |Item | Points |
 |a correct drawing/diagram of the metro system described above has been submitted to BB |  4 |
 |your git logs show comments that helpfully and meaningfully describe what updates you were committing |  2 |
