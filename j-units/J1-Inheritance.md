@@ -666,7 +666,7 @@ Each box represents a class. The name of the class as indicated by `(c)` is at t
 
 Note that there are other styles of UML. See this [wikipedia](https://en.wikipedia.org/wiki/Class_diagram) article for more details. Here's the same diagram generated using the [Violet UML Editor](https://sourceforge.net/projects/violet/). 
 
-![violet UML of LabelPoint](./images/LabelPoint-uml-violent.png)
+![violet UML of LabelPoint](uml2.png)
 
 You'll note the symbols
 * &#43; indicates public
