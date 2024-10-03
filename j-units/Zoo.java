@@ -8,15 +8,6 @@ INSTRUCTIONS:
 6. Keep track of the number of animals in the zoo without relying on a method
 7. Compile against and pass all the tests (your solution no longer needs to work with the Zoo code below)
 
-RULES:
-
-This exam is open-book, open note, open internet with the following exceptions (that are honor code violations):
-1. All work submitted must be your own
-2. You may not share your solutions with others
-3. You may not ask any other party to help you with any part of this assignment
-4. You should only be googling syntax errors; you should not be googling for help with writing your code/design/solution/algorithm.
-5. You should never be copying any code from any website (except the course webpages)
-
 */
 
 public class Zoo {
