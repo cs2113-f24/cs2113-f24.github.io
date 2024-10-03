@@ -117,7 +117,7 @@ public class Lab2_Tester {
 
   @Test
   public void test7() {
-    System.out.println("the ThingList class has methods to addAll, moveAll, and printAll Things inside the list/queue");
+    System.out.println("the ThingList class has methods to addThing, moveAll, and printAll Things inside the list/queue");
     assertEquals(true, checkInFile("ThingList.java", "public void addThing(Thing"));
     assertEquals(true, checkInFile("ThingList.java", "public void printAll()"));
     assertEquals(true, checkInFile("ThingList.java", "public void moveAll(Random"));
