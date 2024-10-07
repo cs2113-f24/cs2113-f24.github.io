@@ -186,111 +186,6 @@ public class LinkedList<T> implements Stack<T>, Queue<T> {
 }
 ```
 
-### q
-
-Suppose you have interfaces `Adder` and `Multiplier`:
-
-```java
-public interface Adder<T> {
-    T add(T a, T b);
-}
-```
-
-```java
-public interface Multiplier<T> {
-    T multiply(T a, T b);
-}
-```
-
-Finish the implementation of the `IntegerCalculator` and `FloatCalculator` classes below. 
-
-```java
-public class IntegerCalculator implements Adder<Integer>, Multiplier<Integer> {
-    private String calculatorName;
-
-    public IntegerCalculator(String calculatorName) {
-        this.calculatorName = calculatorName;
-    }
-
-    public String getCalculatorName() {
-        return calculatorName;
-    }
-
-    // TODO: add the methods needed to implement the adder and multiplier interfaces.
-}
-```
-
-```java
-public class FloatCalculator implements  Adder<Float>, Multiplier<Float> {
-    private String calculatorName;
-
-    public FloatCalculator(String calculatorName) {
-        this.calculatorName = calculatorName;
-    }
-
-    public String getCalculatorName() {
-        return calculatorName;
-    }
-
-    // TODO: add the methods needed to implement the adder and multiplier interfaces.
-}
-```
-
-#### s
-
-```java
-public class IntegerCalculator implements Adder<Integer>, Multiplier<Integer> {
-    // ...
-	public Integer add(Integer a, Integer b) {
-		return a + b;
-	}
-
-	public Integer multiply(Integer a, Integer b) {
-		return a * b;
-	}
-}
-```
-
-```java
-public class FloatCalculator implements  Adder<Float>, Multiplier<Float> {
-    // ...
-	public Float add(Float a, Float b) {
-		return a + b;
-	}
-
-	public Float multiply(Float a, Float b) {
-		return a * b;
-	}
-}
-```
-
-### q
-
-Review the following Java util data structures:
-
-* [`ArrayList`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) 
-* [`Hashtable`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Hashtable.html)
-
-For each, 
-* Provide a two-to-three sentence description of each class
-* For each interface realized by these classes, also provide a two-to-three sentence description. 
-* Finally draw a UML diagram that connects all of these classes back to object
-
-#### s
-
-`ArrayList`
-
-* `ArrayList` is an array of some type, that implements the `List` interface, meaning it has methods so the user of `ArrayList` has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list. When the array reaches its total capacity, it is resized.
-* `AbstractList`
-* See first answer for an explanation of the `List` interface. `Cloneable`, means that there is some `clone` method that will return a complete copy in memory of the implementing class, and `Serializable`, provides a method that guarantees the class can be "serialized", or turned into some ascii representation.
-
-
-`HashTable`
-* `Hashtable` maps objects of one type to another, by calling `hashCode` on the key object, in order to find the value. This means that any type used for the key must implement that method. Similar to the hashmap in the boggle project, the Hashtable class has an array of buckets, and when getting a value, the key hash maps to one of these buckets, which is then searched.
-* `Map`, `Cloneable`, `Serializable`
-* No other class extends `Dictionary`, but many classes implement map, such as `TreeMap` and `AbstractMap`.
-* `Map` Provides methods so a user can pass some sort of key, and a value is returned. It also guarantees there is some list of keys, values, and key-value mappings available. Finally, it provides users the ability to check if the mapping is empty, if it contains a key or value, and a way to delete or update key-value pairs. See previous for `Cloneable` and `Serializable`
-
 
 ### q
 
@@ -344,23 +239,6 @@ public class TestHashMap {
 }
 ```
 
-### q
-
-Provide a 1-to-2 paragraph explanation for why we need Generics. You can use the sample code (above and below) to over this explanation.
-
-#### s
-
-A lot of what we do as computer scientists, is writing and using abstractions of
-different things. Methods and functions provide ways for us to perform some
-operation on some data of a specific type, such as integers, over and over
-again, such as adding two numbers. Data structures such as classes provide ways
-for us to give data some shape and functionality, if it can't just be
-represented by a number (as most things can't). What if we want to operate on
-some data, but we don't care about the specific type of the data, such as
-putting it in a list. From here we see the point of generics, a way to operate
-on any "generic" data, or data with any type. Another way to think about
-generics in a more practical sense is that they are a way to store and work with data types,
-instead of actual data. An example may be comparing different types of movies, instead of different movies.
 
 
 ### q
