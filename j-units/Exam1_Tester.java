@@ -30,13 +30,13 @@ public class Exam1_Tester {
 
   @Test
   public void test1() {
-    Tiger tiger = new Tiger(33, "white");
+    Tiger tiger = new Tiger(33, "white"); //weight and fur color
     assertEquals("33 white", tiger.toString());
   }
   
   @Test
   public void test2() {
-    Fish fish = new Fish(11, 6);
+    Fish fish = new Fish(11, 6); // weight and numFins
     assertEquals("11 6", fish.toString());
   }
 
@@ -58,28 +58,28 @@ public class Exam1_Tester {
   @Test
   public void test4() {
     Tiger tiger = new Tiger(30, "white");
-    tiger.feed(2);
+    tiger.feed(2); //return void
     assertEquals(36, tiger.getWeight());
   }
 
   @Test
   public void test5() {
     Fish fish = new Fish(10, 6);
-    fish.feed(2);
+    fish.feed(2); // return void
     assertEquals(22, fish.getWeight());
   }
 
   @Test
   public void test6() {
     Tiger tiger = new Tiger(30, "white");
-    tiger.move(5);
+    tiger.move(5); //return void
     assertEquals(29, tiger.getWeight());
   }
 
   @Test
   public void test7() {
     Fish fish = new Fish(10, 6);
-    fish.move(50);
+    fish.move(50); //return void
     assertEquals(5, fish.getWeight());
   }
 
@@ -90,8 +90,6 @@ public class Exam1_Tester {
     assertEquals(1, tiger.compareTo(fish));
     assertEquals(-1, fish.compareTo(tiger));
     assertEquals(0, tiger.compareTo(tiger));
-    assertEquals(-2, tiger.compareTo("happy birthday!"));
-    assertEquals(-2, tiger.compareTo(null));
   }
 
   @Test

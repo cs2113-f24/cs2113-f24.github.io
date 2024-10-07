@@ -1,7 +1,7 @@
 ---
 layout: worksheet
 permalink: /worksheet/j3
-showsolution: false
+showsolution: true
 ---
 
 # Worksheet: J3
@@ -183,77 +183,6 @@ public class LetterPrinter {
 * The output of this program is `A A`.
 * Note that `class B` does not have a `toString()` method, which means calling `letterB.toString()` will result in the `toString()` method of `class A` since `class B extends A`. Similarly, although `A letterA = letterB` morphed `letterA` to `class B`, it still uses the `toString()` method of `class A`.
 
-### q
-Consider the first two class declarations. What is the output of compiling the program below? 
-```java
-abstract class Letter {
-    protected boolean uppercase;
-
-    protected abstract String get_name();
-
-    protected abstract int get_alphabet_position();
-}
-```
-```java
-class A extends Letter {
-    public String toString() {
-        return "A";
-    }
-
-    protected int get_alphabet_position() {
-        return 1;
-    }
-
-    private String get_name() {
-        return "A";
-    }
-}
-```
-
-
-
-#### s
-The program does not compile because the `get_name()` in `class A` attempts to override the abstract method `get_name()` in abstract class `Letter` with reduced visibility `private`.
-
-### q
-If we change the implementation of `A` to the following, what does the code below output?
-```java
-abstract class Letter {
-    protected boolean uppercase;
-
-    public abstract String get_name();
-
-    protected abstract int get_alphabet_position();
-}
-```
-```java
-class A extends Letter {
-    public String toString() {
-        return "A";
-    }
-
-    public int get_alphabet_position() {
-        return 1;
-    }
-
-    protected String get_name() {
-        return "A";
-    }
-}
-```
-
-```java
-public class Main {
-    public static void main(final String args[]) {
-        A a = new A();
-        System.out.println("A: " + a.get_alphabet_position());
-    }
-}
-
-```
-
-#### s
-The output of the program is `A: 1`.
 
 ### q
 What is the output of this program? You should do this without running the program.

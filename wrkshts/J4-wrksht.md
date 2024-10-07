@@ -6,13 +6,19 @@ showsolution: false
 
 # Worksheet: J4
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. They are due, on github by 11:59pm on the day of the lecture.
+Worksheets are self-guided activities that reinforce lectures. They are due Thursdays the week they are assigned.
 
-Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J4`. Submit a file called `worksheet-J4.md` in your repo for this assignment.
+Please submit your answers to the questions as comments in a `J4.md` markdown file you'll be writing in this lab. To render your file, create a github repo and upload your file there -- it can be viewed in your web browser.
 
-## Note
+# Grading rubric and submission
 
-Attempt to answer these questions before running the code. This will improve your ability to analyize and reason about code without an IDE or compiler. This skill we be helpful on the exams.
+When you are done, submit your `J4.md` file to BB.
+
+ You will be graded on the following:
+
+|Item | Points |
+|Answers are completed (for content)  | 100 |
+
 
 ## Questions
 
