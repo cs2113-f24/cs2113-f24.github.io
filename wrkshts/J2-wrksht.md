@@ -19,7 +19,9 @@ When you are done, submit your `J2.md` file to BB.
 |Item | Points |
 |Answers are completed (for content)  | 100 |
 
+## Lab this week
 
+Review the instructions for Lab 1 before you arrive at your lab on Wednesday, so you can make the best use of your limited time there!
 
 ## Questions
 
@@ -37,7 +39,7 @@ String s = "Hello World";
 
 #### s
 * In the first two lines, `int` and `double` are basic types.
-* In the last two lines, array and `String` are objects.
+* In the last two lines, array and `String` are both stored on the heap; technically, only `String` is a proper object from the base class `Object`.
 
 
 ### q
@@ -409,6 +411,3 @@ The intern should have Employee as its parent class, with an additional `Date` f
 Additional type left as an exercise to the reader.
 
 
-## Lab this week
-
-Review the instructions for Lab 1 before you arrive at your lab on Wednesday, so you can make the best use of your limited time there!
