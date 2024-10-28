@@ -25,7 +25,7 @@ title: Schedule
 | 11   | Nov 18:  [S2 - Software Engineering Development](j/software_engineering)<br>&bull; [J8 Worksheet](worksheet/j8) <br>[S3 - Design Patterns](j/design)<br>&bull; quiz on Client Server Simulator (15 minutes)       | Nov 18/20: <br> begin [Lab 4 -- GUI Enigma](lab/4) (Due Fri Nov 22)              |
 |    | Nov 25: <i>no class</i>          | Nov 25/27: <i>no lab</i>           |
 | 12   | Dec 2: lecture on OOP in python   <br>&bull; quiz on Lab 4 (15 minutes) <br>&bull; in-class extra credit opportunity| Dec 2/4: review for Exam2 (and live coding/Exam 1 makeups)
-| 14   | Dec 9:    <br>&bull; written portion exam2                            |  Dec 9/11: <i>no lab</i>                                                                                                             |                                               |
+| 14   | Dec 9:    <br>&bull; written portion exam2 (required)  <br>&bull; live coding makeups (optional)    <br>&bull; quiz/exam makeups (optional)                       |  Dec 9/11: <i>no lab</i>                                                                                                             |                                               |
 |    | Final Exam week: we do NOT have a final exam in this class
 
 
