@@ -17,6 +17,22 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 public class Lab3_Tester {
 
+  public String getFileContents(String filename){
+    String data = "";
+    try {
+      File myObj = new File(filename);
+      Scanner myReader = new Scanner(myObj);
+      while (myReader.hasNextLine()) {
+        data = myReader.nextLine();
+      }
+      myReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("could not open " + filename);
+      e.printStackTrace();
+    }
+    return data;
+  }
+
   @Test
   public void test1() {
     System.out.println("process long text with found stopword");
