@@ -107,6 +107,17 @@ Regardless of
 
 ### Ease of debugging
 
+Runtime efficieny is often not the most important concern in a lot of modern programming. Compared to the 1980s, you have a lot of memory on your computers. Consider that the custom of having file extensions being three or four characters long came from needing to save memory back in the day; this number is otherwise arbitrary! In fact, runtime efficiency (i.e. C) often comes at the cost of the ease of writing and debugging code.
+
+If being extremely memory efficient is not one of your concerns, one can argue that it's much more important to write understandable and maintainable code, versus code that runs very fast on the CPU. Consider the following example:
+
+FIXME
+
+It's hard to read; it might be hard for you to read a year later if you look at your code, and it might be hard for a more novice programmer to understand who you have to work with in the future. You're saving a few milliseconds of time when you run this code, but at what cost? It's often better to write code that might take a tiny bit amount of more time to run (especially when no one will notice this...) than to write the most "efficient" code. The more legible and maintainable code is easier to debug.
+
+However, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some legibility to meet the efficiency requirements.
+
+
 
 static typing vs dynamic typing
 
