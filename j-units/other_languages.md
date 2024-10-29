@@ -4,7 +4,7 @@ permalink: /j/languages
 ---
 
 
-# Programming in Other Languages
+# Programming in Other Languages -- DRAFT, currently updating these notes
 
 Although this course has focused on the Java programming language to illustrate object oriented and software engineering concepts this semester, recently it has not been the [most popular programming language people use](https://spectrum.ieee.org/top-programming-languages-2024) (or that employers are looking for). Python is currently dominating.
 
