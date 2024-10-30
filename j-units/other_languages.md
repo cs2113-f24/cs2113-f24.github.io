@@ -54,7 +54,7 @@ for(int i = 0; i < array.length; i++)
     arrayString += array[i] + "#";
 System.out.println(arrayString);
 ```
-Even something as simple as adding an element to the end of an array is different between these two languages, in terms of syntax:
+Even something as simple as adding an element to the end of an array is different between these two languages, in terms of syntax. For example, in python you might do:
 
 ```python
 intList = [1, 2, 3]
@@ -81,6 +81,8 @@ array.append(3);
 array.append(4);
 ```
 
+For more in-house details about the basics of python, you can check out [CS 1012's python tips](https://www2.seas.gwu.edu/~cs4all/1012_f23/pythontips.html).
+
 ### Efficieny and utility of code
 
 So far, it might always seem preferable to use python rather than Java. In part, that's because we haven't talked about OOP yet between these two languages. But the previous example regarding adding an element to the end of a list of integers didn't touch on another important topic in choosing a programming language: runtime efficiency.
@@ -105,34 +107,130 @@ By allowing us to more directly manipulate memory, a language like C/C++, unlike
 
 Regardless of 
 
-### Ease of debugging
+### Ease of understanding
 
 Runtime efficieny is often not the most important concern in a lot of modern programming. Compared to the 1980s, you have a lot of memory on your computers. Consider that the custom of having file extensions being three or four characters long came from needing to save memory back in the day; this number is otherwise arbitrary! In fact, runtime efficiency (i.e. C) often comes at the cost of the ease of writing and debugging code.
 
-If being extremely memory efficient is not one of your concerns, one can argue that it's much more important to write understandable and maintainable code, versus code that runs very fast on the CPU. Consider the following example:
+If being extremely memory efficient is not one of your concerns, one can argue that it's much more important to write understandable and maintainable code, versus code that runs very fast on the CPU. For example, it turns out that function/method calls are relatively expensive, given that you need to add a stack frame to memory for the function call, set up the arguments, delete the frame when done, and then return to the previous stack frame. There's someting called *inlining* that allows you to perform the same functionality without the explicit method call. For a basic example,
 
-FIXME
+```java
+public String sum(int x, String y){
+    return x + y;
+}
+int x = 3;
+String z = sum(x, "5");
+```
 
-It's hard to read; it might be hard for you to read a year later if you look at your code, and it might be hard for a more novice programmer to understand who you have to work with in the future. You're saving a few milliseconds of time when you run this code, but at what cost? It's often better to write code that might take a tiny bit amount of more time to run (especially when no one will notice this...) than to write the most "efficient" code. The more legible and maintainable code is easier to debug.
+is always going to be more inefficient (in terms of memory and CPU cycles) than rewriting it without a function call:
 
-However, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some legibility to meet the efficiency requirements.
+```java
+int x = 3;
+String z = x + "5";
+```
 
+Fortunately, in this case the simple addition is also easier for a human to understand. Ironically, it's easier to write in Java than in python:
 
+```python
+x = 3
+z = str(x) + "5" 
+```
 
-static typing vs dynamic typing
+because we don't need to manually convert `x` to be a String; Java does this for us with more syntactic sugar. 
 
+While Java is notoriously verbose, in general, compared to python (remember the number of lines it takes to print out `Hello World`), sometimes we can have too much of a good thing. For example, what do the lines of code below do?
 
-### Ease of understanding
+```python
+[print(i+j,end=" ") for i,j in enumerate([x+int(x*1.5) for x in range(2,19)])]
+print(":)")
+```
 
-Java vs python
+First, you get a different result if you run this in the python interpreter, versus running it as a file. If you run each line above, individually, you get a different answer than running them together. Gross! For the latter, the output is:
+`4 9 14 19 24 30 36 43 49 56 63 70 78 86 94 102 110 :)`
 
+Best of luck to you understanding how that happened if you're a python novice. Here's a more digestible way to write the same code:
 
+```python
+result = ""
+i = 0
+for x in range(2, 19):
+    j = x + int(x**1.5)
+    result += str(i + j) + ' '
+    i += 1
+print(result + ":-)")
+```
 
-### Popularity and support
+Which one is better depends on what you and your team finds more easy to understand; if you're working with a lot of folks new to python, they'll likely understand the latter much more easily. If it's hard to read, it might be hard for you to read a year later if you look at your code, and it might be hard for a more novice programmer to understand who you have to work with in the future. If it's short and dense, it might be easier to miss simple mistakes -- did you catch the bug in the python version? (Hint: it was doing multiplication, not raising to a power).
+
+Sometimes, well-meaning students try to write the most "efficient" code possible, at the expense of readability or comprehensibility. This kind of micro-efficiency, where these folks saving a few milliseconds of time when you run this code, but at what cost? It's often better to write code that might take a tiny bit amount of more time to run (especially when no one will notice this...) than to write the most "efficient" code. The more legible and maintainable code is easier to debug. 
+
+For example, take a look at this entire Wikipedia article discussing the [fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root), which was a good approximation for a necessary calculation used in rendering a video game from the late 1990s. Knowing how to take the inverse square root is useful for rendering graphics to compute angles of incidence, and simlute lighting (for example). We're dealing with vectors here (because of 3D modeling), so the inverse square root formula is:
+
+![inverse_square_root](https://wikimedia.org/api/rest_v1/media/math/render/svg/d77e977afe2ff3fd5ac602d96707d59bda83c08a)
+
+The three V-s represent vector coordinates. Here is what this code might look like in Java as a method for the inverse square root of a number:
+
+```Java
+public float Slow_rsqrt(float number){
+
+    return 1 / Math.sqrt(x); // expensive division operation!
+}
+```
+
+Usually, the inverse square root calculation, defined mathematically as `1 / sqrt(x)` , was done using division operations of floating point numbers, but floating point division was very computatoinally expensive on the hardware (CPUs) back then. The *fast* inverse square root was a good approximation of this needed calculation and bypassed the expensive division step. Here is the code for the fast inverse square root algorithm (directly from the wiki above):
+
+```C
+float Q_rsqrt( float number )
+{
+    long i;
+    float x2, y;
+    const float threehalfs = 1.5F;
+
+    x2 = number * 0.5F;
+    y  = number;
+    i  = * ( long * ) &y;                       // evil floating point bit level hacking
+    i  = 0x5f3759df - ( i >> 1 );               // what the fuck?
+    y  = * ( float * ) &i;
+    y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+    return y;
+}
+```
+
+Wiki explains the code above as:
+"The algorithm accepts a 32-bit floating-point number as the input and stores a halved value for later use. Then, **treating the bits representing the floating-point number as a 32-bit integer**, a **logical shift right by one bit** is performed and the result **subtracted from the number 0x5F3759DF**, which is a floating-point representation of an approximation of `sqrt(2^127)`.[3] This results in the **first approximation of the inverse square root** of the input. Treating the bits again as a floating-point number, it **runs one iteration of Newton's method**, yielding a more precise approximation."
+
+Friends, we are doing pointer arithemtic with, I kid you not, an actual *magic number*. Fortunately, the code above was eventually made obsolete when hardware manufacturers added new functionality to their CPUs. But before that, sometimes you had no choice but to sacrifice comprehensibility for efficiency. Even in modern times, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some comprehensibility to meet the efficiency requirements.
+
+#### Compiled versus interpreted code.
+
+Speaking of runtime efficiency, the compiler is often your friend. Compiled code generally executes faster than interpreted code, but why? In both scenarios, we are translating the high-level language (Java, python, etc) into, ultimately, machine-level instructions (i.e. 64-bit sequences of zeroes and ones that are fed directly into the CPU via registers). In interpreted code, the python program, for example, will read python instructions line-by-line (on the fly) and translate these "individually" into machine instructions.
+
+This works, but it's not as efficient as if the computer was allowed to see the entire program as a whole, analyze it, and optimize the machine-level instructions it wants to run on the CPU (or, in the case of Java, the low-level bytecode that is later translated into machine code). In a compiled language like Java, looking at all the code together, rather than just translating it line-by-line, can result in faster running code. For example, a compiler can do things like *branch prediction* and *loop unrolling* that we won't get into here, but make the code that actually runs on the hardware need fewer instructions. We can't really do certain kinds of speed optimizations without a compiler.
+
+But, again, why do we care about speed in the modern computing era? Well, there are instances, similar to the horror of the fast inverse square root algorithm above, where even a small mathematical operation, when done billions of times, can become expensive overall. There's a reason we don't write machine learning libraries that train deep learning models in Java :-)
+
+### Ease of debugging
+
+Compiled languages, in addition to often being more efficient on the CPU than interpreted languages, are also often easier to debug.
+
+#### Static typing vs dynamic typing
+
+Putting execution speed aside for a moment, there are other advantages related to compilation that come into play when choosing a programming language: whether your language is statically or dynamically typed. Statically types languages, like Java, force you to declare your types at compile time. While this is more verbose, it does allow the compiler to catch type mismatches before you are ever allowed to run your code.
+
+By contrast, in a dynamically typed language like python, the type of an assignment is determined at runtime. If I do `x = 5` then at that time x is an integer, while later if I do `x = "yellow"` then `x` becomes a string. Less typing for the developer and more flexibility -- what's not to love? It turns out that it is **very easy to make mistakes** in a language with dynamic typing. There is no compiler to keep you safe. For instance, if I'm working with fMRI data, which measures bloodflow in the brain and stores these values in a 3-dimensional array of voxels, it is very easy to forget if some method in a library I wrote months ago returns a 1D slice of this data, or a 2D slice of this data (or both!). Normally, in Java, the compiler would catch if you are assigning mis-matched types like this unintentionally, but python does not. An entire day wasted tracing down such a bug; ask me how I know.
+
+However, writing code is python is still faster than Java, in part, because you don't have to declare your types up front. 
+
+## Popularity and support
 
 what are the common applicatons of different languages
 
+keywords arguments
+
 OOP support -- why use Java over Python?
+
+ML and DataFrames vs polar
 
 ## Pitfalls of specific languages
 - python not compatible with previous versions
