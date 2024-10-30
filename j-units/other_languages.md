@@ -222,18 +222,110 @@ However, writing code is python is still faster than Java, in part, because you 
 
 # Popularity and support
 
+In addition to all these tradeoff we just discussed, sometimes we end up using a language for a task simply because it's popular. For instance, you will often see python used for deep learning (i.e. PyTorch, Tensorflow), at least at the everyday practictioner level. Recall the machine learning libraries actually doing the math to learn the weights in these large models are probably running C++/CUDA (Nvidia's language for programming GPUs), which is much faster than python. But, python became popular for machine learning coding, probably, in part, because it's very easy for people, especially non-CS majors, to learn how to code in it. 
+
+Java, another popular language, became a household name in the 1990s, in part, because it can be used to make GUIs with its object-oriented support. C/C++, on the other hand, has been around for a longer time and is often used where performance and the ability to interface with memory at a lower level is important, like operating systems.
+
+What other common languages are there that you might see in your career?
+* Javascript: a language used for client-side web programming, and the source of endless nightmares and [internet memes](https://spectrum.ieee.org/top-programming-languages-2024)
+* SQL: a programming language for querying relational database tables, and a potentially humbling experience for those of used to procedural languages
+* C#: a language used to program for the .NET framework (runs on Microsoft Windows)
+
+# Python!
+
+As you can see, python is currently perhaps the most popular programming language out there. We've already discussed some of its tradeoffs against a language like Java, but we haven't talked about OOP in python. We'll do that here as a great illustration of why to potentially use Java if OOP is important to you.
+
+## Object Oriented Programming in python
+
+Python, like Java, does support the definition of classes and subsequent creation of objects. For example, here is what a person class might look like in Java:
+
+```java
+public class Person {
+
+    private String name;
+    private int age;
+
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    public String toString(){
+        return name + " " + age;
+    }
+
+    public void sayHi(String other){
+        System.out.println("Hello " + other + ", my name is " + name);
+    }
 
 
-what are the common applicatons of different languages
+}
+```
 
-keywords arguments
+In python, this would get translated to:
 
-OOP support -- why use Java over Python?
+```python
+class Person:
+  def __init__(self, name, age):
+    self.__name = name
+    self.__age = age
 
-ML and DataFrames vs polars
+    def __str__(self):
+        return self.__name + " " + self.__age
 
-# Pitfalls of specific languages
-- python not compatible with previous versions
+    def sayHi(self, other):
+        print("Hello " + other + ", my name is " + self.__name)
+```
+
+So far, so good; despite some minor differences in syntax, both classes have private visibility (indicated by `__` in python fields) and give us a constructor and `toString()`. But all is not as it seems! It turns out that the `__` is just a *convention* in python, and there is nothing preventing someone from accessing this "private" field anyway:
+
+```python
+vinesh = Person("Vinesh", 33)
+vinesh.__age = -2 # doom!
+```
+It gets worse. Python doesn't have proper support for `static` fields; if we wanted to have a static `planet` field in Person, we might do:
+
+```python
+class Person:
+  planet = "Earth"
+
+  def __init__(self, name, age):
+    self.__name = name
+    self.__age = age
+
+    def __str__(self):
+        return self.__name + " " + self.__age
+
+    def sayHi(self, other):
+        print("Hello " + other + ", my name is " + self.__name)
+```
+
+but then you'll find this kind of behavior:
+
+```python
+vinesh = Person("Vinesh", 33)
+lisa = Person("Lisa", 26)
+
+print(vinesh.planet) # prints "Earth"
+print(lisa.planet) # prints "Earth"
+
+Person.planet = "Venus"
+
+print(vinesh.planet) # prints "Venus"
+print(lisa.planet) # prints "Venus"
+
+
+vinesh.planet = "Mars"
+print(vinesh.planet) # prints "Mars" # why?!?!?!??!
+print(lisa.planet) # prints "Venus"
+```
+
+We could continue on with even more OOP shortcomings in python compared to Java, but that's left as an exercise to the reader. TLDR: if you would benefit from a solid OOP foundation where the compiler can perform all kinds of desirable checks for you, python is probably not the language for you.
+
+## But...DataFrames
+
+Although we just said not to rely on OOP featurs if you're using python, many people are using python to injest data for machine learning. For instance, a library called `pandas` has a class called a `DataFrame` which is the workhorse of many a machine learning application. A [`DataFrame`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) acts like a really cool spreadsheet (think MSExcel) where you can do all kinds of things with it, including loading a csv into it and then passing its columns along to a machine learning model.
+
 
 # Lab exercises:
 
