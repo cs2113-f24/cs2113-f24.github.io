@@ -198,7 +198,7 @@ float Q_rsqrt( float number )
 Wiki explains the code above as:
 "The algorithm accepts a 32-bit floating-point number as the input and stores a halved value for later use. Then, **treating the bits representing the floating-point number as a 32-bit integer**, a **logical shift right by one bit** is performed and the result **subtracted from the number 0x5F3759DF**, which is a floating-point representation of an approximation of `sqrt(2^127)`.[3] This results in the **first approximation of the inverse square root** of the input. Treating the bits again as a floating-point number, it **runs one iteration of Newton's method**, yielding a more precise approximation."
 
-Friends, we are doing pointer arithemtic with, I kid you not, an actual *magic number*. Fortunately, the code above was eventually made obsolete when hardware manufacturers added new functionality to their CPUs. But before that, sometimes you had no choice but to sacrifice comprehensibility for efficiency. Even in modern times, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some comprehensibility to meet the efficiency requirements.
+Friends, we are doing all kinds of nastiness with, I kid you not, an actual *magic number*. Fortunately, the code above was eventually made obsolete when hardware manufacturers added new functionality to their CPUs. But before that, sometimes you had no choice but to sacrifice comprehensibility for efficiency. Even in modern times, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some comprehensibility to meet the efficiency requirements.
 
 ### Compiled versus interpreted code.
 
@@ -221,6 +221,8 @@ By contrast, in a dynamically typed language like python, the type of an assignm
 However, writing code is python is still faster than Java, in part, because you don't have to declare your types up front. 
 
 # Popularity and support
+
+
 
 what are the common applicatons of different languages
 
