@@ -169,7 +169,7 @@ For example, take a look at this entire Wikipedia article discussing the [fast i
 
 The three V-s represent vector coordinates. Here is what this code might look like in Java as a method for the inverse square root of a number:
 
-```Java
+```java
 public float Slow_rsqrt(float number){
 
     return 1 / Math.sqrt(x); // expensive division operation!
@@ -178,7 +178,7 @@ public float Slow_rsqrt(float number){
 
 Usually, the inverse square root calculation, defined mathematically as `1 / sqrt(x)` , was done using division operations of floating point numbers, but floating point division was very computatoinally expensive on the hardware (CPUs) back then. The *fast* inverse square root was a good approximation of this needed calculation and bypassed the expensive division step. Here is the code for the fast inverse square root algorithm (directly from the wiki above):
 
-```C
+```c
 float Q_rsqrt( float number )
 {
     long i;
