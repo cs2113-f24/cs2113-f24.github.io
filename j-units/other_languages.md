@@ -11,7 +11,7 @@ Although this course has focused on the Java programming language to illustrate 
 Now that you know a decent amount of Java (and some C/C++ from your systems programming course), we are going to take a moment to wrap up the semester by discussing 1) when and why you would choose one programming language over another and 2) take a deep dive into OOP in python.
 
 
-## A little bit about python
+# A little bit about python
 
 Python is originally a scripting language, which means that it's very easy and quick to write code in it. Compare the Hello World idiom in Java:
 
@@ -33,11 +33,11 @@ Which do you want to code in?
 
 So why are we "bothering" with Java? The answer is that Java has a lot more robust OOP features than python (which we'll cover below), among other benefits. Sometimes, depending on what you want to program, using Java will result in fewer errors, easier to maintain code, etc.
 
-## What programming language should I use?
+# What programming language should I use?
 
 There is no "best" programming language; the best programming language for you to use depends on many things! Many of these are tradeoffs. We'll review some of those considerations below.
 
-### Ease of use 
+## Ease of use 
 
 We just saw how much quicker it is to write Hello World in python, versus Java. If you don't need any of the benefits of a heavy-duty OOP language, like Java, in the programming project you're working on, you can consider using python. Often, it's quicker to write code in the latter: the designers of python included lots of syntactic sugar (i.e. shortcuts) to be able to write complex functionality in a single line of code:
 
@@ -83,7 +83,7 @@ array.append(4);
 
 For more in-house details about the basics of python, you can check out [CS 1012's python tips](https://www2.seas.gwu.edu/~cs4all/1012_f23/pythontips.html).
 
-### Efficieny and utility of code
+## Efficieny and utility of code
 
 So far, it might always seem preferable to use python rather than Java. In part, that's because we haven't talked about OOP yet between these two languages. But the previous example regarding adding an element to the end of a list of integers didn't touch on another important topic in choosing a programming language: runtime efficiency.
 
@@ -93,7 +93,7 @@ In the `ArrayList` example above, it turns out that an `ArrayList` actually uses
 
 If one really cared, at least using a primitve array in Java makes these costs explicit. However, Java, compared to a language like C/C++, is not known for its runtime efficiency. 
 
-#### Runtime efficiency and predictability
+### Runtime efficiency and predictability
 
 Java is a high level programming language not only because it tends to read like English, but also because it simply doesn't allow the user to directly access memory. While you can call a constructor, you don't get to decide when an object that is no longer in use (because no variable points to it anymore) is freed: the garbage collector does this for you. For those of you that have programmed in C/C++, you probably appreciate Java's garbage collection to no end: it frees developers of having to manually manage their own memory, and therefore, also obviates an entire class of errors: memory leaks and dereferecing invalid pointers. What's not to love?!
 
@@ -103,11 +103,9 @@ We don't want the code in a nuclear power plant to appear to hang...so we can us
 
 By allowing us to more directly manipulate memory, a language like C/C++, unlike Java and python, is useful for coding up things like operating systems. Being lower level with respect to this control around memory manipulation, a language like C/C++ is also useful for things that need to run quickly, like machine learning libraries that train large models on a GPU.
 
-#### Compiled vs interpreted languages
 
-Regardless of 
 
-### Ease of understanding
+## Ease of understanding
 
 Runtime efficieny is often not the most important concern in a lot of modern programming. Compared to the 1980s, you have a lot of memory on your computers. Consider that the custom of having file extensions being three or four characters long came from needing to save memory back in the day; this number is otherwise arbitrary! In fact, runtime efficiency (i.e. C) often comes at the cost of the ease of writing and debugging code.
 
@@ -202,7 +200,7 @@ Wiki explains the code above as:
 
 Friends, we are doing pointer arithemtic with, I kid you not, an actual *magic number*. Fortunately, the code above was eventually made obsolete when hardware manufacturers added new functionality to their CPUs. But before that, sometimes you had no choice but to sacrifice comprehensibility for efficiency. Even in modern times, there are certainly instances where runtime efficiency and memory efficiency are important, and you need to worry about them. One example are embedded systems, such as the code running on very limited battery power and memory space in something like a remote sensor. Training a memory- and power-hungry LLM on such a tiny remote sensor is all but hopeless. In these cases, it's wise to potentially sacrifice some comprehensibility to meet the efficiency requirements.
 
-#### Compiled versus interpreted code.
+### Compiled versus interpreted code.
 
 Speaking of runtime efficiency, the compiler is often your friend. Compiled code generally executes faster than interpreted code, but why? In both scenarios, we are translating the high-level language (Java, python, etc) into, ultimately, machine-level instructions (i.e. 64-bit sequences of zeroes and ones that are fed directly into the CPU via registers). In interpreted code, the python program, for example, will read python instructions line-by-line (on the fly) and translate these "individually" into machine instructions.
 
@@ -210,11 +208,11 @@ This works, but it's not as efficient as if the computer was allowed to see the 
 
 But, again, why do we care about speed in the modern computing era? Well, there are instances, similar to the horror of the fast inverse square root algorithm above, where even a small mathematical operation, when done billions of times, can become expensive overall. There's a reason we don't write machine learning libraries that train deep learning models in Java :-)
 
-### Ease of debugging
+## Ease of debugging
 
 Compiled languages, in addition to often being more efficient on the CPU than interpreted languages, are also often easier to debug.
 
-#### Static typing vs dynamic typing
+### Static typing vs dynamic typing
 
 Putting execution speed aside for a moment, there are other advantages related to compilation that come into play when choosing a programming language: whether your language is statically or dynamically typed. Statically types languages, like Java, force you to declare your types at compile time. While this is more verbose, it does allow the compiler to catch type mismatches before you are ever allowed to run your code.
 
@@ -222,7 +220,7 @@ By contrast, in a dynamically typed language like python, the type of an assignm
 
 However, writing code is python is still faster than Java, in part, because you don't have to declare your types up front. 
 
-## Popularity and support
+# Popularity and support
 
 what are the common applicatons of different languages
 
@@ -232,9 +230,9 @@ OOP support -- why use Java over Python?
 
 ML and DataFrames vs polars
 
-## Pitfalls of specific languages
+# Pitfalls of specific languages
 - python not compatible with previous versions
 
-### Lab exercises:
+# Lab exercises:
 
 1. Localize faults in python language that show an issue with dynamic typing
