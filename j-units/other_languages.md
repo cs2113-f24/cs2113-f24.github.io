@@ -316,8 +316,8 @@ print(lisa.planet) # prints "Venus"
 
 
 vinesh.planet = "Mars"
-print(vinesh.planet) # prints "Mars" # why?!?!?!??!
-print(lisa.planet) # prints "Venus"
+print(vinesh.planet) # prints "Mars" 
+print(lisa.planet) # prints "Venus" # why?!?!?!??!
 ```
 
 We could continue on with even more OOP shortcomings in python compared to Java, but that's left as an exercise to the reader. TLDR: if you would benefit from a solid OOP foundation where the compiler can perform all kinds of desirable checks for you, python is probably not the language for you.
