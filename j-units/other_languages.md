@@ -159,7 +159,7 @@ for x in range(2, 19):
 print(result + ":-)")
 ```
 
-Which one is better depends on what you and your team finds more easy to understand; if you're working with a lot of folks new to python, they'll likely understand the latter much more easily. If it's hard to read, it might be hard for you to read a year later if you look at your code, and it might be hard for a more novice programmer to understand who you have to work with in the future. If it's short and dense, it might be easier to miss simple mistakes -- did you catch the bug in the python version? (Hint: it was doing multiplication, not raising to a power).
+Which one is better depends on what you and your team finds more easy to understand; if you're working with a lot of folks new to python, they'll likely understand the latter much more easily. If it's hard to read, it might be hard for you to read a year later if you look at your code, and it might be hard for a more novice programmer to understand who you have to work with in the future. If it's short and dense, it might be easier to miss simple mistakes -- did you catch the bug in the first version? (Hint: it was doing multiplication, not raising to a power).
 
 Sometimes, well-meaning students try to write the most "efficient" code possible, at the expense of readability or comprehensibility. This kind of micro-efficiency, where these folks saving a few milliseconds of time when you run this code, but at what cost? It's often better to write code that might take a tiny bit amount of more time to run (especially when no one will notice this...) than to write the most "efficient" code. The more legible and maintainable code is easier to debug. 
 
@@ -230,7 +230,7 @@ keywords arguments
 
 OOP support -- why use Java over Python?
 
-ML and DataFrames vs polar
+ML and DataFrames vs polars
 
 ## Pitfalls of specific languages
 - python not compatible with previous versions
