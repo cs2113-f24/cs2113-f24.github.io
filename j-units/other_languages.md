@@ -81,6 +81,13 @@ array.append(3);
 array.append(4);
 ```
 
+Unlike Java, python also lets you return more than one item in a return statement. For example, you could write a method to return the min and max of a list, and call it as:
+
+```python
+smallest, largest = getMinAndMax([3, 1, 4, 6, 33, 2, 76, 3, 8, 19])
+
+```
+
 For more in-house details about the basics of python, you can check out [CS 1012's python tips](https://www2.seas.gwu.edu/~cs4all/1012_f23/pythontips.html).
 
 ## Efficieny and utility of code
