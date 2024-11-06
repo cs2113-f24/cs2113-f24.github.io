@@ -6,9 +6,9 @@ showsolution: false
 
 # Worksheet: J9
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. They are due, on github by 11:59pm on the day of the lecture.
+Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. 
 
-This worksheet should be completed in class, and is worth extra credit. Submit it to BB.
+This worksheet should be completed in class. Submit it to BB.
 
 ## Questions
 
