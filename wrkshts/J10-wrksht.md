@@ -66,4 +66,4 @@ Create a tar file from the folder you are working in by running the following co
 
 This will put every file in that folder into a tarfile named `J10.tar`
 
-Then, upload this tarfile to BB.
+Then, upload this tarfile to BB by Thursday this week.
