@@ -59,6 +59,8 @@ Once you've found the error using the techniques above, go ahead and fix the fau
 |Included sufficient debug print statements that convincingly explain/tell a story of how the fault was found, based on the explanation above | 25 |
 |Correctly fixed the fault and passes all test cases | 25 |
 
+Students must be present for the full lab session, and spend that time completing this assignment, in order to receive credit.
+
 ## Submission
 
 Create a tar file from the folder you are working in by running the following command in the terminal:
