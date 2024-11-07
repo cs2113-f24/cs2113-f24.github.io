@@ -16,7 +16,7 @@ We have included an anonymous student's solution to a programming project from a
 
 You can download the code as a zip file [here](./debugging_1.zip). Unzip it into its own folder.
 
-This codebase originally passed all the included unit tests, but I have seeded it with a fault that causes it to fail two unit tests. Your goal is to **use debug print statements to find this fault**, and then fix it, working backwards from what is mismatched in the unit tests. Note that this is a moderately difficult problem, and you should spend some time first understanding what went wrong in the unit tests, before trying to fix the code.
+This codebase originally passed all the included unit tests, but I have seeded it with a fault that causes it to fail one unit test. Your goal is to **use debug print statements to find this fault**, and then fix it, working backwards from what is mismatched in the unit test. Note that this is a moderately difficult problem, and you should spend some time first understanding what went wrong in the unit tests, before trying to fix the code.
 
 ## Grading
 
