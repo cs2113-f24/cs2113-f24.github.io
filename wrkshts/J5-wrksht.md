@@ -6,9 +6,7 @@ showsolution: false
 
 # Worksheet: J5
 
-Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. They are due, on github by 11:59pm on the day of the lecture.
-
-Create a new repo using all the steps in Lab 0 called `yourgitusername-worksheet-J5`. Submit a file called `worksheet-J5.md` in your repo for this assignment.
+Worksheets are self-guided activities that reinforce lectures. They are not graded for accuracy, only for completion. Submit a file called `worksheet-J5.md` on BB for this assignment.
 
 ## Note
 
