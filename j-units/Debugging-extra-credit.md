@@ -48,20 +48,20 @@ While we were writing this code, we had a bug: in the **NTT (non-tech track) req
 
 Your mission, in the next hour, is to fix the codebase below to get rid of this bug. Use print statements to help you!
 
-**Each student has been emailed a customized codebase to find the bug and modify** 
+**Each student has been emailed a customized codebase to find the bug and modify.** 
 
 This is a (slightly modified) example of a real bug we encountered while writing this code. Note that the codebase is imperfect and realistic for a library you might find online or inherit: comments are sparse because the developer was in a rush and/or writing the code for themselves, functions are expected to be understood by looking at their contents, and the JSON files are enormous and virtually illegible due to their size. However, when this bug was live, we were able to isolate it and fix it in less than five minutes (though, to be fair, we were familiar with the codebase having written it ourselves). You have a full hour to figure out the issue, with the same tools that we used: debugging print statements!
 
 ## The codebase and dataset
 
-Three python files, one of which contains the code that you need to fix. **These files will be emailed to you at the start of the timed assessment**
+Three python files, one of which contains the code that you need to fix. **These files will be emailed to you at the start of the timed assessment.**
 * course_list_imports_buggy.py
 * BS_2019_courses_buggy.py
 * utils_buggy.py
 
 You can run the second file with `python BS_2019_courses_buggy.py` to generate the JSON file `possible_courses_BS_2019.json`; in this file, the possible courses for `elective_1`, `elective_2` `elective_3`, and `elective_4` all contain the bug above where `CSCI 2501` appears more than once in the lists associated with those keys. **Running the python file will show you the duplicates at the bottom** -- this is effectively our test case to see if you fixed the bug or not.
 
-The two python files also make use of, or generate, the following files:
+The three python files also make use of, or generate, the following files:
 * [all_courses.json](./all_courses.json) 
 * [all_GPAC_courses.json](./all_GPAC_courses.json) 
 * [BS_2019-2020.json](./BS_2019-2020.json) 
@@ -74,7 +74,7 @@ The two python files also make use of, or generate, the following files:
 
 ## Requirements
 
-You should be using print statements that are properly labelled, as above, to work backwards from the incorrectly-created JSON file and localize the fault somewhere in the two python files.
+You should be using print statements that are properly labelled, as above, to work backwards from the incorrectly-created JSON file and localize the fault somewhere in the three python files.
 
 There is only one place you need to fix the code in one of these files to get rid of the bug. However, the fix itself may be multiples of code (in one "chunk").
 
@@ -90,6 +90,8 @@ Once you have found and fixed the bug, include the following comment in the file
 ```python
 print("### I found the BUG HERE ###")
 ```
+
+If you delete any of the exisitng lines in any of the files, you will not earn points for this assignment -- just comment things out that you don't need. You should also not be commenting out any of the code other than what is needed to fix the bug, when you find it.
 
 ## Grading
 
@@ -127,4 +129,4 @@ There are 63 students in the class this semester, so our pool will start with 63
 
 ## Submission
 
-Tar up the three python files with `tar -cvf extra_credit.tar utils_buggy.py course_list_imports_buggy.py BS_2019_courses_buggy.py` and submit these to the submitserver before the deadline in class. You must be physically present in class in order to receive credit for this assignment.
+Tar up everything in the zip folder you downloaded with `tar -cvf extra_credit.tar *.*` and submit this to Ed before the deadline in class. You must be physically present in class in order to receive credit for this assignment. Do not delete any files from your zip folder before submission, otherwise we cannot award you points.
