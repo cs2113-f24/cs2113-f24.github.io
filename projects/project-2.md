@@ -83,7 +83,7 @@ Submit your code, as `project2.tar` on the submitserver.
 |your git logs show comments that helpfully and meaningfully describe what updates you were committing |  1 |
 |your git logs show evidence that you committed code at least once during the Project2 lab   |  1 |
 |your git logs show at least five commits that are all at least ten minutes apart  |  2 |
-|the test cases pass (12 points each) – answers that are hard-coded will not receive credit | 96 |
+|the test cases pass (12 points each) – answers that are hard-coded or do not follow written instructions above will not receive credit | 96 |
 |TOTAL | 100 |
 
 
