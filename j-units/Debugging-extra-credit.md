@@ -129,4 +129,4 @@ There are 63 students in the class this semester, so our pool will start with 63
 
 ## Submission
 
-Tar up everything in the zip folder you downloaded with `tar -cvf extra_credit.tar *.*` and submit this to Ed before the deadline in class. You must be physically present in class in order to receive credit for this assignment. Do not delete any files from your zip folder before submission, otherwise we cannot award you points.
+Tar up everything in the zip folder you downloaded with `tar -cvf extra_credit.tar *.*` and submit this to BB before the deadline in class. You must be physically present in class in order to receive credit for this assignment. Do not delete any files from your zip folder before submission, otherwise we cannot award you points.
