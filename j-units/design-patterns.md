@@ -75,7 +75,7 @@ Here is what the Singleton design pattern could look like for reading in a very 
 public class LargeFile {
     // This is a private member variable so that the file
     // can only be accessed through the getInstance() method.
-    private static LargeFile file;
+    private static LargeFile singleton;
     private static StringBuffer fileContents;
 
     // Private constructor forces the class to be instantiated 
@@ -105,11 +105,11 @@ public class LargeFile {
         // If this singleton instance is null, 
         // then construct a new instance.
         // Otherwise return the existing instance.
-        if (file == null) {
-            file = new LargeFile();
+        if (singleton == null) {
+            singleton = new LargeFile();
         }
 
-        return file;
+        return singleton;
     }
 }
 ```
