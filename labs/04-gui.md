@@ -121,7 +121,9 @@ These class files are included in the starter code for your repository. If you w
 
 # Grading rubric and submission
 
-Use git, as discussed in lab zero, to submit your work in a repo called `gitusername-lab4`. You will be graded on the following:
+Tar your files into a folder `lab4.tar` and submit the tarfile to BB for grading.
+
+You will be graded on the following:
 
 |Item | Points |
 |your git logs show comments that helpfully and meaningfully describe what updates you were committing | 5 |
