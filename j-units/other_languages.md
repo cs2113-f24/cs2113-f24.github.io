@@ -116,7 +116,7 @@ Although adding to the end of an `ArrayList` in Java is just as simple as doing 
 
 In the `ArrayList` example above, it turns out that an `ArrayList` actually uses a primitive array to store the elements: this is not obvious to the user, and with good reason. We shouldn't need to worry about the implementation level details of these classes...except when runtime efficiency might be called into question. For example, the `ArrayList` constructor could always create a primitve Java array with a size of ten, and then add to that as many times as the user wants, until it is full. When that happens and the user wants to add a new element, it might double the current size of the array, copy over the elements, and then add in the new one. That step is majorly inefficient! And the alternative: assigning huge empty arrays of thousands of elements is also wasteful. 
 
-If one really cared, at least using a primitve array in Java makes these costs explicit. However, Java, compared to a language like C/C++, is not known for its runtime efficiency. 
+If one really cared, at least using a primitve array in Java (as opposed to an `ArrayList`) makes these costs explicit. However, Java, compared to a language like C/C++, is not known for its runtime efficiency. 
 
 ### Runtime efficiency and predictability
 
@@ -167,7 +167,7 @@ While Java is notoriously verbose, in general, compared to python (remember the 
 print(":)")
 ```
 
-First, you get a different result if you run this in the python interpreter, versus running it as a file. If you run each line above, individually, you get a different answer than running them together. Gross! For the latter, the output is:
+First, you get a different result if you run this in the python interpreter, versus running it as a file (because a `print` statement in python actually returns `None`). If you run each line above, individually, you get a different answer than running them together. Gross! For the latter, the output is:
 `4 9 14 19 24 30 36 43 49 56 63 70 78 86 94 102 110 :)`
 
 Best of luck to you understanding how that happened if you're a python novice. Here's a more digestible way to write the same code:
@@ -352,6 +352,8 @@ We could continue on with even more OOP shortcomings in python compared to Java,
 Although we just said not to rely on OOP featurs if you're using python, many people are using python to injest data for machine learning. For instance, a library called `pandas` has a class called a `DataFrame` which is the workhorse of many a machine learning application. A [`DataFrame`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) acts like a really cool spreadsheet (think MSExcel) where you can do all kinds of things with it, including loading a csv into it and then passing its columns along to a machine learning model.
 
 
-# Lab exercises:
+# Debugging with Python
 
-1. Localize faults in python language that show an issue with dynamic typing
+Next, let's work on the optional extra credit debugging exercise together.
+
+
