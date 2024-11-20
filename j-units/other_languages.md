@@ -54,6 +54,16 @@ for(int i = 0; i < array.length; i++)
     arrayString += array[i] + "#";
 System.out.println(arrayString);
 ```
+
+There's a shorter way to do this in Java too, such as 
+
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+String joinedList = list.stream().map(String::valueOf).collect(Collectors.joining("#"));
+```
+
+But not only is that two lines of code -- it is arguably a lot more confusing than the python version (for a novice), plus it requires knowing several libraries.
+
 Even something as simple as adding an element to the end of an array is different between these two languages, in terms of syntax. For example, in python you might do:
 
 ```python
@@ -61,7 +71,7 @@ intList = [1, 2, 3]
 intList.append(4)
 ```
 
-Above, we can just call the `append()` method to add 4 to the intList in python. However, if we tried to mimic the code above in Java, it would look like:
+Above, we can just call the `append()` method to add 4 to the intList in python. However, if we tried to mimic the code above in Java, it could look like:
 
 ```java
 int[] array = {1, 2, 3};
@@ -75,10 +85,18 @@ This is because once you declare an array of a specific size, you can't update t
 
 ```java
 ArrayList<Integer> array = new ArrayList<Integer>();
-array.append(1);
-array.append(2);
-array.append(3);
-array.append(4);
+array.add(1);
+array.add(2);
+array.add(3);
+array.add(4);
+```
+
+There is, once again, a shorter way to do this in Java, but one that is arguably still longer and less intelligible than in python:
+
+```java
+int[] intArr = { 1, 2, 3};  
+List<Integer> list = Arrays.stream(intArr).boxed().collect(Collectors.toList()); 
+list.add(4);
 ```
 
 Unlike Java, python also lets you return more than one item in a return statement. For example, you could write a method to return the min and max of a list, and call it as:
@@ -234,7 +252,7 @@ In addition to all these tradeoff we just discussed, sometimes we end up using a
 Java, another popular language, became a household name in the 1990s, in part, because it can be used to make GUIs with its object-oriented support. C/C++, on the other hand, has been around for a longer time and is often used where performance and the ability to interface with memory at a lower level is important, like operating systems.
 
 What other common languages are there that you might see in your career?
-* Javascript: a language used for client-side web programming, and the source of endless nightmares and [internet memes](https://spectrum.ieee.org/top-programming-languages-2024)
+* Javascript: a language used for client-side web programming, and the source of endless nightmares and [internet memes](https://www.freecodecamp.org/news/explaining-the-best-javascript-meme-i-have-ever-seen/)
 * SQL: a programming language for querying relational database tables, and a potentially humbling experience for those of used to procedural languages
 * C#: a language used to program for the .NET framework (runs on Microsoft Windows)
 
