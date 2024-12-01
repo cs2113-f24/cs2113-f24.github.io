@@ -48,13 +48,13 @@ While we were writing this code, we had a bug: in the **NTT (non-tech track) req
 
 Your mission, in the next hour, is to fix the codebase below to get rid of this bug. Use print statements to help you!
 
-**Each student has been emailed a customized codebase to find the bug and modify.** 
+**Each student has access to a customized codebase to find the bug and modify.** 
 
 This is a (slightly modified) example of a real bug we encountered while writing this code. Note that the codebase is imperfect and realistic for a library you might find online or inherit: comments are sparse because the developer was in a rush and/or writing the code for themselves, functions are expected to be understood by looking at their contents, and the JSON files are enormous and virtually illegible due to their size. However, when this bug was live, we were able to isolate it and fix it in less than five minutes (though, to be fair, we were familiar with the codebase having written it ourselves). You have a full hour to figure out the issue, with the same tools that we used: debugging print statements!
 
 ## The codebase and dataset
 
-Three python files, one of which contains the code that you need to fix. **These files will be emailed to you at the start of the timed assessment.**
+Three python files, one of which contains the code that you need to fix. **These files will only be available at the start of the timed assessment.**
 * course_list_imports_buggy.py
 * BS_2019_courses_buggy.py
 * utils_buggy.py
@@ -95,7 +95,7 @@ If you delete any of the exisitng lines in any of the files, you will not earn p
 
 ## Grading
 
-It is important to be systematic and efficient when writing and debugging code. Therefore, we will award points according to the following tiers, based on submission time to the submitserver:
+It is important to be systematic and efficient when writing and debugging code. Therefore, we will award points according to the following tiers, based on submission time to blackboard:
 * Tier 1: found bug in 5 minutes or less
 * Tier 2: found bug in 15 minutes or less
 * Tier 3: found bug in 30 minutes or less
@@ -110,6 +110,8 @@ Each of the tiers above will be a multiplier on the number of points you will ea
 * Tier 5: x 1
 
 If you have a **documented DSS accomodation for extra time**, you can apply that multiplier to the times listed above (for example, if you get double time on quizzes and exams, and find the bug in 30 minutes, we will treat it as finding the bug in 15 minutes, etc). Please email the professor right after the assessment a reminder to include your extended time accomodations, when applicable.
+
+**You must submit to BB by the time that the exam ends in class and the instructor accounces this** -- late submissions will not receive credit. 
 
 ### Academic Integrity
 
@@ -130,3 +132,5 @@ There are 63 students in the class this semester, so our pool will start with 63
 ## Submission
 
 Tar up everything in the zip folder you downloaded with `tar -cvf extra_credit.tar *.*` and submit this to BB before the deadline in class. You must be physically present in class in order to receive credit for this assignment. Do not delete any files from your zip folder before submission, otherwise we cannot award you points.
+
+Submit to the BB link titled "debugging extra credit" under `Assignments`. You will only be allowed one submission.
