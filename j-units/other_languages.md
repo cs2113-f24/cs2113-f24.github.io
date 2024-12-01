@@ -195,11 +195,11 @@ The three V-s represent vector coordinates. Here is what this code might look li
 ```java
 public float Slow_rsqrt(float number){
 
-    return 1 / Math.sqrt(x); // expensive division operation!
+    return 1 / Math.sqrt(number); // expensive division operation!
 }
 ```
 
-Usually, the inverse square root calculation, defined mathematically as `1 / sqrt(x)` , was done using division operations of floating point numbers, but floating point division was very computatoinally expensive on the hardware (CPUs) back then. The *fast* inverse square root was a good approximation of this needed calculation and bypassed the expensive division step. Here is the code for the fast inverse square root algorithm (directly from the wiki above):
+Usually, the inverse square root calculation, defined mathematically as `1 / sqrt(number)` , was done using division operations of floating point numbers, but floating point division was very computatoinally expensive on the hardware (CPUs) back then. The *fast* inverse square root was a good approximation of this needed calculation and bypassed the expensive division step. Here is the code for the fast inverse square root algorithm (directly from the wiki above):
 
 ```c
 float Q_rsqrt( float number )
@@ -351,9 +351,11 @@ We could continue on with even more OOP shortcomings in python compared to Java,
 
 Although we just said not to rely on OOP featurs if you're using python, many people are using python to injest data for machine learning. For instance, a library called `pandas` has a class called a `DataFrame` which is the workhorse of many a machine learning application. A [`DataFrame`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) acts like a really cool spreadsheet (think MSExcel) where you can do all kinds of things with it, including loading a csv into it and then passing its columns along to a machine learning model.
 
+If you're interested in machine learning, a great place to start is to look at the [Titanic tutorial](https://www.kaggle.com/code/alexisbcook/titanic-tutorial)
+ on Kaggle.com and see how easily it loads a csv of tabular data into a Python DataFrame, and then uses this DataFrame to do some shallow learning on the dataset of Titanic passengers to build a model of who would be likely to survive the disaster (if it were to happen again under the same circumstances).
 
 # Debugging with Python
 
-Next, let's work on the optional extra credit debugging exercise together.
+If you're interested, you can now work on the optional extra credit debugging exercise in Python.
 
 
