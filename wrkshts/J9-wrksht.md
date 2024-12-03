@@ -1,7 +1,7 @@
 ---
 layout: worksheet
 permalink: /worksheet/j9
-showsolution: false
+showsolution: true
 ---
 
 # Worksheet: J9
